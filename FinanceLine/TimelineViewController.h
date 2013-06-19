@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "TimelineView.h"
+
+@interface TimelineViewController : UIViewController
+
+@property (nonatomic, strong) IBOutlet TimelineView *timeLine;
 
 @end

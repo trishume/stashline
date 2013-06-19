@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "CBIntrospect.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+#if TARGET_IPHONE_SIMULATOR
+    [[CBIntrospect sharedIntrospector] start];
+#endif
     return YES;
 }
 							
