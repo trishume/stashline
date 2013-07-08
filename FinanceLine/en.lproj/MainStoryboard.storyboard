@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,17 +12,12 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDv-1N-ewu" customClass="TimelineView">
+                            <view contentMode="scaleToFill" id="lDv-1N-ewu" customClass="TimelineView">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lDv-1N-ewu" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="2OV-IV-PNj"/>
-                            <constraint firstItem="lDv-1N-ewu" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="CW9-BU-38R"/>
-                            <constraint firstItem="lDv-1N-ewu" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="Tjo-tv-Oj0"/>
-                            <constraint firstItem="lDv-1N-ewu" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="o73-Rj-7Mf"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -36,9 +31,6 @@
         </scene>
     </scenes>
     <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
         <class className="TimelineView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineView.h"/>
         </class>

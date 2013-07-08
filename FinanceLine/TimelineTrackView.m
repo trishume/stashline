@@ -22,9 +22,30 @@
         self.backgroundColor = [UIColor whiteColor];
         lineColor = [UIColor blackColor];
         yearFont = [UIFont boldSystemFontOfSize:20.0];
+        
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
+        [self addGestureRecognizer:pan];
     }
     return self;
 }
+
+#pragma mark Gestures
+
+- (void)panHandler:(UIPanGestureRecognizer *)sender {
+    CGPoint translation = [sender translationInView:self];
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        CGFloat monthsMoved = translation.x / [self.delegate monthSize];
+        CGFloat curMonth = [self.delegate startMonth];
+        [self.delegate setStartMonth:curMonth-monthsMoved];
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        CGPoint velocity = [sender velocityInView:self];
+        CGFloat monthVelocity = -(velocity.x) / [self.delegate monthSize];
+        [self.delegate setVelocity:monthVelocity];
+    }
+    [sender setTranslation:CGPointZero inView:self];
+}
+
+#pragma mark Rendering
 
 - (void) drawString:(NSString*) s withFont:(UIFont*) font inRect:(CGRect) contextRect {
     CGFloat fontHeight = font.pointSize;
@@ -37,8 +58,13 @@
         alignment: NSTextAlignmentCenter];
 }
 
-- (void)drawTick:(NSUInteger)month atX:(CGFloat)x withContext:(CGContextRef)context {
+- (void)drawMonth:(NSUInteger)month atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
     BOOL isYearTick = (month % 12) == 0;
+    if (!isYearTick && scale < 3.0) {
+        return;
+    }
+    
+    
     CGContextSetLineWidth(context, isYearTick ? 2.0 : 1.0);
     [lineColor setStroke];
     
@@ -57,19 +83,6 @@
         CGRect textRect = CGRectMake(x - 25.0, middleY - kLineSpacing - kYearTextShift, 50.0, kLineSpacing*2);
         NSString *yearStr = [NSString stringWithFormat:@"%i",month/12];
         [self drawString:yearStr withFont:yearFont inRect:textRect];
-    }
-}
-
-- (void)drawTicks:(CGContextRef)context {
-    CGFloat start = [self.delegate startMonth];
-    CGFloat scale = [self.delegate monthSize];
-    
-    CGFloat offset = fmodf(start, 1.0) * scale;
-    NSUInteger curMonth = ceil(start);
-    while (offset < self.bounds.size.width) {
-        [self drawTick:curMonth atX:offset withContext:context];
-        offset += scale;
-        curMonth += 1;
     }
 }
 
@@ -93,7 +106,7 @@
     CGContextAddLineToPoint(context,self.bounds.size.width, middleY - kLineSpacing);
     CGContextStrokePath(context);
     
-    [self drawTicks:context];
+    [self drawMonths:context];
 }
 
 

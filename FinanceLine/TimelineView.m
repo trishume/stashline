@@ -8,8 +8,13 @@
 
 #import "TimelineView.h"
 
+#define kMaxMonth (12*100)
+#define kScrollFriction 1.0
+#define kMaxVelocity 200.0
+#define kMaxMonthSize 30.0
+
 @implementation TimelineView
-@synthesize tracks, startMonth, monthSize;
+@synthesize tracks, startMonth, monthSize, velocity, maxMonth;
 
 - (void)initialize
 {
@@ -17,6 +22,14 @@
     nextTrackTop = 0.0;
     startMonth = 0.0;
     monthSize = 15.0;
+    velocity = 0.0;
+    maxMonth = kMaxMonth;
+    
+    displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timerFired:)];
+    displayLink.frameInterval = 1;
+    
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchHandler:)];
+    [self addGestureRecognizer:pinch];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -35,6 +48,63 @@
         [self initialize];
     }
     return self;
+}
+
+- (void)beginAnimationLoop {
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+- (void)endAnimationLoop {
+    [displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+- (NSUInteger)maxStartMonth {
+    return maxMonth - self.bounds.size.width / monthSize * 0.9;
+}
+
+- (CGFloat)minMonthSize {
+    return self.bounds.size.width / kMaxMonth;
+}
+
+- (void)timerFired:(CADisplayLink *)sender {
+    CGFloat dt = sender.duration * sender.frameInterval;
+    velocity *= (1.0 - kScrollFriction*dt);
+    if (abs(velocity) < 0.01) {
+        [self endAnimationLoop];
+    }
+    
+    CGFloat newStart = startMonth + velocity * dt;
+    if (newStart < 0.0 || newStart > [self maxStartMonth]) {
+        velocity = 0.0;
+    }
+    self.startMonth = newStart; // setter handles redraw
+}
+
+- (void)redrawTracks {
+    for (TrackView *track in self.tracks) {
+        [track setNeedsDisplay];
+    }
+}
+
+- (void)setStartMonth:(CGFloat)start {
+    start = MIN([self maxStartMonth], start);
+    start = MAX(0, start);
+    startMonth = start;
+    [self redrawTracks];
+}
+
+- (void)setMonthSize:(CGFloat)scale {
+    monthSize = MIN(scale, kMaxMonthSize);
+    monthSize = MAX(monthSize, [self minMonthSize]);
+    [self redrawTracks];
+}
+
+- (void)setVelocity:(CGFloat)vel {
+    velocity = MIN(vel, kMaxVelocity);
+    velocity = MAX(velocity, -kMaxVelocity);
+    if (velocity != 0.0) {
+        [self beginAnimationLoop];
+    }
 }
 
 - (void)addTrack:(TrackView *)track withHeight:(CGFloat)height {
@@ -60,6 +130,34 @@
         newFrame.size.width = self.bounds.size.width;
         track.frame = newFrame;
     }
+}
+
+#pragma mark Gestures
+
+- (void)pinchHandler:(UIPinchGestureRecognizer *)sender {
+    CGPoint origin = [sender locationInView:self];
+    CGFloat scale = [sender scale];
+    
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        CGFloat curSize = monthSize;
+        CGFloat newSize = curSize * scale;
+        [self setMonthSize:newSize];
+        
+        // move startmonth so that it zooms where the pinch started
+        // only if we actually scaled and didn't clamp
+        if (newSize < kMaxMonthSize && newSize > [self minMonthSize]) {
+            CGFloat zoomOffset = origin.x / monthSize;
+            self.startMonth += zoomOffset * -(1.0 - scale);
+        }
+        
+        [sender setScale:1.0];
+    }
+}
+
+// Stop the momentum when the user touches the Timeline
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self setVelocity:0.0];
+    [super touchesBegan:touches withEvent:event];
 }
 
 /*

@@ -11,10 +11,17 @@
 @protocol TrackViewDelegate <NSObject>
 - (CGFloat) startMonth;
 - (CGFloat) monthSize;
+- (NSUInteger) maxMonth;
+- (void) setStartMonth: (CGFloat)start;
+- (void) setMonthSize: (CGFloat)scale;
+- (void) setVelocity: (CGFloat)vel;
 @end
 
 @interface TrackView : UIView
 
 @property (nonatomic, weak) id<TrackViewDelegate> delegate;
+
+- (void)drawMonth:(NSUInteger)month atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
+- (void)drawMonths:(CGContextRef)context;
 
 @end
