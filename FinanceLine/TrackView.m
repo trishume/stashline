@@ -8,7 +8,11 @@
 
 #import "TrackView.h"
 
+#define kMonthThreshold 10.0
+#define kQuarterThreshold 3.0
+
 @implementation TrackView
+
 @synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
@@ -20,25 +24,36 @@
     return self;
 }
 
-- (void)drawMonths:(CGContextRef)context {
-    CGFloat start = [self.delegate startMonth];
-    CGFloat scale = [self.delegate monthSize];
-    NSUInteger maxMonth = [self.delegate maxMonth];
-    
-    CGFloat partMonth = fmodf(start, 1.0);
-    CGFloat offset = (1 - partMonth) * scale;
-    if (partMonth == 0.0) {
-        offset = 0.0;
-    }
-    NSUInteger curMonth = ceil(start);
-    while (offset < self.bounds.size.width && curMonth <= maxMonth) {
-        [self drawMonth:curMonth atX:offset andScale:scale withContext:context];
-        offset += scale;
-        curMonth += 1;
-    }
+- (NSUInteger)blockSizeForScale:(CGFloat)scale {
+  if (scale > kMonthThreshold) {
+    return 1;
+  } else if (scale > kQuarterThreshold) {
+    return 3;
+  } else {
+    return 12;
+  }
 }
 
-- (void)drawMonth:(NSUInteger)month atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
+- (void)drawBlocks:(CGContextRef)context {
+  CGFloat start = [self.delegate startMonth];
+  CGFloat monthSize = [self.delegate monthSize];
+  NSUInteger maxMonth = [self.delegate maxMonth];
+
+  NSUInteger monthsPerBlock = [self blockSizeForScale:monthSize];
+  CGFloat blockSize = monthsPerBlock * monthSize;
+  
+  NSUInteger curMonth = floor(start / monthsPerBlock) * monthsPerBlock;
+  CGFloat offset = -(start - curMonth) * monthSize;
+  
+  while (offset - blockSize < self.bounds.size.width && curMonth <= maxMonth) {
+    [self drawBlock:curMonth ofMonths:monthsPerBlock atX:offset andScale:monthSize withContext:context];
+    offset += blockSize;
+    curMonth += monthsPerBlock;
+  }
+}
+
+- (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
+              atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
     [NSException raise:NSInternalInconsistencyException
                 format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }

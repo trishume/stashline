@@ -10,7 +10,7 @@
 #include "Constants.h"
 
 #define kScrollFriction 1.0
-#define kMaxVelocity 200.0
+#define kMaxVelocity 6000.0
 #define kMaxMonthSize 30.0
 
 @implementation TimelineView
@@ -73,7 +73,7 @@
         [self endAnimationLoop];
     }
     
-    CGFloat newStart = startMonth + velocity * dt;
+    CGFloat newStart = startMonth + velocity / monthSize * dt;
     if (newStart < 0.0 || newStart > [self maxStartMonth]) {
         velocity = 0.0;
     }

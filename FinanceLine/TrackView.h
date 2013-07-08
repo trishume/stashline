@@ -20,8 +20,8 @@
 @interface TrackView : UIView
 
 @property (nonatomic, weak) id<TrackViewDelegate> delegate;
-
-- (void)drawMonth:(NSUInteger)month atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
-- (void)drawMonths:(CGContextRef)context;
+- (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
+              atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
+- (void)drawBlocks:(CGContextRef)context;
 
 @end

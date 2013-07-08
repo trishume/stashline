@@ -9,7 +9,10 @@
 #import "TimelineViewController.h"
 #import "TimelineTrackView.h"
 #import "LineGraphTrack.h"
+#import "AnnuityTrackView.h"
 #import "Constants.h"
+
+#include <stdlib.h>
 
 @interface TimelineViewController ()
 
@@ -26,15 +29,19 @@
   DataTrack *testData = [[DataTrack alloc] init];
   CGFloat *dataArr = [testData dataPtr];
   for (NSUInteger i = 0; i <= kMaxMonth; ++i)
-    dataArr[i] = i * 3.5;
+    dataArr[i] = arc4random_uniform(1000) * 3.5;
   [testData recalc];
   
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
   stashTrack.data = testData;
   TrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
+  AnnuityTrackView *incomeTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  incomeTrack.data = testData;
+  
   
   [self.timeLine addTrack:stashTrack withHeight:150.0];
   [self.timeLine addTrack:timeTrack withHeight:110.0];
+  [self.timeLine addTrack:incomeTrack withHeight:60.0];
 }
 
 - (void)didReceiveMemoryWarning

@@ -27,7 +27,8 @@
 
 #pragma mark Rendering
 
-- (void)drawMonth:(NSUInteger)month atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
+- (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
+              atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context  {
   CGFloat y = [data valueFor:month scaledTo:self.bounds.size.height];
   CGContextAddLineToPoint(context, x, self.bounds.size.height - y);
 }
@@ -65,7 +66,7 @@
   CGFloat startY = [data valueFor:floor(self.delegate.startMonth) scaledTo:self.bounds.size.height];
   
   CGContextMoveToPoint(context,0.0, self.bounds.size.height - startY);
-  [self drawMonths:context];
+  [self drawBlocks:context];
   CGContextStrokePath(context);
 }
 
