@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "TrackView.h"
 #import "DataTrack.h"
+#import "Selection.h"
 
 @interface AnnuityTrackView : TrackView {
-  CGFloat hue;
+  UIColor *selectionColor;
 }
 
+@property (nonatomic) CGFloat hue;
 @property (nonatomic, strong) DataTrack *data;
+@property (nonatomic, strong) Selection *selection;
 
 @end

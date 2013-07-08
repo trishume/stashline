@@ -24,6 +24,11 @@
     return self;
 }
 
+- (NSUInteger)monthForX:(CGFloat)x {
+  CGFloat month = self.delegate.startMonth + x/self.delegate.monthSize;
+  return floor(month);
+}
+
 - (NSUInteger)blockSizeForScale:(CGFloat)scale {
   if (scale > kMonthThreshold) {
     return 1;

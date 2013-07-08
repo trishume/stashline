@@ -12,6 +12,7 @@
 		6A99DB7E178B58BD0096AAB7 /* LineGraphTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB7D178B58BD0096AAB7 /* LineGraphTrack.m */; };
 		6A99DB81178B59250096AAB7 /* DataTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB80178B59250096AAB7 /* DataTrack.m */; };
 		6A99DB85178B72F20096AAB7 /* AnnuityTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB84178B72F20096AAB7 /* AnnuityTrackView.m */; };
+		6A99DB88178B81DA0096AAB7 /* Selection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB87178B81DA0096AAB7 /* Selection.m */; };
 		6AFAA0581770FBA300E61733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0571770FBA300E61733 /* UIKit.framework */; };
 		6AFAA05A1770FBA300E61733 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0591770FBA300E61733 /* Foundation.framework */; };
 		6AFAA05C1770FBA300E61733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */; };
@@ -53,6 +54,8 @@
 		6A99DB82178B5A200096AAB7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6A99DB83178B72F20096AAB7 /* AnnuityTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnuityTrackView.h; sourceTree = "<group>"; };
 		6A99DB84178B72F20096AAB7 /* AnnuityTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnuityTrackView.m; sourceTree = "<group>"; };
+		6A99DB86178B81DA0096AAB7 /* Selection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selection.h; sourceTree = "<group>"; };
+		6A99DB87178B81DA0096AAB7 /* Selection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selection.m; sourceTree = "<group>"; };
 		6AFAA0541770FBA300E61733 /* FinanceLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA0571770FBA300E61733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AFAA0591770FBA300E61733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 				6A99DB7F178B59250096AAB7 /* DataTrack.h */,
 				6A99DB80178B59250096AAB7 /* DataTrack.m */,
 				6A99DB82178B5A200096AAB7 /* Constants.h */,
+				6A99DB86178B81DA0096AAB7 /* Selection.h */,
+				6A99DB87178B81DA0096AAB7 /* Selection.m */,
 			);
 			path = FinanceLine;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				6A99DB7E178B58BD0096AAB7 /* LineGraphTrack.m in Sources */,
 				6A99DB81178B59250096AAB7 /* DataTrack.m in Sources */,
 				6A99DB85178B72F20096AAB7 /* AnnuityTrackView.m in Sources */,
+				6A99DB88178B81DA0096AAB7 /* Selection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,5 +23,6 @@
 - (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
 - (void)drawBlocks:(CGContextRef)context;
+- (NSUInteger)monthForX:(CGFloat)x;
 
 @end
