@@ -8,6 +8,8 @@
 
 #import "TimelineViewController.h"
 #import "TimelineTrackView.h"
+#import "LineGraphTrack.h"
+#import "Constants.h"
 
 @interface TimelineViewController ()
 
@@ -17,10 +19,22 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    TrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
-    [self.timeLine addTrack:timeTrack withHeight:110.0];
+  
+  // Create test data
+  DataTrack *testData = [[DataTrack alloc] init];
+  CGFloat *dataArr = [testData dataPtr];
+  for (NSUInteger i = 0; i <= kMaxMonth; ++i)
+    dataArr[i] = i * 3.5;
+  [testData recalc];
+  
+  LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
+  stashTrack.data = testData;
+  TrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
+  
+  [self.timeLine addTrack:stashTrack withHeight:150.0];
+  [self.timeLine addTrack:timeTrack withHeight:110.0];
 }
 
 - (void)didReceiveMemoryWarning

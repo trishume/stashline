@@ -7,8 +7,8 @@
 //
 
 #import "TimelineView.h"
+#include "Constants.h"
 
-#define kMaxMonth (12*100)
 #define kScrollFriction 1.0
 #define kMaxVelocity 200.0
 #define kMaxMonthSize 30.0
