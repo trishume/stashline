@@ -24,4 +24,5 @@
 @property (nonatomic, readonly) NSUInteger maxMonth;
 
 - (void)addTrack: (TrackView*)track withHeight:(CGFloat)height;
+- (void)redrawTracks;
 @end

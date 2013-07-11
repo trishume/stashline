@@ -28,22 +28,23 @@
 - (void) recalc {
   min = max = data[0];
   for (NSUInteger i = 0; i <= kMaxMonth; ++i) {
-    CGFloat x = data[i];
+    double x = data[i];
     if (x > max) max = x;
     if (x < min) min = x;
   }
 }
 
-- (CGFloat)valueAt:(NSUInteger)month {
+- (double)valueAt:(NSUInteger)month {
   return data[month];
 }
 
-- (CGFloat)valueFor:(NSUInteger)month scaledTo:(CGFloat)maxVal {
-  CGFloat swing = max - min;
+- (double)valueFor:(NSUInteger)month scaledTo:(double)maxVal {
+  if (data[month] == 0.0) return 0.0;
+  double swing = max - min;
   return (data[month] - min) / swing * maxVal;
 }
 
-- (CGFloat*)dataPtr {
+- (double*)dataPtr {
   return data;
 }
 

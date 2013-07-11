@@ -14,6 +14,7 @@
 
 - (void)selectFrom:(NSUInteger)firstMonth to:(NSUInteger)secondMonth;
 - (BOOL)includes:(NSUInteger)month;
+- (void)clear;
 
 
 @property (nonatomic) NSUInteger start;

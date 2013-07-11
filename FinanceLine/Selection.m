@@ -15,10 +15,14 @@
 {
     self = [super init];
     if (self) {
-      start = -1;
-      end = -2;
+      [self clear];
     }
     return self;
+}
+
+- (void)clear {
+  start = -1;
+  end = -2;
 }
 
 - (void)selectFrom:(NSUInteger)firstMonth to:(NSUInteger)secondMonth {

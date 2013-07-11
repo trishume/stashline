@@ -10,16 +10,16 @@
 #import "Constants.h"
 
 @interface DataTrack : NSObject {
-  CGFloat data[kMaxMonth + 1];
+  double data[kMaxMonth + 1];
 }
 
 - (id) init;
-- (CGFloat)valueAt:(NSUInteger)month;
-- (CGFloat)valueFor:(NSUInteger)month scaledTo:(CGFloat)maxVal;
-- (CGFloat*)dataPtr;
+- (double)valueAt:(NSUInteger)month;
+- (double)valueFor:(NSUInteger)month scaledTo:(double)maxVal;
+- (double*)dataPtr;
 - (void) recalc;
 
-@property (readonly) CGFloat max;
-@property (readonly) CGFloat min;
+@property (readonly) double max;
+@property (readonly) double min;
 
 @end

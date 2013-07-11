@@ -11,9 +11,10 @@
 #define kDefaultHue 0.391
 #define kBaseSaturation 0.3
 #define kSelectionThickness 4.0
+#define kDividerHeight 2.0
 
 @implementation AnnuityTrackView
-@synthesize data, hue, selection;
+@synthesize data, hue, selection, selectionDelegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -36,13 +37,13 @@
   CGPoint start = [sender locationInView:self];
   CGPoint translation = [sender translationInView:self];
   
-  NSUInteger startMonth = [self monthForX:start.x];
-  NSUInteger endMonth = [self monthForX:start.x-translation.x];
-  if (sender.state == UIGestureRecognizerStateChanged) {
-    [selection selectFrom:startMonth to:endMonth];
-  } else if (sender.state == UIGestureRecognizerStateEnded) {
-    [selection selectFrom:startMonth to:endMonth];
-  }
+  // Selection snaps to current block size
+  CGFloat blockSize = [self blockSize];
+  NSUInteger startMonth = [self blockForX:start.x] * blockSize;
+  NSUInteger endMonth = [self blockForX:start.x-translation.x] * blockSize + (blockSize - 1);
+  [selection selectFrom:startMonth to:endMonth];
+  
+  [selectionDelegate setSelection:selection onTrack:data];
   [self setNeedsDisplay];
 }
 

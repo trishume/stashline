@@ -11,10 +11,16 @@
 #import "DataTrack.h"
 #import "Selection.h"
 
+@protocol TrackSelectionDelegate <NSObject>
+- (void) setSelection: (Selection *)sel onTrack: (DataTrack *)track;
+@end
+
 @interface AnnuityTrackView : TrackView {
   UIColor *selectionColor;
+  UIColor *dividerColor;
 }
 
+@property (nonatomic, weak) id<TrackSelectionDelegate> selectionDelegate;
 @property (nonatomic) CGFloat hue;
 @property (nonatomic, strong) DataTrack *data;
 @property (nonatomic, strong) Selection *selection;

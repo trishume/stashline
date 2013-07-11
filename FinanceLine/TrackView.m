@@ -29,7 +29,14 @@
   return floor(month);
 }
 
-- (NSUInteger)blockSizeForScale:(CGFloat)scale {
+- (NSUInteger)blockForX:(CGFloat)x {
+  NSUInteger blockSize = [self blockSize];
+  CGFloat month = self.delegate.startMonth + x/self.delegate.monthSize;
+  return month / blockSize;
+}
+
+- (NSUInteger)blockSize {
+  CGFloat scale = self.delegate.monthSize;
   if (scale > kMonthThreshold) {
     return 1;
   } else if (scale > kQuarterThreshold) {
@@ -44,7 +51,7 @@
   CGFloat monthSize = [self.delegate monthSize];
   NSUInteger maxMonth = [self.delegate maxMonth];
 
-  NSUInteger monthsPerBlock = [self blockSizeForScale:monthSize];
+  NSUInteger monthsPerBlock = [self blockSize];
   CGFloat blockSize = monthsPerBlock * monthSize;
   
   NSUInteger curMonth = floor(start / monthsPerBlock) * monthsPerBlock;
