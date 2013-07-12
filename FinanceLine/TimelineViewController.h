@@ -13,10 +13,12 @@
 #import "SelectionEditViewController.h"
 #import "Selection.h"
 #import "DataTrack.h"
+#import "FinanceModel.h"
 
 @interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate> {
   Selection *currentSelection;
   DataTrack *selectedTrack;
+  FinanceModel *model;
 }
 
 - (IBAction)selectionAmountChanged: (UITextField*)sender;

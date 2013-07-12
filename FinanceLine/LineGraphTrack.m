@@ -9,6 +9,8 @@
 #import "LineGraphTrack.h"
 
 #define kNumRules 5
+#define kInspectOffsetX 90
+#define kInspectOffsetY -10
 
 @implementation LineGraphTrack
 @synthesize data;
@@ -20,8 +22,37 @@
       self.backgroundColor = [UIColor whiteColor];
       lineColor = [UIColor blueColor];
       ruleColor = [UIColor lightGrayColor];
+      inspectMonth = 0;
+      inspectFont = [UIFont boldSystemFontOfSize:16.0];
     }
     return self;
+}
+
+
+#pragma mark Inspection
+
+- (void)updateInspect:(NSSet *)touches {
+  CGPoint loc = [[touches anyObject] locationInView:self];
+  inspectMonth = [self monthForX:loc.x];
+  [self setNeedsDisplay];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  [self updateInspect:touches];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+  [self updateInspect:touches];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  inspectMonth = 0;
+  [self setNeedsDisplay];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+  inspectMonth = 0;
+  [self setNeedsDisplay];
 }
 
 
@@ -68,6 +99,17 @@
   CGContextMoveToPoint(context,0.0, self.bounds.size.height - startY);
   [self drawBlocks:context];
   CGContextStrokePath(context);
+  
+  // Draw inspection
+  if (inspectMonth != 0 && inspectMonth > self.delegate.startMonth) {
+    CGPoint p;
+    p.x = (inspectMonth - self.delegate.startMonth) * self.delegate.monthSize + kInspectOffsetX;
+    p.y = self.bounds.size.height / 2.0 + kInspectOffsetY;
+    
+    double value = [data valueAt:inspectMonth];
+    NSString *valueStr = [NSString stringWithFormat:@"%.2f", value];
+    [valueStr drawAtPoint:p withFont:inspectFont];
+  }
 }
 
 @end

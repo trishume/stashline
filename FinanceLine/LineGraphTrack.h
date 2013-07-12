@@ -13,6 +13,9 @@
 @interface LineGraphTrack : TrackView {
   UIColor *lineColor;
   UIColor *ruleColor;
+  
+  NSUInteger inspectMonth;
+  UIFont *inspectFont;
 }
 
 @property (nonatomic, strong) DataTrack *data;

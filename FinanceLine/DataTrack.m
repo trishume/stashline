@@ -38,6 +38,10 @@
   return data[month];
 }
 
+- (void)setValue:(double)value forMonth:(NSUInteger)month {
+  data[month] = value;
+}
+
 - (double)valueFor:(NSUInteger)month scaledTo:(double)maxVal {
   if (data[month] == 0.0) return 0.0;
   double swing = max - min;
@@ -47,5 +51,6 @@
 - (double*)dataPtr {
   return data;
 }
+
 
 @end

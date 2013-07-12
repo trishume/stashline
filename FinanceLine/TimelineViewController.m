@@ -27,32 +27,34 @@
 	// Do any additional setup after loading the view, typically from a nib.
   currentSelection = nil;
   
-  // Create test data
-  DataTrack *testData = [[DataTrack alloc] init];
-  double *dataArr = [testData dataPtr];
-  for (NSUInteger i = 0; i <= kMaxMonth; ++i)
-    dataArr[i] = arc4random_uniform(1000) * 3.5;
-  [testData recalc];
+  // Create model
+  model = [[FinanceModel alloc] init];
+  DataTrack *incomeTrack = [[DataTrack alloc] init];
+  DataTrack *expenseTrack = [[DataTrack alloc] init];
   
+  [model.incomeTracks addObject:incomeTrack];
+  [model.expenseTracks addObject:expenseTrack];
+
+  // Create test data
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
-  stashTrack.data = testData;
+  stashTrack.data = model.stashTrack;
   TrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
   
-  AnnuityTrackView *incomeTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
-  incomeTrack.data = testData;
-  incomeTrack.selectionDelegate = self;
+  AnnuityTrackView *incomeTrackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  incomeTrackView.data = incomeTrack;
+  incomeTrackView.selectionDelegate = self;
   
-  AnnuityTrackView *expensesTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
-  expensesTrack.hue = 0.083;
-  expensesTrack.data = [[DataTrack alloc] init];
-  expensesTrack.selectionDelegate = self;
+  AnnuityTrackView *expensesTrackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  expensesTrackView.hue = 0.083;
+  expensesTrackView.data = expenseTrack;
+  expensesTrackView.selectionDelegate = self;
   
   [self.timeLine addTrack:stashTrack withHeight:150.0];
   [self.timeLine addTrack:timeTrack withHeight:110.0];
   [self addDivider];
-  [self.timeLine addTrack:incomeTrack withHeight:60.0];
+  [self.timeLine addTrack:incomeTrackView withHeight:60.0];
   [self addDivider];
-  [self.timeLine addTrack:expensesTrack withHeight:60.0];
+  [self.timeLine addTrack:expensesTrackView withHeight:60.0];
   [self addDivider];
 }
 
@@ -135,7 +137,8 @@
     data[i] = monthlyValue;
   [selectedTrack recalc];
   
-  // Render
+  // Recalc and render
+  [model recalc];
   [self.timeLine redrawTracks];
 }
 

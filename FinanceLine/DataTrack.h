@@ -15,6 +15,7 @@
 
 - (id) init;
 - (double)valueAt:(NSUInteger)month;
+- (void)setValue:(double)value forMonth:(NSUInteger)month;
 - (double)valueFor:(NSUInteger)month scaledTo:(double)maxVal;
 - (double*)dataPtr;
 - (void) recalc;
