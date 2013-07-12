@@ -10,6 +10,7 @@
 #import "TimelineTrackView.h"
 #import "LineGraphTrack.h"
 #import "AnnuityTrackView.h"
+#import "DividerTrackView.h"
 #import "Constants.h"
 
 #include <stdlib.h>
@@ -46,11 +47,18 @@
   expensesTrack.data = [[DataTrack alloc] init];
   expensesTrack.selectionDelegate = self;
   
-  
   [self.timeLine addTrack:stashTrack withHeight:150.0];
   [self.timeLine addTrack:timeTrack withHeight:110.0];
+  [self addDivider];
   [self.timeLine addTrack:incomeTrack withHeight:60.0];
+  [self addDivider];
   [self.timeLine addTrack:expensesTrack withHeight:60.0];
+  [self addDivider];
+}
+
+- (void)addDivider {
+  TrackView *divider = [[DividerTrackView alloc] initWithFrame:CGRectZero];
+  [self.timeLine addTrack:divider withHeight:2.0];
 }
 
 - (void)didReceiveMemoryWarning

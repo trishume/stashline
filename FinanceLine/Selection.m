@@ -7,6 +7,7 @@
 //
 
 #import "Selection.h"
+#import "Constants.h"
 
 @implementation Selection
 @synthesize start, end;
@@ -28,6 +29,7 @@
 - (void)selectFrom:(NSUInteger)firstMonth to:(NSUInteger)secondMonth {
   start = MIN(firstMonth, secondMonth);
   end = MAX(firstMonth, secondMonth);
+  end = MIN(end, kMaxMonth);
 }
 
 - (BOOL)includes:(NSUInteger)month {

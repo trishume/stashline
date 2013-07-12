@@ -15,6 +15,7 @@
 		6A99DB88178B81DA0096AAB7 /* Selection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB87178B81DA0096AAB7 /* Selection.m */; };
 		6A99DB8B178CCB5A0096AAB7 /* PanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB8A178CCB590096AAB7 /* PanelView.m */; };
 		6A99DB8E178CD4490096AAB7 /* SelectionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB8D178CD4490096AAB7 /* SelectionEditViewController.m */; };
+		6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB90178F7D500096AAB7 /* DividerTrackView.m */; };
 		6AFAA0581770FBA300E61733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0571770FBA300E61733 /* UIKit.framework */; };
 		6AFAA05A1770FBA300E61733 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0591770FBA300E61733 /* Foundation.framework */; };
 		6AFAA05C1770FBA300E61733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */; };
@@ -62,6 +63,8 @@
 		6A99DB8A178CCB590096AAB7 /* PanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelView.m; sourceTree = "<group>"; };
 		6A99DB8C178CD4490096AAB7 /* SelectionEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionEditViewController.h; sourceTree = "<group>"; };
 		6A99DB8D178CD4490096AAB7 /* SelectionEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionEditViewController.m; sourceTree = "<group>"; };
+		6A99DB8F178F7D500096AAB7 /* DividerTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DividerTrackView.h; sourceTree = "<group>"; };
+		6A99DB90178F7D500096AAB7 /* DividerTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DividerTrackView.m; sourceTree = "<group>"; };
 		6AFAA0541770FBA300E61733 /* FinanceLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA0571770FBA300E61733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AFAA0591770FBA300E61733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -221,6 +224,8 @@
 				6A99DB7D178B58BD0096AAB7 /* LineGraphTrack.m */,
 				6A99DB83178B72F20096AAB7 /* AnnuityTrackView.h */,
 				6A99DB84178B72F20096AAB7 /* AnnuityTrackView.m */,
+				6A99DB8F178F7D500096AAB7 /* DividerTrackView.h */,
+				6A99DB90178F7D500096AAB7 /* DividerTrackView.m */,
 			);
 			name = Tracks;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				6A99DB88178B81DA0096AAB7 /* Selection.m in Sources */,
 				6A99DB8B178CCB5A0096AAB7 /* PanelView.m in Sources */,
 				6A99DB8E178CD4490096AAB7 /* SelectionEditViewController.m in Sources */,
+				6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

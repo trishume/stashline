@@ -12,7 +12,8 @@
 #define kMonthTickLength 10.0
 #define kYearTickLength 20.0
 #define kYearTextShift 0.0
-#define kYearLabelThresh 2.5
+#define kYearLabelThresh 3.0
+#define kYearMajorTickThres 4.0
 
 @implementation TimelineTrackView
 
@@ -63,12 +64,14 @@
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
   BOOL isYearTick = (month % 12) == 0;
   BOOL isMajorYearTick = (month % (12*5)) == 0;
+  BOOL isLabelTick = (isYearTick && scale > kYearLabelThresh) || isMajorYearTick;
+  BOOL isMajorTick = (isYearTick && scale > kYearMajorTickThres) || isMajorYearTick;
   
-  CGContextSetLineWidth(context, isYearTick ? 2.0 : 1.0);
+  CGContextSetLineWidth(context, isMajorTick ? 2.0 : 1.0);
   [lineColor setStroke];
   
   CGFloat middleY = self.bounds.size.height / 2.0;
-  CGFloat tickLength = isYearTick ? kYearTickLength : kMonthTickLength;
+  CGFloat tickLength = isMajorTick ? kYearTickLength : kMonthTickLength;
   
   CGContextMoveToPoint(context,x, middleY + kLineSpacing);
   CGContextAddLineToPoint(context,x, middleY + kLineSpacing + tickLength);
@@ -78,7 +81,7 @@
   CGContextAddLineToPoint(context,x, middleY - kLineSpacing - tickLength);
   CGContextStrokePath(context);
   
-  if ((isYearTick && scale > kYearLabelThresh) || isMajorYearTick) {
+  if (isLabelTick) {
     CGRect textRect = CGRectMake(x - 25.0, middleY - kLineSpacing - kYearTextShift, 50.0, kLineSpacing*2);
     NSString *yearStr = [NSString stringWithFormat:@"%i",month/12];
     [self drawString:yearStr withFont:yearFont inRect:textRect];
@@ -105,7 +108,7 @@
   CGContextAddLineToPoint(context,self.bounds.size.width, middleY - kLineSpacing);
   CGContextStrokePath(context);
   
-  [self drawBlocks:context];
+  [self drawBlocks:context extraBlock: YES];
 }
 
 
