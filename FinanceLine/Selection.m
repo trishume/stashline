@@ -36,4 +36,8 @@
   return month >= start && month <= end;
 }
 
+- (BOOL)isEmpty {
+  return start > end;
+}
+
 @end

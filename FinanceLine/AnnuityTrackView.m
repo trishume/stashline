@@ -27,11 +27,47 @@
       
       UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
       [self addGestureRecognizer:pan];
+      
+      UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+      doubleTap.numberOfTapsRequired = 2;
+      [self addGestureRecognizer:doubleTap];
     }
     return self;
 }
 
 #pragma mark Selection
+
+- (void)floodSelect:(NSUInteger)month {
+  double *dataArr = [data dataPtr];
+  double startVal = dataArr[month];
+  
+  // deselect
+  if(startVal == 0.0) {
+    [selection clear];
+  } else {
+    // to the right
+    int end;
+    for (end = month; end <= kMaxMonth; ++end) {
+      if(dataArr[end] != startVal) {
+        end--; // rewind to where we were good
+        break;
+      }
+    }
+    // and to the left
+    int start;
+    for (start = month; start >= 0; --start) {
+      if(dataArr[start] != startVal) {
+        start++; // rewind to where we were good
+        break;
+      }
+    }
+    
+    [selection selectFrom:start to:end];
+  }
+  
+  [selectionDelegate setSelection:selection onTrack:data];
+  [self setNeedsDisplay];
+}
 
 - (void)panHandler:(UIPanGestureRecognizer *)sender {
   CGPoint start = [sender locationInView:self];
@@ -40,11 +76,26 @@
   // Selection snaps to current block size
   CGFloat blockSize = [self blockSize];
   NSUInteger startMonth = [self blockForX:start.x] * blockSize;
-  NSUInteger endMonth = [self blockForX:start.x-translation.x] * blockSize + (blockSize - 1);
+  NSUInteger endMonth = [self blockForX:start.x-translation.x] * blockSize;
+  
+  if (endMonth > startMonth) {
+    endMonth += (blockSize - 1);
+  } else {
+    startMonth += (blockSize - 1);
+  }
+  
   [selection selectFrom:startMonth to:endMonth];
   
   [selectionDelegate setSelection:selection onTrack:data];
   [self setNeedsDisplay];
+}
+
+- (void)doubleTap:(UITapGestureRecognizer*)sender {
+  if (sender.state == UIGestureRecognizerStateEnded) {
+    CGPoint loc = [sender locationInView:self];
+    NSUInteger month = [self monthForX:loc.x];
+    [self floodSelect:month];
+  }
 }
 
 

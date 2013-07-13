@@ -87,6 +87,11 @@
   currentSelection = sel;
   selectedTrack = track;
   
+  if ([currentSelection isEmpty]) {
+    [self clearSelection];
+    return;
+  }
+  
   // calculate selection average
   double total = 0.0;
   double *data = [selectedTrack dataPtr];
