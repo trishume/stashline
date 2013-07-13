@@ -25,6 +25,23 @@
   return self;
 }
 
+#pragma mark Persistence
+
+- (id)initWithCoder:(NSCoder *)coder {
+  DataTrack *t = [self init];
+  
+  [coder decodeArrayOfObjCType:@encode(double) count:kMaxMonth+1 at:data];
+  [t recalc];
+  
+  return t;
+}
+
+- (void) encodeWithCoder:(NSCoder *)coder {
+  [coder encodeArrayOfObjCType:@encode(double) count:kMaxMonth+1 at:data];
+}
+
+#pragma mark Misc
+
 - (void) recalc {
   min = max = data[0];
   for (NSUInteger i = 0; i <= kMaxMonth; ++i) {

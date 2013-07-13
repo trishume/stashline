@@ -20,7 +20,7 @@
 @property (nonatomic) NSUInteger dividendPeriod;
 
 @property (nonatomic) double startAmount;
-@property (nonatomic) NSUInteger startMonth;
+@property (nonatomic) NSUInteger birthYear;
 
 @property (nonatomic) double safeWithdrawalRate;
 
