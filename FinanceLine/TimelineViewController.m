@@ -110,6 +110,13 @@
   [self.timeLine redrawTracks];
 }
 
+- (IBAction)expandSelectionToEnd {
+  if (currentSelection != nil && currentSelection.start > 0) {
+    currentSelection.end = kMaxMonth;
+  }
+  [self.timeLine redrawTracks];
+}
+
 - (NSString *)stringForAmount:(double)amount {
   return [NSString stringWithFormat:@"%.2f", amount];
 }

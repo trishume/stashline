@@ -59,7 +59,7 @@
 }
 
 - (NSUInteger)maxStartMonth {
-    return maxMonth - self.bounds.size.width / monthSize * 0.9;
+    return maxMonth - self.bounds.size.width / monthSize * 0.8;
 }
 
 - (CGFloat)minMonthSize {

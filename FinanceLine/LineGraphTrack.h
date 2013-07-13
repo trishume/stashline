@@ -16,7 +16,9 @@
   
   NSUInteger inspectMonth;
   UIFont *inspectFont;
+  NSNumberFormatter *inspectFormatter;
 }
 
+@property (nonatomic) BOOL scaleWithZoom;
 @property (nonatomic, strong) DataTrack *data;
 @end

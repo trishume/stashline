@@ -23,6 +23,7 @@
 
 - (IBAction)selectionAmountChanged: (UITextField*)sender;
 - (IBAction)clearSelection;
+- (IBAction)expandSelectionToEnd;
 
 @property (nonatomic, strong) IBOutlet UITextField *yearlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *monthlyCost;

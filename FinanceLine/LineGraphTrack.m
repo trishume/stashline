@@ -9,7 +9,7 @@
 #import "LineGraphTrack.h"
 
 #define kNumRules 5
-#define kInspectOffsetX 90
+#define kInspectOffsetX 70
 #define kInspectOffsetY -10
 
 @implementation LineGraphTrack
@@ -22,8 +22,13 @@
       self.backgroundColor = [UIColor whiteColor];
       lineColor = [UIColor blueColor];
       ruleColor = [UIColor lightGrayColor];
+      
       inspectMonth = 0;
       inspectFont = [UIFont boldSystemFontOfSize:16.0];
+      inspectFormatter = [[NSNumberFormatter alloc] init];
+      inspectFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+      
+      self.scaleWithZoom = YES;
     }
     return self;
 }
@@ -58,9 +63,34 @@
 
 #pragma mark Rendering
 
+- (double)maxInView {
+  NSUInteger startMonth = floor(self.delegate.startMonth);
+  NSUInteger endMonth = startMonth + (self.bounds.size.width / self.delegate.monthSize);
+  double *dataArr = [data dataPtr];
+  
+  double max = dataArr[startMonth];
+  for (int i = startMonth; i <= endMonth && i <= kMaxMonth; ++i) {
+    double val = dataArr[i];
+    if (val > max) max = val;
+  }
+  
+  return max;
+}
+
+- (CGFloat)scaledYFor:(NSUInteger)month {
+  if (self.scaleWithZoom) {
+    double max = [self maxInView];
+    if(max == 0.0) return 0.0;
+    double val = [data valueAt:month] / max;
+    return val * self.bounds.size.height;
+  } else {
+    return [data valueFor:month scaledTo:self.bounds.size.height];
+  }
+}
+
 - (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context  {
-  CGFloat y = [data valueFor:month scaledTo:self.bounds.size.height];
+  CGFloat y = [self scaledYFor:month];
   CGContextAddLineToPoint(context, x, self.bounds.size.height - y);
 }
 
@@ -107,7 +137,7 @@
     p.y = self.bounds.size.height / 2.0 + kInspectOffsetY;
     
     double value = [data valueAt:inspectMonth];
-    NSString *valueStr = [NSString stringWithFormat:@"%.2f", value];
+    NSString *valueStr = [inspectFormatter stringFromNumber:[NSNumber numberWithDouble:value]];
     [valueStr drawAtPoint:p withFont:inspectFont];
   }
 }
