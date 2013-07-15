@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 
-@interface DataTrack : NSObject {
+@interface DataTrack : NSObject <NSCoding> {
   double data[kMaxMonth + 1];
 }
 
@@ -22,5 +22,6 @@
 
 @property (readonly) double max;
 @property (readonly) double min;
+@property (nonatomic, strong) NSString *name;
 
 @end

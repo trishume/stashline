@@ -10,12 +10,13 @@
 #include "Constants.h"
 
 @implementation DataTrack
-@synthesize min, max;
+@synthesize min, max, name;
 
 - (id)init
 {
   self = [super init];
   if (self) {
+    name = @"";
     // zero data array
     for (NSUInteger i = 0; i <= kMaxMonth; ++i) {
       data[i] = 0.0;
@@ -30,6 +31,7 @@
 - (id)initWithCoder:(NSCoder *)coder {
   DataTrack *t = [self init];
   
+  t.name = [coder decodeObjectForKey:@"name"];
   [coder decodeArrayOfObjCType:@encode(double) count:kMaxMonth+1 at:data];
   [t recalc];
   
@@ -38,6 +40,7 @@
 
 - (void) encodeWithCoder:(NSCoder *)coder {
   [coder encodeArrayOfObjCType:@encode(double) count:kMaxMonth+1 at:data];
+  [coder encodeObject:self.name forKey:@"name"];
 }
 
 #pragma mark Misc

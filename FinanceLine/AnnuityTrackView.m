@@ -151,6 +151,13 @@
 {
   CGContextRef context = UIGraphicsGetCurrentContext();
   [self drawBlocks:context];
+  
+  // Draw sidebar
+  UIColor *boxColour = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:0.5];
+  [boxColour setFill];
+  
+  CGRect r = CGRectMake(0.0, 0.0, 10.0, self.bounds.size.height);
+  CGContextFillRect(context, r);
 }
 
 

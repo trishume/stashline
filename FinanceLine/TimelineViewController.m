@@ -15,6 +15,10 @@
 
 #include <stdlib.h>
 
+#define kDefaultIncomeTracks 2
+#define kDefaultExpenseTracks 2
+//#define kLoadOnStart
+
 @interface TimelineViewController ()
 
 @end
@@ -27,35 +31,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
   currentSelection = nil;
   
-  // Create model
-  model = [[FinanceModel alloc] init];
-  DataTrack *incomeTrack = [[DataTrack alloc] init];
-  DataTrack *expenseTrack = [[DataTrack alloc] init];
-  
-  [model.incomeTracks addObject:incomeTrack];
-  [model.expenseTracks addObject:expenseTrack];
-
-  // Create test data
-  LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
-  stashTrack.data = model.stashTrack;
-  TrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
-  
-  AnnuityTrackView *incomeTrackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
-  incomeTrackView.data = incomeTrack;
-  incomeTrackView.selectionDelegate = self;
-  
-  AnnuityTrackView *expensesTrackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
-  expensesTrackView.hue = 0.083;
-  expensesTrackView.data = expenseTrack;
-  expensesTrackView.selectionDelegate = self;
-  
-  [self.timeLine addTrack:stashTrack withHeight:150.0];
-  [self.timeLine addTrack:timeTrack withHeight:110.0];
-  [self addDivider];
-  [self.timeLine addTrack:incomeTrackView withHeight:60.0];
-  [self addDivider];
-  [self.timeLine addTrack:expensesTrackView withHeight:60.0];
-  [self addDivider];
+  // Load or create model
+  model = nil;
+  [self loadModel];
 }
 
 - (void)addDivider {
@@ -74,6 +52,84 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
         (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+#pragma mark Persistence
+
+- (NSString *) pathForDataFile
+{
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+
+  NSString *folder = @"~/Documents";
+  folder = [folder stringByExpandingTildeInPath];
+
+  if ([fileManager fileExistsAtPath:folder] == NO){
+    [fileManager createDirectoryAtPath:folder withIntermediateDirectories:NO attributes:nil error:nil];
+  }
+
+  NSString *fileName = @"WhatNow.taskStore";
+  return [folder stringByAppendingPathComponent: fileName];
+}
+
+- (void)saveModel {
+  [NSKeyedArchiver archiveRootObject:model toFile: [self pathForDataFile]];
+}
+
+- (void)loadModel {
+#ifdef kLoadOnStart
+  model = [NSKeyedUnarchiver unarchiveObjectWithFile: [self pathForDataFile]];
+#endif
+  if (model == nil) {
+    model = [self newModel];
+  }
+  
+  [self loadTracks];
+}
+
+- (FinanceModel*)newModel {
+  FinanceModel *m = [[FinanceModel alloc] init];
+  
+  for (int i = 0; i < kDefaultIncomeTracks; ++i) {
+    DataTrack *track = [[DataTrack alloc] init];
+    [m.incomeTracks addObject:track];
+  }
+  
+  for (int i = 0; i < kDefaultExpenseTracks; ++i) {
+    DataTrack *track = [[DataTrack alloc] init];
+    [m.expenseTracks addObject:track];
+  }
+  
+  return m;
+}
+
+- (void)loadTracks {
+  [self.timeLine clearTracks];
+  
+  LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
+  stashTrack.data = model.stashTrack;
+  [self.timeLine addTrack:stashTrack withHeight:150.0];
+  
+  TrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
+  [self.timeLine addTrack:timeTrack withHeight:110.0];
+  
+  [self addDivider];
+  
+  for (DataTrack *track in model.incomeTracks) {
+    AnnuityTrackView *trackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+    trackView.data = track;
+    trackView.selectionDelegate = self;
+    [self.timeLine addTrack:trackView withHeight:60.0];
+    [self addDivider];
+  }
+  
+  for (DataTrack *track in model.expenseTracks) {
+    AnnuityTrackView *trackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+    trackView.data = track;
+    trackView.hue = 0.083;
+    trackView.selectionDelegate = self;
+    [self.timeLine addTrack:trackView withHeight:60.0];
+    [self addDivider];
+  }
 }
 
 #pragma mark Selections
@@ -126,14 +182,17 @@
   return [NSString stringWithFormat:@"%.2f", amount];
 }
 
+- (void)setAmount:(double)amount forField:(UITextField*)field {
+  NSString *str = [self stringForAmount:amount];
+  [field setText:str];
+}
+
 - (void)updateAmountFields:(double)monthlyValue {
-  NSString *monthlyString = [self stringForAmount:monthlyValue];
-  NSString *yearlyString = [self stringForAmount:monthlyValue*12.0];
-  NSString *dailyString = [self stringForAmount:monthlyValue/30.0];
-  
-  [self.monthlyCost setText:monthlyString];
-  [self.yearlyCost setText:yearlyString];
-  [self.dailyCost setText:dailyString];
+  [self setAmount:monthlyValue forField:self.monthlyCost];
+  [self setAmount:monthlyValue*12.0 forField:self.yearlyCost];
+  [self setAmount:monthlyValue/30.0 forField:self.dailyCost];
+  [self setAmount:monthlyValue/20.0 forField:self.workDailyCost];
+  [self setAmount:monthlyValue/160.0 forField:self.workHourlyCost];
 }
 
 - (void)updateSelectionAmount:(double)monthlyValue {
@@ -152,6 +211,7 @@
   // Recalc and render
   [model recalc];
   [self.timeLine redrawTracks];
+  [self saveModel];
 }
 
 - (double)parseValue: (NSString*)str {
@@ -166,9 +226,17 @@
     value /= 12.0;
   } else if(sender == self.dailyCost) {
     value *= 30.0;
+  } else if(sender == self.workDailyCost) {
+    value *= 5.0*4.0;
+  } else if(sender == self.workHourlyCost) {
+    value *= 40*4.0;
   }
   
   [self updateSelectionAmount: value];
+}
+
+- (IBAction)zeroSelection {
+  [self updateSelectionAmount:0.0];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

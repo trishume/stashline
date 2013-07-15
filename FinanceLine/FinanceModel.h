@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DataTrack.h"
 
-@interface FinanceModel : NSObject
+@interface FinanceModel : NSObject <NSCoding>
 
 - (id) init;
 - (void) recalc;

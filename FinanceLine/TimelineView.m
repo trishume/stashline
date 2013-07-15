@@ -124,6 +124,15 @@
     [self.tracks addObject:track];
 }
 
+- (void)clearTracks {
+  for (TrackView *trackView in self.tracks) {
+    [trackView removeFromSuperview];
+  }
+  
+  [self.tracks removeAllObjects];
+  nextTrackTop = 0.0;
+}
+
 - (void)layoutSubviews {
     for (TrackView *track in self.tracks) {
         CGRect newFrame = track.frame;

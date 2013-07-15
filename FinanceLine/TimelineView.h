@@ -25,4 +25,5 @@
 
 - (void)addTrack: (TrackView*)track withHeight:(CGFloat)height;
 - (void)redrawTracks;
+- (void)clearTracks;
 @end
