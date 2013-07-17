@@ -9,7 +9,7 @@
 #import "AnnuityTrackView.h"
 
 #define kDefaultHue 0.391
-#define kBaseSaturation 0.3
+#define kBaseSaturation 0.4
 #define kSelectionThickness 4.0
 #define kDividerHeight 2.0
 
@@ -31,6 +31,10 @@
       UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
       doubleTap.numberOfTapsRequired = 2;
       [self addGestureRecognizer:doubleTap];
+      
+      UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+      singleTap.numberOfTapsRequired = 1;
+      [self addGestureRecognizer:singleTap];
     }
     return self;
 }
@@ -98,6 +102,17 @@
   }
 }
 
+- (void)singleTap:(UITapGestureRecognizer*)sender {
+  if (sender.state == UIGestureRecognizerStateEnded) {
+    CGPoint loc = [sender locationInView:self];
+    NSUInteger month = [self monthForX:loc.x];
+    
+    [selection selectFrom:month to:month];
+    [selectionDelegate setSelection:selection onTrack:data];
+    [self setNeedsDisplay];
+  }
+}
+
 
 #pragma mark Rendering
 
@@ -111,7 +126,7 @@
     selected = selected || [selection includes:month+i];
   }
   saturation /= monthsPerBlock;
-  if (saturation > 0.01) {
+  if (saturation > 0.0) {
     saturation += kBaseSaturation;
   }
   

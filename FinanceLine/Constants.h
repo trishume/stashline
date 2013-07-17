@@ -11,4 +11,8 @@
 
 #define kMaxMonth ((12*100)-1)
 
+#define kStatusNormal 0.0
+#define kStatusDebt 1.0
+#define kStatusSafeWithdraw 2.0
+
 #endif

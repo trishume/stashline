@@ -132,8 +132,15 @@
   
   // Draw inspection
   if (inspectMonth != 0 && inspectMonth > self.delegate.startMonth) {
+    CGFloat monthX = (inspectMonth - self.delegate.startMonth) * self.delegate.monthSize;
+    
+    [[UIColor redColor] setStroke];
+    CGContextMoveToPoint(context, monthX, 0.0);
+    CGContextAddLineToPoint(context, monthX, self.bounds.size.height);
+    CGContextStrokePath(context);
+    
     CGPoint p;
-    p.x = (inspectMonth - self.delegate.startMonth) * self.delegate.monthSize + kInspectOffsetX;
+    p.x = monthX + kInspectOffsetX;
     p.y = self.bounds.size.height / 2.0 + kInspectOffsetY;
     
     double value = [data valueAt:inspectMonth];

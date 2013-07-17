@@ -17,6 +17,7 @@
 		6A99DB8E178CD4490096AAB7 /* SelectionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB8D178CD4490096AAB7 /* SelectionEditViewController.m */; };
 		6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB90178F7D500096AAB7 /* DividerTrackView.m */; };
 		6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB931790B8C10096AAB7 /* FinanceModel.m */; };
+		6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB961794C70E0096AAB7 /* StatusTrackView.m */; };
 		6AFAA0581770FBA300E61733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0571770FBA300E61733 /* UIKit.framework */; };
 		6AFAA05A1770FBA300E61733 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0591770FBA300E61733 /* Foundation.framework */; };
 		6AFAA05C1770FBA300E61733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */; };
@@ -68,6 +69,8 @@
 		6A99DB90178F7D500096AAB7 /* DividerTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DividerTrackView.m; sourceTree = "<group>"; };
 		6A99DB921790B8C10096AAB7 /* FinanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceModel.h; sourceTree = "<group>"; };
 		6A99DB931790B8C10096AAB7 /* FinanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceModel.m; sourceTree = "<group>"; };
+		6A99DB951794C70E0096AAB7 /* StatusTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusTrackView.h; sourceTree = "<group>"; };
+		6A99DB961794C70E0096AAB7 /* StatusTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTrackView.m; sourceTree = "<group>"; };
 		6AFAA0541770FBA300E61733 /* FinanceLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA0571770FBA300E61733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AFAA0591770FBA300E61733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -231,6 +234,8 @@
 				6A99DB84178B72F20096AAB7 /* AnnuityTrackView.m */,
 				6A99DB8F178F7D500096AAB7 /* DividerTrackView.h */,
 				6A99DB90178F7D500096AAB7 /* DividerTrackView.m */,
+				6A99DB951794C70E0096AAB7 /* StatusTrackView.h */,
+				6A99DB961794C70E0096AAB7 /* StatusTrackView.m */,
 			);
 			name = Tracks;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				6A99DB8E178CD4490096AAB7 /* SelectionEditViewController.m in Sources */,
 				6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */,
 				6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */,
+				6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -106,14 +106,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selected Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k0y-F5-4Ef">
-                                        <rect key="frame" x="248" y="7" width="165" height="23"/>
+                                        <rect key="frame" x="162" y="10" width="284" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="75C-rQ-emd">
                                         <rect key="frame" x="20" y="7" width="109" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Operations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gqx-oQ-wJE">
+                                        <rect key="frame" x="494" y="7" width="111" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -162,6 +169,21 @@
                                         </state>
                                         <connections>
                                             <action selector="zeroSelection" destination="2" eventType="touchUpOutside" id="C9C-be-F9p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lL1-bT-Sel">
+                                        <rect key="frame" x="494" y="38" width="111" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Retire!">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cutJobAtRetirement" destination="2" eventType="touchUpInside" id="LE9-6f-ZaV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -264,6 +286,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clearSelection"/>
+                <relationship kind="action" name="cutJobAtRetirement"/>
                 <relationship kind="action" name="expandSelectionToEnd"/>
                 <relationship kind="action" name="selectionAmountChanged:" candidateClass="UITextField"/>
                 <relationship kind="action" name="zeroSelection"/>

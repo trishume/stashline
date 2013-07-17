@@ -38,8 +38,24 @@
       self.incomeTracks = [NSMutableArray arrayWithCapacity:5];
       self.expenseTracks = [NSMutableArray arrayWithCapacity:5];
       self.stashTrack = [[DataTrack alloc] init];
+      self.statusTrack = [[DataTrack alloc] init];
     }
     return self;
+}
+
+#pragma mark Operations
+
+- (void)cutJobAtRetirement {
+  [self recalc];
+
+  DataTrack *track = [self.incomeTracks objectAtIndex: 0];
+  double *data = [track dataPtr];
+  for (int i = self.retirementMonth + 1; i <= kMaxMonth; ++i) {
+    data[i] = 0.0;
+  }
+  [track recalc];
+
+  [self recalc];
 }
 
 #pragma mark Persistence
@@ -57,7 +73,7 @@
 
   m.dividendPeriod = [coder decodeIntegerForKey:kDividendPeriodKey];
   m.birthYear = [coder decodeIntegerForKey:kBirthYearKey];
-  
+
   [m recalc];
 
   return m;
@@ -88,7 +104,7 @@
 }
 
 - (void)recalc {
-  self.retirementMonth = kMaxMonth;
+  self.retirementMonth = 0;
 
   double stash = self.startAmount;
   for (int i = [self startMonth]; i <= kMaxMonth; ++i) {
@@ -96,12 +112,16 @@
     [self.stashTrack setValue:stash forMonth:i];
   }
 
+  // Retirement is one past the last month we didn't make with investment gains
+  self.retirementMonth += 1;
+
   [self.stashTrack recalc];
 }
 
 - (double)iterateStash:(double)stash forMonth:(NSUInteger)month {
-  double income = [self sumTracks:self.incomeTracks forMonth:month];
   double expenses = [self sumTracks:self.expenseTracks forMonth:month];
+
+  double income = [self sumTracks:self.incomeTracks forMonth:month];
   double savings = income - expenses;
 
   // Grow stash and pay dividends.
@@ -113,6 +133,20 @@
 
   // Savings can be negative, in which case we are withdrawing
   stash += savings;
+
+  // Calculate Status
+  double status = 0.0; // normal
+  if (stash * (self.safeWithdrawalRate/12.0) >= expenses && expenses != 0.0) {
+    status = kStatusSafeWithdraw;
+  } else if(stash < 0.0) {
+    status = kStatusDebt;
+  }
+  [self.statusTrack setValue:status forMonth:month];
+
+  // Check retirement month
+  if (status != kStatusSafeWithdraw) {
+    self.retirementMonth = month;
+  }
 
   return stash;
 }

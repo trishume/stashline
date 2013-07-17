@@ -25,6 +25,7 @@
 - (IBAction)clearSelection;
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
+- (IBAction)cutJobAtRetirement;
 
 @property (nonatomic, strong) IBOutlet UITextField *yearlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *monthlyCost;

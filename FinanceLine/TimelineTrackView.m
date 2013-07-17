@@ -25,10 +25,23 @@
     lineColor = [UIColor blackColor];
     yearFont = [UIFont boldSystemFontOfSize:20.0];
     
+    normalTextColor = [UIColor blackColor];
+    retiredTextColor = [UIColor grayColor];
+
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
     [self addGestureRecognizer:pan];
   }
   return self;
+}
+
+- (BOOL)retiredDuringYear:(NSUInteger)startMonth {
+  BOOL allGood = YES;
+  for(int i = startMonth; i < startMonth + 12 && i < kMaxMonth; ++i) {
+    double status = [self.status valueAt:i];
+    allGood = (status == kStatusSafeWithdraw) && allGood;
+  }
+
+  return allGood;
 }
 
 #pragma mark Gestures
@@ -52,10 +65,10 @@
 - (void) drawString:(NSString*) s withFont:(UIFont*) font inRect:(CGRect) contextRect {
   CGFloat fontHeight = font.pointSize;
   CGFloat yOffset = (contextRect.size.height - fontHeight) / 2.0;
-  
+
   CGRect textRect = CGRectMake(contextRect.origin.x, contextRect.origin.y + yOffset,
                                contextRect.size.width, fontHeight);
-  
+
   [s drawInRect: textRect withFont: font lineBreakMode: NSLineBreakByClipping
       alignment: NSTextAlignmentCenter];
 }
@@ -66,22 +79,26 @@
   BOOL isMajorYearTick = (month % (12*5)) == 0;
   BOOL isLabelTick = (isYearTick && scale > kYearLabelThresh) || isMajorYearTick;
   BOOL isMajorTick = (isYearTick && scale > kYearMajorTickThres) || isMajorYearTick;
-  
+
   CGContextSetLineWidth(context, isMajorTick ? 2.0 : 1.0);
   [lineColor setStroke];
-  
+
   CGFloat middleY = self.bounds.size.height / 2.0;
   CGFloat tickLength = isMajorTick ? kYearTickLength : kMonthTickLength;
-  
+
   CGContextMoveToPoint(context,x, middleY + kLineSpacing);
   CGContextAddLineToPoint(context,x, middleY + kLineSpacing + tickLength);
   CGContextStrokePath(context);
-  
+
   CGContextMoveToPoint(context,x, middleY - kLineSpacing);
   CGContextAddLineToPoint(context,x, middleY - kLineSpacing - tickLength);
   CGContextStrokePath(context);
-  
+
   if (isLabelTick) {
+    bool retired = [self retiredDuringYear: month];
+    UIColor *color = retired ? retiredTextColor : normalTextColor;
+    [color setFill];
+
     CGRect textRect = CGRectMake(x - 25.0, middleY - kLineSpacing - kYearTextShift, 50.0, kLineSpacing*2);
     NSString *yearStr = [NSString stringWithFormat:@"%i",month/12];
     [self drawString:yearStr withFont:yearFont inRect:textRect];
@@ -95,19 +112,19 @@
 {
   // Drawing code
   CGContextRef context = UIGraphicsGetCurrentContext();
-  
+
   CGContextSetLineWidth(context, 4.0);
   [lineColor setStroke];
-  
+
   CGFloat middleY = self.bounds.size.height / 2.0;
   CGContextMoveToPoint(context,0.0, middleY + kLineSpacing);
   CGContextAddLineToPoint(context,self.bounds.size.width, middleY + kLineSpacing);
   CGContextStrokePath(context);
-  
+
   CGContextMoveToPoint(context,0.0, middleY - kLineSpacing);
   CGContextAddLineToPoint(context,self.bounds.size.width, middleY - kLineSpacing);
   CGContextStrokePath(context);
-  
+
   [self drawBlocks:context extraBlock: YES];
 }
 

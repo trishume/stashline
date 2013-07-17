@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "TrackView.h"
+#import "DataTrack.h"
 
 @interface TimelineTrackView : TrackView {
     UIColor *lineColor;
+    UIColor *normalTextColor;
+    UIColor *retiredTextColor;
     UIFont *yearFont;
 }
+
+@property (nonatomic, strong) DataTrack *status;
 
 @end

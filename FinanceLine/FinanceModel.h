@@ -13,6 +13,7 @@
 
 - (id) init;
 - (void) recalc;
+- (void)cutJobAtRetirement;
 
 // Inputs
 @property (nonatomic) double growthRate;
@@ -29,6 +30,7 @@
 
 // Outputs
 @property (nonatomic, strong) DataTrack *stashTrack;
+@property (nonatomic, strong) DataTrack *statusTrack;
 @property (nonatomic) NSUInteger retirementMonth;
 
 @end
