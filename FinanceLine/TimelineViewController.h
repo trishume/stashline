@@ -26,12 +26,18 @@
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
 - (IBAction)cutJobAtRetirement;
+- (IBAction)parameterFieldChanged:(UITextField*)sender;
 
 @property (nonatomic, strong) IBOutlet UITextField *yearlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *monthlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *dailyCost;
 @property (nonatomic, strong) IBOutlet UITextField *workDailyCost;
 @property (nonatomic, strong) IBOutlet UITextField *workHourlyCost;
+
+@property (weak, nonatomic) IBOutlet UITextField *growthRateField;
+@property (weak, nonatomic) IBOutlet UITextField *dividendRateField;
+@property (weak, nonatomic) IBOutlet UITextField *safeWithdrawalField;
+
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
 @property (nonatomic, strong) IBOutlet SelectionEditViewController *selectEditor;

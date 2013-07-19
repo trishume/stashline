@@ -20,8 +20,8 @@
 {
     self.tracks = [NSMutableArray array];
     nextTrackTop = 0.0;
-    startMonth = 0.0;
-    monthSize = 15.0;
+    startMonth = 192.0;
+    monthSize = 10.0;
     velocity = 0.0;
     maxMonth = kMaxMonth;
     

@@ -69,7 +69,7 @@
     [fileManager createDirectoryAtPath:folder withIntermediateDirectories:NO attributes:nil error:nil];
   }
 
-  NSString *fileName = @"WhatNow.taskStore";
+  NSString *fileName = @"Main.stashLine";
   return [folder stringByAppendingPathComponent: fileName];
 }
 
@@ -133,12 +133,44 @@
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
   }
+  
+  [self updateParameterFields];
 }
 
 #pragma mark Operations
 
 - (IBAction)cutJobAtRetirement {
   [model cutJobAtRetirement];
+  [self.timeLine redrawTracks];
+  [self saveModel];
+}
+
+#pragma mark Investment parameters
+
+- (void)updateParameterField:(UITextField*)field toPercent:(double)value {
+  NSString *str = [self stringForAmount:value * 100.0];
+  [field setText:str];
+}
+
+- (void)updateParameterFields {
+  [self updateParameterField:self.growthRateField toPercent:model.growthRate];
+  [self updateParameterField:self.dividendRateField toPercent:model.dividendRate];
+  [self updateParameterField:self.safeWithdrawalField toPercent:model.safeWithdrawalRate];
+}
+
+- (IBAction)parameterFieldChanged:(UITextField*)sender {
+  double value = [self parseValue:[sender text]] / 100.0;
+  
+  if (sender == self.safeWithdrawalField) {
+    model.safeWithdrawalRate = value;
+  } else if(sender == self.dividendRateField) {
+    model.dividendRate = value;
+  } else if(sender == self.growthRateField) {
+    model.growthRate = value;
+  }
+  
+  [self updateParameterFields];
+  [model recalc];
   [self.timeLine redrawTracks];
   [self saveModel];
 }
@@ -201,7 +233,7 @@
 - (void)updateAmountFields:(double)monthlyValue {
   [self setAmount:monthlyValue forField:self.monthlyCost];
   [self setAmount:monthlyValue*12.0 forField:self.yearlyCost];
-  [self setAmount:monthlyValue/30.0 forField:self.dailyCost];
+  [self setAmount:monthlyValue/30.4 forField:self.dailyCost];
   [self setAmount:monthlyValue/20.0 forField:self.workDailyCost];
   [self setAmount:monthlyValue/160.0 forField:self.workHourlyCost];
 }
@@ -236,7 +268,7 @@
   if (sender == self.yearlyCost) {
     value /= 12.0;
   } else if(sender == self.dailyCost) {
-    value *= 30.0;
+    value *= 30.4;
   } else if(sender == self.workDailyCost) {
     value *= 5.0*4.0;
   } else if(sender == self.workHourlyCost) {
@@ -255,4 +287,10 @@
   return NO;
 }
 
+- (void)viewDidUnload {
+  [self setGrowthRateField:nil];
+  [self setDividendRateField:nil];
+  [self setSafeWithdrawalField:nil];
+  [super viewDidUnload];
+}
 @end

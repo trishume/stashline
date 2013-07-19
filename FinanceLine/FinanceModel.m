@@ -27,7 +27,7 @@
       // default values
       self.growthRate = 0.05;
       self.dividendRate = 0.02;
-      self.dividendPeriod = 1;
+      self.dividendPeriod = 3;
 
       self.startAmount = 0.0;
       self.birthYear = [self currentYear];
