@@ -28,6 +28,8 @@
 - (IBAction)cutJobAtRetirement;
 - (IBAction)parameterFieldChanged:(UITextField*)sender;
 
+- (IBAction)loadFile;
+
 @property (nonatomic, strong) IBOutlet UITextField *yearlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *monthlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *dailyCost;
@@ -38,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dividendRateField;
 @property (weak, nonatomic) IBOutlet UITextField *safeWithdrawalField;
 
+@property (weak, nonatomic) IBOutlet UITextField *fileNameField;
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
 @property (nonatomic, strong) IBOutlet SelectionEditViewController *selectEditor;

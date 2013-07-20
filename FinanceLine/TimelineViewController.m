@@ -32,6 +32,7 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   currentSelection = nil;
+  [self.fileNameField setText:@"Main"];
 
   // Load or create model
   model = nil;
@@ -69,17 +70,25 @@
     [fileManager createDirectoryAtPath:folder withIntermediateDirectories:NO attributes:nil error:nil];
   }
 
-  NSString *fileName = @"Main.stashLine";
+  NSString *fileName = [self.fileNameField text];
+  if([fileName isEqualToString:@""]) return nil;
+  fileName = [fileName stringByAppendingString:@".stashLine"];
+  
   return [folder stringByAppendingPathComponent: fileName];
 }
 
 - (void)saveModel {
-  [NSKeyedArchiver archiveRootObject:model toFile: [self pathForDataFile]];
+  NSString *path = [self pathForDataFile];
+  if(path != nil)
+    [NSKeyedArchiver archiveRootObject:model toFile: path];
 }
 
 - (void)loadModel {
 #ifdef kLoadOnStart
-  model = [NSKeyedUnarchiver unarchiveObjectWithFile: [self pathForDataFile]];
+  NSString *path = [self pathForDataFile];
+  if(path != nil) {
+    model = [NSKeyedUnarchiver unarchiveObjectWithFile: path];
+  }
 #endif
   if (model == nil) {
     model = [self newModel];
@@ -135,6 +144,12 @@
   }
   
   [self updateParameterFields];
+}
+
+#pragma mark File Management
+
+- (IBAction)loadFile {
+  [self loadModel];
 }
 
 #pragma mark Operations
@@ -210,6 +225,8 @@
   [self.monthlyCost setText:@""];
   [self.yearlyCost setText:@""];
   [self.dailyCost setText:@""];
+  [self.workDailyCost setText:@""];
+  [self.workHourlyCost setText:@""];
 
   [self.timeLine redrawTracks];
 }
