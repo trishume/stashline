@@ -160,6 +160,11 @@
   [self saveModel];
 }
 
+- (IBAction)aboutMe {
+  NSURL *url = [NSURL URLWithString:@"http://thume.ca/"];
+  [[UIApplication sharedApplication] openURL:url];
+}
+
 #pragma mark Investment parameters
 
 - (void)updateParameterField:(UITextField*)field toPercent:(double)value {

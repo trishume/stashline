@@ -30,6 +30,8 @@
 
 - (IBAction)loadFile;
 
+- (IBAction)aboutMe;
+
 @property (nonatomic, strong) IBOutlet UITextField *yearlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *monthlyCost;
 @property (nonatomic, strong) IBOutlet UITextField *dailyCost;
