@@ -10,6 +10,8 @@
 
 @interface ScrubbableTextView : UITextField {
   double startVal;
+  UIColor *scrubColor;
+  UIColor *normalColor;
 }
 
 @property (nonatomic) double minVal;

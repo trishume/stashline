@@ -33,6 +33,18 @@
 	// Do any additional setup after loading the view, typically from a nib.
   currentSelection = nil;
   [self.fileNameField setText:@"Main"];
+  
+  self.yearlyCost.stepVal = 1000.0;
+  self.monthlyCost.stepVal = 200.0;
+  self.dailyCost.stepVal = 10.0;
+  self.workDailyCost.stepVal = 10.0;
+  self.workHourlyCost.stepVal = 1.0;
+  
+  self.safeWithdrawalField.stepVal = 0.5;
+  self.safeWithdrawalField.maxVal = 100.0;
+  self.dividendRateField.stepVal = 0.5;
+  self.dividendRateField.maxVal = 100.0;
+  self.growthRateField.stepVal = 0.5;
 
   // Load or create model
   model = nil;

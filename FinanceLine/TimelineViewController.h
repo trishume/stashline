@@ -14,6 +14,7 @@
 #import "Selection.h"
 #import "DataTrack.h"
 #import "FinanceModel.h"
+#import "ScrubbableTextView.h"
 
 @interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate> {
   Selection *currentSelection;
@@ -32,15 +33,15 @@
 
 - (IBAction)aboutMe;
 
-@property (nonatomic, strong) IBOutlet UITextField *yearlyCost;
-@property (nonatomic, strong) IBOutlet UITextField *monthlyCost;
-@property (nonatomic, strong) IBOutlet UITextField *dailyCost;
-@property (nonatomic, strong) IBOutlet UITextField *workDailyCost;
-@property (nonatomic, strong) IBOutlet UITextField *workHourlyCost;
+@property (nonatomic, strong) IBOutlet ScrubbableTextView *yearlyCost;
+@property (nonatomic, strong) IBOutlet ScrubbableTextView *monthlyCost;
+@property (nonatomic, strong) IBOutlet ScrubbableTextView *dailyCost;
+@property (nonatomic, strong) IBOutlet ScrubbableTextView *workDailyCost;
+@property (nonatomic, strong) IBOutlet ScrubbableTextView *workHourlyCost;
 
-@property (weak, nonatomic) IBOutlet UITextField *growthRateField;
-@property (weak, nonatomic) IBOutlet UITextField *dividendRateField;
-@property (weak, nonatomic) IBOutlet UITextField *safeWithdrawalField;
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *growthRateField;
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *dividendRateField;
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *safeWithdrawalField;
 
 @property (weak, nonatomic) IBOutlet UITextField *fileNameField;
 

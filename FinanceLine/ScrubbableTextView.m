@@ -15,8 +15,11 @@
 - (void)initialize
 {
   self.minVal = 0.0;
-  self.maxVal = 10000000.0;
+  self.maxVal = 100000000.0;
   self.stepVal = 10.0;
+  
+  scrubColor = [UIColor blueColor];
+  normalColor = [UIColor blackColor];
   
   UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
   [self addGestureRecognizer:pan];
@@ -65,11 +68,13 @@
   CGPoint translation = [sender translationInView:self];
   if (sender.state == UIGestureRecognizerStateBegan) {
     startVal = [self doubleValue];
+    self.textColor = scrubColor;
   } else if (sender.state == UIGestureRecognizerStateChanged) {
     double newVal = [self newValueFromOld:startVal withDelta:translation.x];
     [self setValue:newVal];
   } else if (sender.state == UIGestureRecognizerStateEnded) {
-    
+    self.textColor = normalColor;
+    [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
   }
 }
 
