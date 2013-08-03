@@ -284,6 +284,7 @@
 }
 
 - (IBAction)selectionAmountChanged: (UITextField*)sender {
+  if ([sender.text isEqualToString:@""]) return;
   double value = [self parseValue:[sender text]];
 
   // convert to a monthly cost

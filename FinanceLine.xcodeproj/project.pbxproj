@@ -23,6 +23,7 @@
 		6A99DB9D179B26DD0096AAB7 /* Logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A99DB9C179B26DD0096AAB7 /* Logo2.png */; };
 		6A99DB9F179B28270096AAB7 /* Logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A99DB9E179B28270096AAB7 /* Logo1.png */; };
 		6A99DBA117A1EBFE0096AAB7 /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A99DBA017A1EBFE0096AAB7 /* Name Banner.png */; };
+		6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */; };
 		6AFAA0581770FBA300E61733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0571770FBA300E61733 /* UIKit.framework */; };
 		6AFAA05A1770FBA300E61733 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0591770FBA300E61733 /* Foundation.framework */; };
 		6AFAA05C1770FBA300E61733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */; };
@@ -81,6 +82,8 @@
 		6A99DB9C179B26DD0096AAB7 /* Logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo2.png; sourceTree = "<group>"; };
 		6A99DB9E179B28270096AAB7 /* Logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo1.png; sourceTree = "<group>"; };
 		6A99DBA017A1EBFE0096AAB7 /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Name Banner.png"; sourceTree = "<group>"; };
+		6A99DBA217AD6A770096AAB7 /* ScrubbableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubbableTextView.h; sourceTree = "<group>"; };
+		6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrubbableTextView.m; sourceTree = "<group>"; };
 		6AFAA0541770FBA300E61733 /* FinanceLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA0571770FBA300E61733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AFAA0591770FBA300E61733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +202,8 @@
 				6A99DB8D178CD4490096AAB7 /* SelectionEditViewController.m */,
 				6A99DB921790B8C10096AAB7 /* FinanceModel.h */,
 				6A99DB931790B8C10096AAB7 /* FinanceModel.m */,
+				6A99DBA217AD6A770096AAB7 /* ScrubbableTextView.h */,
+				6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */,
 			);
 			path = FinanceLine;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */,
 				6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */,
 				6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */,
+				6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
