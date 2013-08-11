@@ -10,12 +10,16 @@
 
 @interface ScrubbableTextView : UITextField {
   double startVal;
-  UIColor *scrubColor;
-  UIColor *normalColor;
+  double curVal;
 }
+
+- (void)setValue:(double)v;
 
 @property (nonatomic) double minVal;
 @property (nonatomic) double maxVal;
 @property (nonatomic) double stepVal;
+@property (nonatomic, strong) UIColor *scrubColor;
+@property (nonatomic, strong) UIColor *normalColor;
+@property (nonatomic, strong) NSNumberFormatter *formatter;
 
 @end

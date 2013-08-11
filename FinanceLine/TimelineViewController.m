@@ -32,14 +32,27 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   currentSelection = nil;
+  [self clearSelection];
   [self.fileNameField setText:@"Main"];
-  
+
+  amountFormatter = [[NSNumberFormatter alloc] init];
+  amountFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+  amountFormatter.roundingIncrement = @1;
+  amountFormatter.roundingMode = NSNumberFormatterRoundHalfUp;
+  amountFormatter.maximumFractionDigits = 0;
+
   self.yearlyCost.stepVal = 1000.0;
   self.monthlyCost.stepVal = 200.0;
   self.dailyCost.stepVal = 10.0;
   self.workDailyCost.stepVal = 10.0;
   self.workHourlyCost.stepVal = 1.0;
-  
+
+  self.yearlyCost.formatter = amountFormatter;
+  self.monthlyCost.formatter = amountFormatter;
+  self.dailyCost.formatter = amountFormatter;
+  self.workDailyCost.formatter = amountFormatter;
+  self.workHourlyCost.formatter = amountFormatter;
+
   self.safeWithdrawalField.stepVal = 0.5;
   self.safeWithdrawalField.maxVal = 100.0;
   self.dividendRateField.stepVal = 0.5;
@@ -85,7 +98,7 @@
   NSString *fileName = [self.fileNameField text];
   if([fileName isEqualToString:@""]) return nil;
   fileName = [fileName stringByAppendingString:@".stashLine"];
-  
+
   return [folder stringByAppendingPathComponent: fileName];
 }
 
@@ -154,7 +167,7 @@
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
   }
-  
+
   [self updateParameterFields];
 }
 
@@ -179,6 +192,10 @@
 
 #pragma mark Investment parameters
 
+- (NSString*)stringForAmount:(double)v {
+  return [NSString stringWithFormat:@"%.2f",v];
+}
+
 - (void)updateParameterField:(UITextField*)field toPercent:(double)value {
   NSString *str = [self stringForAmount:value * 100.0];
   [field setText:str];
@@ -192,7 +209,7 @@
 
 - (IBAction)parameterFieldChanged:(UITextField*)sender {
   double value = [self parseValue:[sender text]] / 100.0;
-  
+
   if (sender == self.safeWithdrawalField) {
     model.safeWithdrawalRate = value;
   } else if(sender == self.dividendRateField) {
@@ -200,7 +217,7 @@
   } else if(sender == self.growthRateField) {
     model.growthRate = value;
   }
-  
+
   [self updateParameterFields];
   [model recalc];
   [self.timeLine redrawTracks];
@@ -235,7 +252,7 @@
 }
 
 - (IBAction)clearSelection {
-  [currentSelection clear];
+  if(currentSelection) [currentSelection clear];
   currentSelection = nil;
   selectedTrack = nil;
 
@@ -255,21 +272,12 @@
   [self.timeLine redrawTracks];
 }
 
-- (NSString *)stringForAmount:(double)amount {
-  return [NSString stringWithFormat:@"%.2f", amount];
-}
-
-- (void)setAmount:(double)amount forField:(UITextField*)field {
-  NSString *str = [self stringForAmount:amount];
-  [field setText:str];
-}
-
 - (void)updateAmountFields:(double)monthlyValue {
-  [self setAmount:monthlyValue forField:self.monthlyCost];
-  [self setAmount:monthlyValue*12.0 forField:self.yearlyCost];
-  [self setAmount:monthlyValue/30.4 forField:self.dailyCost];
-  [self setAmount:monthlyValue/20.0 forField:self.workDailyCost];
-  [self setAmount:monthlyValue/160.0 forField:self.workHourlyCost];
+  [self.monthlyCost setValue:monthlyValue];
+  [self.yearlyCost setValue:monthlyValue*12.0];
+  [self.dailyCost setValue:monthlyValue/30.4];
+  [self.workDailyCost setValue:monthlyValue/20.0];
+  [self.workHourlyCost setValue:monthlyValue/160.0];
 }
 
 - (void)updateSelectionAmount:(double)monthlyValue {
@@ -292,7 +300,11 @@
 }
 
 - (double)parseValue: (NSString*)str {
-  return [str doubleValue];
+  double res = [[amountFormatter numberFromString:str] doubleValue];
+  if (res == 0.0) {
+    res = [str doubleValue];
+  }
+  return res;
 }
 
 - (IBAction)selectionAmountChanged: (UITextField*)sender {

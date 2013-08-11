@@ -18,8 +18,12 @@
   self.maxVal = 100000000.0;
   self.stepVal = 10.0;
   
-  scrubColor = [UIColor blueColor];
-  normalColor = [UIColor blackColor];
+  self.formatter = nil;
+  
+  self.scrubColor = [UIColor blueColor];
+  self.normalColor = [UIColor colorWithHue:0.583 saturation:1.000 brightness:1.000 alpha:1.000];
+  
+  curVal = 0.0;
   
   UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
   [self addGestureRecognizer:pan];
@@ -44,11 +48,16 @@
 }
 
 - (double)doubleValue {
-  return [[self text] doubleValue];
+  return curVal;
 }
 
 - (void)setValue:(double)v {
-  self.text = [NSString stringWithFormat:@"%.2f", v];
+  curVal = v;
+  if (self.formatter != nil) {
+    self.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:v]];
+  } else {
+    self.text = [NSString stringWithFormat:@"%.2f", v];
+  }
 }
 
 - (double)newValueFromOld:(double)oldVal withDelta:(CGFloat)delta {
@@ -68,12 +77,12 @@
   CGPoint translation = [sender translationInView:self];
   if (sender.state == UIGestureRecognizerStateBegan) {
     startVal = [self doubleValue];
-    self.textColor = scrubColor;
+    self.textColor = self.scrubColor;
   } else if (sender.state == UIGestureRecognizerStateChanged) {
     double newVal = [self newValueFromOld:startVal withDelta:translation.x];
     [self setValue:newVal];
   } else if (sender.state == UIGestureRecognizerStateEnded) {
-    self.textColor = normalColor;
+    self.textColor = self.normalColor;
     [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
   }
 }

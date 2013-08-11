@@ -20,6 +20,7 @@
   Selection *currentSelection;
   DataTrack *selectedTrack;
   FinanceModel *model;
+  NSNumberFormatter *amountFormatter;
 }
 
 - (IBAction)selectionAmountChanged: (UITextField*)sender;
