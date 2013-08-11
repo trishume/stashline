@@ -334,17 +334,17 @@
                 <relationship kind="action" name="parameterFieldChanged:" candidateClass="UITextField"/>
                 <relationship kind="action" name="selectionAmountChanged:" candidateClass="UITextField"/>
                 <relationship kind="action" name="zeroSelection"/>
-                <relationship kind="outlet" name="dailyCost" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dividendRateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dailyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="dividendRateField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="fileNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="growthRateField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="monthlyCost" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="safeWithdrawalField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="growthRateField" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="monthlyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="safeWithdrawalField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="selectEditor" candidateClass="SelectionEditViewController"/>
                 <relationship kind="outlet" name="timeLine" candidateClass="TimelineView"/>
-                <relationship kind="outlet" name="workDailyCost" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="workHourlyCost" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="yearlyCost" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="workDailyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="workHourlyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="yearlyCost" candidateClass="ScrubbableTextView"/>
             </relationships>
         </class>
     </classes>
