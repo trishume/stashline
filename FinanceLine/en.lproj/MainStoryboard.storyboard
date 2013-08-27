@@ -20,96 +20,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="4cj-es-IYt" customClass="ScrubbableTextView">
-                                        <rect key="frame" x="411" y="8" width="97" height="30"/>
+                                    <view opaque="NO" contentMode="scaleToFill" id="vcG-33-hL8">
+                                        <rect key="frame" x="334" y="53" width="346" height="122"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="selectionAmountChanged:" destination="2" eventType="editingDidEnd" id="gWF-CR-YMw"/>
-                                            <outlet property="delegate" destination="2" id="sQz-gl-5mG"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yearly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zGz-ms-Yaf">
-                                        <rect key="frame" x="516" y="12" width="60" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$10,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="P5B-zP-2gX" customClass="ScrubbableTextView">
-                                        <rect key="frame" x="411" y="41" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="selectionAmountChanged:" destination="2" eventType="editingDidEnd" id="C99-93-mI4"/>
-                                            <outlet property="delegate" destination="2" id="c4N-JA-B7x"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Monthly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a3a-uF-oMN">
-                                        <rect key="frame" x="516" y="45" width="71" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$500" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="ton-Ea-Cka" customClass="ScrubbableTextView">
-                                        <rect key="frame" x="411" y="105" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="selectionAmountChanged:" destination="2" eventType="editingDidEnd" id="5FM-3e-a76"/>
-                                            <outlet property="delegate" destination="2" id="SGR-Cr-SWY"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Daily" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JWZ-5s-z8Y">
-                                        <rect key="frame" x="516" y="109" width="49" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$900" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="LcN-y2-I62" customClass="ScrubbableTextView">
-                                        <rect key="frame" x="411" y="74" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="selectionAmountChanged:" destination="2" eventType="editingDidEnd" id="Z2U-KI-DCN"/>
-                                            <outlet property="delegate" destination="2" id="2EP-rI-Fbt"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Work Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8X4-Fq-KAa">
-                                        <rect key="frame" x="516" y="78" width="97" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="i0g-JL-YZt" customClass="ScrubbableTextView">
-                                        <rect key="frame" x="411" y="138" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="selectionAmountChanged:" destination="2" eventType="editingDidEnd" id="7oB-0y-sSX"/>
-                                            <outlet property="delegate" destination="2" id="QTH-9T-123"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Work Hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tzh-cw-tiY">
-                                        <rect key="frame" x="516" y="143" width="97" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="75C-rQ-emd">
                                         <rect key="frame" x="212" y="7" width="143" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -283,16 +198,12 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="dailyCost" destination="ton-Ea-Cka" id="Rfv-xF-5NT"/>
                         <outlet property="dividendRateField" destination="Pov-ss-u8H" id="cga-r3-3aN"/>
+                        <outlet property="editorContainerView" destination="vcG-33-hL8" id="VOL-xw-R6B"/>
                         <outlet property="fileNameField" destination="Xxq-DM-s24" id="etj-hs-c1C"/>
                         <outlet property="growthRateField" destination="gms-t2-Mou" id="4sd-hr-crq"/>
-                        <outlet property="monthlyCost" destination="P5B-zP-2gX" id="Ac5-Ia-f7T"/>
                         <outlet property="safeWithdrawalField" destination="bfp-CS-R22" id="gdP-Cl-9Ni"/>
                         <outlet property="timeLine" destination="lDv-1N-ewu" id="uiy-xo-v2b"/>
-                        <outlet property="workDailyCost" destination="LcN-y2-I62" id="Mny-OK-Lrz"/>
-                        <outlet property="workHourlyCost" destination="i0g-JL-YZt" id="tjL-ca-f9I"/>
-                        <outlet property="yearlyCost" destination="4cj-es-IYt" id="fMN-c8-lv4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -304,11 +215,139 @@
             </objects>
             <point key="canvasLocation" x="-75" y="-421"/>
         </scene>
+        <!--Amount Edit Controller-->
+        <scene sceneID="V4j-sr-MYN">
+            <objects>
+                <viewController storyboardIdentifier="amountEditor" id="iZG-z6-CTT" customClass="AmountEditController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="yuD-li-DhY">
+                        <rect key="frame" x="0.0" y="0.0" width="361" height="109"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="fFc-fc-jqd" customClass="ScrubbableTextView">
+                                <rect key="frame" x="0.0" y="6" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="mZw-02-3HW"/>
+                                    <outlet property="delegate" destination="iZG-z6-CTT" id="Gi6-iD-g8w"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yearly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wPq-aV-jx5">
+                                <rect key="frame" x="105" y="10" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$10,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="xJW-yr-x6w" customClass="ScrubbableTextView">
+                                <rect key="frame" x="0.0" y="39" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="rOf-Wc-nU0"/>
+                                    <outlet property="delegate" destination="iZG-z6-CTT" id="B9e-IU-Suh"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Monthly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i63-Oy-QcJ">
+                                <rect key="frame" x="105" y="43" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$500" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="xLp-iC-dCo" customClass="ScrubbableTextView">
+                                <rect key="frame" x="0.0" y="72" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="FO8-MQ-FUk"/>
+                                    <outlet property="delegate" destination="iZG-z6-CTT" id="v7Z-gI-rtt"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Daily" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="inU-o9-ol1">
+                                <rect key="frame" x="105" y="77" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$900" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="FSv-N4-J8y" customClass="ScrubbableTextView">
+                                <rect key="frame" x="139" y="7" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="emb-UR-TeJ"/>
+                                    <outlet property="delegate" destination="iZG-z6-CTT" id="9EQ-8S-FEB"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Work Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ER-Vf-dWE">
+                                <rect key="frame" x="244" y="11" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="mq8-k2-E0J" customClass="ScrubbableTextView">
+                                <rect key="frame" x="139" y="39" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="eaP-sO-iVW"/>
+                                    <outlet property="delegate" destination="iZG-z6-CTT" id="9Mp-Ki-2FO"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Work Hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nu1-oP-tlK">
+                                <rect key="frame" x="244" y="44" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="dailyCost" destination="xLp-iC-dCo" id="6YE-CM-8gF"/>
+                        <outlet property="monthlyCost" destination="xJW-yr-x6w" id="OZW-NA-AE5"/>
+                        <outlet property="workDailyCost" destination="FSv-N4-J8y" id="sQK-1J-UpX"/>
+                        <outlet property="workHourlyCost" destination="mq8-k2-E0J" id="cHa-Uo-PNh"/>
+                        <outlet property="yearlyCost" destination="fFc-fc-jqd" id="vUH-Ta-IYG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlr-U3-1CH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="-373"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Name Banner.png" width="139" height="32"/>
     </resources>
     <classes>
+        <class className="AmountEditController" superclassName="SelectionEditViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmountEditController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectionAmountChanged:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dailyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="monthlyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="workDailyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="workHourlyCost" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="yearlyCost" candidateClass="ScrubbableTextView"/>
+            </relationships>
+        </class>
         <class className="PanelView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PanelView.h"/>
         </class>
@@ -330,19 +369,13 @@
                 <relationship kind="action" name="expandSelectionToEnd"/>
                 <relationship kind="action" name="loadFile"/>
                 <relationship kind="action" name="parameterFieldChanged:" candidateClass="UITextField"/>
-                <relationship kind="action" name="selectionAmountChanged:" candidateClass="UITextField"/>
                 <relationship kind="action" name="zeroSelection"/>
-                <relationship kind="outlet" name="dailyCost" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="dividendRateField" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="editorContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="fileNameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="growthRateField" candidateClass="ScrubbableTextView"/>
-                <relationship kind="outlet" name="monthlyCost" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="safeWithdrawalField" candidateClass="ScrubbableTextView"/>
-                <relationship kind="outlet" name="selectEditor" candidateClass="SelectionEditViewController"/>
                 <relationship kind="outlet" name="timeLine" candidateClass="TimelineView"/>
-                <relationship kind="outlet" name="workDailyCost" candidateClass="ScrubbableTextView"/>
-                <relationship kind="outlet" name="workHourlyCost" candidateClass="ScrubbableTextView"/>
-                <relationship kind="outlet" name="yearlyCost" candidateClass="ScrubbableTextView"/>
             </relationships>
         </class>
     </classes>

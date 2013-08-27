@@ -13,6 +13,7 @@
 #import "DividerTrackView.h"
 #import "StatusTrackView.h"
 #import "Constants.h"
+#import "AmountEditController.h"
 
 #include <stdlib.h>
 
@@ -31,33 +32,13 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-  currentSelection = nil;
-  [self clearSelection];
   [self.fileNameField setText:@"Main"];
-
-  amountFormatter = [[NSNumberFormatter alloc] init];
-  amountFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-  amountFormatter.roundingIncrement = @1;
-  amountFormatter.roundingMode = NSNumberFormatterRoundHalfUp;
-  amountFormatter.maximumFractionDigits = 0;
-
-  self.yearlyCost.stepVal = 1000.0;
-  self.monthlyCost.stepVal = 200.0;
-  self.dailyCost.stepVal = 10.0;
-  self.workDailyCost.stepVal = 10.0;
-  self.workHourlyCost.stepVal = 1.0;
-
-  self.yearlyCost.formatter = amountFormatter;
-  self.monthlyCost.formatter = amountFormatter;
-  self.dailyCost.formatter = amountFormatter;
-  self.workDailyCost.formatter = amountFormatter;
-  self.workHourlyCost.formatter = amountFormatter;
-
-  self.safeWithdrawalField.stepVal = 0.5;
-  self.safeWithdrawalField.maxVal = 100.0;
-  self.dividendRateField.stepVal = 0.5;
-  self.dividendRateField.maxVal = 100.0;
-  self.growthRateField.stepVal = 0.5;
+  
+  // Create selection editors
+  selectEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
+  selectEditor.delegate = self;
+  selectEditor.view.frame = self.editorContainerView.bounds;
+  [self.editorContainerView addSubview:selectEditor.view];
 
   // Load or create model
   model = nil;
@@ -207,6 +188,10 @@
   [self updateParameterField:self.safeWithdrawalField toPercent:model.safeWithdrawalRate];
 }
 
+- (double)parseValue: (NSString*)str {
+  return [str doubleValue];
+}
+
 - (IBAction)parameterFieldChanged:(UITextField*)sender {
   double value = [self parseValue:[sender text]] / 100.0;
 
@@ -227,106 +212,30 @@
 #pragma mark Selections
 
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
-  // clear selection on other track
-  if (currentSelection != nil && currentSelection != sel) {
-    [currentSelection clear];
-  }
-
-  currentSelection = sel;
-  selectedTrack = track;
-
-  if ([currentSelection isEmpty]) {
-    [self clearSelection];
-    return;
-  }
-
-  // calculate selection average
-  double total = 0.0;
-  double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
-    total += data[i];
-  double average = total / (currentSelection.end - currentSelection.start + 1);
-
-  [self updateAmountFields:average];
-  [self.timeLine redrawTracks];
+  // TODO decide on the correct selection editor
+  [selectEditor setSelection:sel onTrack:track];
 }
 
 - (IBAction)clearSelection {
-  if(currentSelection) [currentSelection clear];
-  currentSelection = nil;
-  selectedTrack = nil;
-
-  [self.monthlyCost setText:@""];
-  [self.yearlyCost setText:@""];
-  [self.dailyCost setText:@""];
-  [self.workDailyCost setText:@""];
-  [self.workHourlyCost setText:@""];
-
-  [self.timeLine redrawTracks];
+  [selectEditor clearSelection];
 }
 
 - (IBAction)expandSelectionToEnd {
-  if (currentSelection != nil && currentSelection.start > 0) {
-    currentSelection.end = kMaxMonth;
-  }
-  [self.timeLine redrawTracks];
+  [selectEditor expandSelectionToEnd];
 }
 
-- (void)updateAmountFields:(double)monthlyValue {
-  [self.monthlyCost setValue:monthlyValue];
-  [self.yearlyCost setValue:monthlyValue*12.0];
-  [self.dailyCost setValue:monthlyValue/30.4];
-  [self.workDailyCost setValue:monthlyValue/20.0];
-  [self.workHourlyCost setValue:monthlyValue/160.0];
+- (IBAction)zeroSelection {
+  [selectEditor updateSelectionAmount:0.0];
 }
 
-- (void)updateSelectionAmount:(double)monthlyValue {
-  if (currentSelection == nil || selectedTrack == nil) {
-    return;
-  }
-
-  [self updateAmountFields:monthlyValue];
-
-  // Set selection
-  double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
-    data[i] = monthlyValue;
-  [selectedTrack recalc];
-
-  // Recalc and render
+- (void)updateModel {
   [model recalc];
   [self.timeLine redrawTracks];
   [self saveModel];
 }
 
-- (double)parseValue: (NSString*)str {
-  double res = [[amountFormatter numberFromString:str] doubleValue];
-  if (res == 0.0) {
-    res = [str doubleValue];
-  }
-  return res;
-}
-
-- (IBAction)selectionAmountChanged: (UITextField*)sender {
-  if ([sender.text isEqualToString:@""]) return;
-  double value = [self parseValue:[sender text]];
-
-  // convert to a monthly cost
-  if (sender == self.yearlyCost) {
-    value /= 12.0;
-  } else if(sender == self.dailyCost) {
-    value *= 30.4;
-  } else if(sender == self.workDailyCost) {
-    value *= 5.0*4.0;
-  } else if(sender == self.workHourlyCost) {
-    value *= 40*4.0;
-  }
-
-  [self updateSelectionAmount: value];
-}
-
-- (IBAction)zeroSelection {
-  [self updateSelectionAmount:0.0];
+- (void)redraw {
+  [self.timeLine redrawTracks];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

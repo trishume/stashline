@@ -16,14 +16,13 @@
 #import "FinanceModel.h"
 #import "ScrubbableTextView.h"
 
-@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate> {
-  Selection *currentSelection;
-  DataTrack *selectedTrack;
+@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate> {
+  SelectionEditViewController *selectEditor;
+  
   FinanceModel *model;
   NSNumberFormatter *amountFormatter;
 }
 
-- (IBAction)selectionAmountChanged: (UITextField*)sender;
 - (IBAction)clearSelection;
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
@@ -34,11 +33,7 @@
 
 - (IBAction)aboutMe;
 
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *yearlyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *monthlyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *dailyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *workDailyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *workHourlyCost;
+@property (weak, nonatomic) IBOutlet UIView *editorContainerView;
 
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *growthRateField;
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *dividendRateField;
@@ -47,6 +42,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *fileNameField;
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
-@property (nonatomic, strong) IBOutlet SelectionEditViewController *selectEditor;
 
 @end

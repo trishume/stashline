@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScrubbableTextView.h"
+#import "Selection.h"
+#import "DataTrack.h"
+#import "TimelineView.h"
 
-@interface SelectionEditViewController : UIViewController
+@protocol SelectionEditorDelegate <NSObject>
+- (void) redraw;
+- (void) updateModel;
+@end
+
+@interface SelectionEditViewController : UIViewController {
+  Selection *currentSelection;
+  DataTrack *selectedTrack;
+}
+
+- (void)clearSelection;
+- (void)expandSelectionToEnd;
+- (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track;
+- (void)updateValueDisplay:(double)monthlyValue;
+- (void)updateSelectionAmount:(double)monthlyValue;
+
+@property (strong,nonatomic) id<SelectionEditorDelegate> delegate;
 
 @end
