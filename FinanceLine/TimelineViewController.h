@@ -29,17 +29,12 @@
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
 - (IBAction)cutJobAtRetirement;
-- (IBAction)parameterFieldChanged:(UITextField*)sender;
 
 - (IBAction)loadFile;
 
 - (IBAction)aboutMe;
 
 @property (weak, nonatomic) IBOutlet UIView *editorContainerView;
-
-@property (weak, nonatomic) IBOutlet ScrubbableTextView *growthRateField;
-@property (weak, nonatomic) IBOutlet ScrubbableTextView *dividendRateField;
-@property (weak, nonatomic) IBOutlet ScrubbableTextView *safeWithdrawalField;
 
 @property (weak, nonatomic) IBOutlet UITextField *fileNameField;
 

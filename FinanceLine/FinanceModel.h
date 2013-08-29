@@ -16,10 +16,6 @@
 - (void)cutJobAtRetirement;
 
 // Inputs
-@property (nonatomic) double growthRate;
-@property (nonatomic) double dividendRate;
-@property (nonatomic) NSUInteger dividendPeriod;
-
 @property (nonatomic) double startAmount;
 @property (nonatomic) NSUInteger birthYear;
 

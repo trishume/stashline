@@ -29,9 +29,7 @@
 	// Do any additional setup after loading the view.
 
   percentFormatter = [[NSNumberFormatter alloc] init];
-  percentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-  percentFormatter.positiveSuffix = @"%";
-  percentFormatter.negativeSuffix = @"%";
+  percentFormatter.numberStyle = NSNumberFormatterPercentStyle;
   percentFormatter.minimumFractionDigits = 2;
   percentFormatter.maximumFractionDigits = 2;
 
@@ -40,8 +38,8 @@
   yearFormatter.maximumFractionDigits = 1;
   yearFormatter.minimumFractionDigits = 1;
 
-  self.yearlyGrowth.stepVal = 0.25;
-  self.monthlyGrowth.stepVal = 0.05;
+  self.yearlyGrowth.stepVal = 0.0025;
+  self.monthlyGrowth.stepVal = 0.0005;
   self.doublingPeriod.stepVal = 0.5;
   
   // TODO negative growth rates
@@ -53,7 +51,7 @@
 
 - (double)doublingPeriod:(double)yearlyGrowth {
   if(yearlyGrowth == 0.0) return 0.0;
-  return 70.0 / yearlyGrowth;
+  return 70.0 / (yearlyGrowth * 100.0);
 }
 
 - (void)updateValueDisplay:(double)yearlyGrowth {

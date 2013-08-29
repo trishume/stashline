@@ -25,11 +25,6 @@
 {
     self = [super init];
     if (self) {
-      // default values
-      self.growthRate = 0.05;
-      self.dividendRate = 0.02;
-      self.dividendPeriod = 3;
-
       self.startAmount = 0.0;
       self.birthYear = [self currentYear];
 
@@ -64,17 +59,13 @@
 - (id)initWithCoder:(NSCoder *)coder {
   FinanceModel *m = [self init];
 
-  m.growthRate = [coder decodeDoubleForKey:kGrowthKey];
-  m.dividendRate = [coder decodeDoubleForKey:kDividendKey];
   m.startAmount = [coder decodeDoubleForKey:kStartAmountKey];
+  m.birthYear = [coder decodeIntegerForKey:kBirthYearKey];
   m.safeWithdrawalRate = [coder decodeDoubleForKey:kSafeWithdrawalKey];
 
   m.incomeTracks = [coder decodeObjectForKey:kIncomeTracksKey];
   m.expenseTracks = [coder decodeObjectForKey:kExpenseTracksKey];
   m.investmentTrack = [coder decodeObjectForKey:kInvestmentTrackKey];
-
-  m.dividendPeriod = [coder decodeIntegerForKey:kDividendPeriodKey];
-  m.birthYear = [coder decodeIntegerForKey:kBirthYearKey];
 
   [m recalc];
 
@@ -82,9 +73,6 @@
 }
 
 - (void) encodeWithCoder:(NSCoder *)coder {
-  [coder encodeDouble:self.growthRate forKey:kGrowthKey];
-  [coder encodeDouble:self.dividendRate forKey:kDividendKey];
-  [coder encodeInteger:self.dividendPeriod forKey:kDividendPeriodKey];
   [coder encodeDouble:self.startAmount forKey:kStartAmountKey];
   [coder encodeInteger:self.birthYear forKey:kBirthYearKey];
   [coder encodeDouble:self.safeWithdrawalRate forKey:kSafeWithdrawalKey];
@@ -123,18 +111,14 @@
 
 - (double)iterateStash:(double)stash forMonth:(NSUInteger)month {
   double expenses = [self sumTracks:self.expenseTracks forMonth:month];
-
   double income = [self sumTracks:self.incomeTracks forMonth:month];
-  double savings = income - expenses;
+  double growthRate = [self.investmentTrack valueAt:month];
 
-  // Grow stash and pay dividends.
-  stash *= 1.0 + self.growthRate / 12.0;
-  if (month % self.dividendPeriod == 0) {
-    double thisMonthDividends = self.dividendRate / 12 * self.dividendPeriod;
-    stash += stash * thisMonthDividends;
-  }
+  // Grow stash with investments.
+  stash *= 1.0 + growthRate / 12.0;
 
   // Savings can be negative, in which case we are withdrawing
+  double savings = income - expenses;
   stash += savings;
 
   // Calculate Status
