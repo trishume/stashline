@@ -220,7 +220,7 @@
             <objects>
                 <viewController storyboardIdentifier="amountEditor" id="iZG-z6-CTT" customClass="AmountEditController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="yuD-li-DhY">
-                        <rect key="frame" x="0.0" y="0.0" width="361" height="109"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="110"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="fFc-fc-jqd" customClass="ScrubbableTextView">
@@ -332,6 +332,83 @@
             </objects>
             <point key="canvasLocation" x="979" y="-373"/>
         </scene>
+        <!--Investment Edit Controller-->
+        <scene sceneID="xDt-tK-Kk6">
+            <objects>
+                <viewController storyboardIdentifier="investmentEditor" id="e0M-t7-TyJ" customClass="InvestmentEditController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="lqU-Ff-arR">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="110"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5.00%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="hO5-Wd-gEm" customClass="ScrubbableTextView">
+                                <rect key="frame" x="20" y="7" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="e0M-t7-TyJ" eventType="editingDidEnd" id="q4u-1K-DLK"/>
+                                    <outlet property="delegate" destination="e0M-t7-TyJ" id="Kbb-pV-186"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yearly Growth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yLp-Kp-ACl">
+                                <rect key="frame" x="125" y="11" width="123" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.51%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="6mO-pQ-jkR" customClass="ScrubbableTextView">
+                                <rect key="frame" x="20" y="40" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="e0M-t7-TyJ" eventType="editingDidEnd" id="6tN-qf-yO8"/>
+                                    <outlet property="delegate" destination="e0M-t7-TyJ" id="rSU-no-CTZ"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Monthly Growth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IAW-ei-ipa">
+                                <rect key="frame" x="125" y="44" width="137" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20 Year" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="cSf-h2-asS" customClass="ScrubbableTextView">
+                                <rect key="frame" x="20" y="73" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="selectionAmountChanged:" destination="e0M-t7-TyJ" eventType="editingDidEnd" id="1lD-iK-c8n"/>
+                                    <outlet property="delegate" destination="e0M-t7-TyJ" id="aZM-vq-rST"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Doubling Period" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sst-Fv-WRU">
+                                <rect key="frame" x="125" y="78" width="139" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="doublingPeriod" destination="cSf-h2-asS" id="OYN-2t-qeM"/>
+                        <outlet property="monthlyGrowth" destination="6mO-pQ-jkR" id="DVp-r4-FMl"/>
+                        <outlet property="yearlyGrowth" destination="hO5-Wd-gEm" id="sz6-Wu-NI7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otI-Q4-AEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="-139"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Name Banner.png" width="139" height="32"/>
@@ -346,6 +423,15 @@
                 <relationship kind="outlet" name="workDailyCost" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="workHourlyCost" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="yearlyCost" candidateClass="ScrubbableTextView"/>
+            </relationships>
+        </class>
+        <class className="InvestmentEditController" superclassName="SelectionEditViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InvestmentEditController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectionAmountChanged:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doublingPeriod" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="monthlyGrowth" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="yearlyGrowth" candidateClass="ScrubbableTextView"/>
             </relationships>
         </class>
         <class className="PanelView" superclassName="UIView">

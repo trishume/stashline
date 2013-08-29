@@ -17,6 +17,8 @@
 #import "ScrubbableTextView.h"
 
 @interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate> {
+  SelectionEditViewController *amountEditor;
+  SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;
   
   FinanceModel *model;

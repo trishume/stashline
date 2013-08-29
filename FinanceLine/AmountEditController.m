@@ -65,23 +65,6 @@
   [self.workHourlyCost setText:@""];
 }
 
-- (void)updateSelectionAmount:(double)monthlyValue {
-  if (currentSelection == nil || selectedTrack == nil) {
-    return;
-  }
-  
-  [self updateValueDisplay:monthlyValue];
-  
-  // Set selection
-  double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
-    data[i] = monthlyValue;
-  [selectedTrack recalc];
-  
-  // Recalc and render
-  [self.delegate updateModel];
-}
-
 - (double)parseValue: (NSString*)str {
   double res = [[amountFormatter numberFromString:str] doubleValue];
   if (res == 0.0) {

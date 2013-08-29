@@ -17,6 +17,7 @@
 #define kSafeWithdrawalKey @"safeWithdrawalRate"
 #define kIncomeTracksKey @"incomeTracks"
 #define kExpenseTracksKey @"expenseTracks"
+#define kInvestmentTrackKey @"investmentTrack"
 
 @implementation FinanceModel
 
@@ -70,6 +71,7 @@
 
   m.incomeTracks = [coder decodeObjectForKey:kIncomeTracksKey];
   m.expenseTracks = [coder decodeObjectForKey:kExpenseTracksKey];
+  m.investmentTrack = [coder decodeObjectForKey:kInvestmentTrackKey];
 
   m.dividendPeriod = [coder decodeIntegerForKey:kDividendPeriodKey];
   m.birthYear = [coder decodeIntegerForKey:kBirthYearKey];
@@ -88,6 +90,7 @@
   [coder encodeDouble:self.safeWithdrawalRate forKey:kSafeWithdrawalKey];
   [coder encodeObject:self.incomeTracks forKey:kIncomeTracksKey];
   [coder encodeObject:self.expenseTracks forKey:kExpenseTracksKey];
+  [coder encodeObject:self.investmentTrack forKey:kInvestmentTrackKey];
 }
 
 #pragma mark Calculation

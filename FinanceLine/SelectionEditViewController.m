@@ -14,6 +14,8 @@
 
 @implementation SelectionEditViewController
 
+@synthesize currentSelection, selectedTrack;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,16 +52,7 @@
   
 }
 
-- (void)updateSelectionAmount:(double)monthlyValue {
-  
-}
-
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
-  // clear selection on other track
-  if (currentSelection != nil && currentSelection != sel) {
-    [currentSelection clear];
-  }
-  
   currentSelection = sel;
   selectedTrack = track;
   
@@ -77,6 +70,23 @@
   
   [self updateValueDisplay:average];
   [self.delegate redraw];
+}
+
+- (void)updateSelectionAmount:(double)value {
+  if (currentSelection == nil || selectedTrack == nil) {
+    return;
+  }
+  
+  [self updateValueDisplay:value];
+  
+  // Set selection
+  double *data = [selectedTrack dataPtr];
+  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
+    data[i] = value;
+  [selectedTrack recalc];
+  
+  // Recalc and render
+  [self.delegate updateModel];
 }
 
 - (void)didReceiveMemoryWarning

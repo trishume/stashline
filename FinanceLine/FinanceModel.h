@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong) NSMutableArray *incomeTracks;
 @property (nonatomic, strong) NSMutableArray *expenseTracks;
+@property (nonatomic, strong) DataTrack *investmentTrack;
 
 // Outputs
 @property (nonatomic, strong) DataTrack *stashTrack;

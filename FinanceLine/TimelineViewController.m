@@ -20,7 +20,7 @@
 #define kDefaultIncomeTracks 2
 #define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
-#define kLoadOnStart
+// #define kLoadOnStart
 
 @interface TimelineViewController ()
 
@@ -35,10 +35,15 @@
   [self.fileNameField setText:@"Main"];
   
   // Create selection editors
-  selectEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
-  selectEditor.delegate = self;
-  selectEditor.view.frame = self.editorContainerView.bounds;
-  [self.editorContainerView addSubview:selectEditor.view];
+  amountEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
+  amountEditor.delegate = self;
+  amountEditor.view.frame = self.editorContainerView.bounds;
+  
+  investmentEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"investmentEditor"];
+  investmentEditor.delegate = self;
+  investmentEditor.view.frame = self.editorContainerView.bounds;
+  
+  selectEditor = nil;
 
   // Load or create model
   model = nil;
@@ -108,13 +113,19 @@
 
   for (int i = 0; i < kDefaultIncomeTracks; ++i) {
     DataTrack *track = [[DataTrack alloc] init];
+    track.name = @"Income";
     [m.incomeTracks addObject:track];
   }
 
   for (int i = 0; i < kDefaultExpenseTracks; ++i) {
     DataTrack *track = [[DataTrack alloc] init];
+    track.name = @"Expenses";
     [m.expenseTracks addObject:track];
   }
+  
+  DataTrack *investmentTrack = [[DataTrack alloc] init];
+  investmentTrack.name = @"Investment";
+  m.investmentTrack = investmentTrack;
 
   return m;
 }
@@ -148,6 +159,13 @@
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
   }
+  
+  AnnuityTrackView *investTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  investTrack.data = model.investmentTrack;
+  investTrack.hue = 0.566;
+  investTrack.selectionDelegate = self;
+  [self.timeLine addTrack:investTrack withHeight:kAnnuityTrackHeight];
+  [self addDivider];
 
   [self updateParameterFields];
 }
@@ -212,20 +230,42 @@
 #pragma mark Selections
 
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
-  // TODO decide on the correct selection editor
+  // clear selection on other track
+  if (selectEditor != nil && selectEditor.currentSelection != nil && selectEditor.currentSelection != sel) {
+    [selectEditor.currentSelection clear];
+  }
+  // Swap view if necessary
+  if ([track.name isEqualToString:@"Investment"]) {
+    if(investmentEditor != selectEditor) {
+      selectEditor = investmentEditor;
+      [amountEditor.view removeFromSuperview];
+      [self.editorContainerView addSubview:selectEditor.view];
+    }
+  } else {
+    if(selectEditor != amountEditor) {
+      selectEditor = amountEditor;
+      [investmentEditor.view removeFromSuperview];
+      [self.editorContainerView addSubview:selectEditor.view];
+    }
+  }
+  
   [selectEditor setSelection:sel onTrack:track];
 }
 
 - (IBAction)clearSelection {
-  [selectEditor clearSelection];
+  if(selectEditor) {
+    [selectEditor clearSelection];
+    [selectEditor.view removeFromSuperview];
+    selectEditor = nil;
+  }
 }
 
 - (IBAction)expandSelectionToEnd {
-  [selectEditor expandSelectionToEnd];
+  if(selectEditor) [selectEditor expandSelectionToEnd];
 }
 
 - (IBAction)zeroSelection {
-  [selectEditor updateSelectionAmount:0.0];
+  if(selectEditor) [selectEditor updateSelectionAmount:0.0];
 }
 
 - (void)updateModel {

@@ -17,10 +17,7 @@
 - (void) updateModel;
 @end
 
-@interface SelectionEditViewController : UIViewController {
-  Selection *currentSelection;
-  DataTrack *selectedTrack;
-}
+@interface SelectionEditViewController : UIViewController
 
 - (void)clearSelection;
 - (void)expandSelectionToEnd;
@@ -29,5 +26,7 @@
 - (void)updateSelectionAmount:(double)monthlyValue;
 
 @property (strong,nonatomic) id<SelectionEditorDelegate> delegate;
+@property (strong,nonatomic) Selection *currentSelection;
+@property (strong,nonatomic) DataTrack *selectedTrack;
 
 @end
