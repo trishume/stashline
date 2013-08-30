@@ -20,7 +20,7 @@
 #define kDefaultIncomeTracks 2
 #define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
-// #define kLoadOnStart
+#define kLoadOnStart
 
 @interface TimelineViewController ()
 
