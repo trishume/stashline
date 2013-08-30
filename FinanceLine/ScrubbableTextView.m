@@ -47,6 +47,11 @@
   return self;
 }
 
+-(void) awakeFromNib{
+  [super awakeFromNib];
+  self.font = [UIFont fontWithName:@"PTSans-CaptionBold" size: self.font.pointSize];
+}
+
 - (double)doubleValue {
   return curVal;
 }
