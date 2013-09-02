@@ -495,10 +495,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mfW-fP-xc4" customClass="NiceLabel">
-                                <rect key="frame" x="17" y="-2" width="327" height="104"/>
+                                <rect key="frame" x="3" y="5" width="358" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Sketch out your future income, expenses and investing in the tracks below and see how things might look. Tap or drag ">
+                                    <fragment content="Sketch out future income, expenses and investing in the tracks below and see how your life might look.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.49803924560000001" green="0.54901963470000004" blue="0.55294120309999995" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="17" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="body" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fE5-lJ-TUD" customClass="NiceLabel">
+                                <rect key="frame" x="2" y="70" width="358" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Tap or drag ">
                                         <attributes>
                                             <color key="NSColor" red="0.49803924560000001" green="0.54901963470000004" blue="0.55294120309999995" alpha="1" colorSpace="deviceRGB"/>
                                             <font key="NSFont" size="17" name="Helvetica"/>
@@ -512,7 +529,7 @@
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" numbers to edit.">
+                                    <fragment content=" numbers to edit them.">
                                         <attributes>
                                             <color key="NSColor" red="0.49803924560000001" green="0.54901963470000004" blue="0.55294120309999995" alpha="1" colorSpace="deviceRGB"/>
                                             <font key="NSFont" size="17" name="Helvetica"/>
@@ -522,7 +539,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="body" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
