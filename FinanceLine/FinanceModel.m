@@ -13,7 +13,7 @@
 #define kDividendKey @"dividendRate"
 #define kDividendPeriodKey @"dividendPeriod"
 #define kStartAmountKey @"startAmount"
-#define kBirthYearKey @"birthYear"
+#define kStartAgeKey @"startAge"
 #define kSafeWithdrawalKey @"safeWithdrawalRate"
 #define kIncomeTracksKey @"incomeTracks"
 #define kExpenseTracksKey @"expenseTracks"
@@ -26,7 +26,7 @@
     self = [super init];
     if (self) {
       self.startAmount = 0.0;
-      self.birthYear = [self currentYear];
+      self.startAge = 0;
 
       self.safeWithdrawalRate = 0.04;
 
@@ -60,7 +60,7 @@
   FinanceModel *m = [self init];
 
   m.startAmount = [coder decodeDoubleForKey:kStartAmountKey];
-  m.birthYear = [coder decodeIntegerForKey:kBirthYearKey];
+  m.startAge = [coder decodeIntegerForKey:kStartAgeKey];
   m.safeWithdrawalRate = [coder decodeDoubleForKey:kSafeWithdrawalKey];
 
   m.incomeTracks = [coder decodeObjectForKey:kIncomeTracksKey];
@@ -74,7 +74,7 @@
 
 - (void) encodeWithCoder:(NSCoder *)coder {
   [coder encodeDouble:self.startAmount forKey:kStartAmountKey];
-  [coder encodeInteger:self.birthYear forKey:kBirthYearKey];
+  [coder encodeInteger:self.startAge forKey:kStartAgeKey];
   [coder encodeDouble:self.safeWithdrawalRate forKey:kSafeWithdrawalKey];
   [coder encodeObject:self.incomeTracks forKey:kIncomeTracksKey];
   [coder encodeObject:self.expenseTracks forKey:kExpenseTracksKey];
@@ -90,8 +90,7 @@
 }
 
 - (NSUInteger)startMonth {
-  NSUInteger yearOffset = [self currentYear] - self.birthYear;
-  return yearOffset * 12;
+  return self.startAge * 12;
 }
 
 - (void)recalc {

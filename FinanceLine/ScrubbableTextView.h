@@ -13,7 +13,10 @@
   double curVal;
 }
 
++ (NSNumberFormatter*)amountFormatter;
+
 - (void)setValue:(double)v;
+- (double)parseValue;
 
 @property (nonatomic) double minVal;
 @property (nonatomic) double maxVal;

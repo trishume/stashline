@@ -20,7 +20,7 @@
 #define kDefaultIncomeTracks 2
 #define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
-#define kLoadOnStart
+//#define kLoadOnStart
 
 @interface TimelineViewController ()
 
@@ -44,6 +44,19 @@
   investmentEditor.view.frame = self.editorContainerView.bounds;
   
   selectEditor = nil;
+  
+  // I am view
+  NSNumberFormatter *amountFormatter = [ScrubbableTextView amountFormatter];
+  self.savingsField.formatter = amountFormatter;
+  self.savingsField.stepVal = 1000.0;
+  [self.savingsField setValue:0.0];
+  
+  NSNumberFormatter *yearFormatter = [[NSNumberFormatter alloc] init];
+  yearFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+  self.ageField.formatter = yearFormatter;
+  self.ageField.stepVal = 1.0;
+  self.ageField.maxVal = 98;
+  [self.ageField setValue:0.0];
 
   // Load or create model
   model = nil;
@@ -186,6 +199,23 @@
   NSURL *url = [NSURL URLWithString:@"http://thume.ca/"];
   [[UIApplication sharedApplication] openURL:url];
 }
+
+#pragma mark I Am
+
+- (IBAction)iAmFieldChanged: (ScrubbableTextView*)sender {
+  if ([sender.text isEqualToString:@""]) return;
+  double value = [sender parseValue];
+  [sender setValue:value];
+  
+  if (sender == self.ageField) {
+    model.startAge = value;
+  } else if (sender == self.savingsField) {
+    model.startAmount = value;
+  }
+  
+  [self updateModel];
+}
+
 
 #pragma mark Selections
 

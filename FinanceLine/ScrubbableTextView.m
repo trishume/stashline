@@ -12,6 +12,15 @@
 
 @implementation ScrubbableTextView
 
++ (NSNumberFormatter*)amountFormatter {
+  NSNumberFormatter *amountFormatter = [[NSNumberFormatter alloc] init];
+  amountFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+  amountFormatter.roundingIncrement = @1;
+  amountFormatter.roundingMode = NSNumberFormatterRoundHalfUp;
+  amountFormatter.maximumFractionDigits = 0;
+  return amountFormatter;
+}
+
 - (void)initialize
 {
   self.minVal = 0.0;
@@ -90,6 +99,14 @@
     self.textColor = self.normalColor;
     [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
   }
+}
+
+- (double)parseValue {
+  double res = [[self.formatter numberFromString:self.text] doubleValue];
+  if (res == 0.0) {
+    res = [self.text doubleValue];
+  }
+  return res;
 }
 
 /*

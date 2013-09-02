@@ -22,7 +22,6 @@
   SelectionEditViewController *selectEditor;
   
   FinanceModel *model;
-  NSNumberFormatter *amountFormatter;
 }
 
 - (IBAction)clearSelection;
@@ -33,6 +32,10 @@
 - (IBAction)loadFile;
 
 - (IBAction)aboutMe;
+
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *ageField;
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *savingsField;
+
 
 @property (weak, nonatomic) IBOutlet UIView *editorContainerView;
 

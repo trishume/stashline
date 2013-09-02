@@ -28,11 +28,7 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
-  amountFormatter = [[NSNumberFormatter alloc] init];
-  amountFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-  amountFormatter.roundingIncrement = @1;
-  amountFormatter.roundingMode = NSNumberFormatterRoundHalfUp;
-  amountFormatter.maximumFractionDigits = 0;
+  amountFormatter = [ScrubbableTextView amountFormatter];
   
   self.yearlyCost.stepVal = 1000.0;
   self.monthlyCost.stepVal = 200.0;

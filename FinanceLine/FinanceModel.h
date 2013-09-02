@@ -17,7 +17,7 @@
 
 // Inputs
 @property (nonatomic) double startAmount;
-@property (nonatomic) NSUInteger birthYear;
+@property (nonatomic) NSUInteger startAge;
 
 @property (nonatomic) double safeWithdrawalRate;
 
