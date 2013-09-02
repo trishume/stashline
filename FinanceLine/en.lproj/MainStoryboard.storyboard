@@ -165,6 +165,56 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="At" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9W-ZE-deP" customClass="NiceLabel">
+                                        <rect key="frame" x="839" y="84" width="30" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wyq-d7-AEZ" customClass="NiceLabel">
+                                        <rect key="frame" x="867" y="84" width="41" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.15686275059999999" green="0.68235296010000002" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$1,700,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m8i-Dv-ED0" customClass="NiceLabel">
+                                        <rect key="frame" x="892" y="111" width="117" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.15686275059999999" green="0.68235296010000002" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I will retire" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I6X-Od-vzn" customClass="NiceLabel">
+                                        <rect key="frame" x="906" y="84" width="103" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="with" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="15B-lJ-Sto" customClass="NiceLabel">
+                                        <rect key="frame" x="836" y="111" width="49" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -185,6 +235,8 @@
                         <outlet property="ageField" destination="4jp-am-ftg" id="hIL-JX-gDd"/>
                         <outlet property="editorContainerView" destination="vcG-33-hL8" id="VOL-xw-R6B"/>
                         <outlet property="fileNameField" destination="Xxq-DM-s24" id="etj-hs-c1C"/>
+                        <outlet property="retireAgeLabel" destination="Wyq-d7-AEZ" id="L87-qb-PAA"/>
+                        <outlet property="retireSavingsLabel" destination="m8i-Dv-ED0" id="zmC-T5-S2p"/>
                         <outlet property="savingsField" destination="L3s-1l-F2k" id="DDE-2o-mzt"/>
                         <outlet property="timeLine" destination="lDv-1N-ewu" id="uiy-xo-v2b"/>
                     </connections>
@@ -471,6 +523,8 @@
                 <relationship kind="outlet" name="ageField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="editorContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="fileNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="retireAgeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retireSavingsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="savingsField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="timeLine" candidateClass="TimelineView"/>
             </relationships>

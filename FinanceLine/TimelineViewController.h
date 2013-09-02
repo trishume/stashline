@@ -21,6 +21,9 @@
   SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;
   
+  NSNumberFormatter *amountFormatter;
+  NSNumberFormatter *yearFormatter;
+  
   FinanceModel *model;
 }
 
@@ -35,6 +38,8 @@
 
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *ageField;
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *savingsField;
+@property (weak, nonatomic) IBOutlet UILabel *retireAgeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retireSavingsLabel;
 
 
 @property (weak, nonatomic) IBOutlet UIView *editorContainerView;

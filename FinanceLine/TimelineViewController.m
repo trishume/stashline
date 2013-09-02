@@ -46,17 +46,17 @@
   selectEditor = nil;
   
   // I am view
-  NSNumberFormatter *amountFormatter = [ScrubbableTextView amountFormatter];
+  amountFormatter = [ScrubbableTextView amountFormatter];
   self.savingsField.formatter = amountFormatter;
   self.savingsField.stepVal = 1000.0;
   [self.savingsField setValue:0.0];
   
-  NSNumberFormatter *yearFormatter = [[NSNumberFormatter alloc] init];
+  yearFormatter = [[NSNumberFormatter alloc] init];
   yearFormatter.numberStyle = NSNumberFormatterDecimalStyle;
   self.ageField.formatter = yearFormatter;
   self.ageField.stepVal = 1.0;
   self.ageField.maxVal = 98;
-  [self.ageField setValue:0.0];
+  [self.ageField setValue:20.0];
 
   // Load or create model
   model = nil;
@@ -119,6 +119,7 @@
   }
 
   [self loadTracks];
+  [self updateDisplays];
 }
 
 - (FinanceModel*)newModel {
@@ -182,6 +183,16 @@
   [self addDivider];
 }
 
+- (void)updateDisplays {
+  NSInteger retirementYear = model.retirementMonth / 12;
+  self.retireAgeLabel.text = [yearFormatter stringFromNumber:[NSNumber numberWithInteger:retirementYear]];
+  double retirementSavings = [model.stashTrack valueAt:model.retirementMonth];
+  self.retireSavingsLabel.text = [amountFormatter stringFromNumber:[NSNumber numberWithDouble:retirementSavings]];
+  
+  [self.ageField setValue:model.startMonth/12];
+  [self.savingsField setValue:model.startAmount];
+}
+
 #pragma mark File Management
 
 - (IBAction)loadFile {
@@ -206,7 +217,6 @@
 - (IBAction)iAmFieldChanged: (ScrubbableTextView*)sender {
   if ([sender.text isEqualToString:@""]) return;
   double value = [sender parseValue];
-  [sender setValue:value];
   
   if (sender == self.ageField) {
     model.startMonth = value * 12;
@@ -262,6 +272,7 @@
 - (void)updateModel {
   [model recalc];
   [self.timeLine redrawTracks];
+  [self updateDisplays];
   [self saveModel];
 }
 

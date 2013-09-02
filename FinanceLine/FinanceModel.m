@@ -90,7 +90,7 @@
 }
 
 - (void)recalc {
-  self.retirementMonth = 0;
+  self.retirementMonth = [self startMonth];
   
   // Zero before start
   for (int i = 0; i < [self startMonth]; ++i) {
@@ -123,7 +123,9 @@
 
   // Calculate Status
   double status = 0.0; // normal
-  if (stash * (self.safeWithdrawalRate/12.0) >= expenses && expenses != 0.0) {
+  if (expenses == 0.0) {
+    status = kStatusNoExpenses;
+  } if (stash * (self.safeWithdrawalRate/12.0) >= expenses) {
     status = kStatusSafeWithdraw;
   } else if(stash < 0.0) {
     status = kStatusDebt;
@@ -131,7 +133,7 @@
   [self.statusTrack setValue:status forMonth:month];
 
   // Check retirement month
-  if (status != kStatusSafeWithdraw) {
+  if (status != kStatusSafeWithdraw && status != kStatusNoExpenses) {
     self.retirementMonth = month;
   }
 
