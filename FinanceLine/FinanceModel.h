@@ -11,9 +11,11 @@
 
 @interface FinanceModel : NSObject <NSCoding>
 
-- (id) init;
-- (void) recalc;
+- (id)init;
+- (void)recalc;
 - (void)cutJobAtRetirement;
+
+- (NSUInteger)startMonth;
 
 // Inputs
 @property (nonatomic) double startAmount;

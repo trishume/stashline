@@ -95,6 +95,11 @@
 
 - (void)recalc {
   self.retirementMonth = 0;
+  
+  // Zero before start
+  for (int i = 0; i < [self startMonth]; ++i) {
+    [self.stashTrack setValue:0.0 forMonth:i];
+  }
 
   double stash = self.startAmount;
   for (int i = [self startMonth]; i <= kMaxMonth; ++i) {

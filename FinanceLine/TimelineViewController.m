@@ -148,6 +148,7 @@
 
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
   stashTrack.data = model.stashTrack;
+  stashTrack.model = model;
   [self.timeLine addTrack:stashTrack withHeight:150.0];
 
   TimelineTrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
