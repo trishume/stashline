@@ -34,6 +34,23 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I will be" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4v5-Rs-UeZ" customClass="NiceLabel">
+                                        <rect key="frame" x="441" y="17" width="102" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.58431375029999999" green="0.64705884459999996" blue="0.65098041299999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="earning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f70-PV-Sch" customClass="NiceLabel">
+                                        <rect key="frame" x="548" y="15" width="151" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" red="0.1019607931" green="0.73725491759999995" blue="0.61176472900000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="and" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Quk-KM-LP5" customClass="NiceLabel">
                                         <rect key="frame" x="942" y="14" width="49" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,19 +84,19 @@
                                         </connections>
                                     </textField>
                                     <view opaque="NO" contentMode="scaleToFill" id="vcG-33-hL8">
-                                        <rect key="frame" x="418" y="22" width="360" height="110"/>
+                                        <rect key="frame" x="441" y="41" width="360" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="75C-rQ-emd" customClass="NiceLabel">
-                                        <rect key="frame" x="277" y="16" width="138" height="31"/>
+                                        <rect key="frame" x="277" y="12" width="138" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="StashLine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gqx-oQ-wJE" customClass="NiceLabel">
-                                        <rect key="frame" x="16" y="12" width="171" height="35"/>
+                                        <rect key="frame" x="16" y="10" width="171" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
@@ -238,6 +255,7 @@
                         <outlet property="retireAgeLabel" destination="Wyq-d7-AEZ" id="L87-qb-PAA"/>
                         <outlet property="retireSavingsLabel" destination="m8i-Dv-ED0" id="zmC-T5-S2p"/>
                         <outlet property="savingsField" destination="L3s-1l-F2k" id="DDE-2o-mzt"/>
+                        <outlet property="selectedLabel" destination="f70-PV-Sch" id="T1Q-zX-uUQ"/>
                         <outlet property="timeLine" destination="lDv-1N-ewu" id="uiy-xo-v2b"/>
                     </connections>
                 </viewController>
@@ -255,11 +273,11 @@
             <objects>
                 <viewController storyboardIdentifier="amountEditor" id="iZG-z6-CTT" customClass="AmountEditController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="yuD-li-DhY">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="fFc-fc-jqd" customClass="ScrubbableTextView">
-                                <rect key="frame" x="0.0" y="6" width="97" height="30"/>
+                                <rect key="frame" x="0.0" y="2" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -270,7 +288,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yearly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wPq-aV-jx5" customClass="NiceLabel">
-                                <rect key="frame" x="105" y="10" width="72" height="21"/>
+                                <rect key="frame" x="105" y="6" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -280,7 +298,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$10,000" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="xJW-yr-x6w" customClass="ScrubbableTextView">
-                                <rect key="frame" x="0.0" y="39" width="97" height="30"/>
+                                <rect key="frame" x="0.0" y="35" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -291,7 +309,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Monthly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i63-Oy-QcJ" customClass="NiceLabel">
-                                <rect key="frame" x="105" y="43" width="82" height="21"/>
+                                <rect key="frame" x="105" y="39" width="82" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,7 +319,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$500" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="xLp-iC-dCo" customClass="ScrubbableTextView">
-                                <rect key="frame" x="0.0" y="72" width="97" height="30"/>
+                                <rect key="frame" x="0.0" y="68" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -312,7 +330,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Daily" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="inU-o9-ol1" customClass="NiceLabel">
-                                <rect key="frame" x="105" y="77" width="66" height="21"/>
+                                <rect key="frame" x="105" y="73" width="66" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -322,7 +340,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$900" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="FSv-N4-J8y" customClass="ScrubbableTextView">
-                                <rect key="frame" x="139" y="7" width="97" height="30"/>
+                                <rect key="frame" x="139" y="3" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -333,7 +351,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Work Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ER-Vf-dWE" customClass="NiceLabel">
-                                <rect key="frame" x="244" y="11" width="108" height="21"/>
+                                <rect key="frame" x="244" y="7" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,7 +361,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$100" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="mq8-k2-E0J" customClass="ScrubbableTextView">
-                                <rect key="frame" x="139" y="39" width="97" height="30"/>
+                                <rect key="frame" x="139" y="35" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -354,7 +372,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Work Hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nu1-oP-tlK" customClass="NiceLabel">
-                                <rect key="frame" x="244" y="44" width="108" height="21"/>
+                                <rect key="frame" x="244" y="40" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -387,11 +405,11 @@
             <objects>
                 <viewController storyboardIdentifier="investmentEditor" id="e0M-t7-TyJ" customClass="InvestmentEditController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="lqU-Ff-arR">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5.00%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="hO5-Wd-gEm" customClass="ScrubbableTextView">
-                                <rect key="frame" x="20" y="7" width="97" height="30"/>
+                                <rect key="frame" x="20" y="2" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -402,7 +420,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yearly Growth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yLp-Kp-ACl" customClass="NiceLabel">
-                                <rect key="frame" x="125" y="11" width="196" height="22"/>
+                                <rect key="frame" x="125" y="6" width="196" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -412,7 +430,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.51%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="6mO-pQ-jkR" customClass="ScrubbableTextView">
-                                <rect key="frame" x="20" y="40" width="97" height="30"/>
+                                <rect key="frame" x="20" y="35" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -423,7 +441,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Monthly Growth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IAW-ei-ipa" customClass="NiceLabel">
-                                <rect key="frame" x="125" y="44" width="196" height="22"/>
+                                <rect key="frame" x="125" y="39" width="196" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -433,7 +451,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20 " textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="cSf-h2-asS" customClass="ScrubbableTextView">
-                                <rect key="frame" x="20" y="73" width="97" height="30"/>
+                                <rect key="frame" x="20" y="68" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -444,7 +462,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Years to Double" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sst-Fv-WRU" customClass="NiceLabel">
-                                <rect key="frame" x="125" y="78" width="205" height="22"/>
+                                <rect key="frame" x="125" y="73" width="205" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -467,6 +485,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otI-Q4-AEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979" y="-139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="twN-l3-Hhg">
+            <objects>
+                <viewController storyboardIdentifier="introController" id="9Wj-H2-SVd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="" id="2IN-2y-n0y">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mfW-fP-xc4" customClass="NiceLabel">
+                                <rect key="frame" x="17" y="-2" width="327" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Sketch out your future income, expenses and investing in the tracks below and see how things might look. Tap or drag ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.49803924560000001" green="0.54901963470000004" blue="0.55294120309999995" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="17" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="blue">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000001789999999" green="0.59607845540000004" blue="0.85882359740000003" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="17" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" numbers to edit.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.49803924560000001" green="0.54901963470000004" blue="0.55294120309999995" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="17" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="body" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGt-ZW-Osf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="67"/>
         </scene>
     </scenes>
     <resources>
@@ -517,7 +584,6 @@
                 <relationship kind="action" name="clearSelection"/>
                 <relationship kind="action" name="cutJobAtRetirement"/>
                 <relationship kind="action" name="expandSelectionToEnd"/>
-                <relationship kind="action" name="iAmFieldChanged:" candidateClass="ScrubbableTextView"/>
                 <relationship kind="action" name="loadFile"/>
                 <relationship kind="action" name="zeroSelection"/>
                 <relationship kind="outlet" name="ageField" candidateClass="ScrubbableTextView"/>
@@ -526,6 +592,7 @@
                 <relationship kind="outlet" name="retireAgeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="retireSavingsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="savingsField" candidateClass="ScrubbableTextView"/>
+                <relationship kind="outlet" name="selectedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeLine" candidateClass="TimelineView"/>
             </relationships>
         </class>

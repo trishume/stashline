@@ -20,6 +20,8 @@
   SelectionEditViewController *amountEditor;
   SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;
+  UIViewController *introController;
+  UIViewController *currentEditor;
   
   NSNumberFormatter *amountFormatter;
   NSNumberFormatter *yearFormatter;
@@ -41,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *retireAgeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retireSavingsLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *selectedLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *editorContainerView;
 

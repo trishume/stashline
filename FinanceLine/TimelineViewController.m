@@ -43,7 +43,11 @@
   investmentEditor.delegate = self;
   investmentEditor.view.frame = self.editorContainerView.bounds;
   
+  introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
+  introController.view.frame = self.editorContainerView.bounds;
+  
   selectEditor = nil;
+  [self clearSelection];
   
   // I am view
   amountFormatter = [ScrubbableTextView amountFormatter];
@@ -231,23 +235,22 @@
 #pragma mark Selections
 
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
+  // if empty, deselect all
+  if ([sel isEmpty]) {
+    [self clearSelection];
+    return;
+  }
   // clear selection on other track
   if (selectEditor != nil && selectEditor.currentSelection != nil && selectEditor.currentSelection != sel) {
     [selectEditor.currentSelection clear];
   }
   // Swap view if necessary
   if ([track.name isEqualToString:@"Investment"]) {
-    if(investmentEditor != selectEditor) {
-      selectEditor = investmentEditor;
-      [amountEditor.view removeFromSuperview];
-      [self.editorContainerView addSubview:selectEditor.view];
-    }
+    [self swapInEditor:investmentEditor];
+    self.selectedLabel.text = @"investing at";
   } else {
-    if(selectEditor != amountEditor) {
-      selectEditor = amountEditor;
-      [investmentEditor.view removeFromSuperview];
-      [self.editorContainerView addSubview:selectEditor.view];
-    }
+    [self swapInEditor:amountEditor];
+    self.selectedLabel.text = [track.name isEqualToString:@"Income"] ? @"earning" : @"spending";
   }
   
   [selectEditor setSelection:sel onTrack:track];
@@ -256,7 +259,23 @@
 - (IBAction)clearSelection {
   if(selectEditor) {
     [selectEditor clearSelection];
-    [selectEditor.view removeFromSuperview];
+  }
+  [self swapInEditor:introController];
+  self.selectedLabel.text = @"living";
+}
+
+- (void)swapInEditor:(UIViewController*)editor {
+  // Clean out the old
+  if (currentEditor == editor) return;
+  [currentEditor.view removeFromSuperview];
+  
+  // Put in the new
+  currentEditor = editor;
+  [self.editorContainerView addSubview:currentEditor.view];
+  
+  if([editor isKindOfClass:[SelectionEditViewController class]]) {
+    selectEditor = (SelectionEditViewController*)editor;
+  } else {
     selectEditor = nil;
   }
 }

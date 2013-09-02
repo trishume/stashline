@@ -10,4 +10,5 @@
 
 @interface NiceLabel : UILabel
 @property (nonatomic) BOOL small;
+@property (nonatomic) BOOL body;
 @end

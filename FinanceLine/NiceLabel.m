@@ -22,6 +22,7 @@
 -(void) awakeFromNib{
   [super awakeFromNib];
   NSString *name = self.small ? @"PTSans-CaptionBold" : @"PTSans-Caption";
+  if(self.body) name = @"PTSans-Regular";
   self.font = [UIFont fontWithName:name size: self.font.pointSize];
 }
 
