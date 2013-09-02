@@ -13,7 +13,7 @@
 #define kDividendKey @"dividendRate"
 #define kDividendPeriodKey @"dividendPeriod"
 #define kStartAmountKey @"startAmount"
-#define kStartAgeKey @"startAge"
+#define kStartMonthKey @"startMonth"
 #define kSafeWithdrawalKey @"safeWithdrawalRate"
 #define kIncomeTracksKey @"incomeTracks"
 #define kExpenseTracksKey @"expenseTracks"
@@ -26,7 +26,7 @@
     self = [super init];
     if (self) {
       self.startAmount = 0.0;
-      self.startAge = 0;
+      self.startMonth = 0;
 
       self.safeWithdrawalRate = 0.04;
 
@@ -60,7 +60,7 @@
   FinanceModel *m = [self init];
 
   m.startAmount = [coder decodeDoubleForKey:kStartAmountKey];
-  m.startAge = [coder decodeIntegerForKey:kStartAgeKey];
+  m.startMonth = [coder decodeIntegerForKey:kStartMonthKey];
   m.safeWithdrawalRate = [coder decodeDoubleForKey:kSafeWithdrawalKey];
 
   m.incomeTracks = [coder decodeObjectForKey:kIncomeTracksKey];
@@ -74,7 +74,7 @@
 
 - (void) encodeWithCoder:(NSCoder *)coder {
   [coder encodeDouble:self.startAmount forKey:kStartAmountKey];
-  [coder encodeInteger:self.startAge forKey:kStartAgeKey];
+  [coder encodeInteger:self.startMonth forKey:kStartMonthKey];
   [coder encodeDouble:self.safeWithdrawalRate forKey:kSafeWithdrawalKey];
   [coder encodeObject:self.incomeTracks forKey:kIncomeTracksKey];
   [coder encodeObject:self.expenseTracks forKey:kExpenseTracksKey];
@@ -87,10 +87,6 @@
   NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit
                                                                  fromDate:[NSDate date]];
   return [components year];
-}
-
-- (NSUInteger)startMonth {
-  return self.startAge * 12;
 }
 
 - (void)recalc {

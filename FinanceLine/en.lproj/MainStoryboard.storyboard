@@ -45,7 +45,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="36" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="4jp-am-ftg" customClass="ScrubbableTextView">
-                                        <rect key="frame" x="909" y="10" width="28" height="30"/>
+                                        <rect key="frame" x="901" y="10" width="43" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -465,6 +465,7 @@
                 <relationship kind="action" name="clearSelection"/>
                 <relationship kind="action" name="cutJobAtRetirement"/>
                 <relationship kind="action" name="expandSelectionToEnd"/>
+                <relationship kind="action" name="iAmFieldChanged:" candidateClass="ScrubbableTextView"/>
                 <relationship kind="action" name="loadFile"/>
                 <relationship kind="action" name="zeroSelection"/>
                 <relationship kind="outlet" name="ageField" candidateClass="ScrubbableTextView"/>

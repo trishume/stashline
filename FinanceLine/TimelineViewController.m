@@ -20,7 +20,7 @@
 #define kDefaultIncomeTracks 2
 #define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
-//#define kLoadOnStart
+#define kLoadOnStart
 
 @interface TimelineViewController ()
 
@@ -209,7 +209,7 @@
   [sender setValue:value];
   
   if (sender == self.ageField) {
-    model.startAge = value;
+    model.startMonth = value * 12;
   } else if (sender == self.savingsField) {
     model.startAmount = value;
   }
