@@ -112,10 +112,10 @@
 - (double)iterateStash:(double)stash forMonth:(NSUInteger)month {
   double expenses = [self sumTracks:self.expenseTracks forMonth:month];
   double income = [self sumTracks:self.incomeTracks forMonth:month];
-  double growthRate = [self.investmentTrack valueAt:month];
+  double growthRate = [self.investmentTrack valueAt:month] / 12.0;
 
   // Grow stash with investments.
-  stash *= 1.0 + growthRate / 12.0;
+  stash *= 1.0 + growthRate;
 
   // Savings can be negative, in which case we are withdrawing
   double savings = income - expenses;
@@ -123,9 +123,10 @@
 
   // Calculate Status
   double status = 0.0; // normal
+  double thisMonthSafeRate = MAX(MIN(self.safeWithdrawalRate / 12.0, growthRate), 0.01 / 12.0);
   if (expenses == 0.0) {
     status = kStatusNoExpenses;
-  } if (stash * (self.safeWithdrawalRate/12.0) >= expenses) {
+  } if (stash * thisMonthSafeRate >= expenses) {
     status = kStatusSafeWithdraw;
   } else if(stash < 0.0) {
     status = kStatusDebt;
