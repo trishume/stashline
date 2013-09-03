@@ -248,9 +248,17 @@
   if ([track.name isEqualToString:@"Investment"]) {
     [self swapInEditor:investmentEditor];
     self.selectedLabel.text = @"investing at";
+    self.selectedLabel.textColor = [UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000];
   } else {
     [self swapInEditor:amountEditor];
-    self.selectedLabel.text = [track.name isEqualToString:@"Income"] ? @"earning" : @"spending";
+    if ([track.name isEqualToString:@"Income"]) {
+      self.selectedLabel.text = @"earning";
+      self.selectedLabel.textColor = [UIColor colorWithHue:0.468 saturation:0.620 brightness:0.702 alpha:1.000];
+    } else {
+      self.selectedLabel.text = @"spending";
+      self.selectedLabel.textColor = [UIColor colorWithHue:0.077 saturation:0.841 brightness:0.886 alpha:1.000];
+    }
+    
   }
   
   [selectEditor setSelection:sel onTrack:track];
@@ -261,7 +269,8 @@
     [selectEditor clearSelection];
   }
   [self swapInEditor:introController];
-  self.selectedLabel.text = @"living";
+  self.selectedLabel.text = @"planning";
+  self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
 }
 
 - (void)swapInEditor:(UIViewController*)editor {
