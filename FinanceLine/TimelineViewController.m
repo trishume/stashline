@@ -34,6 +34,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
   [self.fileNameField setText:@"Main"];
   
+  firstIncomeTrack = nil;
+  firstExpensesTrack = nil;
+  investTrack = nil;
+  
   // Create selection editors
   amountEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
   amountEditor.delegate = self;
@@ -46,8 +50,11 @@
   introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
   introController.view.frame = self.editorContainerView.bounds;
   
+  self.trackSelectors.frame = self.selectActions.frame;
+  
   selectEditor = nil;
-  [self clearSelection];
+  self.selectDivider.delegate = self;
+  [self deselect];
   
   // I am view
   amountFormatter = [ScrubbableTextView amountFormatter];
@@ -168,6 +175,9 @@
     trackView.selectionDelegate = self;
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
+    
+    if (firstIncomeTrack == nil)
+      firstIncomeTrack = trackView;
   }
 
   for (DataTrack *track in model.expenseTracks) {
@@ -177,9 +187,12 @@
     trackView.selectionDelegate = self;
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
+    
+    if (firstExpensesTrack == nil)
+      firstExpensesTrack = trackView;
   }
   
-  AnnuityTrackView *investTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  investTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
   investTrack.data = model.investmentTrack;
   investTrack.hue = 0.566;
   investTrack.selectionDelegate = self;
@@ -237,7 +250,7 @@
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
   // if empty, deselect all
   if ([sel isEmpty]) {
-    [self clearSelection];
+    [self deselect];
     return;
   }
   // clear selection on other track
@@ -261,16 +274,23 @@
     
   }
   
+  [self.selectDivider setHasSelection:YES];
+  self.trackSelectors.hidden = YES;
+  self.selectActions.hidden = NO;
   [selectEditor setSelection:sel onTrack:track];
 }
 
-- (IBAction)clearSelection {
+- (void)deselect {
   if(selectEditor) {
     [selectEditor clearSelection];
   }
   [self swapInEditor:introController];
   self.selectedLabel.text = @"planning";
   self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
+  
+  [self.selectDivider setHasSelection:NO];
+  self.selectActions.hidden = YES;
+  self.trackSelectors.hidden = NO;
 }
 
 - (void)swapInEditor:(UIViewController*)editor {
@@ -295,6 +315,18 @@
 
 - (IBAction)zeroSelection {
   if(selectEditor) [selectEditor updateSelectionAmount:0.0];
+}
+
+- (IBAction)selectIncome {
+  [firstIncomeTrack selectFrom:model.startMonth to:kMaxMonth];
+}
+
+- (IBAction)selectExpenses {
+  [firstExpensesTrack selectFrom:model.startMonth to:kMaxMonth];
+}
+
+- (IBAction)selectInvestment {
+  [investTrack selectFrom:model.startMonth to:kMaxMonth];
 }
 
 - (void)updateModel {
