@@ -54,8 +54,10 @@
 
 @property (weak, nonatomic) IBOutlet UIView *editorContainerView;
 
+
 @property (weak, nonatomic) IBOutlet UITextField *fileNameField;
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
+@property (weak, nonatomic) IBOutlet UIView *infoOverlayView;
 
 @end
