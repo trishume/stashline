@@ -126,7 +126,7 @@
   double thisMonthSafeRate = MAX(MIN(self.safeWithdrawalRate / 12.0, growthRate), 0.01 / 12.0);
   if (expenses == 0.0) {
     status = kStatusNoExpenses;
-  } if (stash * thisMonthSafeRate >= expenses) {
+  } else if (stash * thisMonthSafeRate >= expenses) {
     status = kStatusSafeWithdraw;
   } else if(stash < 0.0) {
     status = kStatusDebt;
