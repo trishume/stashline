@@ -32,11 +32,10 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-  [self.fileNameField setText:@"Main"];
-  
   firstIncomeTrack = nil;
   firstExpensesTrack = nil;
   investTrack = nil;
+  filesPop = nil;
   
   // Create selection editors
   amountEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
@@ -71,7 +70,7 @@
 
   // Load or create model
   model = nil;
-  [self loadModel];
+  [self openFile:@"Main.stashLine"];
 }
 
 - (void)addDivider {
@@ -92,10 +91,24 @@
         (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([[segue identifier] isEqualToString:@"filePopover"])
+  {
+    UIStoryboardPopoverSegue *pop = (UIStoryboardPopoverSegue*)segue;
+    filesPop = pop.popoverController;
+    UINavigationController *nav = (UINavigationController*)filesPop.contentViewController;
+    FilesViewController *fileCon = (FilesViewController*)nav.topViewController;
+    fileCon.fileDelegate = self;
+  }
+}
+
 #pragma mark Persistence
 
-- (NSString *) pathForDataFile
+- (NSString *)pathForDataFile:(NSString*)fileName
 {
+  if(fileName == nil || [fileName isEqualToString:@""]) return nil;
+  
   NSFileManager *fileManager = [NSFileManager defaultManager];
 
   NSString *folder = @"~/Documents";
@@ -105,22 +118,26 @@
     [fileManager createDirectoryAtPath:folder withIntermediateDirectories:NO attributes:nil error:nil];
   }
 
-  NSString *fileName = [self.fileNameField text];
-  if([fileName isEqualToString:@""]) return nil;
-  fileName = [fileName stringByAppendingString:@".stashLine"];
-
   return [folder stringByAppendingPathComponent: fileName];
 }
 
 - (void)saveModel {
-  NSString *path = [self pathForDataFile];
+  NSString *path = [self pathForDataFile: currentFileName];
   if(path != nil)
     [NSKeyedArchiver archiveRootObject:model toFile: path];
 }
 
-- (void)loadModel {
+- (void)openFile: (NSString*)name {
+  currentFileName = name;
+  self.fileNameLabel.text = [name stringByDeletingPathExtension];
+  
+  if (filesPop != nil) {
+    [filesPop dismissPopoverAnimated:YES];
+    filesPop = nil;
+  }
+  
 #ifdef kLoadOnStart
-  NSString *path = [self pathForDataFile];
+  NSString *path = [self pathForDataFile: name];
   if(path != nil) {
     model = [NSKeyedUnarchiver unarchiveObjectWithFile: path];
   }
@@ -210,12 +227,6 @@
   
   [self.ageField setValue:model.startMonth/12];
   [self.savingsField setValue:model.startAmount];
-}
-
-#pragma mark File Management
-
-- (IBAction)loadFile {
-  [self loadModel];
 }
 
 #pragma mark Operations

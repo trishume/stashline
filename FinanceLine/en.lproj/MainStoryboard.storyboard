@@ -4,6 +4,66 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Files View Controller - Files-->
+        <scene sceneID="7pr-EJ-cSA">
+            <objects>
+                <tableViewController title="Files" id="ydi-MJ-T7d" customClass="FilesViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kGL-ps-EkZ">
+                        <rect key="frame" x="0.0" y="44" width="300" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fileCell" textLabel="YEb-uD-ouo" style="IBUITableViewCellStyleDefault" id="Fkr-EF-VJt">
+                                <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YEb-uD-ouo">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ydi-MJ-T7d" id="zaR-ax-msN"/>
+                            <outlet property="delegate" destination="ydi-MJ-T7d" id="1hD-10-S02"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Files" id="OWx-59-LiE"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="500"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azR-cq-x8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="-1208"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="usM-UP-RyR">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="WhY-TY-c4d" sceneMemberID="viewController">
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="500"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TRv-fX-tnC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ydi-MJ-T7d" kind="relationship" relationship="rootViewController" id="JbN-L6-aCQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8P-Db-9F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223" y="-1448"/>
+        </scene>
         <!--Timeline View Controller-->
         <scene sceneID="4">
             <objects>
@@ -61,7 +121,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="36" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="4jp-am-ftg" customClass="ScrubbableTextView">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="36" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="4jp-am-ftg" customClass="ScrubbableTextView">
                                         <rect key="frame" x="901" y="10" width="43" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,19 +219,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loadFile" destination="2" eventType="touchUpInside" id="8hc-wd-CSV"/>
+                                            <segue destination="WhY-TY-c4d" kind="popover" identifier="filePopover" popoverAnchorView="Rhy-o0-cCe" id="dq3-Bs-LhH">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" id="Xxq-DM-s24">
-                                        <rect key="frame" x="166" y="15" width="75" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="2" id="yNi-5W-R4M"/>
-                                        </connections>
-                                    </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="have" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ank-Bs-6Cz" customClass="NiceLabel">
                                         <rect key="frame" x="856" y="41" width="49" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -326,6 +378,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Main" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="4ua-dS-UMg" customClass="NiceLabel">
+                                        <rect key="frame" x="165" y="10" width="88" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.58431375029999999" green="0.64705884459999996" blue="0.65098041299999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -349,7 +408,7 @@
                     <connections>
                         <outlet property="ageField" destination="4jp-am-ftg" id="hIL-JX-gDd"/>
                         <outlet property="editorContainerView" destination="vcG-33-hL8" id="VOL-xw-R6B"/>
-                        <outlet property="fileNameField" destination="Xxq-DM-s24" id="etj-hs-c1C"/>
+                        <outlet property="fileNameLabel" destination="4ua-dS-UMg" id="BH3-P3-N2X"/>
                         <outlet property="infoOverlayView" destination="W8n-Od-iZN" id="YsN-1e-s7i"/>
                         <outlet property="retireAgeLabel" destination="Wyq-d7-AEZ" id="L87-qb-PAA"/>
                         <outlet property="retireSavingsLabel" destination="m8i-Dv-ED0" id="zmC-T5-S2p"/>
@@ -368,7 +427,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-75" y="-421"/>
+            <point key="canvasLocation" x="-216" y="-473"/>
         </scene>
         <!--Amount Edit Controller-->
         <scene sceneID="V4j-sr-MYN">
@@ -671,6 +730,9 @@
                 <relationship kind="outlet" name="yearlyCost" candidateClass="ScrubbableTextView"/>
             </relationships>
         </class>
+        <class className="FilesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FilesViewController.h"/>
+        </class>
         <class className="InfoOverlayView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoOverlayView.h"/>
         </class>
@@ -704,12 +766,10 @@
                 <relationship kind="action" name="aboutMe"/>
                 <relationship kind="action" name="cutJobAtRetirement"/>
                 <relationship kind="action" name="expandSelectionToEnd"/>
-                <relationship kind="action" name="iAmFieldChanged:" candidateClass="ScrubbableTextView"/>
-                <relationship kind="action" name="loadFile"/>
                 <relationship kind="action" name="zeroSelection"/>
                 <relationship kind="outlet" name="ageField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="editorContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="fileNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="infoOverlayView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="retireAgeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="retireSavingsLabel" candidateClass="UILabel"/>
