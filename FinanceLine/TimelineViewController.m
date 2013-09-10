@@ -13,6 +13,7 @@
 #import "DividerTrackView.h"
 #import "StatusTrackView.h"
 #import "Constants.h"
+#import "AmountEditController.h"
 
 #include <stdlib.h>
 
@@ -31,20 +32,42 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-  currentSelection = nil;
   [self.fileNameField setText:@"Main"];
   
-  self.yearlyCost.stepVal = 1000.0;
-  self.monthlyCost.stepVal = 200.0;
-  self.dailyCost.stepVal = 10.0;
-  self.workDailyCost.stepVal = 10.0;
-  self.workHourlyCost.stepVal = 1.0;
+  firstIncomeTrack = nil;
+  firstExpensesTrack = nil;
+  investTrack = nil;
   
-  self.safeWithdrawalField.stepVal = 0.5;
-  self.safeWithdrawalField.maxVal = 100.0;
-  self.dividendRateField.stepVal = 0.5;
-  self.dividendRateField.maxVal = 100.0;
-  self.growthRateField.stepVal = 0.5;
+  // Create selection editors
+  amountEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
+  amountEditor.delegate = self;
+  amountEditor.view.frame = self.editorContainerView.bounds;
+  
+  investmentEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"investmentEditor"];
+  investmentEditor.delegate = self;
+  investmentEditor.view.frame = self.editorContainerView.bounds;
+  
+  introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
+  introController.view.frame = self.editorContainerView.bounds;
+  
+  self.trackSelectors.frame = self.selectActions.frame;
+  
+  selectEditor = nil;
+  self.selectDivider.delegate = self;
+  [self deselect];
+  
+  // I am view
+  amountFormatter = [ScrubbableTextView amountFormatter];
+  self.savingsField.formatter = amountFormatter;
+  self.savingsField.stepVal = 1000.0;
+  [self.savingsField setValue:0.0];
+  
+  yearFormatter = [[NSNumberFormatter alloc] init];
+  yearFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+  self.ageField.formatter = yearFormatter;
+  self.ageField.stepVal = 1.0;
+  self.ageField.maxVal = 98;
+  [self.ageField setValue:20.0];
 
   // Load or create model
   model = nil;
@@ -85,7 +108,7 @@
   NSString *fileName = [self.fileNameField text];
   if([fileName isEqualToString:@""]) return nil;
   fileName = [fileName stringByAppendingString:@".stashLine"];
-  
+
   return [folder stringByAppendingPathComponent: fileName];
 }
 
@@ -107,6 +130,7 @@
   }
 
   [self loadTracks];
+  [self updateDisplays];
 }
 
 - (FinanceModel*)newModel {
@@ -114,13 +138,19 @@
 
   for (int i = 0; i < kDefaultIncomeTracks; ++i) {
     DataTrack *track = [[DataTrack alloc] init];
+    track.name = @"Income";
     [m.incomeTracks addObject:track];
   }
 
   for (int i = 0; i < kDefaultExpenseTracks; ++i) {
     DataTrack *track = [[DataTrack alloc] init];
+    track.name = @"Expenses";
     [m.expenseTracks addObject:track];
   }
+  
+  DataTrack *investmentTrack = [[DataTrack alloc] init];
+  investmentTrack.name = @"Investment";
+  m.investmentTrack = investmentTrack;
 
   return m;
 }
@@ -130,6 +160,7 @@
 
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
   stashTrack.data = model.stashTrack;
+  stashTrack.model = model;
   [self.timeLine addTrack:stashTrack withHeight:150.0];
 
   TimelineTrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
@@ -144,6 +175,9 @@
     trackView.selectionDelegate = self;
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
+    
+    if (firstIncomeTrack == nil)
+      firstIncomeTrack = trackView;
   }
 
   for (DataTrack *track in model.expenseTracks) {
@@ -153,9 +187,27 @@
     trackView.selectionDelegate = self;
     [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
     [self addDivider];
+    
+    if (firstExpensesTrack == nil)
+      firstExpensesTrack = trackView;
   }
   
-  [self updateParameterFields];
+  investTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  investTrack.data = model.investmentTrack;
+  investTrack.hue = 0.566;
+  investTrack.selectionDelegate = self;
+  [self.timeLine addTrack:investTrack withHeight:kAnnuityTrackHeight];
+  [self addDivider];
+}
+
+- (void)updateDisplays {
+  NSInteger retirementYear = model.retirementMonth / 12;
+  self.retireAgeLabel.text = [yearFormatter stringFromNumber:[NSNumber numberWithInteger:retirementYear]];
+  double retirementSavings = [model.stashTrack valueAt:model.retirementMonth];
+  self.retireSavingsLabel.text = [amountFormatter stringFromNumber:[NSNumber numberWithDouble:retirementSavings]];
+  
+  [self.ageField setValue:model.startMonth/12];
+  [self.savingsField setValue:model.startAmount];
 }
 
 #pragma mark File Management
@@ -177,144 +229,123 @@
   [[UIApplication sharedApplication] openURL:url];
 }
 
-#pragma mark Investment parameters
-
-- (void)updateParameterField:(UITextField*)field toPercent:(double)value {
-  NSString *str = [self stringForAmount:value * 100.0];
-  [field setText:str];
+- (IBAction)showInfoOverlay {
+  self.infoOverlayView.hidden = NO;
 }
 
-- (void)updateParameterFields {
-  [self updateParameterField:self.growthRateField toPercent:model.growthRate];
-  [self updateParameterField:self.dividendRateField toPercent:model.dividendRate];
-  [self updateParameterField:self.safeWithdrawalField toPercent:model.safeWithdrawalRate];
+- (IBAction)hideInfoOverlay {
+  self.infoOverlayView.hidden = YES;
 }
 
-- (IBAction)parameterFieldChanged:(UITextField*)sender {
-  double value = [self parseValue:[sender text]] / 100.0;
+#pragma mark I Am
+
+- (IBAction)iAmFieldChanged: (ScrubbableTextView*)sender {
+  if ([sender.text isEqualToString:@""]) return;
+  double value = [sender parseValue];
   
-  if (sender == self.safeWithdrawalField) {
-    model.safeWithdrawalRate = value;
-  } else if(sender == self.dividendRateField) {
-    model.dividendRate = value;
-  } else if(sender == self.growthRateField) {
-    model.growthRate = value;
+  if (sender == self.ageField) {
+    model.startMonth = value * 12;
+  } else if (sender == self.savingsField) {
+    model.startAmount = value;
   }
   
-  [self updateParameterFields];
-  [model recalc];
-  [self.timeLine redrawTracks];
-  [self saveModel];
+  [self updateModel];
 }
+
 
 #pragma mark Selections
 
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
-  // clear selection on other track
-  if (currentSelection != nil && currentSelection != sel) {
-    [currentSelection clear];
-  }
-
-  currentSelection = sel;
-  selectedTrack = track;
-
-  if ([currentSelection isEmpty]) {
-    [self clearSelection];
+  // if empty, deselect all
+  if ([sel isEmpty]) {
+    [self deselect];
     return;
   }
-
-  // calculate selection average
-  double total = 0.0;
-  double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
-    total += data[i];
-  double average = total / (currentSelection.end - currentSelection.start + 1);
-
-  [self updateAmountFields:average];
-  [self.timeLine redrawTracks];
+  // clear selection on other track
+  if (selectEditor != nil && selectEditor.currentSelection != nil && selectEditor.currentSelection != sel) {
+    [selectEditor.currentSelection clear];
+  }
+  // Swap view if necessary
+  if ([track.name isEqualToString:@"Investment"]) {
+    [self swapInEditor:investmentEditor];
+    self.selectedLabel.text = @"investing at";
+    self.selectedLabel.textColor = [UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000];
+  } else {
+    [self swapInEditor:amountEditor];
+    if ([track.name isEqualToString:@"Income"]) {
+      self.selectedLabel.text = @"earning";
+      self.selectedLabel.textColor = [UIColor colorWithHue:0.468 saturation:0.620 brightness:0.702 alpha:1.000];
+    } else {
+      self.selectedLabel.text = @"spending";
+      self.selectedLabel.textColor = [UIColor colorWithHue:0.077 saturation:0.841 brightness:0.886 alpha:1.000];
+    }
+    
+  }
+  
+  [self.selectDivider setHasSelection:YES];
+  self.trackSelectors.hidden = YES;
+  self.selectActions.hidden = NO;
+  [selectEditor setSelection:sel onTrack:track];
 }
 
-- (IBAction)clearSelection {
-  [currentSelection clear];
-  currentSelection = nil;
-  selectedTrack = nil;
+- (void)deselect {
+  if(selectEditor) {
+    [selectEditor clearSelection];
+  }
+  [self swapInEditor:introController];
+  self.selectedLabel.text = @"planning";
+  self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
+  
+  [self.selectDivider setHasSelection:NO];
+  self.selectActions.hidden = YES;
+  self.trackSelectors.hidden = NO;
+}
 
-  [self.monthlyCost setText:@""];
-  [self.yearlyCost setText:@""];
-  [self.dailyCost setText:@""];
-  [self.workDailyCost setText:@""];
-  [self.workHourlyCost setText:@""];
-
-  [self.timeLine redrawTracks];
+- (void)swapInEditor:(UIViewController*)editor {
+  // Clean out the old
+  if (currentEditor == editor) return;
+  [currentEditor.view removeFromSuperview];
+  
+  // Put in the new
+  currentEditor = editor;
+  [self.editorContainerView addSubview:currentEditor.view];
+  
+  if([editor isKindOfClass:[SelectionEditViewController class]]) {
+    selectEditor = (SelectionEditViewController*)editor;
+  } else {
+    selectEditor = nil;
+  }
 }
 
 - (IBAction)expandSelectionToEnd {
-  if (currentSelection != nil && currentSelection.start > 0) {
-    currentSelection.end = kMaxMonth;
-  }
-  [self.timeLine redrawTracks];
-}
-
-- (NSString *)stringForAmount:(double)amount {
-  return [NSString stringWithFormat:@"%.2f", amount];
-}
-
-- (void)setAmount:(double)amount forField:(UITextField*)field {
-  NSString *str = [self stringForAmount:amount];
-  [field setText:str];
-}
-
-- (void)updateAmountFields:(double)monthlyValue {
-  [self setAmount:monthlyValue forField:self.monthlyCost];
-  [self setAmount:monthlyValue*12.0 forField:self.yearlyCost];
-  [self setAmount:monthlyValue/30.4 forField:self.dailyCost];
-  [self setAmount:monthlyValue/20.0 forField:self.workDailyCost];
-  [self setAmount:monthlyValue/160.0 forField:self.workHourlyCost];
-}
-
-- (void)updateSelectionAmount:(double)monthlyValue {
-  if (currentSelection == nil || selectedTrack == nil) {
-    return;
-  }
-
-  [self updateAmountFields:monthlyValue];
-
-  // Set selection
-  double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
-    data[i] = monthlyValue;
-  [selectedTrack recalc];
-
-  // Recalc and render
-  [model recalc];
-  [self.timeLine redrawTracks];
-  [self saveModel];
-}
-
-- (double)parseValue: (NSString*)str {
-  return [str doubleValue];
-}
-
-- (IBAction)selectionAmountChanged: (UITextField*)sender {
-  if ([sender.text isEqualToString:@""]) return;
-  double value = [self parseValue:[sender text]];
-
-  // convert to a monthly cost
-  if (sender == self.yearlyCost) {
-    value /= 12.0;
-  } else if(sender == self.dailyCost) {
-    value *= 30.4;
-  } else if(sender == self.workDailyCost) {
-    value *= 5.0*4.0;
-  } else if(sender == self.workHourlyCost) {
-    value *= 40*4.0;
-  }
-
-  [self updateSelectionAmount: value];
+  if(selectEditor) [selectEditor expandSelectionToEnd];
 }
 
 - (IBAction)zeroSelection {
-  [self updateSelectionAmount:0.0];
+  if(selectEditor) [selectEditor updateSelectionAmount:0.0];
+}
+
+- (IBAction)selectIncome {
+  [firstIncomeTrack selectFrom:model.startMonth to:kMaxMonth];
+}
+
+- (IBAction)selectExpenses {
+  [firstExpensesTrack selectFrom:model.startMonth to:kMaxMonth];
+}
+
+- (IBAction)selectInvestment {
+  [investTrack selectFrom:model.startMonth to:kMaxMonth];
+}
+
+- (void)updateModel {
+  [model recalc];
+  [self.timeLine redrawTracks];
+  [self updateDisplays];
+  [self saveModel];
+}
+
+- (void)redraw {
+  [self.timeLine redrawTracks];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -323,9 +354,6 @@
 }
 
 - (void)viewDidUnload {
-  [self setGrowthRateField:nil];
-  [self setDividendRateField:nil];
-  [self setSafeWithdrawalField:nil];
   [super viewDidUnload];
 }
 @end

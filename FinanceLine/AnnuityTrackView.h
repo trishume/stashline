@@ -20,6 +20,8 @@
   UIColor *dividerColor;
 }
 
+- (void)selectFrom:(NSUInteger)month to:(NSUInteger)end;
+
 @property (nonatomic, weak) id<TrackSelectionDelegate> selectionDelegate;
 @property (nonatomic) CGFloat hue;
 @property (nonatomic, strong) DataTrack *data;

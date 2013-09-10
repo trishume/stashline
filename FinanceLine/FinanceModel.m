@@ -13,10 +13,11 @@
 #define kDividendKey @"dividendRate"
 #define kDividendPeriodKey @"dividendPeriod"
 #define kStartAmountKey @"startAmount"
-#define kBirthYearKey @"birthYear"
+#define kStartMonthKey @"startMonth"
 #define kSafeWithdrawalKey @"safeWithdrawalRate"
 #define kIncomeTracksKey @"incomeTracks"
 #define kExpenseTracksKey @"expenseTracks"
+#define kInvestmentTrackKey @"investmentTrack"
 
 @implementation FinanceModel
 
@@ -24,13 +25,8 @@
 {
     self = [super init];
     if (self) {
-      // default values
-      self.growthRate = 0.05;
-      self.dividendRate = 0.02;
-      self.dividendPeriod = 3;
-
       self.startAmount = 0.0;
-      self.birthYear = [self currentYear];
+      self.startMonth = 0;
 
       self.safeWithdrawalRate = 0.04;
 
@@ -63,16 +59,13 @@
 - (id)initWithCoder:(NSCoder *)coder {
   FinanceModel *m = [self init];
 
-  m.growthRate = [coder decodeDoubleForKey:kGrowthKey];
-  m.dividendRate = [coder decodeDoubleForKey:kDividendKey];
   m.startAmount = [coder decodeDoubleForKey:kStartAmountKey];
+  m.startMonth = [coder decodeIntegerForKey:kStartMonthKey];
   m.safeWithdrawalRate = [coder decodeDoubleForKey:kSafeWithdrawalKey];
 
   m.incomeTracks = [coder decodeObjectForKey:kIncomeTracksKey];
   m.expenseTracks = [coder decodeObjectForKey:kExpenseTracksKey];
-
-  m.dividendPeriod = [coder decodeIntegerForKey:kDividendPeriodKey];
-  m.birthYear = [coder decodeIntegerForKey:kBirthYearKey];
+  m.investmentTrack = [coder decodeObjectForKey:kInvestmentTrackKey];
 
   [m recalc];
 
@@ -80,14 +73,12 @@
 }
 
 - (void) encodeWithCoder:(NSCoder *)coder {
-  [coder encodeDouble:self.growthRate forKey:kGrowthKey];
-  [coder encodeDouble:self.dividendRate forKey:kDividendKey];
-  [coder encodeInteger:self.dividendPeriod forKey:kDividendPeriodKey];
   [coder encodeDouble:self.startAmount forKey:kStartAmountKey];
-  [coder encodeInteger:self.birthYear forKey:kBirthYearKey];
+  [coder encodeInteger:self.startMonth forKey:kStartMonthKey];
   [coder encodeDouble:self.safeWithdrawalRate forKey:kSafeWithdrawalKey];
   [coder encodeObject:self.incomeTracks forKey:kIncomeTracksKey];
   [coder encodeObject:self.expenseTracks forKey:kExpenseTracksKey];
+  [coder encodeObject:self.investmentTrack forKey:kInvestmentTrackKey];
 }
 
 #pragma mark Calculation
@@ -98,13 +89,13 @@
   return [components year];
 }
 
-- (NSUInteger)startMonth {
-  NSUInteger yearOffset = [self currentYear] - self.birthYear;
-  return yearOffset * 12;
-}
-
 - (void)recalc {
-  self.retirementMonth = 0;
+  self.retirementMonth = [self startMonth];
+  
+  // Zero before start
+  for (int i = 0; i < [self startMonth]; ++i) {
+    [self.stashTrack setValue:0.0 forMonth:i];
+  }
 
   double stash = self.startAmount;
   for (int i = [self startMonth]; i <= kMaxMonth; ++i) {
@@ -120,23 +111,22 @@
 
 - (double)iterateStash:(double)stash forMonth:(NSUInteger)month {
   double expenses = [self sumTracks:self.expenseTracks forMonth:month];
-
   double income = [self sumTracks:self.incomeTracks forMonth:month];
-  double savings = income - expenses;
+  double growthRate = [self.investmentTrack valueAt:month] / 12.0;
 
-  // Grow stash and pay dividends.
-  stash *= 1.0 + self.growthRate / 12.0;
-  if (month % self.dividendPeriod == 0) {
-    double thisMonthDividends = self.dividendRate / 12 * self.dividendPeriod;
-    stash += stash * thisMonthDividends;
-  }
+  // Grow stash with investments.
+  stash *= 1.0 + growthRate;
 
   // Savings can be negative, in which case we are withdrawing
+  double savings = income - expenses;
   stash += savings;
 
   // Calculate Status
   double status = 0.0; // normal
-  if (stash * (self.safeWithdrawalRate/12.0) >= expenses && expenses != 0.0) {
+  double thisMonthSafeRate = MAX(MIN(self.safeWithdrawalRate / 12.0, growthRate), 0.01 / 12.0);
+  if (expenses == 0.0) {
+    status = kStatusNoExpenses;
+  } else if (stash * thisMonthSafeRate >= expenses) {
     status = kStatusSafeWithdraw;
   } else if(stash < 0.0) {
     status = kStatusDebt;
@@ -144,7 +134,7 @@
   [self.statusTrack setValue:status forMonth:month];
 
   // Check retirement month
-  if (status != kStatusSafeWithdraw) {
+  if (status != kStatusSafeWithdraw && status != kStatusNoExpenses) {
     self.retirementMonth = month;
   }
 

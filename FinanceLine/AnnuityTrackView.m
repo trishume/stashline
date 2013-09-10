@@ -73,6 +73,12 @@
   [self setNeedsDisplay];
 }
 
+- (void)selectFrom:(NSUInteger)month to:(NSUInteger)end {
+  [selection selectFrom:month to:end];
+  [selectionDelegate setSelection:selection onTrack:data];
+  [self setNeedsDisplay];
+}
+
 - (void)panHandler:(UIPanGestureRecognizer *)sender {
   CGPoint start = [sender locationInView:self];
   CGPoint translation = [sender translationInView:self];

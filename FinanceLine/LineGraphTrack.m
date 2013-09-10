@@ -22,6 +22,7 @@
       self.backgroundColor = [UIColor whiteColor];
       lineColor = [UIColor blueColor];
       ruleColor = [UIColor lightGrayColor];
+      beforeStartColor = [[UIColor alloc] initWithWhite:0.5 alpha:0.2];
       
       inspectMonth = 0;
       inspectFont = [UIFont boldSystemFontOfSize:16.0];
@@ -146,6 +147,14 @@
     double value = [data valueAt:inspectMonth];
     NSString *valueStr = [inspectFormatter stringFromNumber:[NSNumber numberWithDouble:value]];
     [valueStr drawAtPoint:p withFont:inspectFont];
+  }
+  
+  // Start Marker
+  if (self.delegate.startMonth < [self.model startMonth]) {
+    CGFloat startX = ([self.model startMonth] - self.delegate.startMonth) * self.delegate.monthSize;
+    startX = MIN(startX, self.bounds.size.width);
+    [beforeStartColor setFill];
+    CGContextFillRect(context, CGRectMake(0, 0, startX, self.bounds.size.height));
   }
 }
 

@@ -12,14 +12,27 @@
 
 @implementation ScrubbableTextView
 
++ (NSNumberFormatter*)amountFormatter {
+  NSNumberFormatter *amountFormatter = [[NSNumberFormatter alloc] init];
+  amountFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+  amountFormatter.roundingIncrement = @1;
+  amountFormatter.roundingMode = NSNumberFormatterRoundHalfUp;
+  amountFormatter.maximumFractionDigits = 0;
+  return amountFormatter;
+}
+
 - (void)initialize
 {
   self.minVal = 0.0;
   self.maxVal = 100000000.0;
   self.stepVal = 10.0;
   
-  scrubColor = [UIColor blueColor];
-  normalColor = [UIColor blackColor];
+  self.formatter = nil;
+  
+  self.scrubColor = [UIColor blueColor];
+  self.normalColor = [UIColor colorWithHue:0.583 saturation:1.000 brightness:1.000 alpha:1.000];
+  
+  curVal = 0.0;
   
   UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
   [self addGestureRecognizer:pan];
@@ -43,12 +56,22 @@
   return self;
 }
 
+-(void) awakeFromNib{
+  [super awakeFromNib];
+  self.font = [UIFont fontWithName:@"PTSans-CaptionBold" size: self.font.pointSize];
+}
+
 - (double)doubleValue {
-  return [[self text] doubleValue];
+  return curVal;
 }
 
 - (void)setValue:(double)v {
-  self.text = [NSString stringWithFormat:@"%.2f", v];
+  curVal = v;
+  if (self.formatter != nil) {
+    self.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:v]];
+  } else {
+    self.text = [NSString stringWithFormat:@"%.2f", v];
+  }
 }
 
 - (double)newValueFromOld:(double)oldVal withDelta:(CGFloat)delta {
@@ -68,14 +91,22 @@
   CGPoint translation = [sender translationInView:self];
   if (sender.state == UIGestureRecognizerStateBegan) {
     startVal = [self doubleValue];
-    self.textColor = scrubColor;
+    self.textColor = self.scrubColor;
   } else if (sender.state == UIGestureRecognizerStateChanged) {
     double newVal = [self newValueFromOld:startVal withDelta:translation.x];
     [self setValue:newVal];
   } else if (sender.state == UIGestureRecognizerStateEnded) {
-    self.textColor = normalColor;
+    self.textColor = self.normalColor;
     [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
   }
+}
+
+- (double)parseValue {
+  double res = [[self.formatter numberFromString:self.text] doubleValue];
+  if (res == 0.0) {
+    res = [self.text doubleValue];
+  }
+  return res;
 }
 
 /*

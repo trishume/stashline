@@ -11,22 +11,21 @@
 
 @interface FinanceModel : NSObject <NSCoding>
 
-- (id) init;
-- (void) recalc;
+- (id)init;
+- (void)recalc;
 - (void)cutJobAtRetirement;
 
-// Inputs
-@property (nonatomic) double growthRate;
-@property (nonatomic) double dividendRate;
-@property (nonatomic) NSUInteger dividendPeriod;
+- (NSUInteger)startMonth;
 
+// Inputs
 @property (nonatomic) double startAmount;
-@property (nonatomic) NSUInteger birthYear;
+@property (nonatomic) NSUInteger startMonth;
 
 @property (nonatomic) double safeWithdrawalRate;
 
 @property (nonatomic, strong) NSMutableArray *incomeTracks;
 @property (nonatomic, strong) NSMutableArray *expenseTracks;
+@property (nonatomic, strong) DataTrack *investmentTrack;
 
 // Outputs
 @property (nonatomic, strong) DataTrack *stashTrack;

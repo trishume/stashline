@@ -14,5 +14,6 @@
 #define kStatusNormal 0.0
 #define kStatusDebt 1.0
 #define kStatusSafeWithdraw 2.0
+#define kStatusNoExpenses 3.0
 
 #endif

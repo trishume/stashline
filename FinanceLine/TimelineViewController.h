@@ -15,37 +15,49 @@
 #import "DataTrack.h"
 #import "FinanceModel.h"
 #import "ScrubbableTextView.h"
+#import "SelectDividerView.h"
 
-@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate> {
-  Selection *currentSelection;
-  DataTrack *selectedTrack;
+@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate> {
+  SelectionEditViewController *amountEditor;
+  SelectionEditViewController *investmentEditor;
+  SelectionEditViewController *selectEditor;
+  UIViewController *introController;
+  UIViewController *currentEditor;
+  
+  NSNumberFormatter *amountFormatter;
+  NSNumberFormatter *yearFormatter;
+  
+  AnnuityTrackView *firstIncomeTrack;
+  AnnuityTrackView *firstExpensesTrack;
+  AnnuityTrackView *investTrack;
+  
   FinanceModel *model;
 }
 
-- (IBAction)selectionAmountChanged: (UITextField*)sender;
-- (IBAction)clearSelection;
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
 - (IBAction)cutJobAtRetirement;
-- (IBAction)parameterFieldChanged:(UITextField*)sender;
 
 - (IBAction)loadFile;
 
 - (IBAction)aboutMe;
 
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *yearlyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *monthlyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *dailyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *workDailyCost;
-@property (nonatomic, strong) IBOutlet ScrubbableTextView *workHourlyCost;
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *ageField;
+@property (weak, nonatomic) IBOutlet ScrubbableTextView *savingsField;
+@property (weak, nonatomic) IBOutlet UILabel *retireAgeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retireSavingsLabel;
 
-@property (weak, nonatomic) IBOutlet ScrubbableTextView *growthRateField;
-@property (weak, nonatomic) IBOutlet ScrubbableTextView *dividendRateField;
-@property (weak, nonatomic) IBOutlet ScrubbableTextView *safeWithdrawalField;
+@property (weak, nonatomic) IBOutlet UILabel *selectedLabel;
+@property (weak, nonatomic) IBOutlet SelectDividerView *selectDivider;
+@property (weak, nonatomic) IBOutlet UIView *selectActions;
+@property (weak, nonatomic) IBOutlet UIView *trackSelectors;
+
+@property (weak, nonatomic) IBOutlet UIView *editorContainerView;
+
 
 @property (weak, nonatomic) IBOutlet UITextField *fileNameField;
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
-@property (nonatomic, strong) IBOutlet SelectionEditViewController *selectEditor;
+@property (weak, nonatomic) IBOutlet UIView *infoOverlayView;
 
 @end
