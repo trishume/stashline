@@ -140,7 +140,7 @@
   
   CGRect rect = self.bounds;
   rect.origin.x = x; rect.origin.y = 0.0;
-  rect.size.width = width;
+  rect.size.width = width - 0.2;
   
   CGContextFillRect(context, rect);
   
@@ -174,7 +174,7 @@
 - (void)drawRect:(CGRect)rect
 {
   CGContextRef context = UIGraphicsGetCurrentContext();
-  [self drawBlocks:context];
+  [self drawBlocks:context extraBlock:NO autoScale:YES];
   
   // Draw sidebar
   UIColor *boxColour = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:0.5];

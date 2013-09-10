@@ -125,7 +125,7 @@
   CGContextAddLineToPoint(context,self.bounds.size.width, middleY - kLineSpacing);
   CGContextStrokePath(context);
 
-  [self drawBlocks:context extraBlock: YES];
+  [self drawBlocks:context extraBlock: YES autoScale: YES];
 }
 
 

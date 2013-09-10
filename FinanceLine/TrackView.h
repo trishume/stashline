@@ -23,7 +23,7 @@
 - (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
 - (void)drawBlocks:(CGContextRef)context;
-- (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock;
+- (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock autoScale:(BOOL)scaleBlocks;
 - (NSUInteger)monthForX:(CGFloat)x;
 - (NSUInteger)blockForX:(CGFloat)x;
 - (NSUInteger)blockSize;

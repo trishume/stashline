@@ -48,15 +48,15 @@
 }
 
 - (void)drawBlocks:(CGContextRef)context {
-  [self drawBlocks:context extraBlock:NO];
+  [self drawBlocks:context extraBlock:NO autoScale:YES];
 }
 
-- (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock {
+- (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock autoScale:(BOOL)scaleBlocks {
   CGFloat start = [self.delegate startMonth];
   CGFloat monthSize = [self.delegate monthSize];
   NSUInteger maxMonth = [self.delegate maxMonth];
 
-  NSUInteger monthsPerBlock = [self blockSize];
+  NSUInteger monthsPerBlock = scaleBlocks ? [self blockSize] : 1;
   CGFloat blockSize = monthsPerBlock * monthSize;
   
   NSUInteger curMonth = floor(start / monthsPerBlock) * monthsPerBlock;
