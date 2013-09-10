@@ -169,6 +169,7 @@
 
   [self addDivider];
 
+  firstIncomeTrack = nil;
   for (DataTrack *track in model.incomeTracks) {
     AnnuityTrackView *trackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
     trackView.data = track;
@@ -180,6 +181,7 @@
       firstIncomeTrack = trackView;
   }
 
+  firstExpensesTrack = nil;
   for (DataTrack *track in model.expenseTracks) {
     AnnuityTrackView *trackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
     trackView.data = track;

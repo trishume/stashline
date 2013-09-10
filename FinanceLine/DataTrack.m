@@ -64,8 +64,7 @@
 
 - (double)valueFor:(NSUInteger)month scaledTo:(double)maxVal {
   if (data[month] == 0.0) return 0.0;
-  double swing = max - min;
-  return (data[month] - min) / swing * maxVal;
+  return data[month] / max * maxVal;
 }
 
 - (double*)dataPtr {

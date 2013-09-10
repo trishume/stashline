@@ -45,29 +45,25 @@
   double *dataArr = [data dataPtr];
   double startVal = dataArr[month];
   
-  // deselect
-  if(startVal == 0.0) {
-    [selection clear];
-  } else {
-    // to the right
-    int end;
-    for (end = month; end <= kMaxMonth; ++end) {
-      if(dataArr[end] != startVal) {
-        end--; // rewind to where we were good
-        break;
-      }
+  // to the right
+  int end;
+  for (end = month; end <= kMaxMonth; ++end) {
+    if(dataArr[end] != startVal) {
+      break;
     }
-    // and to the left
-    int start;
-    for (start = month; start >= 0; --start) {
-      if(dataArr[start] != startVal) {
-        start++; // rewind to where we were good
-        break;
-      }
-    }
-    
-    [selection selectFrom:start to:end];
   }
+  end--; // rewind to where we were good
+  
+  // and to the left
+  int start;
+  for (start = month; start >= 0; --start) {
+    if(dataArr[start] != startVal) {
+      break;
+    }
+  }
+  start++; // rewind to where we were good
+  
+  [selection selectFrom:start to:end];
   
   [selectionDelegate setSelection:selection onTrack:data];
   [self setNeedsDisplay];
@@ -147,6 +143,13 @@
   rect.size.width = width;
   
   CGContextFillRect(context, rect);
+  
+  // DEBUG
+//  int value = [data valueAt:month] * 100;
+//  NSString *str = [NSString stringWithFormat:@"%i",value];
+//  UIFont *font = [UIFont systemFontOfSize:12.0];
+//  [[UIColor blackColor] setFill];
+//  [str drawAtPoint:CGPointMake(x, 5.0) withFont:font];
   
   // Draw line above and below if selected
   if (selected) {
