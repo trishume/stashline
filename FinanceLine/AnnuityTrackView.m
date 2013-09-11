@@ -96,7 +96,7 @@
   [self setNeedsDisplay];
 }
 
-- (void)doubleTap:(UITapGestureRecognizer*)sender {
+- (void)singleTap:(UITapGestureRecognizer*)sender {
   if (sender.state == UIGestureRecognizerStateEnded) {
     CGPoint loc = [sender locationInView:self];
     NSUInteger month = [self monthForX:loc.x];
@@ -104,7 +104,7 @@
   }
 }
 
-- (void)singleTap:(UITapGestureRecognizer*)sender {
+- (void)doubleTap:(UITapGestureRecognizer*)sender {
   if (sender.state == UIGestureRecognizerStateEnded) {
     CGPoint loc = [sender locationInView:self];
     NSUInteger month = [self monthForX:loc.x];
