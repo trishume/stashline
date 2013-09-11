@@ -16,8 +16,9 @@
 #import "FinanceModel.h"
 #import "ScrubbableTextView.h"
 #import "SelectDividerView.h"
+#import "FilesViewController.h"
 
-@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate> {
+@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate, FilesControllerDelegate, UIAlertViewDelegate> {
   SelectionEditViewController *amountEditor;
   SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;
@@ -32,14 +33,14 @@
   AnnuityTrackView *investTrack;
   
   FinanceModel *model;
+  
+  NSString *currentFileName;
+  UIPopoverController *filesPop;
 }
 
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
 - (IBAction)cutJobAtRetirement;
-
-- (IBAction)loadFile;
-
 - (IBAction)aboutMe;
 
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *ageField;
@@ -55,7 +56,7 @@
 @property (weak, nonatomic) IBOutlet UIView *editorContainerView;
 
 
-@property (weak, nonatomic) IBOutlet UITextField *fileNameField;
+@property (weak, nonatomic) IBOutlet UILabel *fileNameLabel;
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
 @property (weak, nonatomic) IBOutlet UIView *infoOverlayView;
