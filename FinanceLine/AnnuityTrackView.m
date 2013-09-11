@@ -118,14 +118,30 @@
 
 #pragma mark Rendering
 
+- (void)splitBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
+               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
+  for (int i = 0; i < monthsPerBlock; ++i) {
+    [self drawBlock:month+i ofMonths:1 atX:x+(scale*i) andScale:scale withContext:context];
+  }
+}
+
 - (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context  {
   // Saturation is average value in block
-  CGFloat saturation = 0.0;
-  BOOL selected = NO;
-  for (int i = 0; i < monthsPerBlock; ++i) {
-    saturation += [data valueFor:month+i scaledTo:1.0-kBaseSaturation];
+  double saturation = [data valueFor:month scaledTo:1.0-kBaseSaturation];
+  BOOL selected = [selection includes: month];
+  
+  // Possibly split block render
+  BOOL isZero = (saturation == 0.0);
+  for (int i = 1; i < monthsPerBlock; ++i) {
+    double monthValue = [data valueFor:month+i scaledTo:1.0-kBaseSaturation];
+    saturation += monthValue;
     selected = selected || [selection includes:month+i];
+    
+    if ((monthValue == 0.0) != isZero) {
+      [self splitBlock:month ofMonths:monthsPerBlock atX:x andScale:scale withContext:context];
+      return;
+    }
   }
   saturation /= monthsPerBlock;
   if (saturation > 0.0) {
