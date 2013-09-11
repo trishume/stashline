@@ -766,6 +766,7 @@
                 <relationship kind="action" name="aboutMe"/>
                 <relationship kind="action" name="cutJobAtRetirement"/>
                 <relationship kind="action" name="expandSelectionToEnd"/>
+                <relationship kind="action" name="iAmFieldChanged:" candidateClass="ScrubbableTextView"/>
                 <relationship kind="action" name="zeroSelection"/>
                 <relationship kind="outlet" name="ageField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="editorContainerView" candidateClass="UIView"/>

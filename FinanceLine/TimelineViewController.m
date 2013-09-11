@@ -21,7 +21,6 @@
 #define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
 
-#define kMainFileName @"Main.stashLine"
 #define kLoadOnStart
 
 #define kDupAlertTitle @"Duplicate As"
