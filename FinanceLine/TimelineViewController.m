@@ -20,7 +20,12 @@
 #define kDefaultIncomeTracks 2
 #define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
+
+#define kMainFileName @"Main.stashLine"
 #define kLoadOnStart
+
+#define kDupAlertTitle @"Duplicate As"
+#define kNewAlertTitle @"New File"
 
 @interface TimelineViewController ()
 
@@ -70,7 +75,7 @@
 
   // Load or create model
   model = nil;
-  [self openFile:@"Main.stashLine"];
+  [self openFile:kMainFileName];
 }
 
 - (void)addDivider {
@@ -121,13 +126,14 @@
   return [folder stringByAppendingPathComponent: fileName];
 }
 
-- (void)saveModel {
-  NSString *path = [self pathForDataFile: currentFileName];
+- (void)saveModelAs:(NSString*)fileName {
+  NSString *path = [self pathForDataFile: fileName];
   if(path != nil)
     [NSKeyedArchiver archiveRootObject:model toFile: path];
 }
 
 - (void)openFile: (NSString*)name {
+  if(name == nil || [name isEqualToString:@""]) return;
   currentFileName = name;
   self.fileNameLabel.text = [name stringByDeletingPathExtension];
   
@@ -229,12 +235,57 @@
   [self.savingsField setValue:model.startAmount];
 }
 
+#pragma mark File Operations
+
+- (void)newFile {
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:kNewAlertTitle message:@"Enter the file name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+  alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  [alertView show];
+}
+
+- (void)duplicateFile {
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:kDupAlertTitle message:@"Enter the file name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+  alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  [alertView show];
+}
+
+- (void)deleteFile:(NSString*)name {
+  // For error information
+  NSError *error;
+  
+  // Create file manager
+  NSFileManager *fileMgr = [NSFileManager defaultManager];
+  
+  // Point to Document directory
+  NSString *documentsDirectory = [NSHomeDirectory()
+                                  stringByAppendingPathComponent:@"Documents"];
+  NSString *filePath = [documentsDirectory stringByAppendingPathComponent:name];
+  
+  // Attempt to delete the file at filePath
+  if ([fileMgr removeItemAtPath:filePath error:&error] != YES)
+    NSLog(@"Unable to delete file: %@", [error localizedDescription]);
+  
+  // If we deleted the file we were editing, load main
+  if ([currentFileName isEqualToString:name]) {
+    [self openFile:kMainFileName];
+  }
+}
+
+// New file alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  UITextField *fileNameField = [alertView textFieldAtIndex:0];
+  
+  if ([alertView.title isEqualToString:kDupAlertTitle]) {
+    [self saveModelAs:fileNameField.text];
+  }
+  [self openFile:fileNameField.text];
+}
+
 #pragma mark Operations
 
 - (IBAction)cutJobAtRetirement {
   [model cutJobAtRetirement];
-  [self.timeLine redrawTracks];
-  [self saveModel];
+  [self updateModel];
 }
 
 - (IBAction)aboutMe {
@@ -354,7 +405,7 @@
   [model recalc];
   [self.timeLine redrawTracks];
   [self updateDisplays];
-  [self saveModel];
+  [self saveModelAs:currentFileName];
 }
 
 - (void)redraw {

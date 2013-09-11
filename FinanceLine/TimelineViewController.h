@@ -18,7 +18,7 @@
 #import "SelectDividerView.h"
 #import "FilesViewController.h"
 
-@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate, FilesControllerDelegate> {
+@interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate, FilesControllerDelegate, UIAlertViewDelegate> {
   SelectionEditViewController *amountEditor;
   SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;

@@ -10,10 +10,13 @@
 
 @protocol FilesControllerDelegate <NSObject>
 - (void)openFile:(NSString*)fileName;
+- (void)newFile;
+- (void)duplicateFile;
+- (void)deleteFile:(NSString*)fileName;
 @end
 
 @interface FilesViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
-  NSArray *files;
+  NSMutableArray *files;
 }
 
 @property (nonatomic, strong) id<FilesControllerDelegate> fileDelegate;

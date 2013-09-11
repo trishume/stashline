@@ -27,7 +27,15 @@
 {
   [super viewDidLoad];
   
-  files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
+  files = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL]
+           mutableCopyWithZone:nil];
+  
+  UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newFile)];
+  self.navigationItem.leftBarButtonItem = newButton;
+  
+  UIBarButtonItem *dupButton = [[UIBarButtonItem alloc] initWithTitle:@"Duplicate" style:UIBarButtonItemStylePlain
+                                                               target:self action:@selector(duplicateCurrent)];
+  self.navigationItem.rightBarButtonItem = dupButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,6 +43,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark File Actions
+
+- (void)newFile {
+  [self.fileDelegate newFile];
+}
+
+- (void)duplicateCurrent {
+  [self.fileDelegate duplicateFile];
+}
+
+
 
 #pragma mark - Table view data source
 
@@ -72,19 +92,17 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [self.fileDelegate deleteFile:[files objectAtIndex:indexPath.row]];
+    [files removeObjectAtIndex:[indexPath row]];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+  }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
