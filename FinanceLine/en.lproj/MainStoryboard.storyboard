@@ -129,6 +129,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="iAmFieldChanged:" destination="2" eventType="editingDidEnd" id="9vD-SQ-idc"/>
+                                            <action selector="iAmFieldUpdated:" destination="2" eventType="valueChanged" id="VjR-re-iBa"/>
                                             <outlet property="delegate" destination="2" id="TdH-57-N4f"/>
                                         </connections>
                                     </textField>
@@ -140,6 +141,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="iAmFieldChanged:" destination="2" eventType="editingDidEnd" id="pfb-Sm-z7a"/>
+                                            <action selector="iAmFieldUpdated:" destination="2" eventType="valueChanged" id="cc3-wW-Yqc"/>
                                             <outlet property="delegate" destination="2" id="Vkw-fo-YV8"/>
                                         </connections>
                                     </textField>
@@ -779,6 +781,7 @@
                 <relationship kind="action" name="cutJobAtRetirement"/>
                 <relationship kind="action" name="expandSelectionToEnd"/>
                 <relationship kind="action" name="iAmFieldChanged:" candidateClass="ScrubbableTextView"/>
+                <relationship kind="action" name="iAmFieldUpdated:" candidateClass="ScrubbableTextView"/>
                 <relationship kind="action" name="zeroSelection"/>
                 <relationship kind="outlet" name="ageField" candidateClass="ScrubbableTextView"/>
                 <relationship kind="outlet" name="editorContainerView" candidateClass="UIView"/>

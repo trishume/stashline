@@ -303,7 +303,7 @@
 
 #pragma mark I Am
 
-- (IBAction)iAmFieldChanged: (ScrubbableTextView*)sender {
+- (IBAction)iAmFieldUpdated: (ScrubbableTextView*)sender {
   if ([sender.text isEqualToString:@""]) return;
   double value = [sender parseValue];
   
@@ -313,6 +313,11 @@
     model.startAmount = value;
   }
   
+  [self updateModel: NO];
+}
+
+- (IBAction)iAmFieldChanged: (ScrubbableTextView*)sender {
+  [self iAmFieldUpdated:sender];
   [self updateModel: YES];
 }
 
