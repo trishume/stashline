@@ -444,7 +444,8 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="mZw-02-3HW"/>
+                                    <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="vvg-bM-t4u"/>
+                                    <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="rUu-Ya-jGx"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="Gi6-iD-g8w"/>
                                 </connections>
                             </textField>
@@ -466,6 +467,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="rOf-Wc-nU0"/>
+                                    <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="zKM-ss-4TB"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="B9e-IU-Suh"/>
                                 </connections>
                             </textField>
@@ -487,6 +489,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="FO8-MQ-FUk"/>
+                                    <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="1aL-Z7-Mz8"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="v7Z-gI-rtt"/>
                                 </connections>
                             </textField>
@@ -508,6 +511,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="emb-UR-TeJ"/>
+                                    <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="qo9-0J-eqq"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="9EQ-8S-FEB"/>
                                 </connections>
                             </textField>
@@ -529,6 +533,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="eaP-sO-iVW"/>
+                                    <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="g8c-vB-LhY"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="9Mp-Ki-2FO"/>
                                 </connections>
                             </textField>
@@ -577,6 +582,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="e0M-t7-TyJ" eventType="editingDidEnd" id="q4u-1K-DLK"/>
+                                    <action selector="selectionAmountUpdate:" destination="e0M-t7-TyJ" eventType="valueChanged" id="Wb7-aJ-6E0"/>
                                     <outlet property="delegate" destination="e0M-t7-TyJ" id="Kbb-pV-186"/>
                                 </connections>
                             </textField>
@@ -598,6 +604,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="e0M-t7-TyJ" eventType="editingDidEnd" id="6tN-qf-yO8"/>
+                                    <action selector="selectionAmountUpdate:" destination="e0M-t7-TyJ" eventType="valueChanged" id="vS0-3Y-avi"/>
                                     <outlet property="delegate" destination="e0M-t7-TyJ" id="rSU-no-CTZ"/>
                                 </connections>
                             </textField>
@@ -619,6 +626,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="e0M-t7-TyJ" eventType="editingDidEnd" id="1lD-iK-c8n"/>
+                                    <action selector="selectionAmountUpdate:" destination="e0M-t7-TyJ" eventType="valueChanged" id="cH7-tF-FM5"/>
                                     <outlet property="delegate" destination="e0M-t7-TyJ" id="aZM-vq-rST"/>
                                 </connections>
                             </textField>
@@ -756,6 +764,10 @@
         </class>
         <class className="SelectionEditViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectionEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectionAmountChanged:" candidateClass="UITextField"/>
+                <relationship kind="action" name="selectionAmountUpdate:" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="TimelineView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineView.h"/>

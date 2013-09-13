@@ -86,7 +86,22 @@
   [selectedTrack recalc];
   
   // Recalc and render
-  [self.delegate updateModel];
+  [self.delegate updateModel: NO];
+}
+
+- (void)textFieldUpdated: (UITextField*)sender {
+  
+}
+
+// Don't save
+- (IBAction)selectionAmountUpdate: (UITextField*)sender {
+  [self textFieldUpdated:sender];
+}
+
+// Save
+- (IBAction)selectionAmountChanged: (UITextField*)sender {
+  [self textFieldUpdated:sender];
+  [self.delegate updateModel: YES];
 }
 
 - (void)didReceiveMemoryWarning

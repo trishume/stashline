@@ -14,7 +14,7 @@
 
 @protocol SelectionEditorDelegate <NSObject>
 - (void) redraw;
-- (void) updateModel;
+- (void) updateModel:(BOOL)save;
 @end
 
 @interface SelectionEditViewController : UIViewController
@@ -24,6 +24,10 @@
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track;
 - (void)updateValueDisplay:(double)monthlyValue;
 - (void)updateSelectionAmount:(double)monthlyValue;
+- (void)textFieldUpdated: (UITextField*)sender;
+
+- (IBAction)selectionAmountUpdate: (UITextField*)sender;
+- (IBAction)selectionAmountChanged: (UITextField*)sender;
 
 @property (strong,nonatomic) id<SelectionEditorDelegate> delegate;
 @property (strong,nonatomic) Selection *currentSelection;

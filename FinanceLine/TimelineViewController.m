@@ -133,6 +133,7 @@
 
 - (void)openFile: (NSString*)name {
   if(name == nil || [name isEqualToString:@""]) return;
+  [self deselect];
   currentFileName = name;
   self.fileNameLabel.text = [name stringByDeletingPathExtension];
   
@@ -284,7 +285,7 @@
 
 - (IBAction)cutJobAtRetirement {
   [model cutJobAtRetirement];
-  [self updateModel];
+  [self updateModel: YES];
 }
 
 - (IBAction)aboutMe {
@@ -312,7 +313,7 @@
     model.startAmount = value;
   }
   
-  [self updateModel];
+  [self updateModel: YES];
 }
 
 
@@ -400,11 +401,13 @@
   [investTrack selectFrom:model.startMonth to:kMaxMonth];
 }
 
-- (void)updateModel {
+- (void)updateModel: (BOOL)save {
   [model recalc];
   [self.timeLine redrawTracks];
   [self updateDisplays];
-  [self saveModelAs:currentFileName];
+  if (save) {
+    [self saveModelAs:currentFileName];
+  }
 }
 
 - (void)redraw {

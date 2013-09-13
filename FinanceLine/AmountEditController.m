@@ -69,7 +69,7 @@
   return res;
 }
 
-- (IBAction)selectionAmountChanged: (UITextField*)sender {
+- (void)textFieldUpdated: (UITextField*)sender {
   if ([sender.text isEqualToString:@""]) return;
   double value = [self parseValue:[sender text]];
   

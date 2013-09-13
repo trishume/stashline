@@ -95,6 +95,7 @@
   } else if (sender.state == UIGestureRecognizerStateChanged) {
     double newVal = [self newValueFromOld:startVal withDelta:translation.x];
     [self setValue:newVal];
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
   } else if (sender.state == UIGestureRecognizerStateEnded) {
     self.textColor = self.normalColor;
     [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
