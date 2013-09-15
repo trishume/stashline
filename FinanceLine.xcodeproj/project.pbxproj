@@ -41,6 +41,7 @@
 		6AD59C4417DB647300BD2C01 /* Income.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD59C4117DB647300BD2C01 /* Income.png */; };
 		6AD59C4517DB647300BD2C01 /* Investment.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD59C4217DB647300BD2C01 /* Investment.png */; };
 		6AE342DA17DFD285006C2202 /* FilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE342D917DFD285006C2202 /* FilesViewController.m */; };
+		6AE342DD17E62268006C2202 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE342DC17E62268006C2202 /* AboutViewController.m */; };
 		6AFAA0581770FBA300E61733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0571770FBA300E61733 /* UIKit.framework */; };
 		6AFAA05A1770FBA300E61733 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA0591770FBA300E61733 /* Foundation.framework */; };
 		6AFAA05C1770FBA300E61733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */; };
@@ -123,6 +124,8 @@
 		6AD59C4217DB647300BD2C01 /* Investment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Investment.png; path = Buttons/Investment.png; sourceTree = "<group>"; };
 		6AE342D817DFD285006C2202 /* FilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesViewController.h; sourceTree = "<group>"; };
 		6AE342D917DFD285006C2202 /* FilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesViewController.m; sourceTree = "<group>"; };
+		6AE342DB17E62267006C2202 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		6AE342DC17E62268006C2202 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		6AFAA0541770FBA300E61733 /* FinanceLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA0571770FBA300E61733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AFAA0591770FBA300E61733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +276,8 @@
 				6A456AFF17DD374D0013BC2F /* InfoOverlayView.m */,
 				6AE342D817DFD285006C2202 /* FilesViewController.h */,
 				6AE342D917DFD285006C2202 /* FilesViewController.m */,
+				6AE342DB17E62267006C2202 /* AboutViewController.h */,
+				6AE342DC17E62268006C2202 /* AboutViewController.m */,
 			);
 			path = FinanceLine;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				6AD59C3F17DB599100BD2C01 /* SelectDividerView.m in Sources */,
 				6A456B0017DD374D0013BC2F /* InfoOverlayView.m in Sources */,
 				6AE342DA17DFD285006C2202 /* FilesViewController.m in Sources */,
+				6AE342DD17E62268006C2202 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
