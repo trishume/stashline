@@ -24,6 +24,7 @@
 
 @property (nonatomic, weak) id<TrackSelectionDelegate> selectionDelegate;
 @property (nonatomic) CGFloat hue;
+@property (nonatomic) CGFloat negativeHue;
 @property (nonatomic, strong) DataTrack *data;
 @property (nonatomic, strong) Selection *selection;
 

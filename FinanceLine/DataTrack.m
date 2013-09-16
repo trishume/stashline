@@ -63,8 +63,13 @@
 }
 
 - (double)valueFor:(NSUInteger)month scaledTo:(double)maxVal {
-  if (data[month] == 0.0) return 0.0;
-  return data[month] / max * maxVal;
+  double val = data[month];
+  if (val == 0.0) return 0.0;
+  if (val < 0.0) {
+    return -val / min * maxVal;
+  }
+  
+  return val / max * maxVal;
 }
 
 - (double*)dataPtr {

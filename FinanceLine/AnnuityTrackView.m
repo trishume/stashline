@@ -9,12 +9,13 @@
 #import "AnnuityTrackView.h"
 
 #define kDefaultHue 0.391
+#define kDefaultNegativeHue 0.016
 #define kBaseSaturation 0.4
 #define kSelectionThickness 4.0
 #define kDividerHeight 2.0
 
 @implementation AnnuityTrackView
-@synthesize data, hue, selection, selectionDelegate;
+@synthesize data, hue, negativeHue, selection, selectionDelegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,6 +23,7 @@
     if (self) {
       self.backgroundColor = [UIColor whiteColor];
       hue = kDefaultHue;
+      negativeHue = kDefaultNegativeHue;
       selectionColor = [UIColor blueColor];
       selection = [[Selection alloc] init];
       
@@ -133,23 +135,25 @@
   
   // Possibly split block render
   BOOL isZero = (saturation == 0.0);
+  BOOL isNegative = (saturation < 0.0);
   for (int i = 1; i < monthsPerBlock; ++i) {
     double monthValue = [data valueFor:month+i scaledTo:1.0-kBaseSaturation];
     saturation += monthValue;
     selected = selected || [selection includes:month+i];
     
-    if ((monthValue == 0.0) != isZero) {
+    if ((monthValue == 0.0) != isZero || (monthValue < 0.0) != isNegative) {
       [self splitBlock:month ofMonths:monthsPerBlock atX:x andScale:scale withContext:context];
       return;
     }
   }
   saturation /= monthsPerBlock;
+  saturation = ABS(saturation);
   if (saturation > 0.0) {
     saturation += kBaseSaturation;
   }
   
-  
-  UIColor *boxColour = [UIColor colorWithHue:hue saturation:saturation brightness:1.0 alpha:1.0];
+  CGFloat boxHue = isNegative ? negativeHue : hue;
+  UIColor *boxColour = [UIColor colorWithHue:boxHue saturation:saturation brightness:1.0 alpha:1.0];
   [boxColour setFill];
   
   CGFloat width = monthsPerBlock * scale;

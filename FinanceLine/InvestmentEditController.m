@@ -42,7 +42,8 @@
   self.monthlyGrowth.stepVal = 0.0005;
   self.doublingPeriod.stepVal = 0.5;
   
-  // TODO negative growth rates
+  self.yearlyGrowth.minVal = -100.0;
+  self.yearlyGrowth.minVal = -100.0;
 
   self.yearlyGrowth.formatter = percentFormatter;
   self.monthlyGrowth.formatter = percentFormatter;
