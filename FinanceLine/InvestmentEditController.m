@@ -29,7 +29,9 @@
 	// Do any additional setup after loading the view.
 
   percentFormatter = [[NSNumberFormatter alloc] init];
-  percentFormatter.numberStyle = NSNumberFormatterPercentStyle;
+  percentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+  percentFormatter.positiveSuffix = @"%";
+  percentFormatter.negativeSuffix = @"%";
   percentFormatter.minimumFractionDigits = 2;
   percentFormatter.maximumFractionDigits = 2;
 
@@ -38,8 +40,8 @@
   yearFormatter.maximumFractionDigits = 1;
   yearFormatter.minimumFractionDigits = 1;
 
-  self.yearlyGrowth.stepVal = 0.0025;
-  self.monthlyGrowth.stepVal = 0.0005;
+  self.yearlyGrowth.stepVal = 0.25;
+  self.monthlyGrowth.stepVal = 0.05;
   self.doublingPeriod.stepVal = 0.5;
   
   self.yearlyGrowth.minVal = -100.0;
@@ -50,15 +52,15 @@
   self.doublingPeriod.formatter = yearFormatter;
 }
 
-- (double)doublingPeriod:(double)yearlyGrowth {
-  if(yearlyGrowth == 0.0) return 0.0;
-  return 70.0 / (yearlyGrowth * 100.0);
+- (double)doublingPeriod:(double)yearlyGrowthF {
+  if(yearlyGrowthF == 0.0) return 0.0;
+  return 70.0 / (yearlyGrowthF * 100.0);
 }
 
-- (void)updateValueDisplay:(double)yearlyGrowth {
-  [self.monthlyGrowth setValue:yearlyGrowth / 12.0];
-  [self.yearlyGrowth setValue:yearlyGrowth];
-  [self.doublingPeriod setValue:[self doublingPeriod:yearlyGrowth]];
+- (void)updateValueDisplay:(double)yearlyGrowthF {
+  [self.monthlyGrowth setValue:yearlyGrowthF * 100.0 / 12.0];
+  [self.yearlyGrowth setValue:yearlyGrowthF * 100.0];
+  [self.doublingPeriod setValue:[self doublingPeriod:yearlyGrowthF]];
 }
 
 - (void)clearSelection {
@@ -83,9 +85,11 @@
 
   // convert to a monthly cost
   if (sender == self.monthlyGrowth) {
-    value = value * 12.0;
+    value = value / 100.0 * 12.0;
   } else if(sender == self.doublingPeriod) {
     value = [self doublingPeriod:value];
+  } else if(sender == self.yearlyGrowth) {
+    value = value / 100.0;
   }
 
   [self updateSelectionAmount: value];
