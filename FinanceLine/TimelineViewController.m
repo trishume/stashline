@@ -240,12 +240,14 @@
 - (void)newFile {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:kNewAlertTitle message:@"Enter the file name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
   alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  [[alertView textFieldAtIndex:0] setAutocapitalizationType:UITextAutocapitalizationTypeSentences];
   [alertView show];
 }
 
 - (void)duplicateFile {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:kDupAlertTitle message:@"Enter the file name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
   alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  [[alertView textFieldAtIndex:0] setAutocapitalizationType:UITextAutocapitalizationTypeSentences];
   [alertView show];
 }
 

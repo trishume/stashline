@@ -13,8 +13,6 @@
   NSNumberFormatter *amountFormatter;
 }
 
-- (IBAction)selectionAmountChanged: (UITextField*)sender;
-
 @property (nonatomic, strong) IBOutlet ScrubbableTextView *yearlyCost;
 @property (nonatomic, strong) IBOutlet ScrubbableTextView *monthlyCost;
 @property (nonatomic, strong) IBOutlet ScrubbableTextView *dailyCost;

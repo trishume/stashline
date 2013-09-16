@@ -15,8 +15,6 @@
   NSNumberFormatter *yearFormatter;
 }
 
-- (IBAction)selectionAmountChanged: (UITextField*)sender;
-
 @property (nonatomic, strong) IBOutlet ScrubbableTextView *yearlyGrowth;
 @property (nonatomic, strong) IBOutlet ScrubbableTextView *monthlyGrowth;
 @property (nonatomic, strong) IBOutlet ScrubbableTextView *doublingPeriod;
