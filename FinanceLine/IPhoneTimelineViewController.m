@@ -1,21 +1,18 @@
 //
-//  IPadTimelineViewController.m
+//  IPhoneTimelineViewController.m
 //  FinanceLine
 //
 //  Created by Tristan Hume on 2013-09-17.
 //  Copyright (c) 2013 Tristan Hume. All rights reserved.
 //
 
-#import "IPadTimelineViewController.h"
+#import "IPhoneTimelineViewController.h"
 
-#define kDefaultIncomeTracks 2
-#define kDefaultExpenseTracks 3
-
-@interface IPadTimelineViewController ()
+@interface IPhoneTimelineViewController ()
 
 @end
 
-@implementation IPadTimelineViewController
+@implementation IPhoneTimelineViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,17 +32,13 @@
 - (FinanceModel*)newModel {
   FinanceModel *m = [[FinanceModel alloc] init];
   
-  for (int i = 0; i < kDefaultIncomeTracks; ++i) {
-    DataTrack *track = [[DataTrack alloc] init];
-    track.name = @"Income";
-    [m.incomeTracks addObject:track];
-  }
+  DataTrack *track = [[DataTrack alloc] init];
+  track.name = @"Income";
+  [m.incomeTracks addObject:track];
   
-  for (int i = 0; i < kDefaultExpenseTracks; ++i) {
-    DataTrack *track = [[DataTrack alloc] init];
-    track.name = @"Expenses";
-    [m.expenseTracks addObject:track];
-  }
+  DataTrack *track2 = [[DataTrack alloc] init];
+  track2.name = @"Expenses";
+  [m.expenseTracks addObject:track2];
   
   DataTrack *investmentTrack = [[DataTrack alloc] init];
   investmentTrack.name = @"Investment";

@@ -26,6 +26,8 @@
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
 		6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA717E6706700B0D97D /* PTSans.ttc */; };
 		6A8A3BAF17E8EF0C00B0D97D /* IPadTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A3BAE17E8EF0C00B0D97D /* IPadTimelineViewController.m */; };
+		6A8A3BB217E8F02800B0D97D /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */; };
+		6A8A3BB517E8F04A00B0D97D /* IPhoneTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */; };
 		6A99DB7E178B58BD0096AAB7 /* LineGraphTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB7D178B58BD0096AAB7 /* LineGraphTrack.m */; };
 		6A99DB81178B59250096AAB7 /* DataTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB80178B59250096AAB7 /* DataTrack.m */; };
 		6A99DB85178B72F20096AAB7 /* AnnuityTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB84178B72F20096AAB7 /* AnnuityTrackView.m */; };
@@ -97,6 +99,9 @@
 		6A8A3BA717E6706700B0D97D /* PTSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSans.ttc; path = Assets/PTSans.ttc; sourceTree = "<group>"; };
 		6A8A3BAD17E8EF0C00B0D97D /* IPadTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPadTimelineViewController.h; sourceTree = "<group>"; };
 		6A8A3BAE17E8EF0C00B0D97D /* IPadTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPadTimelineViewController.m; sourceTree = "<group>"; };
+		6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		6A8A3BB317E8F04A00B0D97D /* IPhoneTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPhoneTimelineViewController.h; sourceTree = "<group>"; };
+		6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPhoneTimelineViewController.m; sourceTree = "<group>"; };
 		6A99DB7C178B58BD0096AAB7 /* LineGraphTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineGraphTrack.h; sourceTree = "<group>"; };
 		6A99DB7D178B58BD0096AAB7 /* LineGraphTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineGraphTrack.m; sourceTree = "<group>"; };
 		6A99DB7F178B59250096AAB7 /* DataTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTrack.h; sourceTree = "<group>"; };
@@ -214,6 +219,16 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
+		6A8A3BB017E8EFB400B0D97D /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */,
+				6A8A3BB317E8F04A00B0D97D /* IPhoneTimelineViewController.h */,
+				6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
 		6AFAA04B1770FBA300E61733 = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +269,7 @@
 				6AFAA098177105D700E61733 /* Tracks */,
 				6AFAA05E1770FBA300E61733 /* Supporting Files */,
 				6A8A3BAC17E8EE4B00B0D97D /* iPad */,
+				6A8A3BB017E8EFB400B0D97D /* iPhone */,
 				6AFAA0661770FBA300E61733 /* AppDelegate.h */,
 				6AFAA0671770FBA300E61733 /* AppDelegate.m */,
 				6AFAA0721770FBA300E61733 /* TimelineViewController.h */,
@@ -434,6 +450,7 @@
 				6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */,
 				6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */,
 				6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */,
+				6A8A3BB217E8F02800B0D97D /* iPhoneStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +536,7 @@
 				6AE342DA17DFD285006C2202 /* FilesViewController.m in Sources */,
 				6AE342DD17E62268006C2202 /* AboutViewController.m in Sources */,
 				6A8A3BAF17E8EF0C00B0D97D /* IPadTimelineViewController.m in Sources */,
+				6A8A3BB517E8F04A00B0D97D /* IPhoneTimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,9 +651,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -647,9 +665,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

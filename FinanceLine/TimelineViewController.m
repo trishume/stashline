@@ -17,8 +17,6 @@
 
 #include <stdlib.h>
 
-#define kDefaultIncomeTracks 2
-#define kDefaultExpenseTracks 3
 #define kAnnuityTrackHeight 50.0
 
 #define kLoadOnStart
@@ -157,25 +155,8 @@
 }
 
 - (FinanceModel*)newModel {
-  FinanceModel *m = [[FinanceModel alloc] init];
-
-  for (int i = 0; i < kDefaultIncomeTracks; ++i) {
-    DataTrack *track = [[DataTrack alloc] init];
-    track.name = @"Income";
-    [m.incomeTracks addObject:track];
-  }
-
-  for (int i = 0; i < kDefaultExpenseTracks; ++i) {
-    DataTrack *track = [[DataTrack alloc] init];
-    track.name = @"Expenses";
-    [m.expenseTracks addObject:track];
-  }
-  
-  DataTrack *investmentTrack = [[DataTrack alloc] init];
-  investmentTrack.name = @"Investment";
-  m.investmentTrack = investmentTrack;
-
-  return m;
+  @throw @"newModel not implemented";
+  return nil;
 }
 
 - (void)loadTracks {
