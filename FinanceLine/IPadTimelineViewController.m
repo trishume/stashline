@@ -33,6 +33,8 @@
   timelineTrackHeight = 100.0;
   isPhone = NO;
   
+  self.trackSelectors.frame = self.selectActions.frame;
+  
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

@@ -30,6 +30,11 @@
   timelineTrackHeight = 70.0;
   isPhone = YES;
   
+  self.leftPanelView.hidden = YES;
+  self.rightPanelView.hidden = YES;
+  
+  self.selectDivider = nil;
+  
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   self.timeLine.frame = self.view.bounds;
@@ -51,6 +56,16 @@
   m.investmentTrack = investmentTrack;
   
   return m;
+}
+
+#pragma mark Panel Control
+
+- (IBAction)toggleLeftPanel {
+  self.leftPanelView.hidden = !self.leftPanelView.hidden;
+}
+
+- (IBAction)toggleRightPanel {
+  self.rightPanelView.hidden = !self.rightPanelView.hidden;
 }
 
 - (void)didReceiveMemoryWarning

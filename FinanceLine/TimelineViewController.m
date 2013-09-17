@@ -49,10 +49,8 @@
   introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
   introController.view.frame = self.editorContainerView.bounds;
   
-  self.trackSelectors.frame = self.selectActions.frame;
-  
   selectEditor = nil;
-  self.selectDivider.delegate = self;
+  if (self.selectDivider) self.selectDivider.delegate = self;
   [self deselect];
   
   // I am view
@@ -343,13 +341,15 @@
     
   }
   
-  [self.selectDivider setHasSelection:YES];
+  if (self.selectDivider) {
+    [self.selectDivider setHasSelection:YES];
+  }
   self.trackSelectors.hidden = YES;
   self.selectActions.hidden = NO;
   [selectEditor setSelection:sel onTrack:track];
 }
 
-- (void)deselect {
+- (IBAction)deselect {
   if(selectEditor) {
     [selectEditor clearSelection];
   }
@@ -357,7 +357,7 @@
   self.selectedLabel.text = @"planning";
   self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
   
-  [self.selectDivider setHasSelection:NO];
+  if(self.selectDivider) [self.selectDivider setHasSelection:NO];
   self.selectActions.hidden = YES;
   self.trackSelectors.hidden = NO;
 }

@@ -48,7 +48,7 @@
   [self.yearlyCost setValue:monthlyValue*12.0];
   [self.dailyCost setValue:monthlyValue/30.4];
   [self.workDailyCost setValue:monthlyValue/20.0];
-  [self.workHourlyCost setValue:monthlyValue/160.0];
+  [self.workHourlyCost setValue:monthlyValue/(37.5*4.0)];
 }
 
 - (void)clearSelection {
@@ -81,7 +81,7 @@
   } else if(sender == self.workDailyCost) {
     value *= 5.0*4.0;
   } else if(sender == self.workHourlyCost) {
-    value *= 40*4.0;
+    value *= 37.5*4.0;
   }
   
   [self updateSelectionAmount: value];

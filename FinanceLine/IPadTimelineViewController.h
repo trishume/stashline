@@ -10,4 +10,7 @@
 
 @interface IPadTimelineViewController : TimelineViewController
 
+
+@property (weak, nonatomic) IBOutlet UIView *selectActions;
+@property (weak, nonatomic) IBOutlet UIView *trackSelectors;
 @end

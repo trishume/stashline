@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol SelectDividerDelegate <NSObject>
-- (void) deselect;
+- (IBAction) deselect;
 @end
 
 @interface SelectDividerView : UIView {
