@@ -17,7 +17,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="4Wm-vV-nbi">
+                            <view hidden="YES" contentMode="scaleToFill" id="4Wm-vV-nbi">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -118,7 +118,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.7162607312" green="0.85122084620000005" blue="0.9993501306" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="8WI-Md-m2D">
+                            <view hidden="YES" contentMode="scaleToFill" id="8WI-Md-m2D">
                                 <rect key="frame" x="300" y="0.0" width="180" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -298,8 +298,10 @@
                         <outlet property="ageField" destination="Enq-w8-TPD" id="23w-0P-uoU"/>
                         <outlet property="editorContainerView" destination="uuD-ff-fKh" id="gIu-5e-6D6"/>
                         <outlet property="fileNameLabel" destination="bcV-jp-ILe" id="4nq-6v-b4c"/>
+                        <outlet property="leftPanelView" destination="4Wm-vV-nbi" id="YFI-hL-58O"/>
                         <outlet property="retireAgeLabel" destination="URR-eV-yWx" id="Coj-WX-v9d"/>
                         <outlet property="retireSavingsLabel" destination="qW4-QL-hbd" id="IhA-TL-eKd"/>
+                        <outlet property="rightPanelView" destination="8WI-Md-m2D" id="tsO-I8-fCp"/>
                         <outlet property="savingsField" destination="n4n-cr-PuU" id="1XW-dG-JO0"/>
                         <outlet property="selectActions" destination="xRT-XY-JuL" id="bW7-yq-kvu"/>
                         <outlet property="selectDivider" destination="D9i-tF-xMa" id="lad-U2-JTr"/>
@@ -619,6 +621,10 @@
         </class>
         <class className="IPhoneTimelineViewController" superclassName="TimelineViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IPhoneTimelineViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="leftPanelView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="rightPanelView" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="InvestmentEditController" superclassName="SelectionEditViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InvestmentEditController.h"/>

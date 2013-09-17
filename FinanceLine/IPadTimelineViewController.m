@@ -28,7 +28,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  // Set constants
+  stashTrackHeight = 150.0;
+  timelineTrackHeight = 100.0;
+  isPhone = NO;
+  
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 

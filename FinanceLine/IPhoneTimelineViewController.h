@@ -10,4 +10,7 @@
 
 @interface IPhoneTimelineViewController : TimelineViewController
 
+@property (weak, nonatomic) IBOutlet UIView *leftPanelView;
+@property (weak, nonatomic) IBOutlet UIView *rightPanelView;
+
 @end

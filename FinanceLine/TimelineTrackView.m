@@ -8,14 +8,12 @@
 
 #import "TimelineTrackView.h"
 
-#define kLineSpacing 17
-#define kMonthTickLength 10.0
-#define kYearTickLength 20.0
 #define kYearTextShift 0.0
 #define kYearLabelThresh 3.0
 #define kYearMajorTickThres 4.0
 
 @implementation TimelineTrackView
+@synthesize yearTickLength, monthTickLength, lineGap;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -23,7 +21,11 @@
   if (self) {
     self.backgroundColor = [UIColor whiteColor];
     lineColor = [UIColor blackColor];
-    yearFont = [UIFont boldSystemFontOfSize:20.0];
+    self.yearFont = [UIFont boldSystemFontOfSize:20.0];
+    
+    yearTickLength = 20.0;
+    monthTickLength = 10.0;
+    lineGap = 17;
     
     normalTextColor = [UIColor blackColor];
     retiredTextColor = [UIColor grayColor];
@@ -84,14 +86,14 @@
   [lineColor setStroke];
 
   CGFloat middleY = self.bounds.size.height / 2.0;
-  CGFloat tickLength = isMajorTick ? kYearTickLength : kMonthTickLength;
+  CGFloat tickLength = isMajorTick ? yearTickLength : monthTickLength;
 
-  CGContextMoveToPoint(context,x, middleY + kLineSpacing);
-  CGContextAddLineToPoint(context,x, middleY + kLineSpacing + tickLength);
+  CGContextMoveToPoint(context,x, middleY + lineGap);
+  CGContextAddLineToPoint(context,x, middleY + lineGap + tickLength);
   CGContextStrokePath(context);
 
-  CGContextMoveToPoint(context,x, middleY - kLineSpacing);
-  CGContextAddLineToPoint(context,x, middleY - kLineSpacing - tickLength);
+  CGContextMoveToPoint(context,x, middleY - lineGap);
+  CGContextAddLineToPoint(context,x, middleY - lineGap - tickLength);
   CGContextStrokePath(context);
 
   if (isLabelTick) {
@@ -99,9 +101,9 @@
     UIColor *color = retired ? retiredTextColor : normalTextColor;
     [color setFill];
 
-    CGRect textRect = CGRectMake(x - 25.0, middleY - kLineSpacing - kYearTextShift, 50.0, kLineSpacing*2);
+    CGRect textRect = CGRectMake(x - 25.0, middleY - lineGap - kYearTextShift, 50.0, lineGap*2);
     NSString *yearStr = [NSString stringWithFormat:@"%i",month/12];
-    [self drawString:yearStr withFont:yearFont inRect:textRect];
+    [self drawString:yearStr withFont:self.yearFont inRect:textRect];
   }
 }
 
@@ -117,12 +119,12 @@
   [lineColor setStroke];
 
   CGFloat middleY = self.bounds.size.height / 2.0;
-  CGContextMoveToPoint(context,0.0, middleY + kLineSpacing);
-  CGContextAddLineToPoint(context,self.bounds.size.width, middleY + kLineSpacing);
+  CGContextMoveToPoint(context,0.0, middleY + lineGap);
+  CGContextAddLineToPoint(context,self.bounds.size.width, middleY + lineGap);
   CGContextStrokePath(context);
 
-  CGContextMoveToPoint(context,0.0, middleY - kLineSpacing);
-  CGContextAddLineToPoint(context,self.bounds.size.width, middleY - kLineSpacing);
+  CGContextMoveToPoint(context,0.0, middleY - lineGap);
+  CGContextAddLineToPoint(context,self.bounds.size.width, middleY - lineGap);
   CGContextStrokePath(context);
 
   [self drawBlocks:context extraBlock: YES autoScale: YES];

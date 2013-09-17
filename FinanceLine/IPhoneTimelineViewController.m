@@ -25,6 +25,11 @@
 
 - (void)viewDidLoad
 {
+  // Set constants
+  stashTrackHeight = 90.0;
+  timelineTrackHeight = 70.0;
+  isPhone = YES;
+  
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   self.timeLine.frame = self.view.bounds;

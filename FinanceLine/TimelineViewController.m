@@ -17,8 +17,6 @@
 
 #include <stdlib.h>
 
-#define kAnnuityTrackHeight 50.0
-
 //#define kLoadOnStart
 
 #define kDupAlertTitle @"Duplicate As"
@@ -165,20 +163,31 @@
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
   stashTrack.data = model.stashTrack;
   stashTrack.model = model;
-  [self.timeLine addTrack:stashTrack withHeight:150.0];
+  [self.timeLine addTrack:stashTrack withHeight:stashTrackHeight];
 
   TimelineTrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
   timeTrack.status = model.statusTrack;
-  [self.timeLine addTrack:timeTrack withHeight:100.0];
+  if (isPhone) {
+    timeTrack.monthTickLength = 7.0;
+    timeTrack.yearTickLength = 14.0;
+    timeTrack.lineGap = 15.0;
+    timeTrack.yearFont = [UIFont boldSystemFontOfSize:18.0];
+  }
+  [self.timeLine addTrack:timeTrack withHeight:timelineTrackHeight];
 
   [self addDivider];
+  
+  CGFloat timelineHeight = isPhone ? 295.0 : 575.0; // bottom borders subtracted
+  CGFloat allAnnuityTracks = timelineHeight - self.timeLine.nextTrackTop;
+  CGFloat annuityTrackCount = [model.incomeTracks count] + [model.expenseTracks count] + 1;
+  CGFloat annuityTrackHeight = allAnnuityTracks / annuityTrackCount;
 
   firstIncomeTrack = nil;
   for (DataTrack *track in model.incomeTracks) {
     AnnuityTrackView *trackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
     trackView.data = track;
     trackView.selectionDelegate = self;
-    [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
+    [self.timeLine addTrack:trackView withHeight:annuityTrackHeight];
     [self addDivider];
     
     if (firstIncomeTrack == nil)
@@ -191,7 +200,7 @@
     trackView.data = track;
     trackView.hue = 0.083;
     trackView.selectionDelegate = self;
-    [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
+    [self.timeLine addTrack:trackView withHeight:annuityTrackHeight];
     [self addDivider];
     
     if (firstExpensesTrack == nil)
@@ -202,7 +211,7 @@
   investTrack.data = model.investmentTrack;
   investTrack.hue = 0.566;
   investTrack.selectionDelegate = self;
-  [self.timeLine addTrack:investTrack withHeight:kAnnuityTrackHeight];
+  [self.timeLine addTrack:investTrack withHeight:annuityTrackHeight];
   [self addDivider];
 }
 

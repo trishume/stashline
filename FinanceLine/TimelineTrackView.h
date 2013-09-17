@@ -14,9 +14,12 @@
     UIColor *lineColor;
     UIColor *normalTextColor;
     UIColor *retiredTextColor;
-    UIFont *yearFont;
 }
 
 @property (nonatomic, strong) DataTrack *status;
+@property (nonatomic) CGFloat yearTickLength;
+@property (nonatomic) CGFloat monthTickLength;
+@property (nonatomic) CGFloat lineGap;
+@property (nonatomic) UIFont *yearFont;
 
 @end

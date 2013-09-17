@@ -14,7 +14,7 @@
 #define kMaxMonthSize 30.0
 
 @implementation TimelineView
-@synthesize tracks, startMonth, monthSize, velocity, maxMonth;
+@synthesize tracks, startMonth, monthSize, velocity, maxMonth, nextTrackTop;
 
 - (void)initialize
 {
