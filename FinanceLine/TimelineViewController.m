@@ -19,7 +19,7 @@
 
 #define kAnnuityTrackHeight 50.0
 
-#define kLoadOnStart
+//#define kLoadOnStart
 
 #define kDupAlertTitle @"Duplicate As"
 #define kNewAlertTitle @"New File"

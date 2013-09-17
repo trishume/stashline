@@ -25,8 +25,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
+  self.timeLine.frame = self.view.bounds;
 }
 
 - (FinanceModel*)newModel {
