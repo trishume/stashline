@@ -17,7 +17,7 @@
 
 #include <stdlib.h>
 
-//#define kLoadOnStart
+#define kLoadOnStart
 
 #define kDupAlertTitle @"Duplicate As"
 #define kNewAlertTitle @"New File"
