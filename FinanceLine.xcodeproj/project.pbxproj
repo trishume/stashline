@@ -37,6 +37,15 @@
 		6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB931790B8C10096AAB7 /* FinanceModel.m */; };
 		6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB961794C70E0096AAB7 /* StatusTrackView.m */; };
 		6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */; };
+		6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */; };
+		6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */; };
+		6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C917EDE66A00F5A95B /* About Long.png */; };
+		6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CA17EDE66A00F5A95B /* Files Long.png */; };
+		6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CB17EDE66A00F5A95B /* Help Long.png */; };
+		6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CC17EDE66A00F5A95B /* Retire Long.png */; };
+		6ABE78D417EDE74A00F5A95B /* Deselect Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78D117EDE74A00F5A95B /* Deselect Short.png */; };
+		6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78D217EDE74A00F5A95B /* Expand Short.png */; };
+		6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78D317EDE74A00F5A95B /* Zero Short.png */; };
 		6AD59C3F17DB599100BD2C01 /* SelectDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD59C3E17DB599100BD2C01 /* SelectDividerView.m */; };
 		6AD59C4317DB647300BD2C01 /* Expenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD59C4017DB647300BD2C01 /* Expenses.png */; };
 		6AD59C4417DB647300BD2C01 /* Income.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD59C4117DB647300BD2C01 /* Income.png */; };
@@ -121,6 +130,15 @@
 		6A99DB961794C70E0096AAB7 /* StatusTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTrackView.m; sourceTree = "<group>"; };
 		6A99DBA217AD6A770096AAB7 /* ScrubbableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubbableTextView.h; sourceTree = "<group>"; };
 		6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrubbableTextView.m; sourceTree = "<group>"; };
+		6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone Left Panel BG.png"; path = "Assets/iPhone Left Panel BG.png"; sourceTree = "<group>"; };
+		6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone Right Panel BG.png"; path = "Assets/iPhone Right Panel BG.png"; sourceTree = "<group>"; };
+		6ABE78C917EDE66A00F5A95B /* About Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About Long.png"; path = "Buttons/About Long.png"; sourceTree = "<group>"; };
+		6ABE78CA17EDE66A00F5A95B /* Files Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Files Long.png"; path = "Buttons/Files Long.png"; sourceTree = "<group>"; };
+		6ABE78CB17EDE66A00F5A95B /* Help Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help Long.png"; path = "Buttons/Help Long.png"; sourceTree = "<group>"; };
+		6ABE78CC17EDE66A00F5A95B /* Retire Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Retire Long.png"; path = "Buttons/Retire Long.png"; sourceTree = "<group>"; };
+		6ABE78D117EDE74A00F5A95B /* Deselect Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Deselect Short.png"; path = "Buttons/Deselect Short.png"; sourceTree = "<group>"; };
+		6ABE78D217EDE74A00F5A95B /* Expand Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expand Short.png"; path = "Buttons/Expand Short.png"; sourceTree = "<group>"; };
+		6ABE78D317EDE74A00F5A95B /* Zero Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Zero Short.png"; path = "Buttons/Zero Short.png"; sourceTree = "<group>"; };
 		6AD59C3D17DB599100BD2C01 /* SelectDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDividerView.h; sourceTree = "<group>"; };
 		6AD59C3E17DB599100BD2C01 /* SelectDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDividerView.m; sourceTree = "<group>"; };
 		6AD59C4017DB647300BD2C01 /* Expenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Expenses.png; path = Buttons/Expenses.png; sourceTree = "<group>"; };
@@ -190,6 +208,8 @@
 		6A3A828B17D0187F00E9C0EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */,
+				6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */,
 				6A8A3BA417E6706600B0D97D /* InfoOverlay.png */,
 				6A8A3BA517E6706600B0D97D /* Name Banner.png */,
 				6A8A3BA617E6706600B0D97D /* Panel Background.png */,
@@ -205,6 +225,13 @@
 				6A3A828217D0165000E9C0EF /* Help.png */,
 				6A3A828317D0165000E9C0EF /* Retire.png */,
 				6A3A828417D0165000E9C0EF /* Zero.png */,
+				6ABE78D117EDE74A00F5A95B /* Deselect Short.png */,
+				6ABE78D217EDE74A00F5A95B /* Expand Short.png */,
+				6ABE78D317EDE74A00F5A95B /* Zero Short.png */,
+				6ABE78C917EDE66A00F5A95B /* About Long.png */,
+				6ABE78CA17EDE66A00F5A95B /* Files Long.png */,
+				6ABE78CB17EDE66A00F5A95B /* Help Long.png */,
+				6ABE78CC17EDE66A00F5A95B /* Retire Long.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -431,15 +458,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFAA0621770FBA300E61733 /* InfoPlist.strings in Resources */,
+				6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */,
 				6AFAA06A1770FBA300E61733 /* Default.png in Resources */,
 				6AFAA06C1770FBA300E61733 /* Default@2x.png in Resources */,
 				6AFAA06E1770FBA300E61733 /* Default-568h@2x.png in Resources */,
 				6AFAA0711770FBA300E61733 /* MainStoryboard.storyboard in Resources */,
+				6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */,
 				6A3A828517D0165000E9C0EF /* About.png in Resources */,
+				6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */,
+				6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */,
+				6ABE78D417EDE74A00F5A95B /* Deselect Short.png in Resources */,
+				6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */,
 				6A3A828617D0165000E9C0EF /* Expand.png in Resources */,
 				6A3A828717D0165000E9C0EF /* Files.png in Resources */,
 				6A3A828817D0165000E9C0EF /* Help.png in Resources */,
 				6A3A828917D0165000E9C0EF /* Retire.png in Resources */,
+				6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */,
+				6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */,
+				6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */,
 				6A3A828A17D0165000E9C0EF /* Zero.png in Resources */,
 				6AD59C4317DB647300BD2C01 /* Expenses.png in Resources */,
 				6AD59C4417DB647300BD2C01 /* Income.png in Resources */,
