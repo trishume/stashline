@@ -32,6 +32,10 @@
   AnnuityTrackView *firstExpensesTrack;
   AnnuityTrackView *investTrack;
   
+  BOOL isPhone;
+  CGFloat stashTrackHeight;
+  CGFloat timelineTrackHeight;
+  
   FinanceModel *model;
   
   NSString *currentFileName;

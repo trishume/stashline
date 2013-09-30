@@ -12,7 +12,6 @@
 
 @interface TimelineView : UIView <TrackViewDelegate> {
     @private
-    CGFloat nextTrackTop;
     // current speed in months/second
     CADisplayLink *displayLink;
 }
@@ -22,6 +21,7 @@
 @property (nonatomic) CGFloat monthSize;
 @property (nonatomic) CGFloat velocity;
 @property (nonatomic, readonly) NSUInteger maxMonth;
+@property (nonatomic, readonly) CGFloat nextTrackTop;
 
 - (void)addTrack: (TrackView*)track withHeight:(CGFloat)height;
 - (void)redrawTracks;

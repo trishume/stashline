@@ -17,10 +17,6 @@
 
 #include <stdlib.h>
 
-#define kDefaultIncomeTracks 2
-#define kDefaultExpenseTracks 3
-#define kAnnuityTrackHeight 50.0
-
 #define kLoadOnStart
 
 #define kDupAlertTitle @"Duplicate As"
@@ -53,10 +49,8 @@
   introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
   introController.view.frame = self.editorContainerView.bounds;
   
-  self.trackSelectors.frame = self.selectActions.frame;
-  
   selectEditor = nil;
-  self.selectDivider.delegate = self;
+  if (self.selectDivider) self.selectDivider.delegate = self;
   [self deselect];
   
   // I am view
@@ -157,25 +151,8 @@
 }
 
 - (FinanceModel*)newModel {
-  FinanceModel *m = [[FinanceModel alloc] init];
-
-  for (int i = 0; i < kDefaultIncomeTracks; ++i) {
-    DataTrack *track = [[DataTrack alloc] init];
-    track.name = @"Income";
-    [m.incomeTracks addObject:track];
-  }
-
-  for (int i = 0; i < kDefaultExpenseTracks; ++i) {
-    DataTrack *track = [[DataTrack alloc] init];
-    track.name = @"Expenses";
-    [m.expenseTracks addObject:track];
-  }
-  
-  DataTrack *investmentTrack = [[DataTrack alloc] init];
-  investmentTrack.name = @"Investment";
-  m.investmentTrack = investmentTrack;
-
-  return m;
+  @throw @"newModel not implemented";
+  return nil;
 }
 
 - (void)loadTracks {
@@ -184,20 +161,31 @@
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
   stashTrack.data = model.stashTrack;
   stashTrack.model = model;
-  [self.timeLine addTrack:stashTrack withHeight:150.0];
+  [self.timeLine addTrack:stashTrack withHeight:stashTrackHeight];
 
   TimelineTrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
   timeTrack.status = model.statusTrack;
-  [self.timeLine addTrack:timeTrack withHeight:100.0];
+  if (isPhone) {
+    timeTrack.monthTickLength = 7.0;
+    timeTrack.yearTickLength = 14.0;
+    timeTrack.lineGap = 15.0;
+    timeTrack.yearFont = [UIFont boldSystemFontOfSize:18.0];
+  }
+  [self.timeLine addTrack:timeTrack withHeight:timelineTrackHeight];
 
   [self addDivider];
+  
+  CGFloat timelineHeight = isPhone ? 295.0 : 575.0; // bottom borders subtracted
+  CGFloat allAnnuityTracks = timelineHeight - self.timeLine.nextTrackTop;
+  CGFloat annuityTrackCount = [model.incomeTracks count] + [model.expenseTracks count] + 1;
+  CGFloat annuityTrackHeight = allAnnuityTracks / annuityTrackCount;
 
   firstIncomeTrack = nil;
   for (DataTrack *track in model.incomeTracks) {
     AnnuityTrackView *trackView = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
     trackView.data = track;
     trackView.selectionDelegate = self;
-    [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
+    [self.timeLine addTrack:trackView withHeight:annuityTrackHeight];
     [self addDivider];
     
     if (firstIncomeTrack == nil)
@@ -210,7 +198,7 @@
     trackView.data = track;
     trackView.hue = 0.083;
     trackView.selectionDelegate = self;
-    [self.timeLine addTrack:trackView withHeight:kAnnuityTrackHeight];
+    [self.timeLine addTrack:trackView withHeight:annuityTrackHeight];
     [self addDivider];
     
     if (firstExpensesTrack == nil)
@@ -221,7 +209,7 @@
   investTrack.data = model.investmentTrack;
   investTrack.hue = 0.566;
   investTrack.selectionDelegate = self;
-  [self.timeLine addTrack:investTrack withHeight:kAnnuityTrackHeight];
+  [self.timeLine addTrack:investTrack withHeight:annuityTrackHeight];
   [self addDivider];
 }
 
@@ -353,13 +341,15 @@
     
   }
   
-  [self.selectDivider setHasSelection:YES];
+  if (self.selectDivider) {
+    [self.selectDivider setHasSelection:YES];
+  }
   self.trackSelectors.hidden = YES;
   self.selectActions.hidden = NO;
   [selectEditor setSelection:sel onTrack:track];
 }
 
-- (void)deselect {
+- (IBAction)deselect {
   if(selectEditor) {
     [selectEditor clearSelection];
   }
@@ -367,7 +357,7 @@
   self.selectedLabel.text = @"planning";
   self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
   
-  [self.selectDivider setHasSelection:NO];
+  if(self.selectDivider) [self.selectDivider setHasSelection:NO];
   self.selectActions.hidden = YES;
   self.trackSelectors.hidden = NO;
 }

@@ -25,6 +25,9 @@
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
 		6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA717E6706700B0D97D /* PTSans.ttc */; };
+		6A8A3BAF17E8EF0C00B0D97D /* IPadTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A3BAE17E8EF0C00B0D97D /* IPadTimelineViewController.m */; };
+		6A8A3BB217E8F02800B0D97D /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */; };
+		6A8A3BB517E8F04A00B0D97D /* IPhoneTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */; };
 		6A99DB7E178B58BD0096AAB7 /* LineGraphTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB7D178B58BD0096AAB7 /* LineGraphTrack.m */; };
 		6A99DB81178B59250096AAB7 /* DataTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB80178B59250096AAB7 /* DataTrack.m */; };
 		6A99DB85178B72F20096AAB7 /* AnnuityTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB84178B72F20096AAB7 /* AnnuityTrackView.m */; };
@@ -34,6 +37,15 @@
 		6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB931790B8C10096AAB7 /* FinanceModel.m */; };
 		6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB961794C70E0096AAB7 /* StatusTrackView.m */; };
 		6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */; };
+		6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */; };
+		6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */; };
+		6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C917EDE66A00F5A95B /* About Long.png */; };
+		6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CA17EDE66A00F5A95B /* Files Long.png */; };
+		6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CB17EDE66A00F5A95B /* Help Long.png */; };
+		6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CC17EDE66A00F5A95B /* Retire Long.png */; };
+		6ABE78D417EDE74A00F5A95B /* Deselect Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78D117EDE74A00F5A95B /* Deselect Short.png */; };
+		6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78D217EDE74A00F5A95B /* Expand Short.png */; };
+		6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78D317EDE74A00F5A95B /* Zero Short.png */; };
 		6AD59C3F17DB599100BD2C01 /* SelectDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD59C3E17DB599100BD2C01 /* SelectDividerView.m */; };
 		6AD59C4317DB647300BD2C01 /* Expenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD59C4017DB647300BD2C01 /* Expenses.png */; };
 		6AD59C4417DB647300BD2C01 /* Income.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD59C4117DB647300BD2C01 /* Income.png */; };
@@ -94,6 +106,11 @@
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
 		6A8A3BA617E6706600B0D97D /* Panel Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel Background.png"; path = "Assets/Panel Background.png"; sourceTree = "<group>"; };
 		6A8A3BA717E6706700B0D97D /* PTSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSans.ttc; path = Assets/PTSans.ttc; sourceTree = "<group>"; };
+		6A8A3BAD17E8EF0C00B0D97D /* IPadTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPadTimelineViewController.h; sourceTree = "<group>"; };
+		6A8A3BAE17E8EF0C00B0D97D /* IPadTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPadTimelineViewController.m; sourceTree = "<group>"; };
+		6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		6A8A3BB317E8F04A00B0D97D /* IPhoneTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPhoneTimelineViewController.h; sourceTree = "<group>"; };
+		6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPhoneTimelineViewController.m; sourceTree = "<group>"; };
 		6A99DB7C178B58BD0096AAB7 /* LineGraphTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineGraphTrack.h; sourceTree = "<group>"; };
 		6A99DB7D178B58BD0096AAB7 /* LineGraphTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineGraphTrack.m; sourceTree = "<group>"; };
 		6A99DB7F178B59250096AAB7 /* DataTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTrack.h; sourceTree = "<group>"; };
@@ -113,6 +130,15 @@
 		6A99DB961794C70E0096AAB7 /* StatusTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTrackView.m; sourceTree = "<group>"; };
 		6A99DBA217AD6A770096AAB7 /* ScrubbableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubbableTextView.h; sourceTree = "<group>"; };
 		6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrubbableTextView.m; sourceTree = "<group>"; };
+		6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone Left Panel BG.png"; path = "Assets/iPhone Left Panel BG.png"; sourceTree = "<group>"; };
+		6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone Right Panel BG.png"; path = "Assets/iPhone Right Panel BG.png"; sourceTree = "<group>"; };
+		6ABE78C917EDE66A00F5A95B /* About Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About Long.png"; path = "Buttons/About Long.png"; sourceTree = "<group>"; };
+		6ABE78CA17EDE66A00F5A95B /* Files Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Files Long.png"; path = "Buttons/Files Long.png"; sourceTree = "<group>"; };
+		6ABE78CB17EDE66A00F5A95B /* Help Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help Long.png"; path = "Buttons/Help Long.png"; sourceTree = "<group>"; };
+		6ABE78CC17EDE66A00F5A95B /* Retire Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Retire Long.png"; path = "Buttons/Retire Long.png"; sourceTree = "<group>"; };
+		6ABE78D117EDE74A00F5A95B /* Deselect Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Deselect Short.png"; path = "Buttons/Deselect Short.png"; sourceTree = "<group>"; };
+		6ABE78D217EDE74A00F5A95B /* Expand Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expand Short.png"; path = "Buttons/Expand Short.png"; sourceTree = "<group>"; };
+		6ABE78D317EDE74A00F5A95B /* Zero Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Zero Short.png"; path = "Buttons/Zero Short.png"; sourceTree = "<group>"; };
 		6AD59C3D17DB599100BD2C01 /* SelectDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDividerView.h; sourceTree = "<group>"; };
 		6AD59C3E17DB599100BD2C01 /* SelectDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDividerView.m; sourceTree = "<group>"; };
 		6AD59C4017DB647300BD2C01 /* Expenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Expenses.png; path = Buttons/Expenses.png; sourceTree = "<group>"; };
@@ -182,6 +208,8 @@
 		6A3A828B17D0187F00E9C0EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */,
+				6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */,
 				6A8A3BA417E6706600B0D97D /* InfoOverlay.png */,
 				6A8A3BA517E6706600B0D97D /* Name Banner.png */,
 				6A8A3BA617E6706600B0D97D /* Panel Background.png */,
@@ -197,8 +225,35 @@
 				6A3A828217D0165000E9C0EF /* Help.png */,
 				6A3A828317D0165000E9C0EF /* Retire.png */,
 				6A3A828417D0165000E9C0EF /* Zero.png */,
+				6ABE78D117EDE74A00F5A95B /* Deselect Short.png */,
+				6ABE78D217EDE74A00F5A95B /* Expand Short.png */,
+				6ABE78D317EDE74A00F5A95B /* Zero Short.png */,
+				6ABE78C917EDE66A00F5A95B /* About Long.png */,
+				6ABE78CA17EDE66A00F5A95B /* Files Long.png */,
+				6ABE78CB17EDE66A00F5A95B /* Help Long.png */,
+				6ABE78CC17EDE66A00F5A95B /* Retire Long.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		6A8A3BAC17E8EE4B00B0D97D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				6AFAA06F1770FBA300E61733 /* MainStoryboard.storyboard */,
+				6A8A3BAD17E8EF0C00B0D97D /* IPadTimelineViewController.h */,
+				6A8A3BAE17E8EF0C00B0D97D /* IPadTimelineViewController.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		6A8A3BB017E8EFB400B0D97D /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */,
+				6A8A3BB317E8F04A00B0D97D /* IPhoneTimelineViewController.h */,
+				6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */,
+			);
+			name = iPhone;
 			sourceTree = "<group>";
 		};
 		6AFAA04B1770FBA300E61733 = {
@@ -240,9 +295,10 @@
 			children = (
 				6AFAA098177105D700E61733 /* Tracks */,
 				6AFAA05E1770FBA300E61733 /* Supporting Files */,
+				6A8A3BAC17E8EE4B00B0D97D /* iPad */,
+				6A8A3BB017E8EFB400B0D97D /* iPhone */,
 				6AFAA0661770FBA300E61733 /* AppDelegate.h */,
 				6AFAA0671770FBA300E61733 /* AppDelegate.m */,
-				6AFAA06F1770FBA300E61733 /* MainStoryboard.storyboard */,
 				6AFAA0721770FBA300E61733 /* TimelineViewController.h */,
 				6AFAA0731770FBA300E61733 /* TimelineViewController.m */,
 				6AFAA0951771040400E61733 /* TimelineView.h */,
@@ -402,15 +458,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFAA0621770FBA300E61733 /* InfoPlist.strings in Resources */,
+				6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */,
 				6AFAA06A1770FBA300E61733 /* Default.png in Resources */,
 				6AFAA06C1770FBA300E61733 /* Default@2x.png in Resources */,
 				6AFAA06E1770FBA300E61733 /* Default-568h@2x.png in Resources */,
 				6AFAA0711770FBA300E61733 /* MainStoryboard.storyboard in Resources */,
+				6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */,
 				6A3A828517D0165000E9C0EF /* About.png in Resources */,
+				6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */,
+				6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */,
+				6ABE78D417EDE74A00F5A95B /* Deselect Short.png in Resources */,
+				6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */,
 				6A3A828617D0165000E9C0EF /* Expand.png in Resources */,
 				6A3A828717D0165000E9C0EF /* Files.png in Resources */,
 				6A3A828817D0165000E9C0EF /* Help.png in Resources */,
 				6A3A828917D0165000E9C0EF /* Retire.png in Resources */,
+				6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */,
+				6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */,
+				6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */,
 				6A3A828A17D0165000E9C0EF /* Zero.png in Resources */,
 				6AD59C4317DB647300BD2C01 /* Expenses.png in Resources */,
 				6AD59C4417DB647300BD2C01 /* Income.png in Resources */,
@@ -421,6 +486,7 @@
 				6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */,
 				6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */,
 				6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */,
+				6A8A3BB217E8F02800B0D97D /* iPhoneStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +571,8 @@
 				6A456B0017DD374D0013BC2F /* InfoOverlayView.m in Sources */,
 				6AE342DA17DFD285006C2202 /* FilesViewController.m in Sources */,
 				6AE342DD17E62268006C2202 /* AboutViewController.m in Sources */,
+				6A8A3BAF17E8EF0C00B0D97D /* IPadTimelineViewController.m in Sources */,
+				6A8A3BB517E8F04A00B0D97D /* IPhoneTimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,8 +687,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -632,8 +701,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

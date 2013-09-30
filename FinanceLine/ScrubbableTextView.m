@@ -36,6 +36,29 @@
   
   UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
   [self addGestureRecognizer:pan];
+  
+  // Add Bar for closing number pad on iPhone
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    self.inputAccessoryView = numberToolbar;
+  }
+}
+
+-(void)cancelNumberPad{
+  [self resignFirstResponder];
+  [self setValue:curVal];
+}
+
+-(void)doneWithNumberPad{
+  [self resignFirstResponder];
+  [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
 }
 
 - (id)initWithFrame:(CGRect)frame

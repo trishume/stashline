@@ -14,7 +14,7 @@
 #define kMaxMonthSize 30.0
 
 @implementation TimelineView
-@synthesize tracks, startMonth, monthSize, velocity, maxMonth;
+@synthesize tracks, startMonth, monthSize, velocity, maxMonth, nextTrackTop;
 
 - (void)initialize
 {
@@ -24,9 +24,6 @@
     monthSize = 10.0;
     velocity = 0.0;
     maxMonth = kMaxMonth;
-    
-    displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timerFired:)];
-    displayLink.frameInterval = 1;
     
     UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchHandler:)];
     [self addGestureRecognizer:pinch];
@@ -51,11 +48,15 @@
 }
 
 - (void)beginAnimationLoop {
-    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timerFired:)];
+  displayLink.frameInterval = 1;
+  NSRunLoop *loop = [NSRunLoop mainRunLoop];
+  [displayLink addToRunLoop:loop forMode:NSDefaultRunLoopMode];
 }
 
 - (void)endAnimationLoop {
-    [displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  [displayLink invalidate];
+  displayLink = nil;
 }
 
 - (NSUInteger)maxStartMonth {
@@ -67,17 +68,17 @@
 }
 
 - (void)timerFired:(CADisplayLink *)sender {
-    CGFloat dt = sender.duration * sender.frameInterval;
-    velocity *= (1.0 - kScrollFriction*dt);
-    if (abs(velocity) < 0.01) {
-        [self endAnimationLoop];
-    }
-    
-    CGFloat newStart = startMonth + velocity / monthSize * dt;
-    if (newStart < 0.0 || newStart > [self maxStartMonth]) {
-        velocity = 0.0;
-    }
-    self.startMonth = newStart; // setter handles redraw
+  CGFloat dt = sender.duration * sender.frameInterval;
+  velocity *= (1.0 - kScrollFriction*dt);
+  if (abs(velocity) < 0.01) {
+      [self endAnimationLoop];
+  }
+  
+  CGFloat newStart = startMonth + velocity / monthSize * dt;
+  if (newStart < 0.0 || newStart > [self maxStartMonth]) {
+      velocity = 0.0;
+  }
+  self.startMonth = newStart; // setter handles redraw
 }
 
 - (void)redrawTracks {
