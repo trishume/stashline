@@ -26,8 +26,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="320"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="earning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RhK-cN-Tid" customClass="NiceLabel">
-                                        <rect key="frame" x="9" y="12" width="151" height="26"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Earning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RhK-cN-Tid" customClass="NiceLabel">
+                                        <rect key="frame" x="11" y="10" width="108" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.1019607931" green="0.73725491759999995" blue="0.61176472900000001" alpha="1" colorSpace="deviceRGB"/>
@@ -52,58 +52,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </scrollView>
-                                    <view contentMode="scaleToFill" id="0Ra-7A-8Fw">
-                                        <rect key="frame" x="4" y="46" width="147" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sjh-KH-ad4">
-                                                <rect key="frame" x="9" y="5" width="121" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Income" image="Income.png">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectIncome" destination="CW4-Q7-CBy" eventType="touchUpInside" id="hum-6N-RKN"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Aa9-qP-XEC">
-                                                <rect key="frame" x="9" y="31" width="121" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Expenses" image="Expenses.png">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectExpenses" destination="CW4-Q7-CBy" eventType="touchUpInside" id="DP2-If-dS2"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yna-kr-sKu">
-                                                <rect key="frame" x="9" y="57" width="121" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Investment" image="Investment.png">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectInvestment" destination="CW4-Q7-CBy" eventType="touchUpInside" id="dm0-bb-TQq"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
                                     <view opaque="NO" contentMode="scaleToFill" id="xRT-XY-JuL">
                                         <rect key="frame" x="4" y="49" width="147" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -366,7 +314,6 @@
                         <outlet property="selectActions" destination="xRT-XY-JuL" id="bW7-yq-kvu"/>
                         <outlet property="selectedLabel" destination="RhK-cN-Tid" id="Qu7-je-6x3"/>
                         <outlet property="timeLine" destination="cMQ-bB-oJs" id="Fa4-Yc-O8q"/>
-                        <outlet property="trackSelectors" destination="0Ra-7A-8Fw" id="skI-hG-yB3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZm-FR-kfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -608,7 +555,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vGx-CN-exf" customClass="NiceLabel">
-                                <rect key="frame" x="8" y="45" width="142" height="164"/>
+                                <rect key="frame" x="4" y="0.0" width="142" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Touch one of the bars below to select part of your future. Then ">
@@ -660,11 +607,8 @@
         <image name="About Long.png" width="143" height="33"/>
         <image name="Deselect Short.png" width="41" height="39"/>
         <image name="Expand Short.png" width="41" height="39"/>
-        <image name="Expenses.png" width="121" height="27"/>
         <image name="Files Long.png" width="143" height="33"/>
         <image name="Help Long.png" width="143" height="33"/>
-        <image name="Income.png" width="121" height="27"/>
-        <image name="Investment.png" width="121" height="27"/>
         <image name="Retire Long.png" width="143" height="40"/>
         <image name="Zero Short.png" width="41" height="39"/>
         <image name="iPhone Left Panel BG.png" width="160" height="320"/>

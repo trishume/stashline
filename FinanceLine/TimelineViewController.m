@@ -344,7 +344,7 @@
   if (self.selectDivider) {
     [self.selectDivider setHasSelection:YES];
   }
-  self.trackSelectors.hidden = YES;
+  if(self.trackSelectors) self.trackSelectors.hidden = YES;
   self.selectActions.hidden = NO;
   [selectEditor setSelection:sel onTrack:track];
 }
@@ -359,7 +359,7 @@
   
   if(self.selectDivider) [self.selectDivider setHasSelection:NO];
   self.selectActions.hidden = YES;
-  self.trackSelectors.hidden = NO;
+  if(self.trackSelectors) self.trackSelectors.hidden = NO;
 }
 
 - (void)swapInEditor:(UIViewController*)editor {
