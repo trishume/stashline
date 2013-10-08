@@ -314,6 +314,10 @@
 
 #pragma mark Selections
 
+- (void)setSelectionName: (NSString*)label {
+  self.selectedLabel.text = label;
+}
+
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
   // if empty, deselect all
   if ([sel isEmpty]) {
@@ -327,15 +331,15 @@
   // Swap view if necessary
   if ([track.name isEqualToString:@"Investment"]) {
     [self swapInEditor:investmentEditor];
-    self.selectedLabel.text = @"investing at";
+    [self setSelectionName: @"investing at"];
     self.selectedLabel.textColor = [UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000];
   } else {
     [self swapInEditor:amountEditor];
     if ([track.name isEqualToString:@"Income"]) {
-      self.selectedLabel.text = @"earning";
+      [self setSelectionName:@"earning"];
       self.selectedLabel.textColor = [UIColor colorWithHue:0.468 saturation:0.620 brightness:0.702 alpha:1.000];
     } else {
-      self.selectedLabel.text = @"spending";
+      [self setSelectionName:@"spending"];
       self.selectedLabel.textColor = [UIColor colorWithHue:0.077 saturation:0.841 brightness:0.886 alpha:1.000];
     }
     
@@ -354,7 +358,7 @@
     [selectEditor clearSelection];
   }
   [self swapInEditor:introController];
-  self.selectedLabel.text = @"planning";
+  [self setSelectionName:@"planning"];
   self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
   
   if(self.selectDivider) [self.selectDivider setHasSelection:NO];

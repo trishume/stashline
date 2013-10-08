@@ -30,10 +30,15 @@
   timelineTrackHeight = 70.0;
   isPhone = YES;
   
-  self.leftPanelView.hidden = YES;
-  self.rightPanelView.hidden = YES;
-  
+  self.leftPanelView.hidden = NO;
   self.selectDivider = nil;
+  
+  // Set up panels
+  // TODO hide on start so no flicker possibility
+  self.editorPanel.hidden = YES;
+  [self.editorPanel removeFromSuperview];
+  [self.leftPanelView addSubview:self.editorPanel];
+  self.editorPanel.frame = self.mainPanel.frame;
   
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -58,14 +63,34 @@
   return m;
 }
 
+- (void)setSelectionName:(NSString *)label {
+  [super setSelectionName:[label capitalizedString]];
+}
+
 #pragma mark Panel Control
 
 - (IBAction)toggleLeftPanel {
   self.leftPanelView.hidden = !self.leftPanelView.hidden;
 }
 
-- (IBAction)toggleRightPanel {
-  self.rightPanelView.hidden = !self.rightPanelView.hidden;
+- (void)showEditorPanel {
+  self.mainPanel.hidden = YES;
+  self.editorPanel.hidden = NO;
+}
+
+- (void)showMainPanel {
+  self.mainPanel.hidden = NO;
+  self.editorPanel.hidden = YES;
+}
+
+- (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
+  [self showEditorPanel];
+  [super setSelection:sel onTrack:track];
+}
+
+- (void)deselect {
+  [self showMainPanel];
+  [super deselect];
 }
 
 - (void)didReceiveMemoryWarning
