@@ -7,6 +7,7 @@
 //
 
 #import "IPhoneTimelineViewController.h"
+#define kTimelineOffset 159
 
 @interface IPhoneTimelineViewController ()
 
@@ -29,8 +30,6 @@
   stashTrackHeight = 90.0;
   timelineTrackHeight = 70.0;
   isPhone = YES;
-  
-  self.leftPanelView.hidden = NO;
   self.selectDivider = nil;
   
   // Set up panels
@@ -42,7 +41,7 @@
   
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  self.timeLine.frame = self.view.bounds;
+  [self setPanelVisible:YES];
 }
 
 - (FinanceModel*)newModel {
@@ -70,7 +69,18 @@
 #pragma mark Panel Control
 
 - (IBAction)toggleLeftPanel {
-  self.leftPanelView.hidden = !self.leftPanelView.hidden;
+  [self setPanelVisible:self.leftPanelView.hidden];
+}
+
+- (void)setPanelVisible:(BOOL)visible {
+  self.leftPanelView.hidden = !visible;
+  
+  if (!visible) {
+    self.timeLine.frame = self.view.bounds;
+  } else {
+    self.timeLine.frame = CGRectMake(kTimelineOffset, 0.0, self.view.bounds.size.width - kTimelineOffset, self.view.bounds.size.height);
+  }
+  [self redraw];
 }
 
 - (void)showEditorPanel {
