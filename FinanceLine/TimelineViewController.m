@@ -314,8 +314,9 @@
 
 #pragma mark Selections
 
-- (void)setSelectionName: (NSString*)label {
+- (void)setSelectionName:(NSString*)label andColor:(UIColor*)color {
   self.selectedLabel.text = label;
+  self.selectedLabel.textColor = color;
 }
 
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
@@ -331,16 +332,13 @@
   // Swap view if necessary
   if ([track.name isEqualToString:@"Investment"]) {
     [self swapInEditor:investmentEditor];
-    [self setSelectionName: @"investing at"];
-    self.selectedLabel.textColor = [UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000];
+    [self setSelectionName: @"investing at" andColor:[UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000]];
   } else {
     [self swapInEditor:amountEditor];
     if ([track.name isEqualToString:@"Income"]) {
-      [self setSelectionName:@"earning"];
-      self.selectedLabel.textColor = [UIColor colorWithHue:0.468 saturation:0.620 brightness:0.702 alpha:1.000];
+      [self setSelectionName:@"earning" andColor:[UIColor colorWithHue:0.468 saturation:0.620 brightness:0.702 alpha:1.000]];
     } else {
-      [self setSelectionName:@"spending"];
-      self.selectedLabel.textColor = [UIColor colorWithHue:0.077 saturation:0.841 brightness:0.886 alpha:1.000];
+      [self setSelectionName:@"spending" andColor:[UIColor colorWithHue:0.077 saturation:0.841 brightness:0.886 alpha:1.000]];
     }
     
   }
@@ -358,8 +356,7 @@
     [selectEditor clearSelection];
   }
   [self swapInEditor:introController];
-  [self setSelectionName:@"planning"];
-  self.selectedLabel.textColor = [UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000];
+  [self setSelectionName:@"planning" andColor:[UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000]];
   
   if(self.selectDivider) [self.selectDivider setHasSelection:NO];
   self.selectActions.hidden = YES;

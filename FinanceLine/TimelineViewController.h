@@ -46,7 +46,7 @@
 - (IBAction)expandSelectionToEnd;
 - (IBAction)cutJobAtRetirement;
 - (IBAction)aboutMe;
-- (void)setSelectionName:(NSString*)label;
+- (void)setSelectionName:(NSString*)label andColor:(UIColor*)color;
 
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *ageField;
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *savingsField;

@@ -62,8 +62,8 @@
   return m;
 }
 
-- (void)setSelectionName:(NSString *)label {
-  [super setSelectionName:[label capitalizedString]];
+- (void)setSelectionName:(NSString *)label andColor:(UIColor*)color {
+  self.selectedLabel.text = [label capitalizedString];
 }
 
 #pragma mark Panel Control
