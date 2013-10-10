@@ -212,10 +212,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Earning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RhK-cN-Tid" customClass="NiceLabel">
-                                        <rect key="frame" x="7" y="17" width="108" height="34"/>
+                                        <rect key="frame" x="7" y="15" width="108" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" red="0.1019607931" green="0.73725491759999995" blue="0.61176472900000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
@@ -237,46 +236,37 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </scrollView>
-                                    <view opaque="NO" contentMode="scaleToFill" id="xRT-XY-JuL">
-                                        <rect key="frame" x="1" y="49" width="147" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xrW-kk-KjF">
+                                        <rect key="frame" x="79" y="54" width="64" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xrW-kk-KjF">
-                                                <rect key="frame" x="4" y="0.0" width="41" height="39"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="Expand Short.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="expandSelectionToEnd" destination="CW4-Q7-CBy" eventType="touchUpInside" id="s1t-tR-7JM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kbd-Ud-sli">
-                                                <rect key="frame" x="47" y="0.0" width="52" height="39"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="Zero Short.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="zeroSelection" destination="CW4-Q7-CBy" eventType="touchUpInside" id="pff-uO-Ejv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MI1-Mx-kq5">
-                                                <rect key="frame" x="96" y="-1" width="51" height="39"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="Deselect Short.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="deselect" destination="CW4-Q7-CBy" eventType="touchUpInside" id="vGJ-xF-zm1"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="Expand Short.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="expandSelectionToEnd" destination="CW4-Q7-CBy" eventType="touchUpInside" id="s1t-tR-7JM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kbd-Ud-sli">
+                                        <rect key="frame" x="7" y="54" width="64" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="Zero Short.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zeroSelection" destination="CW4-Q7-CBy" eventType="touchUpInside" id="pff-uO-Ejv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MI1-Mx-kq5">
+                                        <rect key="frame" x="100" y="17" width="49" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="deselect" destination="CW4-Q7-CBy" eventType="touchUpInside" id="vGJ-xF-zm1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -305,14 +295,13 @@
                         <outlet property="retireAgeLabel" destination="URR-eV-yWx" id="Coj-WX-v9d"/>
                         <outlet property="retireSavingsLabel" destination="qW4-QL-hbd" id="IhA-TL-eKd"/>
                         <outlet property="savingsField" destination="n4n-cr-PuU" id="1XW-dG-JO0"/>
-                        <outlet property="selectActions" destination="xRT-XY-JuL" id="bW7-yq-kvu"/>
                         <outlet property="selectedLabel" destination="RhK-cN-Tid" id="Qu7-je-6x3"/>
                         <outlet property="timeLine" destination="cMQ-bB-oJs" id="Fa4-Yc-O8q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZm-FR-kfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="267" y="379"/>
+            <point key="canvasLocation" x="286" y="484"/>
         </scene>
         <!--Amount Edit Controller-->
         <scene sceneID="LTs-A3-rgC">
@@ -599,12 +588,11 @@
     </scenes>
     <resources>
         <image name="About Long.png" width="143" height="33"/>
-        <image name="Deselect Short.png" width="41" height="39"/>
-        <image name="Expand Short.png" width="41" height="39"/>
+        <image name="Expand Short.png" width="64" height="33"/>
         <image name="Files Long.png" width="143" height="33"/>
         <image name="Help Long.png" width="143" height="33"/>
         <image name="Retire Long.png" width="143" height="40"/>
-        <image name="Zero Short.png" width="41" height="39"/>
+        <image name="Zero Short.png" width="63" height="33"/>
         <image name="iPhone Left Panel BG.png" width="160" height="320"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
