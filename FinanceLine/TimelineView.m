@@ -64,7 +64,10 @@
 }
 
 - (CGFloat)minMonthSize {
-    return self.bounds.size.width / kMaxMonth;
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    return 0.5;
+  }
+  return self.bounds.size.width / kMaxMonth;
 }
 
 - (void)timerFired:(CADisplayLink *)sender {
