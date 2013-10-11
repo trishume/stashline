@@ -69,6 +69,19 @@
   [self.editorTitleBg setNeedsDisplay];
 }
 
+#pragma mark File Modal
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([[segue identifier] isEqualToString:@"fileModal"])
+  {
+    UIStoryboardSegue *modal = (UIStoryboardSegue*)segue;
+    filesModal = modal.destinationViewController;
+    FilesViewController *fileCon = (FilesViewController*)filesModal.topViewController;
+    fileCon.fileDelegate = self;
+  }
+}
+
 #pragma mark Panel Control
 
 - (IBAction)toggleLeftPanel {

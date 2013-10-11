@@ -8,7 +8,9 @@
 
 #import "TimelineViewController.h"
 
-@interface IPhoneTimelineViewController : TimelineViewController
+@interface IPhoneTimelineViewController : TimelineViewController {
+  UINavigationController *filesModal;
+}
 
 @property (weak, nonatomic) IBOutlet UIView *leftPanelView;
 @property (strong, nonatomic) IBOutlet UIView *editorPanel;

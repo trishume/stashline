@@ -32,6 +32,7 @@
   stashTrackHeight = 150.0;
   timelineTrackHeight = 100.0;
   isPhone = NO;
+  filesPop = nil;
   
   self.trackSelectors.frame = self.selectActions.frame;
   
@@ -59,6 +60,26 @@
   m.investmentTrack = investmentTrack;
   
   return m;
+}
+
+- (void)openFile:(NSString *)fileName {
+  if (filesPop != nil) {
+    [filesPop dismissPopoverAnimated:YES];
+    filesPop = nil;
+  }
+  [super openFile:fileName];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([[segue identifier] isEqualToString:@"filePopover"])
+  {
+    UIStoryboardPopoverSegue *pop = (UIStoryboardPopoverSegue*)segue;
+    filesPop = pop.popoverController;
+    UINavigationController *nav = (UINavigationController*)filesPop.contentViewController;
+    FilesViewController *fileCon = (FilesViewController*)nav.topViewController;
+    fileCon.fileDelegate = self;
+  }
 }
 
 - (void)didReceiveMemoryWarning

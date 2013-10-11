@@ -39,7 +39,6 @@
   FinanceModel *model;
   
   NSString *currentFileName;
-  UIPopoverController *filesPop;
 }
 
 - (IBAction)zeroSelection;

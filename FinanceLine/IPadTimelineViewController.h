@@ -8,7 +8,9 @@
 
 #import "TimelineViewController.h"
 
-@interface IPadTimelineViewController : TimelineViewController
+@interface IPadTimelineViewController : TimelineViewController {
+  UIPopoverController *filesPop;
+}
 
 
 @property (weak, nonatomic) IBOutlet UIView *selectActions;

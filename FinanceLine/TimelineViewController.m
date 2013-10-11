@@ -35,7 +35,6 @@
   firstIncomeTrack = nil;
   firstExpensesTrack = nil;
   investTrack = nil;
-  filesPop = nil;
   
   // Create selection editors
   amountEditor = [self.storyboard instantiateViewControllerWithIdentifier:@"amountEditor"];
@@ -89,18 +88,6 @@
         (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-  if ([[segue identifier] isEqualToString:@"filePopover"])
-  {
-    UIStoryboardPopoverSegue *pop = (UIStoryboardPopoverSegue*)segue;
-    filesPop = pop.popoverController;
-    UINavigationController *nav = (UINavigationController*)filesPop.contentViewController;
-    FilesViewController *fileCon = (FilesViewController*)nav.topViewController;
-    fileCon.fileDelegate = self;
-  }
-}
-
 #pragma mark Persistence
 
 - (NSString *)pathForDataFile:(NSString*)fileName
@@ -130,11 +117,6 @@
   [self deselect];
   currentFileName = name;
   self.fileNameLabel.text = [name stringByDeletingPathExtension];
-  
-  if (filesPop != nil) {
-    [filesPop dismissPopoverAnimated:YES];
-    filesPop = nil;
-  }
   
 #ifdef kLoadOnStart
   NSString *path = [self pathForDataFile: name];
@@ -257,6 +239,7 @@
   
   // If we deleted the file we were editing, load main
   if ([currentFileName isEqualToString:name]) {
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self openFile:kMainFileName];
   }
 }

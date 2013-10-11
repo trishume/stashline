@@ -85,6 +85,9 @@
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="FHv-oZ-L4C" kind="modal" identifier="fileModal" id="Rxe-fy-LQF"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Main" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="bcV-jp-ILe" customClass="NiceLabel">
                                                 <rect key="frame" x="6" y="36" width="88" height="35"/>
@@ -593,6 +596,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="get-q2-fMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="825" y="604"/>
+        </scene>
+        <!--Files View Controller - Files-->
+        <scene sceneID="0Be-Vt-34a">
+            <objects>
+                <tableViewController id="urn-2v-kgk" customClass="FilesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DED-Iz-6d1">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fileCell" textLabel="NNK-qh-u4q" style="IBUITableViewCellStyleDefault" id="8Nd-3t-cGR">
+                                <rect key="frame" x="0.0" y="86" width="480" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Nd-3t-cGR" id="a0g-op-MN5">
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NNK-qh-u4q">
+                                            <rect key="frame" x="15" y="0.0" width="450" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="urn-2v-kgk" id="mue-Ky-DvF"/>
+                            <outlet property="delegate" destination="urn-2v-kgk" id="7iw-Cg-GiB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Files" id="vce-sy-nD8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RyE-BV-UaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853" y="941"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k0y-B2-DnQ">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="FHv-oZ-L4C" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LyG-7E-LZ8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="urn-2v-kgk" kind="relationship" relationship="rootViewController" id="lu1-Ez-Ze4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qpQ-C5-tud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="941"/>
         </scene>
     </scenes>
     <resources>

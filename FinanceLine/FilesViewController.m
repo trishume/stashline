@@ -48,10 +48,12 @@
 #pragma mark File Actions
 
 - (void)newFile {
+  [self dismissViewControllerAnimated:YES completion:nil];
   [self.fileDelegate newFile];
 }
 
 - (void)duplicateCurrent {
+  [self dismissViewControllerAnimated:YES completion:nil];
   [self.fileDelegate duplicateFile];
 }
 
