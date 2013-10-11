@@ -37,7 +37,8 @@
   self.editorPanel.hidden = YES;
   [self.editorPanel removeFromSuperview];
   [self.leftPanelView addSubview:self.editorPanel];
-  self.editorPanel.frame = self.mainPanel.frame;
+  // Because starts in portrait orientation can't use other thing.
+  self.editorPanel.frame = CGRectMake(0, 0, 154, 320);
   
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -64,6 +65,8 @@
 
 - (void)setSelectionName:(NSString *)label andColor:(UIColor*)color {
   self.selectedLabel.text = [label capitalizedString];
+  self.editorTitleBg.backgroundColor = color;
+  [self.editorTitleBg setNeedsDisplay];
 }
 
 #pragma mark Panel Control

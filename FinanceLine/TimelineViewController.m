@@ -332,7 +332,7 @@
   // Swap view if necessary
   if ([track.name isEqualToString:@"Investment"]) {
     [self swapInEditor:investmentEditor];
-    [self setSelectionName: @"investing at" andColor:[UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000]];
+    [self setSelectionName: @"investing" andColor:[UIColor colorWithHue:0.566 saturation:0.778 brightness:0.725 alpha:1.000]];
   } else {
     [self swapInEditor:amountEditor];
     if ([track.name isEqualToString:@"Income"]) {

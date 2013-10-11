@@ -27,18 +27,19 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="8WI-Md-m2D">
-                                        <rect key="frame" x="0.0" y="0.0" width="153" height="320"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="320"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="StashLine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mln-fM-sN3" customClass="NiceLabel">
                                                 <rect key="frame" x="6" y="14" width="142" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PJs-Lq-pz1">
-                                                <rect key="frame" x="6" y="177" width="143" height="40"/>
+                                                <rect key="frame" x="6" y="173" width="143" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" image="Retire Long.png">
@@ -50,7 +51,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uGx-5o-XbQ">
-                                                <rect key="frame" x="6" y="142" width="143" height="33"/>
+                                                <rect key="frame" x="6" y="138" width="143" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" image="Help Long.png">
@@ -62,7 +63,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f1Z-Ya-Z9S">
-                                                <rect key="frame" x="6" y="106" width="143" height="33"/>
+                                                <rect key="frame" x="6" y="102" width="143" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" image="About Long.png">
@@ -74,7 +75,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xn8-l1-jwa">
-                                                <rect key="frame" x="6" y="72" width="143" height="33"/>
+                                                <rect key="frame" x="6" y="68" width="143" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Open File" image="Files Long.png">
@@ -88,12 +89,13 @@
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Main" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="bcV-jp-ILe" customClass="NiceLabel">
                                                 <rect key="frame" x="6" y="36" width="88" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.58431375029999999" green="0.64705884459999996" blue="0.65098041299999998" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view opaque="NO" contentMode="scaleToFill" id="0Rr-Ld-vGP">
-                                                <rect key="frame" x="-1" y="213" width="153" height="101"/>
+                                                <rect key="frame" x="-1" y="209" width="153" height="101"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iTC-kM-gex" customClass="NiceLabel">
@@ -138,8 +140,8 @@
                                                             <action selector="iAmFieldUpdated:" destination="CW4-Q7-CBy" eventType="valueChanged" id="1bw-kc-z08"/>
                                                         </connections>
                                                     </textField>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="have" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cFc-sc-Tpw" customClass="NiceLabel">
-                                                        <rect key="frame" x="1" y="24" width="49" height="22"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="have" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cFc-sc-Tpw" customClass="NiceLabel">
+                                                        <rect key="frame" x="15" y="24" width="47" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,7 +151,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="At" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5q8-qn-SCF" customClass="NiceLabel">
-                                                        <rect key="frame" x="15" y="53" width="23" height="22"/>
+                                                        <rect key="frame" x="15" y="47" width="23" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,7 +161,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="URR-eV-yWx" customClass="NiceLabel">
-                                                        <rect key="frame" x="28" y="53" width="41" height="22"/>
+                                                        <rect key="frame" x="28" y="47" width="41" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" red="0.15686275059999999" green="0.68235296010000002" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
@@ -169,7 +171,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$1,700,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qW4-QL-hbd" customClass="NiceLabel">
-                                                        <rect key="frame" x="52" y="72" width="99" height="22"/>
+                                                        <rect key="frame" x="52" y="66" width="99" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" red="0.15686275059999999" green="0.68235296010000002" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
@@ -179,7 +181,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I will retire" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n0s-e1-WrD" customClass="NiceLabel">
-                                                        <rect key="frame" x="65" y="53" width="103" height="22"/>
+                                                        <rect key="frame" x="65" y="47" width="103" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -189,7 +191,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="with" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9gi-mr-dbI" customClass="NiceLabel">
-                                                        <rect key="frame" x="15" y="72" width="39" height="22"/>
+                                                        <rect key="frame" x="15" y="66" width="39" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,20 +210,26 @@
                                 <color key="backgroundColor" red="0.7162607312" green="0.85122084620000005" blue="0.9993501306" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="wlF-aF-mPl">
-                                <rect key="frame" x="327" y="0.0" width="153" height="320"/>
+                                <rect key="frame" x="326" y="0.0" width="154" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Earning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RhK-cN-Tid" customClass="NiceLabel">
-                                        <rect key="frame" x="7" y="18" width="108" height="34"/>
+                                    <view contentMode="scaleToFill" id="zcQ-XL-h5d">
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="backgroundColor" red="0.180392161" green="0.80000007149999997" blue="0.44313728810000003" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Earning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="RhK-cN-Tid" customClass="NiceLabel">
+                                        <rect key="frame" x="7" y="12" width="101" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="small" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="NVE-yD-gd8">
-                                        <rect key="frame" x="1" y="91" width="150" height="226"/>
+                                        <rect key="frame" x="1" y="91" width="150" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" id="uuD-ff-fKh">
@@ -258,10 +266,10 @@
                                             <action selector="zeroSelection" destination="CW4-Q7-CBy" eventType="touchUpInside" id="pff-uO-Ejv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MI1-Mx-kq5">
-                                        <rect key="frame" x="100" y="17" width="49" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MI1-Mx-kq5">
+                                        <rect key="frame" x="106" y="14" width="49" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="deselect" destination="CW4-Q7-CBy" eventType="touchUpInside" id="vGJ-xF-zm1"/>
@@ -289,6 +297,7 @@
                         <outlet property="ageField" destination="Enq-w8-TPD" id="23w-0P-uoU"/>
                         <outlet property="editorContainerView" destination="uuD-ff-fKh" id="gIu-5e-6D6"/>
                         <outlet property="editorPanel" destination="wlF-aF-mPl" id="iy1-IG-F2b"/>
+                        <outlet property="editorTitleBg" destination="zcQ-XL-h5d" id="90J-U0-qY2"/>
                         <outlet property="fileNameLabel" destination="bcV-jp-ILe" id="4nq-6v-b4c"/>
                         <outlet property="leftPanelView" destination="4Wm-vV-nbi" id="6Vz-F1-Ns7"/>
                         <outlet property="mainPanel" destination="8WI-Md-m2D" id="nQ0-Nj-hb9"/>
@@ -301,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZm-FR-kfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="484"/>
+            <point key="canvasLocation" x="268" y="502"/>
         </scene>
         <!--Amount Edit Controller-->
         <scene sceneID="LTs-A3-rgC">

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIView *leftPanelView;
 @property (strong, nonatomic) IBOutlet UIView *editorPanel;
 @property (strong, nonatomic) IBOutlet UIView *mainPanel;
+@property (weak,nonatomic) IBOutlet UIView *editorTitleBg;
 
 @end
