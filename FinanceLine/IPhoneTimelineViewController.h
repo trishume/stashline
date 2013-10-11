@@ -11,6 +11,8 @@
 @interface IPhoneTimelineViewController : TimelineViewController
 
 @property (weak, nonatomic) IBOutlet UIView *leftPanelView;
-@property (weak, nonatomic) IBOutlet UIView *rightPanelView;
+@property (strong, nonatomic) IBOutlet UIView *editorPanel;
+@property (strong, nonatomic) IBOutlet UIView *mainPanel;
+@property (weak,nonatomic) IBOutlet UIView *editorTitleBg;
 
 @end

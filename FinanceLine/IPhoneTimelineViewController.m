@@ -7,6 +7,7 @@
 //
 
 #import "IPhoneTimelineViewController.h"
+#define kTimelineOffset 159
 
 @interface IPhoneTimelineViewController ()
 
@@ -29,15 +30,19 @@
   stashTrackHeight = 90.0;
   timelineTrackHeight = 70.0;
   isPhone = YES;
-  
-  self.leftPanelView.hidden = YES;
-  self.rightPanelView.hidden = YES;
-  
   self.selectDivider = nil;
+  
+  // Set up panels
+  // TODO hide on start so no flicker possibility
+  self.editorPanel.hidden = YES;
+  [self.editorPanel removeFromSuperview];
+  [self.leftPanelView addSubview:self.editorPanel];
+  // Because starts in portrait orientation can't use other thing.
+  self.editorPanel.frame = CGRectMake(0, 0, 154, 320);
   
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  self.timeLine.frame = self.view.bounds;
+  [self setPanelVisible:YES];
 }
 
 - (FinanceModel*)newModel {
@@ -58,14 +63,47 @@
   return m;
 }
 
+- (void)setSelectionName:(NSString *)label andColor:(UIColor*)color {
+  self.selectedLabel.text = [label capitalizedString];
+  self.editorTitleBg.backgroundColor = color;
+  [self.editorTitleBg setNeedsDisplay];
+}
+
 #pragma mark Panel Control
 
 - (IBAction)toggleLeftPanel {
-  self.leftPanelView.hidden = !self.leftPanelView.hidden;
+  [self setPanelVisible:self.leftPanelView.hidden];
 }
 
-- (IBAction)toggleRightPanel {
-  self.rightPanelView.hidden = !self.rightPanelView.hidden;
+- (void)setPanelVisible:(BOOL)visible {
+  self.leftPanelView.hidden = !visible;
+  
+  if (!visible) {
+    self.timeLine.frame = self.view.bounds;
+  } else {
+    self.timeLine.frame = CGRectMake(kTimelineOffset, 0.0, self.view.bounds.size.width - kTimelineOffset, self.view.bounds.size.height);
+  }
+  [self redraw];
+}
+
+- (void)showEditorPanel {
+  self.mainPanel.hidden = YES;
+  self.editorPanel.hidden = NO;
+}
+
+- (void)showMainPanel {
+  self.mainPanel.hidden = NO;
+  self.editorPanel.hidden = YES;
+}
+
+- (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
+  [self showEditorPanel];
+  [super setSelection:sel onTrack:track];
+}
+
+- (void)deselect {
+  [self showMainPanel];
+  [super deselect];
 }
 
 - (void)didReceiveMemoryWarning
