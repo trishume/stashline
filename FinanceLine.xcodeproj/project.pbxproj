@@ -18,10 +18,10 @@
 		6A3A828917D0165000E9C0EF /* Retire.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A828317D0165000E9C0EF /* Retire.png */; };
 		6A3A828A17D0165000E9C0EF /* Zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A828417D0165000E9C0EF /* Zero.png */; };
 		6A3A829317D01B8C00E9C0EF /* NiceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A829217D01B8C00E9C0EF /* NiceLabel.m */; };
-		6A456B0017DD374D0013BC2F /* InfoOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A456AFF17DD374D0013BC2F /* InfoOverlayView.m */; };
+		6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */; };
+		6A43AA22180C9C8400DEBF6C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43AA21180C9C8400DEBF6C /* HelpViewController.m */; };
 		6A8A3BA217E6703000B0D97D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA017E6703000B0D97D /* Icon-72.png */; };
 		6A8A3BA317E6703000B0D97D /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA117E6703000B0D97D /* Icon-144.png */; };
-		6A8A3BA817E6706700B0D97D /* InfoOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA417E6706600B0D97D /* InfoOverlay.png */; };
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
 		6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA717E6706700B0D97D /* PTSans.ttc */; };
@@ -98,11 +98,11 @@
 		6A3A828417D0165000E9C0EF /* Zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zero.png; path = Buttons/Zero.png; sourceTree = "<group>"; };
 		6A3A829117D01B8B00E9C0EF /* NiceLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceLabel.h; sourceTree = "<group>"; };
 		6A3A829217D01B8C00E9C0EF /* NiceLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceLabel.m; sourceTree = "<group>"; };
-		6A456AFE17DD374D0013BC2F /* InfoOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoOverlayView.h; sourceTree = "<group>"; };
-		6A456AFF17DD374D0013BC2F /* InfoOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoOverlayView.m; sourceTree = "<group>"; };
+		6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPad.png"; path = "Assets/Info1-iPad.png"; sourceTree = "<group>"; };
+		6A43AA20180C9C8400DEBF6C /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		6A43AA21180C9C8400DEBF6C /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		6A8A3BA017E6703000B0D97D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Assets/Icon-72.png"; sourceTree = "<group>"; };
 		6A8A3BA117E6703000B0D97D /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "Assets/Icon-144.png"; sourceTree = "<group>"; };
-		6A8A3BA417E6706600B0D97D /* InfoOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoOverlay.png; path = Assets/InfoOverlay.png; sourceTree = "<group>"; };
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
 		6A8A3BA617E6706600B0D97D /* Panel Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel Background.png"; path = "Assets/Panel Background.png"; sourceTree = "<group>"; };
 		6A8A3BA717E6706700B0D97D /* PTSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSans.ttc; path = Assets/PTSans.ttc; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 			children = (
 				6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */,
 				6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */,
-				6A8A3BA417E6706600B0D97D /* InfoOverlay.png */,
+				6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */,
 				6A8A3BA517E6706600B0D97D /* Name Banner.png */,
 				6A8A3BA617E6706600B0D97D /* Panel Background.png */,
 				6A8A3BA717E6706700B0D97D /* PTSans.ttc */,
@@ -322,12 +322,12 @@
 				6A3A829217D01B8C00E9C0EF /* NiceLabel.m */,
 				6AD59C3D17DB599100BD2C01 /* SelectDividerView.h */,
 				6AD59C3E17DB599100BD2C01 /* SelectDividerView.m */,
-				6A456AFE17DD374D0013BC2F /* InfoOverlayView.h */,
-				6A456AFF17DD374D0013BC2F /* InfoOverlayView.m */,
 				6AE342D817DFD285006C2202 /* FilesViewController.h */,
 				6AE342D917DFD285006C2202 /* FilesViewController.m */,
 				6AE342DB17E62267006C2202 /* AboutViewController.h */,
 				6AE342DC17E62268006C2202 /* AboutViewController.m */,
+				6A43AA20180C9C8400DEBF6C /* HelpViewController.h */,
+				6A43AA21180C9C8400DEBF6C /* HelpViewController.m */,
 			);
 			path = FinanceLine;
 			sourceTree = "<group>";
@@ -461,6 +461,7 @@
 				6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */,
 				6AFAA06A1770FBA300E61733 /* Default.png in Resources */,
 				6AFAA06C1770FBA300E61733 /* Default@2x.png in Resources */,
+				6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */,
 				6AFAA06E1770FBA300E61733 /* Default-568h@2x.png in Resources */,
 				6AFAA0711770FBA300E61733 /* MainStoryboard.storyboard in Resources */,
 				6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */,
@@ -482,7 +483,6 @@
 				6AD59C4517DB647300BD2C01 /* Investment.png in Resources */,
 				6A8A3BA217E6703000B0D97D /* Icon-72.png in Resources */,
 				6A8A3BA317E6703000B0D97D /* Icon-144.png in Resources */,
-				6A8A3BA817E6706700B0D97D /* InfoOverlay.png in Resources */,
 				6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */,
 				6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */,
 				6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */,
@@ -564,11 +564,11 @@
 				6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */,
 				6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */,
 				6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */,
+				6A43AA22180C9C8400DEBF6C /* HelpViewController.m in Sources */,
 				6A3A826E17CC1B2E00E9C0EF /* AmountEditController.m in Sources */,
 				6A3A827517CEBA5900E9C0EF /* InvestmentEditController.m in Sources */,
 				6A3A829317D01B8C00E9C0EF /* NiceLabel.m in Sources */,
 				6AD59C3F17DB599100BD2C01 /* SelectDividerView.m in Sources */,
-				6A456B0017DD374D0013BC2F /* InfoOverlayView.m in Sources */,
 				6AE342DA17DFD285006C2202 /* FilesViewController.m in Sources */,
 				6AE342DD17E62268006C2202 /* AboutViewController.m in Sources */,
 				6A8A3BAF17E8EF0C00B0D97D /* IPadTimelineViewController.m in Sources */,
