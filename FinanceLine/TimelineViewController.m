@@ -266,14 +266,6 @@
   [[UIApplication sharedApplication] openURL:url];
 }
 
-- (IBAction)showInfoOverlay {
-  self.infoOverlayView.hidden = NO;
-}
-
-- (IBAction)hideInfoOverlay {
-  self.infoOverlayView.hidden = YES;
-}
-
 #pragma mark I Am
 
 - (IBAction)iAmFieldUpdated: (ScrubbableTextView*)sender {
