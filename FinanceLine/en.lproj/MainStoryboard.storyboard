@@ -73,9 +73,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="lDv-1N-ewu" customClass="TimelineView">
-                                <rect key="frame" x="0.0" y="168" width="1024" height="600"/>
+                                <rect key="frame" x="0.0" y="160" width="1024" height="608"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
                             </view>
                             <view contentMode="scaleToFill" id="qhA-5u-pse">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="160"/>
@@ -391,7 +392,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView opaque="NO" contentMode="scaleToFill" image="Name Banner.png" id="sk8-AJ-5Fh">
+                            <imageView hidden="YES" opaque="NO" contentMode="scaleToFill" image="Name Banner.png" id="sk8-AJ-5Fh">
                                 <rect key="frame" x="885" y="736" width="139" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <connections>
