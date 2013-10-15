@@ -778,11 +778,47 @@
                                     <action selector="closeModal" destination="gkX-IS-fr5" eventType="touchUpInside" id="Rk6-Zh-8Sa"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="0kB-yN-sJP">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Si3-Ib-6F9">
+                                        <rect key="frame" x="245" y="24" width="534" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="15" maxX="0.0" maxY="-15"/>
+                                        <segments>
+                                            <segment title="Info"/>
+                                            <segment title="Tips"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.92549026010000002" green="0.94117653369999998" blue="0.9450981021" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="panelChanged:" destination="gkX-IS-fr5" eventType="valueChanged" id="kEQ-1I-e2p"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vYA-Ls-8vc">
+                                        <rect key="frame" x="20" y="23" width="59" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.92549026010000002" green="0.94117653369999998" blue="0.9450981021" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeModal" destination="gkX-IS-fr5" eventType="touchUpInside" id="jfD-Um-UMs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20000001789999999" green="0.59607845540000004" blue="0.85882359740000003" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="panelView" destination="Tfr-hE-cwR" id="F1R-av-AW3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRn-8p-gXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

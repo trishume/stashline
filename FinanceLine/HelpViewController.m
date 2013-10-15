@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
@@ -35,8 +35,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)selectPanel:(NSUInteger)panelIndex {
+  UIImage *image;
+  if (panelIndex == 0) {
+    image = [UIImage imageNamed: @"Info1-iPad.png"];
+  } else {
+    image = [UIImage imageNamed: @"Info2-iPad.png"];
+  }
+  self.panelView.image = image;
+  [self.view setNeedsDisplay];
+}
+
 - (IBAction)closeModal {
   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)panelChanged:(UISegmentedControl*)sender {
+  [self selectPanel:[sender selectedSegmentIndex]];
 }
 
 @end

@@ -10,4 +10,5 @@
 
 @interface HelpViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *panelView;
 @end
