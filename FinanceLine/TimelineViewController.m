@@ -16,6 +16,7 @@
 #import "AmountEditController.h"
 
 #include <stdlib.h>
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 #define kLoadOnStart
 
@@ -157,7 +158,10 @@
 
   [self addDivider];
   
-  CGFloat timelineHeight = isPhone ? 295.0 : 575.0; // bottom borders subtracted
+  CGFloat timelineHeight = isPhone ? 307.0 : 595.0; // bottom borders subtracted
+  if (SYSTEM_VERSION_LESS_THAN(@"7")) {
+    timelineHeight -= 20.0;
+  }
   CGFloat allAnnuityTracks = timelineHeight - self.timeLine.nextTrackTop;
   CGFloat annuityTrackCount = [model.incomeTracks count] + [model.expenseTracks count] + 1;
   CGFloat annuityTrackHeight = allAnnuityTracks / annuityTrackCount;
