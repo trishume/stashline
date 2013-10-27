@@ -127,6 +127,7 @@
 #endif
   if (model == nil) {
     model = [self newModel];
+    [self saveModelAs:name];
   }
 
   [self loadTracks];
