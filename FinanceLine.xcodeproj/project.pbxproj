@@ -20,6 +20,9 @@
 		6A3A829317D01B8C00E9C0EF /* NiceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A829217D01B8C00E9C0EF /* NiceLabel.m */; };
 		6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */; };
 		6A43AA22180C9C8400DEBF6C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43AA21180C9C8400DEBF6C /* HelpViewController.m */; };
+		6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */; };
+		6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */; };
+		6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */; };
 		6A8A3BA217E6703000B0D97D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA017E6703000B0D97D /* Icon-72.png */; };
 		6A8A3BA317E6703000B0D97D /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA117E6703000B0D97D /* Icon-144.png */; };
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
@@ -38,7 +41,6 @@
 		6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DB961794C70E0096AAB7 /* StatusTrackView.m */; };
 		6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */; };
 		6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */; };
-		6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */; };
 		6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78C917EDE66A00F5A95B /* About Long.png */; };
 		6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CA17EDE66A00F5A95B /* Files Long.png */; };
 		6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE78CB17EDE66A00F5A95B /* Help Long.png */; };
@@ -102,6 +104,9 @@
 		6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPad.png"; path = "Assets/Info1-iPad.png"; sourceTree = "<group>"; };
 		6A43AA20180C9C8400DEBF6C /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		6A43AA21180C9C8400DEBF6C /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPhone.png"; path = "Assets/Info1-iPhone.png"; sourceTree = "<group>"; };
+		6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info2-iPhone.png"; path = "Assets/Info2-iPhone.png"; sourceTree = "<group>"; };
+		6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info3-iPhone.png"; path = "Assets/Info3-iPhone.png"; sourceTree = "<group>"; };
 		6A8A3BA017E6703000B0D97D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Assets/Icon-72.png"; sourceTree = "<group>"; };
 		6A8A3BA117E6703000B0D97D /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "Assets/Icon-144.png"; sourceTree = "<group>"; };
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
@@ -132,7 +137,6 @@
 		6A99DBA217AD6A770096AAB7 /* ScrubbableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrubbableTextView.h; sourceTree = "<group>"; };
 		6A99DBA317AD6A780096AAB7 /* ScrubbableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrubbableTextView.m; sourceTree = "<group>"; };
 		6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone Left Panel BG.png"; path = "Assets/iPhone Left Panel BG.png"; sourceTree = "<group>"; };
-		6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone Right Panel BG.png"; path = "Assets/iPhone Right Panel BG.png"; sourceTree = "<group>"; };
 		6ABE78C917EDE66A00F5A95B /* About Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About Long.png"; path = "Buttons/About Long.png"; sourceTree = "<group>"; };
 		6ABE78CA17EDE66A00F5A95B /* Files Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Files Long.png"; path = "Buttons/Files Long.png"; sourceTree = "<group>"; };
 		6ABE78CB17EDE66A00F5A95B /* Help Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help Long.png"; path = "Buttons/Help Long.png"; sourceTree = "<group>"; };
@@ -211,9 +215,11 @@
 			isa = PBXGroup;
 			children = (
 				6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */,
-				6ABE78C617EDE2B300F5A95B /* iPhone Right Panel BG.png */,
 				6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */,
 				6AF9E375180E04E900D3ABD9 /* Info2-iPad.png */,
+				6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */,
+				6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */,
+				6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */,
 				6A8A3BA517E6706600B0D97D /* Name Banner.png */,
 				6A8A3BA617E6706600B0D97D /* Panel Background.png */,
 				6A8A3BA717E6706700B0D97D /* PTSans.ttc */,
@@ -467,17 +473,19 @@
 				6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */,
 				6AFAA06E1770FBA300E61733 /* Default-568h@2x.png in Resources */,
 				6AFAA0711770FBA300E61733 /* MainStoryboard.storyboard in Resources */,
-				6ABE78C817EDE2B300F5A95B /* iPhone Right Panel BG.png in Resources */,
 				6AF9E376180E04E900D3ABD9 /* Info2-iPad.png in Resources */,
 				6A3A828517D0165000E9C0EF /* About.png in Resources */,
 				6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */,
 				6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */,
 				6ABE78D417EDE74A00F5A95B /* Deselect Short.png in Resources */,
 				6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */,
+				6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */,
 				6A3A828617D0165000E9C0EF /* Expand.png in Resources */,
 				6A3A828717D0165000E9C0EF /* Files.png in Resources */,
+				6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */,
 				6A3A828817D0165000E9C0EF /* Help.png in Resources */,
 				6A3A828917D0165000E9C0EF /* Retire.png in Resources */,
+				6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */,
 				6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */,
 				6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */,
 				6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */,

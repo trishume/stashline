@@ -36,12 +36,9 @@
 }
 
 - (void)selectPanel:(NSUInteger)panelIndex {
-  UIImage *image;
-  if (panelIndex == 0) {
-    image = [UIImage imageNamed: @"Info1-iPad.png"];
-  } else {
-    image = [UIImage imageNamed: @"Info2-iPad.png"];
-  }
+  NSString *deviceName = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"iPad" : @"iPhone";
+  NSString *imageName = [NSString stringWithFormat:@"Info%i-%@", panelIndex+1, deviceName];
+  UIImage *image = [UIImage imageNamed:imageName];
   self.panelView.image = image;
   [self.view setNeedsDisplay];
 }
