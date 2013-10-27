@@ -98,11 +98,20 @@
   [self setNeedsDisplay];
 }
 
+- (void)tapAction:(NSUInteger)month inverted:(BOOL)invert {
+  BOOL isZero = ([data valueAt:month] == 0.0);
+  if (isZero ^ invert) {
+    [self selectFrom:month to:month];
+  } else {
+    [self floodSelect:month];
+  }
+}
+
 - (void)singleTap:(UITapGestureRecognizer*)sender {
   if (sender.state == UIGestureRecognizerStateEnded) {
     CGPoint loc = [sender locationInView:self];
     NSUInteger month = [self monthForX:loc.x];
-    [self floodSelect:month];
+    [self tapAction:month inverted:NO];
   }
 }
 
@@ -110,10 +119,7 @@
   if (sender.state == UIGestureRecognizerStateEnded) {
     CGPoint loc = [sender locationInView:self];
     NSUInteger month = [self monthForX:loc.x];
-    
-    [selection selectFrom:month to:month];
-    [selectionDelegate setSelection:selection onTrack:data];
-    [self setNeedsDisplay];
+    [self tapAction:month inverted:YES];
   }
 }
 
@@ -139,9 +145,8 @@
   for (int i = 1; i < monthsPerBlock; ++i) {
     double monthValue = [data valueFor:month+i scaledTo:1.0-kBaseSaturation];
     saturation += monthValue;
-    selected = selected || [selection includes:month+i];
     
-    if ((monthValue == 0.0) != isZero || (monthValue < 0.0) != isNegative) {
+    if ((monthValue == 0.0) != isZero || (monthValue < 0.0) != isNegative || [selection includes:month+i] != selected) {
       [self splitBlock:month ofMonths:monthsPerBlock atX:x andScale:scale withContext:context];
       return;
     }
@@ -161,7 +166,7 @@
   CGRect rect = self.bounds;
   rect.origin.x = x; rect.origin.y = 0.0;
   rect.size.width = width - 0.2;
-  
+
   CGContextFillRect(context, rect);
   
   // DEBUG
