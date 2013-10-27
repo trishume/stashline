@@ -20,16 +20,26 @@
 		6A3A829317D01B8C00E9C0EF /* NiceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A829217D01B8C00E9C0EF /* NiceLabel.m */; };
 		6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */; };
 		6A43AA22180C9C8400DEBF6C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43AA21180C9C8400DEBF6C /* HelpViewController.m */; };
-		6A507E58181D5A2600712298 /* Files@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E55181D5A2600712298 /* Files@2X.png */; };
-		6A507E59181D5A2600712298 /* Help@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E56181D5A2600712298 /* Help@2X.png */; };
-		6A507E5A181D5A2600712298 /* Retire@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E57181D5A2600712298 /* Retire@2X.png */; };
-		6A507E61181D5A9500712298 /* About@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E5B181D5A9500712298 /* About@2X.png */; };
-		6A507E62181D5A9500712298 /* Expand@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E5C181D5A9500712298 /* Expand@2X.png */; };
-		6A507E63181D5A9500712298 /* Expenses@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E5D181D5A9500712298 /* Expenses@2X.png */; };
-		6A507E64181D5A9500712298 /* Income@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E5E181D5A9500712298 /* Income@2X.png */; };
-		6A507E65181D5A9500712298 /* Investment@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E5F181D5A9500712298 /* Investment@2X.png */; };
-		6A507E66181D5A9500712298 /* Zero@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E60181D5A9500712298 /* Zero@2X.png */; };
-		6A507E68181D5B0900712298 /* Panel Background@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E67181D5B0900712298 /* Panel Background@2X.png */; };
+		6A507E76181DC90100712298 /* Startup-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E75181DC90100712298 /* Startup-iPad@2x.png */; };
+		6A507E7A181DC9CA00712298 /* Startup-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E77181DC9CA00712298 /* Startup-iPad.png */; };
+		6A507E7E181DCA0900712298 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E7D181DCA0900712298 /* Images.xcassets */; };
+		6A507E80181DCAAB00712298 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E7F181DCAAB00712298 /* Default@2x.png */; };
+		6A507E82181DCAB900712298 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E81181DCAB900712298 /* Default.png */; };
+		6A507E84181DCD4200712298 /* Files@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E83181DCD4200712298 /* Files@2x.png */; };
+		6A507E93181DCEA500712298 /* About Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E85181DCEA500712298 /* About Long@2x.png */; };
+		6A507E94181DCEA500712298 /* About@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E86181DCEA500712298 /* About@2x.png */; };
+		6A507E95181DCEA500712298 /* Expand Short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E87181DCEA500712298 /* Expand Short@2x.png */; };
+		6A507E96181DCEA500712298 /* Expand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E88181DCEA500712298 /* Expand@2x.png */; };
+		6A507E97181DCEA500712298 /* Expenses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E89181DCEA500712298 /* Expenses@2x.png */; };
+		6A507E98181DCEA500712298 /* Files Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E8A181DCEA500712298 /* Files Long@2x.png */; };
+		6A507E99181DCEA500712298 /* Help Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E8B181DCEA500712298 /* Help Long@2x.png */; };
+		6A507E9A181DCEA500712298 /* Help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E8C181DCEA500712298 /* Help@2x.png */; };
+		6A507E9B181DCEA500712298 /* Income@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E8D181DCEA500712298 /* Income@2x.png */; };
+		6A507E9C181DCEA500712298 /* Investment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E8E181DCEA500712298 /* Investment@2x.png */; };
+		6A507E9D181DCEA500712298 /* Retire Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E8F181DCEA500712298 /* Retire Long@2x.png */; };
+		6A507E9E181DCEA500712298 /* Retire@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E90181DCEA500712298 /* Retire@2x.png */; };
+		6A507E9F181DCEA500712298 /* Zero Short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E91181DCEA500712298 /* Zero Short@2x.png */; };
+		6A507EA0181DCEA500712298 /* Zero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A507E92181DCEA500712298 /* Zero@2x.png */; };
 		6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */; };
 		6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */; };
 		6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */; };
@@ -71,8 +81,6 @@
 		6AFAA0621770FBA300E61733 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AFAA0601770FBA300E61733 /* InfoPlist.strings */; };
 		6AFAA0641770FBA300E61733 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAA0631770FBA300E61733 /* main.m */; };
 		6AFAA0681770FBA300E61733 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAA0671770FBA300E61733 /* AppDelegate.m */; };
-		6AFAA06A1770FBA300E61733 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFAA0691770FBA300E61733 /* Default.png */; };
-		6AFAA06C1770FBA300E61733 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFAA06B1770FBA300E61733 /* Default@2x.png */; };
 		6AFAA06E1770FBA300E61733 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFAA06D1770FBA300E61733 /* Default-568h@2x.png */; };
 		6AFAA0711770FBA300E61733 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFAA06F1770FBA300E61733 /* MainStoryboard.storyboard */; };
 		6AFAA0741770FBA300E61733 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAA0731770FBA300E61733 /* TimelineViewController.m */; };
@@ -114,16 +122,26 @@
 		6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPad.png"; path = "Assets/Info1-iPad.png"; sourceTree = "<group>"; };
 		6A43AA20180C9C8400DEBF6C /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		6A43AA21180C9C8400DEBF6C /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
-		6A507E55181D5A2600712298 /* Files@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Files@2X.png"; path = "Buttons/Files@2X.png"; sourceTree = "<group>"; };
-		6A507E56181D5A2600712298 /* Help@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help@2X.png"; path = "Buttons/Help@2X.png"; sourceTree = "<group>"; };
-		6A507E57181D5A2600712298 /* Retire@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Retire@2X.png"; path = "Buttons/Retire@2X.png"; sourceTree = "<group>"; };
-		6A507E5B181D5A9500712298 /* About@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About@2X.png"; path = "Buttons/About@2X.png"; sourceTree = "<group>"; };
-		6A507E5C181D5A9500712298 /* Expand@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expand@2X.png"; path = "Buttons/Expand@2X.png"; sourceTree = "<group>"; };
-		6A507E5D181D5A9500712298 /* Expenses@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expenses@2X.png"; path = "Buttons/Expenses@2X.png"; sourceTree = "<group>"; };
-		6A507E5E181D5A9500712298 /* Income@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Income@2X.png"; path = "Buttons/Income@2X.png"; sourceTree = "<group>"; };
-		6A507E5F181D5A9500712298 /* Investment@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Investment@2X.png"; path = "Buttons/Investment@2X.png"; sourceTree = "<group>"; };
-		6A507E60181D5A9500712298 /* Zero@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Zero@2X.png"; path = "Buttons/Zero@2X.png"; sourceTree = "<group>"; };
-		6A507E67181D5B0900712298 /* Panel Background@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel Background@2X.png"; path = "Assets/Panel Background@2X.png"; sourceTree = "<group>"; };
+		6A507E75181DC90100712298 /* Startup-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Startup-iPad@2x.png"; path = "Assets/Startup-iPad@2x.png"; sourceTree = "<group>"; };
+		6A507E77181DC9CA00712298 /* Startup-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Startup-iPad.png"; path = "Assets/Startup-iPad.png"; sourceTree = "<group>"; };
+		6A507E7D181DCA0900712298 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FinanceLine/Images.xcassets; sourceTree = "<group>"; };
+		6A507E7F181DCAAB00712298 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Assets/Default@2x.png"; sourceTree = "<group>"; };
+		6A507E81181DCAB900712298 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Assets/Default.png; sourceTree = "<group>"; };
+		6A507E83181DCD4200712298 /* Files@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Files@2x.png"; path = "Buttons/Files@2x.png"; sourceTree = "<group>"; };
+		6A507E85181DCEA500712298 /* About Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About Long@2x.png"; path = "Buttons/About Long@2x.png"; sourceTree = "<group>"; };
+		6A507E86181DCEA500712298 /* About@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About@2x.png"; path = "Buttons/About@2x.png"; sourceTree = "<group>"; };
+		6A507E87181DCEA500712298 /* Expand Short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expand Short@2x.png"; path = "Buttons/Expand Short@2x.png"; sourceTree = "<group>"; };
+		6A507E88181DCEA500712298 /* Expand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expand@2x.png"; path = "Buttons/Expand@2x.png"; sourceTree = "<group>"; };
+		6A507E89181DCEA500712298 /* Expenses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Expenses@2x.png"; path = "Buttons/Expenses@2x.png"; sourceTree = "<group>"; };
+		6A507E8A181DCEA500712298 /* Files Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Files Long@2x.png"; path = "Buttons/Files Long@2x.png"; sourceTree = "<group>"; };
+		6A507E8B181DCEA500712298 /* Help Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help Long@2x.png"; path = "Buttons/Help Long@2x.png"; sourceTree = "<group>"; };
+		6A507E8C181DCEA500712298 /* Help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help@2x.png"; path = "Buttons/Help@2x.png"; sourceTree = "<group>"; };
+		6A507E8D181DCEA500712298 /* Income@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Income@2x.png"; path = "Buttons/Income@2x.png"; sourceTree = "<group>"; };
+		6A507E8E181DCEA500712298 /* Investment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Investment@2x.png"; path = "Buttons/Investment@2x.png"; sourceTree = "<group>"; };
+		6A507E8F181DCEA500712298 /* Retire Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Retire Long@2x.png"; path = "Buttons/Retire Long@2x.png"; sourceTree = "<group>"; };
+		6A507E90181DCEA500712298 /* Retire@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Retire@2x.png"; path = "Buttons/Retire@2x.png"; sourceTree = "<group>"; };
+		6A507E91181DCEA500712298 /* Zero Short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Zero Short@2x.png"; path = "Buttons/Zero Short@2x.png"; sourceTree = "<group>"; };
+		6A507E92181DCEA500712298 /* Zero@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Zero@2x.png"; path = "Buttons/Zero@2x.png"; sourceTree = "<group>"; };
 		6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPhone.png"; path = "Assets/Info1-iPhone.png"; sourceTree = "<group>"; };
 		6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info2-iPhone.png"; path = "Assets/Info2-iPhone.png"; sourceTree = "<group>"; };
 		6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info3-iPhone.png"; path = "Assets/Info3-iPhone.png"; sourceTree = "<group>"; };
@@ -184,8 +202,6 @@
 		6AFAA0651770FBA300E61733 /* FinanceLine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinanceLine-Prefix.pch"; sourceTree = "<group>"; };
 		6AFAA0661770FBA300E61733 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AFAA0671770FBA300E61733 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6AFAA0691770FBA300E61733 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		6AFAA06B1770FBA300E61733 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6AFAA06D1770FBA300E61733 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6AFAA0701770FBA300E61733 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6AFAA0721770FBA300E61733 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
@@ -261,16 +277,26 @@
 				6ABE78CA17EDE66A00F5A95B /* Files Long.png */,
 				6ABE78CB17EDE66A00F5A95B /* Help Long.png */,
 				6ABE78CC17EDE66A00F5A95B /* Retire Long.png */,
-				6A507E55181D5A2600712298 /* Files@2X.png */,
-				6A507E56181D5A2600712298 /* Help@2X.png */,
-				6A507E57181D5A2600712298 /* Retire@2X.png */,
-				6A507E5B181D5A9500712298 /* About@2X.png */,
-				6A507E5C181D5A9500712298 /* Expand@2X.png */,
-				6A507E5D181D5A9500712298 /* Expenses@2X.png */,
-				6A507E5E181D5A9500712298 /* Income@2X.png */,
-				6A507E5F181D5A9500712298 /* Investment@2X.png */,
-				6A507E60181D5A9500712298 /* Zero@2X.png */,
-				6A507E67181D5B0900712298 /* Panel Background@2X.png */,
+				6A507E75181DC90100712298 /* Startup-iPad@2x.png */,
+				6A507E77181DC9CA00712298 /* Startup-iPad.png */,
+				6A507E81181DCAB900712298 /* Default.png */,
+				6A507E7F181DCAAB00712298 /* Default@2x.png */,
+				6A507E83181DCD4200712298 /* Files@2x.png */,
+				6A507E85181DCEA500712298 /* About Long@2x.png */,
+				6A507E86181DCEA500712298 /* About@2x.png */,
+				6A507E87181DCEA500712298 /* Expand Short@2x.png */,
+				6A507E88181DCEA500712298 /* Expand@2x.png */,
+				6A507E89181DCEA500712298 /* Expenses@2x.png */,
+				6A507E8A181DCEA500712298 /* Files Long@2x.png */,
+				6A507E8B181DCEA500712298 /* Help Long@2x.png */,
+				6A507E8C181DCEA500712298 /* Help@2x.png */,
+				6A507E8D181DCEA500712298 /* Income@2x.png */,
+				6A507E8E181DCEA500712298 /* Investment@2x.png */,
+				6A507E8F181DCEA500712298 /* Retire Long@2x.png */,
+				6A507E90181DCEA500712298 /* Retire@2x.png */,
+				6A507E91181DCEA500712298 /* Zero Short@2x.png */,
+				6A507E92181DCEA500712298 /* Zero@2x.png */,
+				6A507E7D181DCA0900712298 /* Images.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -378,8 +404,6 @@
 				6AFAA0601770FBA300E61733 /* InfoPlist.strings */,
 				6AFAA0631770FBA300E61733 /* main.m */,
 				6AFAA0651770FBA300E61733 /* FinanceLine-Prefix.pch */,
-				6AFAA0691770FBA300E61733 /* Default.png */,
-				6AFAA06B1770FBA300E61733 /* Default@2x.png */,
 				6AFAA06D1770FBA300E61733 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -496,49 +520,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A507E7A181DC9CA00712298 /* Startup-iPad.png in Resources */,
 				6AFAA0621770FBA300E61733 /* InfoPlist.strings in Resources */,
 				6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */,
-				6AFAA06A1770FBA300E61733 /* Default.png in Resources */,
-				6AFAA06C1770FBA300E61733 /* Default@2x.png in Resources */,
+				6A507E7E181DCA0900712298 /* Images.xcassets in Resources */,
 				6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */,
 				6AFAA06E1770FBA300E61733 /* Default-568h@2x.png in Resources */,
-				6A507E68181D5B0900712298 /* Panel Background@2X.png in Resources */,
 				6AFAA0711770FBA300E61733 /* MainStoryboard.storyboard in Resources */,
+				6A507E97181DCEA500712298 /* Expenses@2x.png in Resources */,
 				6AF9E376180E04E900D3ABD9 /* Info2-iPad.png in Resources */,
+				6A507E95181DCEA500712298 /* Expand Short@2x.png in Resources */,
 				6A3A828517D0165000E9C0EF /* About.png in Resources */,
 				6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */,
 				6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */,
-				6A507E61181D5A9500712298 /* About@2X.png in Resources */,
+				6A507E9C181DCEA500712298 /* Investment@2x.png in Resources */,
 				6ABE78D417EDE74A00F5A95B /* Deselect Short.png in Resources */,
 				6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */,
 				6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */,
 				6A3A828617D0165000E9C0EF /* Expand.png in Resources */,
+				6A507E9E181DCEA500712298 /* Retire@2x.png in Resources */,
+				6A507E9A181DCEA500712298 /* Help@2x.png in Resources */,
 				6A3A828717D0165000E9C0EF /* Files.png in Resources */,
 				6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */,
+				6A507E76181DC90100712298 /* Startup-iPad@2x.png in Resources */,
 				6A3A828817D0165000E9C0EF /* Help.png in Resources */,
+				6A507EA0181DCEA500712298 /* Zero@2x.png in Resources */,
+				6A507E9F181DCEA500712298 /* Zero Short@2x.png in Resources */,
 				6A3A828917D0165000E9C0EF /* Retire.png in Resources */,
-				6A507E62181D5A9500712298 /* Expand@2X.png in Resources */,
-				6A507E64181D5A9500712298 /* Income@2X.png in Resources */,
+				6A507E98181DCEA500712298 /* Files Long@2x.png in Resources */,
+				6A507E80181DCAAB00712298 /* Default@2x.png in Resources */,
+				6A507E9D181DCEA500712298 /* Retire Long@2x.png in Resources */,
 				6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */,
+				6A507E96181DCEA500712298 /* Expand@2x.png in Resources */,
 				6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */,
 				6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */,
-				6A507E65181D5A9500712298 /* Investment@2X.png in Resources */,
+				6A507E84181DCD4200712298 /* Files@2x.png in Resources */,
 				6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */,
+				6A507E99181DCEA500712298 /* Help Long@2x.png in Resources */,
 				6A3A828A17D0165000E9C0EF /* Zero.png in Resources */,
-				6A507E59181D5A2600712298 /* Help@2X.png in Resources */,
-				6A507E5A181D5A2600712298 /* Retire@2X.png in Resources */,
-				6A507E66181D5A9500712298 /* Zero@2X.png in Resources */,
 				6AD59C4317DB647300BD2C01 /* Expenses.png in Resources */,
 				6AD59C4417DB647300BD2C01 /* Income.png in Resources */,
+				6A507E93181DCEA500712298 /* About Long@2x.png in Resources */,
 				6AD59C4517DB647300BD2C01 /* Investment.png in Resources */,
 				6A8A3BA217E6703000B0D97D /* Icon-72.png in Resources */,
-				6A507E58181D5A2600712298 /* Files@2X.png in Resources */,
 				6A8A3BA317E6703000B0D97D /* Icon-144.png in Resources */,
 				6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */,
 				6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */,
+				6A507E9B181DCEA500712298 /* Income@2x.png in Resources */,
 				6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */,
-				6A507E63181D5A9500712298 /* Expenses@2X.png in Resources */,
+				6A507E94181DCEA500712298 /* About@2x.png in Resources */,
 				6A8A3BB217E8F02800B0D97D /* iPhoneStoryboard.storyboard in Resources */,
+				6A507E82181DCAB900712298 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +768,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75DFB47D397041C98957838E /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
@@ -750,6 +784,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75DFB47D397041C98957838E /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
