@@ -125,9 +125,9 @@
   CGContextSetLineJoin(context, kCGLineJoinBevel);
   [lineColor setStroke];
   
-  CGFloat startY = [data valueFor:floor(self.delegate.startMonth) scaledTo:self.bounds.size.height];
+  CGFloat startY = [self scaledYFor:floor(self.delegate.startMonth)];
   
-  CGContextMoveToPoint(context,0.0, self.bounds.size.height - startY);
+  CGContextMoveToPoint(context,-10.0, self.bounds.size.height - startY);
   [self drawBlocks:context];
   CGContextStrokePath(context);
   

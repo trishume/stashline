@@ -10,6 +10,7 @@
 
 @interface IPhoneTimelineViewController : TimelineViewController {
   UINavigationController *filesModal;
+  BOOL panelOut;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *leftPanelView;

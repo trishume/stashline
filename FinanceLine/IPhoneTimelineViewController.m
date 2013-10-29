@@ -8,6 +8,7 @@
 
 #import "IPhoneTimelineViewController.h"
 #define kTimelineOffset 159
+#define kTimelinePeek 4.0
 
 @interface IPhoneTimelineViewController ()
 
@@ -85,18 +86,30 @@
 #pragma mark Panel Control
 
 - (IBAction)toggleLeftPanel {
-  [self setPanelVisible:self.leftPanelView.hidden];
+  [self setPanelVisible:!panelOut];
 }
 
 - (void)setPanelVisible:(BOOL)visible {
-  self.leftPanelView.hidden = !visible;
+  panelOut = visible;
   
   if (!visible) {
-    self.timeLine.frame = self.view.bounds;
+    self.timeLine.frame = CGRectMake(kTimelineOffset, 0.0, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self redraw];
+    [UIView animateWithDuration:0.5f animations:^{
+      self.leftPanelView.frame = CGRectMake(kTimelinePeek-kTimelineOffset, 0.0, kTimelineOffset, self.view.bounds.size.height);
+      self.timeLine.frame = CGRectMake(kTimelinePeek, 0.0, self.view.bounds.size.width, self.view.bounds.size.height);
+    } completion:^(BOOL finished){
+      [self redraw];
+    }];
   } else {
-    self.timeLine.frame = CGRectMake(kTimelineOffset, 0.0, self.view.bounds.size.width - kTimelineOffset, self.view.bounds.size.height);
+    [UIView animateWithDuration:0.5f animations:^{
+      self.leftPanelView.frame = CGRectMake(0.0, 0.0, kTimelineOffset, self.view.bounds.size.height);
+      self.timeLine.frame = CGRectMake(kTimelineOffset, 0.0, self.view.bounds.size.width, self.view.bounds.size.height);
+    } completion:^(BOOL finished){
+      self.timeLine.frame = CGRectMake(kTimelineOffset, 0.0, self.view.bounds.size.width-kTimelineOffset, self.view.bounds.size.height);
+      [self redraw];
+    }];
   }
-  [self redraw];
 }
 
 - (void)showEditorPanel {
