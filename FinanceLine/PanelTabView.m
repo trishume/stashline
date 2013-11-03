@@ -8,6 +8,9 @@
 
 #import "PanelTabView.h"
 
+#define kMinTouchY 95
+#define kMaxTouchY 155
+
 @implementation PanelTabView
 
 - (id)initWithFrame:(CGRect)frame
@@ -17,6 +20,10 @@
         // Initialization code
     }
     return self;
+}
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+  return (point.y > kMinTouchY) && (point.y < kMaxTouchY);
 }
 
 // Only override drawRect: if you perform custom drawing.

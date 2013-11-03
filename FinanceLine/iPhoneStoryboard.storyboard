@@ -344,7 +344,7 @@
                                 <rect key="frame" x="146" y="0.0" width="40" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="toggleLeftPanel" destination="CW4-Q7-CBy" eventType="touchUpInside" id="En9-nc-Pb5"/>
+                                    <action selector="toggleLeftPanel" destination="CW4-Q7-CBy" eventType="touchUpInside" id="WdW-7r-6nQ"/>
                                 </connections>
                             </view>
                         </subviews>
