@@ -43,6 +43,7 @@
 		6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */; };
 		6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */; };
 		6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */; };
+		6A7DBEE21822F086009F5453 /* PanelTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7DBEE11822F086009F5453 /* PanelTabView.m */; };
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
 		6A8A3BAB17E6706700B0D97D /* PTSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA717E6706700B0D97D /* PTSans.ttc */; };
@@ -143,6 +144,8 @@
 		6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPhone.png"; path = "Assets/Info1-iPhone.png"; sourceTree = "<group>"; };
 		6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info2-iPhone.png"; path = "Assets/Info2-iPhone.png"; sourceTree = "<group>"; };
 		6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info3-iPhone.png"; path = "Assets/Info3-iPhone.png"; sourceTree = "<group>"; };
+		6A7DBEE01822F086009F5453 /* PanelTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelTabView.h; sourceTree = "<group>"; };
+		6A7DBEE11822F086009F5453 /* PanelTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelTabView.m; sourceTree = "<group>"; };
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
 		6A8A3BA617E6706600B0D97D /* Panel Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel Background.png"; path = "Assets/Panel Background.png"; sourceTree = "<group>"; };
 		6A8A3BA717E6706700B0D97D /* PTSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSans.ttc; path = Assets/PTSans.ttc; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 				6A8A3BB117E8F02800B0D97D /* iPhoneStoryboard.storyboard */,
 				6A8A3BB317E8F04A00B0D97D /* IPhoneTimelineViewController.h */,
 				6A8A3BB417E8F04A00B0D97D /* IPhoneTimelineViewController.m */,
+				6A7DBEE01822F086009F5453 /* PanelTabView.h */,
+				6A7DBEE11822F086009F5453 /* PanelTabView.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -637,6 +642,7 @@
 				6A99DB88178B81DA0096AAB7 /* Selection.m in Sources */,
 				6A99DB8E178CD4490096AAB7 /* SelectionEditViewController.m in Sources */,
 				6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */,
+				6A7DBEE21822F086009F5453 /* PanelTabView.m in Sources */,
 				6A99DB941790B8C20096AAB7 /* FinanceModel.m in Sources */,
 				6A99DB971794C70E0096AAB7 /* StatusTrackView.m in Sources */,
 				6A99DBA417AD6A780096AAB7 /* ScrubbableTextView.m in Sources */,
