@@ -23,7 +23,7 @@
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-  return (point.y > kMinTouchY) && (point.y < kMaxTouchY);
+  return (point.x > 0.0 && point.x < self.frame.size.width) && (point.y > kMinTouchY && point.y < kMaxTouchY);
 }
 
 // Only override drawRect: if you perform custom drawing.
