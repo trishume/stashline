@@ -31,6 +31,7 @@
     CGRect labelFrame = CGRectMake(15.0, 0.0, 100.0, labelHeight);
     label = [[NiceLabel alloc] initWithFrame:labelFrame];
     label.small = YES;
+    label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.400 alpha:0.870];
     [label setFontOfSize:20.0];
     [self addSubview:label];

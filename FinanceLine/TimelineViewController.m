@@ -27,6 +27,26 @@
 
 @end
 
+NSString* SanitizeFilename(NSString* filename)
+{
+  NSMutableString* stripped = [NSMutableString stringWithCapacity:filename.length];
+  for (int t = 0; t < filename.length; ++t)
+  {
+    unichar c = [filename characterAtIndex:t];
+    
+    // Only allow a-z, A-Z, 0-9, space, -
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+        ||  (c >= '0' && c <= '9') || c == ' ' || c == '-')
+      [stripped appendFormat:@"%c", c];
+    else
+      [stripped appendString:@"_"];
+  }
+  
+  // No empty spaces at the beginning or end of the path name (also no dots
+  // at the end); that messes up the Windows file system.
+  return [stripped stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 @implementation TimelineViewController
 
 - (void)viewDidLoad
@@ -253,14 +273,20 @@
   }
 }
 
+- (NSString *)sanitizeName:(NSString*)name {
+  NSString *sanitized = SanitizeFilename(name);
+  return [sanitized stringByAppendingString:@".stashLine"];
+}
+
 // New file alert
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
   UITextField *fileNameField = [alertView textFieldAtIndex:0];
+  NSString *fileName = [self sanitizeName:fileNameField.text];
   
   if ([alertView.title isEqualToString:kDupAlertTitle]) {
-    [self saveModelAs:fileNameField.text];
+    [self saveModelAs:fileName];
   }
-  [self openFile:fileNameField.text];
+  [self openFile:fileName];
 }
 
 #pragma mark Operations
