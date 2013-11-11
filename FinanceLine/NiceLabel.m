@@ -19,11 +19,15 @@
     return self;
 }
 
--(void) awakeFromNib{
-  [super awakeFromNib];
+-(void)setFontOfSize:(NSUInteger)size {
   NSString *name = self.small ? @"PTSans-CaptionBold" : @"PTSans-Caption";
   if(self.body) name = @"PTSans-Regular";
-  self.font = [UIFont fontWithName:name size: self.font.pointSize];
+  self.font = [UIFont fontWithName:name size: size];
+}
+
+-(void) awakeFromNib{
+  [super awakeFromNib];
+  [self setFontOfSize:self.font.pointSize];
 }
 
 /*

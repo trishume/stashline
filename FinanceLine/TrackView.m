@@ -20,9 +20,22 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+      label = nil;
     }
     return self;
+}
+
+- (void)setLabel:(NSString *)trackLabel {
+  if (label == nil) {
+    CGFloat labelHeight = (self.bounds.size.height > 100) ? 35.0 : self.bounds.size.height;
+    CGRect labelFrame = CGRectMake(15.0, 0.0, 100.0, labelHeight);
+    label = [[NiceLabel alloc] initWithFrame:labelFrame];
+    label.small = YES;
+    label.textColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.400 alpha:0.870];
+    [label setFontOfSize:20.0];
+    [self addSubview:label];
+  }
+  label.text = trackLabel;
 }
 
 - (NSUInteger)monthForX:(CGFloat)x {

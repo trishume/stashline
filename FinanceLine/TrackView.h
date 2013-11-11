@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NiceLabel.h"
 
 @protocol TrackViewDelegate <NSObject>
 - (CGFloat) startMonth;
@@ -17,9 +18,13 @@
 - (void) setVelocity: (CGFloat)vel;
 @end
 
-@interface TrackView : UIView
+@interface TrackView : UIView {
+  NiceLabel *label;
+}
 
 @property (nonatomic, weak) id<TrackViewDelegate> delegate;
+
+- (void)setLabel:(NSString*)trackLabel;
 - (void)drawBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
 - (void)drawBlocks:(CGContextRef)context;

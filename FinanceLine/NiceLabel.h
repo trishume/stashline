@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NiceLabel : UILabel
+-(void)setFontOfSize:(NSUInteger)size;
 @property (nonatomic) BOOL small;
 @property (nonatomic) BOOL body;
 @end

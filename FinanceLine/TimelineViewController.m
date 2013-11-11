@@ -146,6 +146,7 @@
   stashTrack.data = model.stashTrack;
   stashTrack.model = model;
   [self.timeLine addTrack:stashTrack withHeight:stashTrackHeight];
+  [stashTrack setLabel:@"Savings"];
 
   TimelineTrackView *timeTrack = [[TimelineTrackView alloc] initWithFrame:CGRectZero];
   timeTrack.status = model.statusTrack;
@@ -178,6 +179,7 @@
     if (firstIncomeTrack == nil)
       firstIncomeTrack = trackView;
   }
+  [firstIncomeTrack setLabel:@"Earn"];
 
   firstExpensesTrack = nil;
   for (DataTrack *track in model.expenseTracks) {
@@ -191,12 +193,14 @@
     if (firstExpensesTrack == nil)
       firstExpensesTrack = trackView;
   }
+  [firstExpensesTrack setLabel:@"Spend"];
   
   investTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
   investTrack.data = model.investmentTrack;
   investTrack.hue = 0.566;
   investTrack.selectionDelegate = self;
   [self.timeLine addTrack:investTrack withHeight:annuityTrackHeight];
+  [investTrack setLabel:@"Invest"];
   [self addDivider];
 }
 
