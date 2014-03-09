@@ -11,7 +11,7 @@
 
 #define kScrollFriction 1.0
 #define kMaxVelocity 6000.0
-#define kMaxMonthSize 30.0
+#define kMaxMonthSize 40.0
 
 @implementation TimelineView
 @synthesize tracks, startMonth, monthSize, velocity, maxMonth, nextTrackTop;

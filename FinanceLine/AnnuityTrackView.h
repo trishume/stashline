@@ -18,6 +18,8 @@
 @interface AnnuityTrackView : TrackView {
   UIColor *selectionColor;
   UIColor *dividerColor;
+  UIColor *numColor;
+  UIFont *numFont;
 }
 
 - (void)selectFrom:(NSUInteger)month to:(NSUInteger)end;

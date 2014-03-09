@@ -9,7 +9,7 @@
 #import "TrackView.h"
 #import "Constants.h"
 
-#define kMonthThreshold 10.0
+#define kMonthThreshold 15.0
 #define kQuarterThreshold 4.0
 
 @implementation TrackView
@@ -33,7 +33,8 @@
     label.small = YES;
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.400 alpha:0.870];
-    [label setFontOfSize:20.0];
+    CGFloat fontSize = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 12.0 : 20.0;
+    [label setFontOfSize:fontSize];
     [self addSubview:label];
   }
   label.text = trackLabel;
@@ -66,6 +67,12 @@
 }
 
 - (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock autoScale:(BOOL)scaleBlocks {
+  [self drawBlocks:context extraBlock:NO autoScale:YES render:^void(NSUInteger month,NSUInteger mpb,CGFloat x,CGFloat scale,CGContextRef cont) {
+    [self drawBlock:month ofMonths:mpb atX:x andScale:scale withContext:cont];
+  }];
+}
+
+- (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock autoScale:(BOOL)scaleBlocks render:(BlockRenderer)renderer {
   CGFloat start = [self.delegate startMonth];
   CGFloat monthSize = [self.delegate monthSize];
   NSUInteger maxMonth = [self.delegate maxMonth];
@@ -77,8 +84,9 @@
   CGFloat offset = -(start - curMonth) * monthSize;
   
   NSUInteger extraBonus = extraBlock ? 1 : 0;
+  
   while (offset - blockSize < self.bounds.size.width && curMonth <= maxMonth + extraBonus) {
-    [self drawBlock:curMonth ofMonths:monthsPerBlock atX:offset andScale:monthSize withContext:context];
+    renderer(curMonth,monthsPerBlock,offset,monthSize,context);
     offset += blockSize;
     curMonth += monthsPerBlock;
   }

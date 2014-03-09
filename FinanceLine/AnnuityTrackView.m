@@ -12,7 +12,15 @@
 #define kDefaultNegativeHue 0.016
 #define kBaseSaturation 0.4
 #define kSelectionThickness 4.0
-#define kDividerHeight 2.0
+
+#define kEnableDividers
+#define kDividerWidth 1.5
+#define kDividerAlpha 0.1
+#define kDividerWhite 0.0
+#define kDividerThresh 25.0
+#define kDividerFade 10.0
+
+#define kNumThresh 28.0
 
 @implementation AnnuityTrackView
 @synthesize data, hue, negativeHue, selection, selectionDelegate;
@@ -26,6 +34,8 @@
       negativeHue = kDefaultNegativeHue;
       selectionColor = [UIColor blueColor];
       selection = [[Selection alloc] init];
+      numFont = [UIFont systemFontOfSize:14.0];
+      numColor = [UIColor darkGrayColor];
       
       UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
       [self addGestureRecognizer:pan];
@@ -39,6 +49,24 @@
       [self addGestureRecognizer:singleTap];
     }
     return self;
+}
+
++ (NSString*)miniNum:(double)val {
+  double divisor = 1.0;
+  char quantifier = ' ';
+  double absVal = abs(val);
+  if(absVal >= 1000000) {
+    divisor = 1000000;
+    quantifier = 'M';
+  } else if(absVal >= 1000) {
+    divisor = 1000;
+    quantifier = 'k';
+  } else if(absVal < 1.0) {
+    divisor = 0.01;
+    quantifier = '%';
+  }
+  int intVal = (int)(val/divisor);
+  return [NSString stringWithFormat:@"%i%c",intVal, quantifier];
 }
 
 #pragma mark Selection
@@ -153,28 +181,34 @@
   }
   saturation /= monthsPerBlock;
   saturation = ABS(saturation);
-  if (saturation > 0.0) {
-    saturation += kBaseSaturation;
-  }
-  
-  CGFloat boxHue = isNegative ? negativeHue : hue;
-  UIColor *boxColour = [UIColor colorWithHue:boxHue saturation:saturation brightness:1.0 alpha:1.0];
-  [boxColour setFill];
   
   CGFloat width = monthsPerBlock * scale;
+  if (saturation > 0.0) {
+    saturation += kBaseSaturation;
   
-  CGRect rect = self.bounds;
-  rect.origin.x = x; rect.origin.y = 0.0;
-  rect.size.width = width - 0.2;
+    CGFloat boxHue = isNegative ? negativeHue : hue;
+    UIColor *boxColour = [UIColor colorWithHue:boxHue saturation:saturation brightness:1.0 alpha:1.0];
+    [boxColour setFill];
+    
+    CGRect rect = self.bounds;
+    rect.origin.x = x; rect.origin.y = 0.0;
+    rect.size.width = width - 0.2;
 
-  CGContextFillRect(context, rect);
+    CGContextFillRect(context, rect);
+  }
   
-  // DEBUG
-//  int value = [data valueAt:month] * 100;
-//  NSString *str = [NSString stringWithFormat:@"%i",value];
-//  UIFont *font = [UIFont systemFontOfSize:12.0];
-//  [[UIColor blackColor] setFill];
-//  [str drawAtPoint:CGPointMake(x, 5.0) withFont:font];
+#ifdef kEnableDividers
+  if (scale > (kDividerThresh-kDividerFade)) {
+    [dividerColor setStroke];
+    CGContextSetLineWidth(context, kDividerWidth);
+    CGContextSetLineCap(context, kCGLineCapButt);
+    
+    CGContextMoveToPoint(context, x, 0.0);
+    CGContextAddLineToPoint(context, x, self.bounds.size.height);
+    CGContextStrokePath(context);
+  }
+#endif
+  
   
   // Draw line above and below if selected
   if (selected) {
@@ -199,7 +233,25 @@
 - (void)drawRect:(CGRect)rect
 {
   CGContextRef context = UIGraphicsGetCurrentContext();
+  // fade in dividers
+  CGFloat monthSize = [self.delegate monthSize];
+  CGFloat fade = (1.0 - (kDividerThresh - monthSize)/kDividerFade) * kDividerAlpha;
+  fade = MIN(MAX(fade,0.0),kDividerAlpha);
+  dividerColor = [UIColor colorWithWhite:kDividerWhite alpha:fade];
+  
+  // Draw rects
   [self drawBlocks:context extraBlock:NO autoScale:YES];
+  
+  // Draw numbers
+  [self drawBlocks:context extraBlock:NO autoScale:YES render:^void(NSUInteger month,NSUInteger mpb,CGFloat x,CGFloat scale,CGContextRef cont) {
+    double value = [data valueAt:month];
+    double prevValue = (month == 0) ? -1.0 : [data valueAt:month - 1];
+    if (value != 0.0 && value != prevValue) {
+      NSString *str = [AnnuityTrackView miniNum:value];
+      [numColor setFill];
+      [str drawAtPoint:CGPointMake(x + 5.0, 5.0) withFont:numFont];
+    }
+  }];
   
   // Draw sidebar
   UIColor *boxColour = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:0.5];

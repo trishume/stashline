@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NiceLabel.h"
 
+typedef void (^BlockRenderer)(NSUInteger,NSUInteger,CGFloat,CGFloat,CGContextRef);
+
 @protocol TrackViewDelegate <NSObject>
 - (CGFloat) startMonth;
 - (CGFloat) monthSize;
@@ -29,6 +31,7 @@
               atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context;
 - (void)drawBlocks:(CGContextRef)context;
 - (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock autoScale:(BOOL)scaleBlocks;
+- (void)drawBlocks:(CGContextRef)context extraBlock:(BOOL)extraBlock autoScale:(BOOL)scaleBlocks render:(BlockRenderer)renderer;
 - (NSUInteger)monthForX:(CGFloat)x;
 - (NSUInteger)blockForX:(CGFloat)x;
 - (NSUInteger)blockSize;
