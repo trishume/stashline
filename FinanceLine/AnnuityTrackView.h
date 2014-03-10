@@ -29,5 +29,6 @@
 @property (nonatomic) CGFloat negativeHue;
 @property (nonatomic, strong) DataTrack *data;
 @property (nonatomic, strong) Selection *selection;
+@property (nonatomic) BOOL percentTrack;
 
 @end

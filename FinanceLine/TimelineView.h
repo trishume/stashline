@@ -20,6 +20,7 @@
 @property (nonatomic) CGFloat startMonth;
 @property (nonatomic) CGFloat monthSize;
 @property (nonatomic) CGFloat velocity;
+@property (nonatomic) double labelMult;
 @property (nonatomic, readonly) NSUInteger maxMonth;
 @property (nonatomic, readonly) CGFloat nextTrackTop;
 

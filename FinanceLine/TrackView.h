@@ -15,6 +15,7 @@ typedef void (^BlockRenderer)(NSUInteger,NSUInteger,CGFloat,CGFloat,CGContextRef
 - (CGFloat) startMonth;
 - (CGFloat) monthSize;
 - (NSUInteger) maxMonth;
+- (double) labelMult;
 - (void) setStartMonth: (CGFloat)start;
 - (void) setMonthSize: (CGFloat)scale;
 - (void) setVelocity: (CGFloat)vel;

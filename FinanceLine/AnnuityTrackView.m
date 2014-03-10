@@ -20,7 +20,7 @@
 #define kDividerThresh 25.0
 #define kDividerFade 10.0
 
-#define kNumThresh 28.0
+#define kNumSpacing 30.0
 
 @implementation AnnuityTrackView
 @synthesize data, hue, negativeHue, selection, selectionDelegate;
@@ -30,11 +30,12 @@
     self = [super initWithFrame:frame];
     if (self) {
       self.backgroundColor = [UIColor whiteColor];
+      self.percentTrack = NO;
       hue = kDefaultHue;
       negativeHue = kDefaultNegativeHue;
       selectionColor = [UIColor blueColor];
       selection = [[Selection alloc] init];
-      numFont = [UIFont systemFontOfSize:14.0];
+      numFont = [UIFont systemFontOfSize:16.0];
       numColor = [UIColor darkGrayColor];
       
       UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
@@ -51,19 +52,19 @@
     return self;
 }
 
-+ (NSString*)miniNum:(double)val {
+- (NSString*)miniNum:(double)val {
   double divisor = 1.0;
   char quantifier = ' ';
   double absVal = abs(val);
-  if(absVal >= 1000000) {
+  if (self.percentTrack) {
+    divisor = 0.01;
+    quantifier = '%';
+  } else if(absVal >= 1000000) {
     divisor = 1000000;
     quantifier = 'M';
   } else if(absVal >= 1000) {
     divisor = 1000;
     quantifier = 'k';
-  } else if(absVal < 1.0) {
-    divisor = 0.01;
-    quantifier = '%';
   }
   int intVal = (int)(val/divisor);
   return [NSString stringWithFormat:@"%i%c",intVal, quantifier];
@@ -242,16 +243,24 @@
   // Draw rects
   [self drawBlocks:context extraBlock:NO autoScale:YES];
   
-  // Draw numbers
-  [self drawBlocks:context extraBlock:NO autoScale:YES render:^void(NSUInteger month,NSUInteger mpb,CGFloat x,CGFloat scale,CGContextRef cont) {
-    double value = [data valueAt:month];
-    double prevValue = (month == 0) ? -1.0 : [data valueAt:month - 1];
-    if (value != 0.0 && value != prevValue) {
-      NSString *str = [AnnuityTrackView miniNum:value];
-      [numColor setFill];
-      [str drawAtPoint:CGPointMake(x + 5.0, 5.0) withFont:numFont];
-    }
-  }];
+  // Draw amount labels
+  double labelMult = self.delegate.labelMult;
+  if (labelMult != 0.0) {
+    if(self.percentTrack) labelMult = 1.0;
+    
+    __block CGFloat lastNumX = -100.0;
+    CGFloat numY = self.bounds.size.height/2.0 - [numFont xHeight];
+    [self drawBlocks:context extraBlock:NO autoScale:NO render:^void(NSUInteger month,NSUInteger mpb,CGFloat x,CGFloat scale,CGContextRef cont) {
+      double value = [data valueAt:month];
+      double prevValue = (month == 0) ? -1.0 : [data valueAt:month - 1];
+      if (value != 0.0 && value != prevValue && x > lastNumX + kNumSpacing) {
+        NSString *str = [self miniNum:value*labelMult];
+        [numColor setFill];
+        [str drawAtPoint:CGPointMake(x + 5.0, numY) withFont:numFont];
+        lastNumX = x;
+      }
+    }];
+  }
   
   // Draw sidebar
   UIColor *boxColour = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:0.5];

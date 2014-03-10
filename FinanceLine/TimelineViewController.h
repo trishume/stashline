@@ -44,6 +44,7 @@
 - (IBAction)zeroSelection;
 - (IBAction)expandSelectionToEnd;
 - (IBAction)cutJobAtRetirement;
+- (IBAction)changeLabelMode:(UIButton*)sender;
 - (IBAction)aboutMe;
 - (void)setSelectionName:(NSString*)label andColor:(UIColor*)color;
 

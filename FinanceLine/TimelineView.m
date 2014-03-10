@@ -14,19 +14,20 @@
 #define kMaxMonthSize 40.0
 
 @implementation TimelineView
-@synthesize tracks, startMonth, monthSize, velocity, maxMonth, nextTrackTop;
+@synthesize tracks, startMonth, monthSize, velocity, maxMonth, nextTrackTop, labelMult;
 
 - (void)initialize
 {
-    self.tracks = [NSMutableArray array];
-    nextTrackTop = 0.0;
-    startMonth = 192.0;
-    monthSize = 10.0;
-    velocity = 0.0;
-    maxMonth = kMaxMonth;
-    
-    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchHandler:)];
-    [self addGestureRecognizer:pinch];
+  self.tracks = [NSMutableArray array];
+  nextTrackTop = 0.0;
+  startMonth = 192.0;
+  monthSize = 10.0;
+  velocity = 0.0;
+  maxMonth = kMaxMonth;
+  labelMult = 0.0;
+  
+  UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchHandler:)];
+  [self addGestureRecognizer:pinch];
 }
 
 - (id)initWithFrame:(CGRect)frame

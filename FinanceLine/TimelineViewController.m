@@ -216,6 +216,7 @@ NSString* SanitizeFilename(NSString* filename)
   [firstExpensesTrack setLabel:@"Spend"];
   
   investTrack = [[AnnuityTrackView alloc] initWithFrame:CGRectZero];
+  investTrack.percentTrack = YES;
   investTrack.data = model.investmentTrack;
   investTrack.hue = 0.566;
   investTrack.selectionDelegate = self;
@@ -299,6 +300,20 @@ NSString* SanitizeFilename(NSString* filename)
 - (IBAction)aboutMe {
   NSURL *url = [NSURL URLWithString:@"http://thume.ca/"];
   [[UIApplication sharedApplication] openURL:url];
+}
+
+- (IBAction)changeLabelMode:(UIButton *)sender {
+  if (self.timeLine.labelMult == 1.0) {
+    self.timeLine.labelMult = 12.0;
+    [sender setTitle:@"Yearly Labels" forState:UIControlStateNormal];
+  } else if(self.timeLine.labelMult == 0.0) {
+    self.timeLine.labelMult = 1.0;
+    [sender setTitle:@"Monthly Labels" forState:UIControlStateNormal];
+  } else {
+    self.timeLine.labelMult = 0.0;
+    [sender setTitle:@"No Labels" forState:UIControlStateNormal];
+  }
+  [self.timeLine redrawTracks];
 }
 
 #pragma mark I Am
