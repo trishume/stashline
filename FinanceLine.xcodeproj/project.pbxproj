@@ -43,6 +43,9 @@
 		6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */; };
 		6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */; };
 		6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */; };
+		6A65792718D0FA35004D8EC7 /* Touch-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A65792518D0FA35004D8EC7 /* Touch-Icon.png */; };
+		6A65792818D0FA35004D8EC7 /* Touch-Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A65792618D0FA35004D8EC7 /* Touch-Icon@2x.png */; };
+		6A6D5C1B18CE602100A12DDB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D5C1A18CE602100A12DDB /* IntroViewController.m */; };
 		6A7DBEE21822F086009F5453 /* PanelTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7DBEE11822F086009F5453 /* PanelTabView.m */; };
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
@@ -144,6 +147,10 @@
 		6A5AAFDF181C320C00782DB4 /* Info1-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info1-iPhone.png"; path = "Assets/Info1-iPhone.png"; sourceTree = "<group>"; };
 		6A5AAFE0181C320C00782DB4 /* Info2-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info2-iPhone.png"; path = "Assets/Info2-iPhone.png"; sourceTree = "<group>"; };
 		6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info3-iPhone.png"; path = "Assets/Info3-iPhone.png"; sourceTree = "<group>"; };
+		6A65792518D0FA35004D8EC7 /* Touch-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Touch-Icon.png"; path = "Assets/Touch-Icon.png"; sourceTree = "<group>"; };
+		6A65792618D0FA35004D8EC7 /* Touch-Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Touch-Icon@2x.png"; path = "Assets/Touch-Icon@2x.png"; sourceTree = "<group>"; };
+		6A6D5C1918CE602100A12DDB /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		6A6D5C1A18CE602100A12DDB /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		6A7DBEE01822F086009F5453 /* PanelTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelTabView.h; sourceTree = "<group>"; };
 		6A7DBEE11822F086009F5453 /* PanelTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelTabView.m; sourceTree = "<group>"; };
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
@@ -249,6 +256,8 @@
 		6A3A828B17D0187F00E9C0EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A65792518D0FA35004D8EC7 /* Touch-Icon.png */,
+				6A65792618D0FA35004D8EC7 /* Touch-Icon@2x.png */,
 				6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */,
 				6A43AA1E180C9B3E00DEBF6C /* Info1-iPad.png */,
 				6AF9E375180E04E900D3ABD9 /* Info2-iPad.png */,
@@ -392,6 +401,8 @@
 				6AE342DC17E62268006C2202 /* AboutViewController.m */,
 				6A43AA20180C9C8400DEBF6C /* HelpViewController.h */,
 				6A43AA21180C9C8400DEBF6C /* HelpViewController.m */,
+				6A6D5C1918CE602100A12DDB /* IntroViewController.h */,
+				6A6D5C1A18CE602100A12DDB /* IntroViewController.m */,
 			);
 			path = FinanceLine;
 			sourceTree = "<group>";
@@ -541,6 +552,7 @@
 				6A507E9A181DCEA500712298 /* Help@2x.png in Resources */,
 				6A3A828717D0165000E9C0EF /* Files.png in Resources */,
 				6A5AAFE2181C320C00782DB4 /* Info1-iPhone.png in Resources */,
+				6A65792718D0FA35004D8EC7 /* Touch-Icon.png in Resources */,
 				6A507E76181DC90100712298 /* Startup-iPad@2x.png in Resources */,
 				6A3A828817D0165000E9C0EF /* Help.png in Resources */,
 				6A507EA0181DCEA500712298 /* Zero@2x.png in Resources */,
@@ -552,6 +564,7 @@
 				6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */,
 				6A507E96181DCEA500712298 /* Expand@2x.png in Resources */,
 				6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */,
+				6A65792818D0FA35004D8EC7 /* Touch-Icon@2x.png in Resources */,
 				6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */,
 				6A507E84181DCD4200712298 /* Files@2x.png in Resources */,
 				6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */,
@@ -639,6 +652,7 @@
 				6A99DB7E178B58BD0096AAB7 /* LineGraphTrack.m in Sources */,
 				6A99DB81178B59250096AAB7 /* DataTrack.m in Sources */,
 				6A99DB85178B72F20096AAB7 /* AnnuityTrackView.m in Sources */,
+				6A6D5C1B18CE602100A12DDB /* IntroViewController.m in Sources */,
 				6A99DB88178B81DA0096AAB7 /* Selection.m in Sources */,
 				6A99DB8E178CD4490096AAB7 /* SelectionEditViewController.m in Sources */,
 				6A99DB91178F7D500096AAB7 /* DividerTrackView.m in Sources */,

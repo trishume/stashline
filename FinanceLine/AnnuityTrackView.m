@@ -77,7 +77,7 @@
   double startVal = dataArr[month];
   
   // to the right
-  int end;
+  NSUInteger end;
   for (end = month; end <= kMaxMonth; ++end) {
     if(dataArr[end] != startVal) {
       break;
@@ -86,7 +86,7 @@
   end--; // rewind to where we were good
   
   // and to the left
-  int start;
+  NSInteger start;
   for (start = month; start >= 0; --start) {
     if(dataArr[start] != startVal) {
       break;
@@ -109,6 +109,10 @@
 - (void)panHandler:(UIPanGestureRecognizer *)sender {
   CGPoint start = [sender locationInView:self];
   CGPoint translation = [sender translationInView:self];
+  
+  if ([sender state] == UIGestureRecognizerStateEnded) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.AnnuityTrackSelectionEnded" object:self];
+  }
   
   // Selection snaps to current block size
   CGFloat blockSize = [self blockSize];

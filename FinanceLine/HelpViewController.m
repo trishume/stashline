@@ -37,7 +37,7 @@
 
 - (void)selectPanel:(NSUInteger)panelIndex {
   NSString *deviceName = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"iPad" : @"iPhone";
-  NSString *imageName = [NSString stringWithFormat:@"Info%i-%@", panelIndex+1, deviceName];
+  NSString *imageName = [NSString stringWithFormat:@"Info%u-%@", panelIndex+1, deviceName];
   UIImage *image = [UIImage imageNamed:imageName];
   self.panelView.image = image;
   [self.view setNeedsDisplay];

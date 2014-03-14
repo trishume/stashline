@@ -46,7 +46,7 @@
 
   DataTrack *track = [self.incomeTracks objectAtIndex: 0];
   double *data = [track dataPtr];
-  for (int i = self.retirementMonth + 1; i <= kMaxMonth; ++i) {
+  for (NSUInteger i = self.retirementMonth + 1; i <= kMaxMonth; ++i) {
     data[i] = 0.0;
   }
   [track recalc];
@@ -98,7 +98,7 @@
   }
 
   double stash = self.startAmount;
-  for (int i = [self startMonth]; i <= kMaxMonth; ++i) {
+  for (NSUInteger i = [self startMonth]; i <= kMaxMonth; ++i) {
     stash = [self iterateStash:stash forMonth: i];
     [self.stashTrack setValue:stash forMonth:i];
   }

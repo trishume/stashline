@@ -23,6 +23,12 @@
 #define kDupAlertTitle @"Duplicate As"
 #define kNewAlertTitle @"New File"
 
+#define kDefaultIntroPlayed @"ca.thume.IntroPlayed"
+#define kDefaultLastFile @"ca.thume.LastFile"
+
+#define kRestoreTimelineZoom @"ca.thume.TimelineMonthSize"
+#define kRestoreTimelineScroll @"ca.thume.TimelineStartMonth"
+
 @interface TimelineViewController ()
 
 @end
@@ -66,8 +72,10 @@ NSString* SanitizeFilename(NSString* filename)
   investmentEditor.delegate = self;
   investmentEditor.view.frame = self.editorContainerView.bounds;
   
-  introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
-  introController.view.frame = self.editorContainerView.bounds;
+  infoController = [self.storyboard instantiateViewControllerWithIdentifier:@"infoController"];
+  infoController.view.frame = self.editorContainerView.bounds;
+  
+  introController = nil;
   
   selectEditor = nil;
   if (self.selectDivider) self.selectDivider.delegate = self;
@@ -88,7 +96,17 @@ NSString* SanitizeFilename(NSString* filename)
 
   // Load or create model
   model = nil;
-  [self openFile:kMainFileName];
+  NSString *lastFile = [[NSUserDefaults standardUserDefaults] stringForKey:kDefaultLastFile];
+  if (lastFile == nil) {
+    lastFile = kMainFileName;
+  }
+  [self openFile:lastFile];
+  
+  // Play intro on first run
+  BOOL introPlayed = [[NSUserDefaults standardUserDefaults] boolForKey:kDefaultIntroPlayed];
+  if (!introPlayed) {
+    [self startIntro];
+  }
 }
 
 - (void)addDivider {
@@ -108,6 +126,21 @@ NSString* SanitizeFilename(NSString* filename)
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
         (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
+
+//- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+//{
+//  [coder encodeDouble:self.timeLine.startMonth forKey:kRestoreTimelineScroll];
+//  [coder encodeDouble:self.timeLine.monthSize forKey:kRestoreTimelineZoom];
+//  [super encodeRestorableStateWithCoder:coder];
+//}
+//
+//- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+//{
+//  self.timeLine.startMonth = [coder decodeDoubleForKey:kRestoreTimelineScroll];
+//  self.timeLine.monthSize = [coder decodeDoubleForKey:kRestoreTimelineZoom];
+//  [self.timeLine redrawTracks];
+//  [super decodeRestorableStateWithCoder:coder];
+//}
 
 #pragma mark Persistence
 
@@ -151,7 +184,13 @@ NSString* SanitizeFilename(NSString* filename)
   }
 
   [self loadTracks];
+  
+  self.timeLine.startMonth = (model.startMonth <= 12) ? 192.0 : model.startMonth - 12;
+  self.timeLine.monthSize = 5.0;
+  
   [self updateDisplays];
+  
+  [[NSUserDefaults standardUserDefaults] setObject:name forKey:kDefaultLastFile];
 }
 
 - (FinanceModel*)newModel {
@@ -316,6 +355,23 @@ NSString* SanitizeFilename(NSString* filename)
   [self.timeLine redrawTracks];
 }
 
+- (IBAction)startIntro {
+  if (introController == nil) {
+    introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
+    introController.view.frame = self.view.bounds;
+    [introController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    [self.view addSubview:introController.view];
+  }
+  [introController startIntro];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone:) name:@"ca.thume.IntroViewDone" object:introController];
+}
+
+- (void)introDone: (NSNotification*)not {
+  [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kDefaultIntroPlayed];
+  [introController.view removeFromSuperview];
+  introController = nil;
+}
+
 #pragma mark I Am
 
 - (IBAction)iAmFieldUpdated: (ScrubbableTextView*)sender {
@@ -380,7 +436,7 @@ NSString* SanitizeFilename(NSString* filename)
   if(selectEditor) {
     [selectEditor clearSelection];
   }
-  [self swapInEditor:introController];
+  [self swapInEditor:infoController];
   [self setSelectionName:@"planning" andColor:[UIColor colorWithHue:0.785 saturation:0.511 brightness:0.714 alpha:1.000]];
   
   if(self.selectDivider) [self.selectDivider setHasSelection:NO];
@@ -409,7 +465,10 @@ NSString* SanitizeFilename(NSString* filename)
 }
 
 - (IBAction)zeroSelection {
-  if(selectEditor) [selectEditor updateSelectionAmount:0.0];
+  if(selectEditor) {
+    [selectEditor updateSelectionAmount:0.0];
+    [self updateModel:YES];
+  }
 }
 
 - (IBAction)selectIncome {

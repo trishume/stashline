@@ -9,7 +9,8 @@
 #import "LineGraphTrack.h"
 
 #define kNumRules 5
-#define kInspectOffsetX 70
+#define kInspectOffsetXPad 70
+#define kInspectOffsetXPhone 30
 #define kInspectOffsetY -10
 
 @implementation LineGraphTrack
@@ -28,6 +29,7 @@
       inspectFont = [UIFont boldSystemFontOfSize:16.0];
       inspectFormatter = [[NSNumberFormatter alloc] init];
       inspectFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+      inspectOffset = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInspectOffsetXPhone : kInspectOffsetXPad;
       
       self.scaleWithZoom = YES;
     }
@@ -52,6 +54,7 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.LineGraphInspectEnded" object:self];
   inspectMonth = 0;
   [self setNeedsDisplay];
 }
@@ -70,7 +73,7 @@
   double *dataArr = [data dataPtr];
   
   double max = dataArr[startMonth];
-  for (int i = startMonth; i <= endMonth && i <= kMaxMonth; ++i) {
+  for (NSUInteger i = startMonth; i <= endMonth && i <= kMaxMonth; ++i) {
     double val = dataArr[i];
     if (val > max) max = val;
   }
@@ -141,7 +144,7 @@
     CGContextStrokePath(context);
     
     CGPoint p;
-    p.x = monthX + kInspectOffsetX;
+    p.x = monthX + inspectOffset;
     p.y = self.bounds.size.height / 2.0 + kInspectOffsetY;
     
     double value = [data valueAt:inspectMonth];

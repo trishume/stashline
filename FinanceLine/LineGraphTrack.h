@@ -19,6 +19,7 @@
   NSUInteger inspectMonth;
   UIFont *inspectFont;
   NSNumberFormatter *inspectFormatter;
+  NSUInteger inspectOffset;
 }
 
 @property (nonatomic) BOOL scaleWithZoom;

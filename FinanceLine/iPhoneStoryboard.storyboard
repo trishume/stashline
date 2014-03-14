@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CW4-Q7-CBy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CW4-Q7-CBy">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Help View Controller-->
@@ -510,6 +510,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="150" height="232"/>
                     <connections>
                         <outlet property="dailyCost" destination="Luq-FY-uhF" id="bfX-iN-u89"/>
                         <outlet property="monthlyCost" destination="Nm0-av-CWB" id="sJ3-Tz-Dzb"/>
@@ -601,6 +602,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="150" height="232"/>
                     <connections>
                         <outlet property="doublingPeriod" destination="dVf-dP-Zln" id="wMI-Ux-Ojy"/>
                         <outlet property="monthlyGrowth" destination="zk3-uL-3Pl" id="wD2-8q-lEv"/>
@@ -614,7 +616,7 @@
         <!--View Controller-->
         <scene sceneID="G43-Lh-xFu">
             <objects>
-                <viewController storyboardIdentifier="introController" id="xfD-fZ-k8t" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoController" id="xfD-fZ-k8t" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" restorationIdentifier="" id="ii4-bo-gwV">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="232"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -662,6 +664,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="150" height="232"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="get-q2-fMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -720,6 +723,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpQ-C5-tud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="247" y="941"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="dwi-sl-taR">
+            <objects>
+                <viewController storyboardIdentifier="introController" id="tPR-ka-Pop" customClass="IntroViewController" sceneMemberID="viewController">
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="fkh-b3-0Oq">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ViD-36-hYg">
+                                <rect key="frame" x="158" y="286" width="322" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to StashLine!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="Pgp-m5-tw8" customClass="NiceLabel">
+                                        <rect key="frame" x="7" y="-13" width="308" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78200000000000003" green="0.83640000000000003" blue="0.84999999999999998" alpha="0.78000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="sGD-GA-2HA">
+                                <rect key="frame" x="230" y="185" width="200" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="nMA-87-r4r">
+                                <rect key="frame" x="112" y="171" width="100" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="LYz-cY-BfA">
+                                <rect key="frame" x="240" y="55" width="150" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="VP0-FK-mPp">
+                                <rect key="frame" x="400" y="125" width="100" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="uOH-hJ-c0W">
+                                <rect key="frame" x="340" y="125" width="150" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="adjustRect" destination="nMA-87-r4r" id="HBG-Jq-feR"/>
+                        <outlet property="explanation" destination="Pgp-m5-tw8" id="wKY-HX-g8L"/>
+                        <outlet property="inspectRect" destination="LYz-cY-BfA" id="YD1-Um-NWw"/>
+                        <outlet property="panRect" destination="VP0-FK-mPp" id="ogO-DB-DWg"/>
+                        <outlet property="selectRect" destination="sGD-GA-2HA" id="QsE-UY-SFL"/>
+                        <outlet property="zoomRect" destination="uOH-hJ-c0W" id="LMp-9B-0EL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4P-Da-CUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="1363"/>
         </scene>
     </scenes>
     <resources>

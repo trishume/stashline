@@ -64,7 +64,7 @@
   // calculate selection average
   double total = 0.0;
   double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
+  for (NSUInteger i = currentSelection.start; i <= currentSelection.end; ++i)
     total += data[i];
   double average = total / (currentSelection.end - currentSelection.start + 1);
   
@@ -81,7 +81,7 @@
   
   // Set selection
   double *data = [selectedTrack dataPtr];
-  for (int i = currentSelection.start; i <= currentSelection.end; ++i)
+  for (NSUInteger i = currentSelection.start; i <= currentSelection.end; ++i)
     data[i] = value;
   [selectedTrack recalc];
   
@@ -102,6 +102,7 @@
 - (IBAction)selectionAmountChanged: (UITextField*)sender {
   [self textFieldUpdated:sender];
   [self.delegate updateModel: YES];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.SelectionEditAmountChanged" object:self];
 }
 
 - (void)didReceiveMemoryWarning

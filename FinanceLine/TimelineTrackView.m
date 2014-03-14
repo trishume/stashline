@@ -38,7 +38,7 @@
 
 - (BOOL)retiredDuringYear:(NSUInteger)startMonth {
   BOOL allGood = YES;
-  for(int i = startMonth; i < startMonth + 12 && i < kMaxMonth; ++i) {
+  for(NSUInteger i = startMonth; i < startMonth + 12 && i < kMaxMonth; ++i) {
     double status = [self.status valueAt:i];
     allGood = (status == kStatusSafeWithdraw) && allGood;
   }
@@ -58,6 +58,7 @@
     CGPoint velocity = [sender velocityInView:self];
     CGFloat monthVelocity = -(velocity.x);
     [self.delegate setVelocity:monthVelocity];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.TimelineTrackPanEnded" object:self];
   }
   [sender setTranslation:CGPointZero inView:self];
 }
@@ -102,7 +103,7 @@
     [color setFill];
 
     CGRect textRect = CGRectMake(x - 25.0, middleY - lineGap - kYearTextShift, 50.0, lineGap*2);
-    NSString *yearStr = [NSString stringWithFormat:@"%i",month/12];
+    NSString *yearStr = [NSString stringWithFormat:@"%u",month/12];
     [self drawString:yearStr withFont:self.yearFont inRect:textRect];
   }
 }

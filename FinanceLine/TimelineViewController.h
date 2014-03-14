@@ -17,13 +17,16 @@
 #import "ScrubbableTextView.h"
 #import "SelectDividerView.h"
 #import "FilesViewController.h"
+#import "IntroViewController.h"
 
 @interface TimelineViewController : UIViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate, FilesControllerDelegate, UIAlertViewDelegate> {
   SelectionEditViewController *amountEditor;
   SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;
-  UIViewController *introController;
+  UIViewController *infoController;
   UIViewController *currentEditor;
+  
+  IntroViewController *introController;
   
   NSNumberFormatter *amountFormatter;
   NSNumberFormatter *yearFormatter;
@@ -46,6 +49,7 @@
 - (IBAction)cutJobAtRetirement;
 - (IBAction)changeLabelMode:(UIButton*)sender;
 - (IBAction)aboutMe;
+- (IBAction)startIntro;
 - (void)setSelectionName:(NSString*)label andColor:(UIColor*)color;
 
 @property (weak, nonatomic) IBOutlet ScrubbableTextView *ageField;

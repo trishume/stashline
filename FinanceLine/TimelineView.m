@@ -21,7 +21,7 @@
   self.tracks = [NSMutableArray array];
   nextTrackTop = 0.0;
   startMonth = 192.0;
-  monthSize = 10.0;
+  monthSize = 5.0;
   velocity = 0.0;
   maxMonth = kMaxMonth;
   labelMult = 0.0;
@@ -165,6 +165,8 @@
         }
         
         [sender setScale:1.0];
+    } else if(sender.state == UIGestureRecognizerStateEnded) {
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.TimelineViewZoomEnded" object:self];
     }
 }
 
