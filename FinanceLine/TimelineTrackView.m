@@ -12,6 +12,8 @@
 #define kYearLabelThresh 3.0
 #define kYearMajorTickThres 4.0
 
+#define kPanVelocityThresh 70.0
+
 @implementation TimelineTrackView
 @synthesize yearTickLength, monthTickLength, lineGap;
 
@@ -57,7 +59,10 @@
   } else if (sender.state == UIGestureRecognizerStateEnded) {
     CGPoint velocity = [sender velocityInView:self];
     CGFloat monthVelocity = -(velocity.x);
-    [self.delegate setVelocity:monthVelocity];
+    NSLog(@"Panned with velocity %f",monthVelocity);
+    if(abs(monthVelocity) > kPanVelocityThresh) {
+      [self.delegate setVelocity:monthVelocity];
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.TimelineTrackPanEnded" object:self];
   }
   [sender setTranslation:CGPointZero inView:self];

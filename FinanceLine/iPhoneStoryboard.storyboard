@@ -134,6 +134,9 @@
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="8t8-1O-osl" kind="modal" id="lVm-2b-24c"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xn8-l1-jwa">
                                                 <rect key="frame" x="6" y="68" width="143" height="33"/>
@@ -349,12 +352,12 @@
                                     <action selector="toggleLeftPanel" destination="CW4-Q7-CBy" eventType="touchUpInside" id="WdW-7r-6nQ"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hhq-Xn-9rG">
-                                <rect key="frame" x="363" y="66" width="111" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hhq-Xn-9rG">
+                                <rect key="frame" x="348" y="67" width="126" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="No Labels">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="changeLabelMode:" destination="CW4-Q7-CBy" eventType="touchUpInside" id="uF4-uL-Wtb"/>
@@ -709,6 +712,61 @@
             </objects>
             <point key="canvasLocation" x="853" y="941"/>
         </scene>
+        <!--About View Controller-->
+        <scene sceneID="NWo-PN-z7V">
+            <objects>
+                <viewController id="8t8-1O-osl" customClass="AboutViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hya-ta-H7O">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About-iPhone.png" id="iFd-Ur-d1B">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iHe-4x-eJM">
+                                <rect key="frame" x="61" y="51" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeModal" destination="8t8-1O-osl" eventType="touchUpInside" id="hBB-TW-8is"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EYq-zx-rPd">
+                                <rect key="frame" x="89" y="225" width="149" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="http://thume.ca">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mySiteLink" destination="8t8-1O-osl" eventType="touchUpInside" id="Dm7-Dx-Mzs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="blA-sX-GqM">
+                                <rect key="frame" x="89" y="250" width="149" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="tristan@thume.ca">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="emailMeLink" destination="8t8-1O-osl" eventType="touchUpInside" id="JLt-QD-yY4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wWT-Kh-Nk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="1361"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="k0y-B2-DnQ">
             <objects>
@@ -734,7 +792,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" id="ViD-36-hYg">
                                 <rect key="frame" x="158" y="286" width="322" height="34"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to StashLine!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="Pgp-m5-tw8" customClass="NiceLabel">
                                         <rect key="frame" x="7" y="-13" width="308" height="60"/>
@@ -787,11 +845,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4P-Da-CUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="247" y="1363"/>
+            <point key="canvasLocation" x="853" y="1361"/>
         </scene>
     </scenes>
     <resources>
         <image name="About Long.png" width="143" height="33"/>
+        <image name="About-iPhone.png" width="480" height="320"/>
         <image name="Expand Short.png" width="64" height="33"/>
         <image name="Files Long.png" width="143" height="33"/>
         <image name="Help Long.png" width="143" height="33"/>

@@ -33,6 +33,18 @@
   [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)appSiteLink {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://thume.ca/stashline"]];
+}
+
+- (IBAction)mySiteLink {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://thume.ca/"]];
+}
+
+- (IBAction)emailMeLink {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:tristan@thume.ca"]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

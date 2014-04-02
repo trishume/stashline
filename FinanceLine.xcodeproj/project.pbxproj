@@ -46,6 +46,10 @@
 		6A65792718D0FA35004D8EC7 /* Touch-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A65792518D0FA35004D8EC7 /* Touch-Icon.png */; };
 		6A65792818D0FA35004D8EC7 /* Touch-Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A65792618D0FA35004D8EC7 /* Touch-Icon@2x.png */; };
 		6A6D5C1B18CE602100A12DDB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D5C1A18CE602100A12DDB /* IntroViewController.m */; };
+		6A7064F918EB5E1D003B2AE8 /* About-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064F718EB5E1D003B2AE8 /* About-iPad.png */; };
+		6A7064FA18EB5E1D003B2AE8 /* About-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064F818EB5E1D003B2AE8 /* About-iPad@2x.png */; };
+		6A7064FD18EB64B3003B2AE8 /* About-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064FB18EB64B3003B2AE8 /* About-iPhone.png */; };
+		6A7064FE18EB64B3003B2AE8 /* About-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064FC18EB64B3003B2AE8 /* About-iPhone@2x.png */; };
 		6A7DBEE21822F086009F5453 /* PanelTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7DBEE11822F086009F5453 /* PanelTabView.m */; };
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
@@ -151,6 +155,10 @@
 		6A65792618D0FA35004D8EC7 /* Touch-Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Touch-Icon@2x.png"; path = "Assets/Touch-Icon@2x.png"; sourceTree = "<group>"; };
 		6A6D5C1918CE602100A12DDB /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
 		6A6D5C1A18CE602100A12DDB /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		6A7064F718EB5E1D003B2AE8 /* About-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPad.png"; path = "Assets/About-iPad.png"; sourceTree = "<group>"; };
+		6A7064F818EB5E1D003B2AE8 /* About-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPad@2x.png"; path = "Assets/About-iPad@2x.png"; sourceTree = "<group>"; };
+		6A7064FB18EB64B3003B2AE8 /* About-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPhone.png"; path = "Assets/About-iPhone.png"; sourceTree = "<group>"; };
+		6A7064FC18EB64B3003B2AE8 /* About-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPhone@2x.png"; path = "Assets/About-iPhone@2x.png"; sourceTree = "<group>"; };
 		6A7DBEE01822F086009F5453 /* PanelTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelTabView.h; sourceTree = "<group>"; };
 		6A7DBEE11822F086009F5453 /* PanelTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelTabView.m; sourceTree = "<group>"; };
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
@@ -256,6 +264,10 @@
 		6A3A828B17D0187F00E9C0EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A7064FB18EB64B3003B2AE8 /* About-iPhone.png */,
+				6A7064FC18EB64B3003B2AE8 /* About-iPhone@2x.png */,
+				6A7064F718EB5E1D003B2AE8 /* About-iPad.png */,
+				6A7064F818EB5E1D003B2AE8 /* About-iPad@2x.png */,
 				6A65792518D0FA35004D8EC7 /* Touch-Icon.png */,
 				6A65792618D0FA35004D8EC7 /* Touch-Icon@2x.png */,
 				6ABE78C517EDE2B300F5A95B /* iPhone Left Panel BG.png */,
@@ -506,6 +518,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Tristan Hume";
+				TargetAttributes = {
+					6AFAA0531770FBA300E61733 = {
+						DevelopmentTeam = 8PYP9P57G6;
+					};
+				};
 			};
 			buildConfigurationList = 6AFAA04F1770FBA300E61733 /* Build configuration list for PBXProject "FinanceLine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -532,6 +549,7 @@
 			files = (
 				6A507E7A181DC9CA00712298 /* Startup-iPad.png in Resources */,
 				6AFAA0621770FBA300E61733 /* InfoPlist.strings in Resources */,
+				6A7064FD18EB64B3003B2AE8 /* About-iPhone.png in Resources */,
 				6ABE78CF17EDE66A00F5A95B /* Help Long.png in Resources */,
 				6A507E7E181DCA0900712298 /* Images.xcassets in Resources */,
 				6A43AA1F180C9B3E00DEBF6C /* Info1-iPad.png in Resources */,
@@ -541,6 +559,7 @@
 				6AF9E376180E04E900D3ABD9 /* Info2-iPad.png in Resources */,
 				6A507E95181DCEA500712298 /* Expand Short@2x.png in Resources */,
 				6A3A828517D0165000E9C0EF /* About.png in Resources */,
+				6A7064F918EB5E1D003B2AE8 /* About-iPad.png in Resources */,
 				6ABE78D017EDE66A00F5A95B /* Retire Long.png in Resources */,
 				6ABE78C717EDE2B300F5A95B /* iPhone Left Panel BG.png in Resources */,
 				6A507E9C181DCEA500712298 /* Investment@2x.png in Resources */,
@@ -548,6 +567,7 @@
 				6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */,
 				6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */,
 				6A3A828617D0165000E9C0EF /* Expand.png in Resources */,
+				6A7064FA18EB5E1D003B2AE8 /* About-iPad@2x.png in Resources */,
 				6A507E9E181DCEA500712298 /* Retire@2x.png in Resources */,
 				6A507E9A181DCEA500712298 /* Help@2x.png in Resources */,
 				6A3A828717D0165000E9C0EF /* Files.png in Resources */,
@@ -559,6 +579,7 @@
 				6A507E9F181DCEA500712298 /* Zero Short@2x.png in Resources */,
 				6A3A828917D0165000E9C0EF /* Retire.png in Resources */,
 				6A507E98181DCEA500712298 /* Files Long@2x.png in Resources */,
+				6A7064FE18EB64B3003B2AE8 /* About-iPhone@2x.png in Resources */,
 				6A507E80181DCAAB00712298 /* Default@2x.png in Resources */,
 				6A507E9D181DCEA500712298 /* Retire Long@2x.png in Resources */,
 				6A5AAFE3181C320C00782DB4 /* Info2-iPhone.png in Resources */,
@@ -782,11 +803,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -798,11 +822,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

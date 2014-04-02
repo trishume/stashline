@@ -174,6 +174,7 @@ NSString* SanitizeFilename(NSString* filename)
   
 #ifdef kLoadOnStart
   NSString *path = [self pathForDataFile: name];
+  NSLog(@"Loading file %@", path);
   if(path != nil) {
     model = [NSKeyedUnarchiver unarchiveObjectWithFile: path];
   }
@@ -368,6 +369,7 @@ NSString* SanitizeFilename(NSString* filename)
 
 - (void)introDone: (NSNotification*)not {
   [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kDefaultIntroPlayed];
+  NSLog(@"Finished Intro\n");
   [introController.view removeFromSuperview];
   introController = nil;
 }
