@@ -42,7 +42,7 @@
   BOOL allGood = YES;
   for(NSUInteger i = startMonth; i < startMonth + 12 && i < kMaxMonth; ++i) {
     double status = [self.status valueAt:i];
-    allGood = (status == kStatusSafeWithdraw) && allGood;
+    allGood = (status == kStatusSafeWithdraw || status == kStatusSavedEnough) && allGood;
   }
 
   return allGood;

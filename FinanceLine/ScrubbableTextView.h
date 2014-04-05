@@ -17,6 +17,8 @@
 
 - (void)setValue:(double)v;
 - (double)parseValue;
+- (double)parseAndUpdate;
+- (BOOL)validValue;
 
 @property (nonatomic) double minVal;
 @property (nonatomic) double maxVal;

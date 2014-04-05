@@ -29,12 +29,14 @@
       self.startMonth = 0;
 
       self.safeWithdrawalRate = 0.04;
+      self.savedEnoughSafetyFactor = 1.5;
 
       // init arrays
       self.incomeTracks = [NSMutableArray arrayWithCapacity:5];
       self.expenseTracks = [NSMutableArray arrayWithCapacity:5];
       self.stashTrack = [[DataTrack alloc] init];
       self.statusTrack = [[DataTrack alloc] init];
+      self.expensesLeftTrack = [[DataTrack alloc] init];
     }
     return self;
 }
@@ -96,6 +98,8 @@
   for (int i = 0; i < [self startMonth]; ++i) {
     [self.stashTrack setValue:0.0 forMonth:i];
   }
+  
+  [self calculateExpensesLeft];
 
   double stash = self.startAmount;
   for (NSUInteger i = [self startMonth]; i <= kMaxMonth; ++i) {
@@ -104,9 +108,19 @@
   }
 
   // Retirement is one past the last month we didn't make with investment gains
-  self.retirementMonth += 1;
+  if (self.retirementMonth < kMaxMonth) {
+    self.retirementMonth += 1;
+  }
 
   [self.stashTrack recalc];
+}
+
+- (void)calculateExpensesLeft {
+  double cumSum = 0.0;
+  for (NSUInteger i = kMaxMonth; i > [self startMonth]; --i) {
+    cumSum += [self sumTracks:self.expenseTracks forMonth:i];
+    [self.expensesLeftTrack setValue:cumSum forMonth:i];
+  }
 }
 
 - (double)iterateStash:(double)stash forMonth:(NSUInteger)month {
@@ -128,13 +142,15 @@
     status = kStatusNoExpenses;
   } else if (stash * thisMonthSafeRate >= expenses) {
     status = kStatusSafeWithdraw;
+  } else if (stash > [self.expensesLeftTrack valueAt:month]*self.savedEnoughSafetyFactor) {
+    status = kStatusSavedEnough;
   } else if(stash < 0.0) {
     status = kStatusDebt;
   }
   [self.statusTrack setValue:status forMonth:month];
 
   // Check retirement month
-  if (status != kStatusSafeWithdraw && status != kStatusNoExpenses) {
+  if (status != kStatusSafeWithdraw && status != kStatusNoExpenses && status != kStatusSavedEnough) {
     self.retirementMonth = month;
   }
 

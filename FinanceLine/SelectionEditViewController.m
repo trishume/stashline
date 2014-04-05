@@ -52,6 +52,26 @@
   
 }
 
+- (double)calcSelectionValue {
+  double total = 0.0;
+  double *data = [selectedTrack dataPtr];
+  for (NSUInteger i = currentSelection.start; i <= currentSelection.end; ++i)
+    total += data[i];
+  double average = total / (currentSelection.end - currentSelection.start + 1);
+  return average;
+}
+
+- (void)updateSelectionDisplay {
+  if (currentSelection == nil) {
+    return;
+  }
+  // calculate selection average
+  double average = [self calcSelectionValue];
+  
+  [self updateValueDisplay:average];
+  [self.delegate redraw];
+}
+
 - (void)setSelection:(Selection *)sel onTrack:(DataTrack *)track {
   currentSelection = sel;
   selectedTrack = track;
@@ -61,15 +81,7 @@
     return;
   }
   
-  // calculate selection average
-  double total = 0.0;
-  double *data = [selectedTrack dataPtr];
-  for (NSUInteger i = currentSelection.start; i <= currentSelection.end; ++i)
-    total += data[i];
-  double average = total / (currentSelection.end - currentSelection.start + 1);
-  
-  [self updateValueDisplay:average];
-  [self.delegate redraw];
+  [self updateSelectionDisplay];
 }
 
 - (void)updateSelectionAmount:(double)value {
@@ -89,8 +101,20 @@
   [self.delegate updateModel: NO];
 }
 
-- (void)textFieldUpdated: (UITextField*)sender {
+- (double)convertValue: (double)val forField: (ScrubbableTextView*)sender {
+  return val;
+}
+
+- (void)textFieldUpdated: (ScrubbableTextView*)sender {
+  if (![sender validValue]) {
+    [self updateSelectionDisplay];
+    return;
+  }
+  double value = [sender parseAndUpdate];
   
+  value = [self convertValue:value forField: sender];
+  
+  [self updateSelectionAmount: value];
 }
 
 // Don't save

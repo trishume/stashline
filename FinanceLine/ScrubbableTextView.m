@@ -105,8 +105,7 @@
   
   double value = startVal + delta / 5 * self.stepVal;
   value = round(value / self.stepVal) * self.stepVal;
-  value = MIN(value, self.maxVal);
-  value = MAX(value, self.minVal);
+  value = [self rangeValue:value];
   return value;
 }
 
@@ -123,6 +122,24 @@
     self.textColor = self.normalColor;
     [self sendActionsForControlEvents:UIControlEventEditingDidEnd];
   }
+}
+
+- (double)rangeValue: (double)val {
+  val = MIN(val, self.maxVal);
+  val = MAX(val, self.minVal);
+  return val;
+}
+
+- (BOOL)validValue {
+  double val = [self parseValue];
+  return ![self.text isEqualToString:@""] && val <= self.maxVal && val >= self.minVal;
+}
+
+- (double)parseAndUpdate {
+  double res = [self parseValue];
+  res = [self rangeValue:res];
+  [self setValue:res];
+  return res;
 }
 
 - (double)parseValue {

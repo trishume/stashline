@@ -69,10 +69,7 @@
   return res;
 }
 
-- (void)textFieldUpdated: (UITextField*)sender {
-  if ([sender.text isEqualToString:@""]) return;
-  double value = [self parseValue:[sender text]];
-  
+- (double)convertValue: (double)value forField: (ScrubbableTextView*)sender {
   // convert to a monthly cost
   if (sender == self.yearlyCost) {
     value /= 12.0;
@@ -84,7 +81,7 @@
     value *= 37.5*4.0;
   }
   
-  [self updateSelectionAmount: value];
+  return value;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -15,6 +15,7 @@
 #define kStatusDebt 1.0
 #define kStatusSafeWithdraw 2.0
 #define kStatusNoExpenses 3.0
+#define kStatusSavedEnough 4.0
 
 #define kMainFileName @"Main.stashLine"
 

@@ -22,12 +22,14 @@
 @property (nonatomic) NSUInteger startMonth;
 
 @property (nonatomic) double safeWithdrawalRate;
+@property (nonatomic) double savedEnoughSafetyFactor;
 
 @property (nonatomic, strong) NSMutableArray *incomeTracks;
 @property (nonatomic, strong) NSMutableArray *expenseTracks;
 @property (nonatomic, strong) DataTrack *investmentTrack;
 
 // Outputs
+@property (nonatomic, strong) DataTrack *expensesLeftTrack;
 @property (nonatomic, strong) DataTrack *stashTrack;
 @property (nonatomic, strong) DataTrack *statusTrack;
 @property (nonatomic) NSUInteger retirementMonth;

@@ -17,7 +17,7 @@
 - (void) updateModel:(BOOL)save;
 @end
 
-@interface SelectionEditViewController : UIViewController
+@interface SelectionEditViewController : UIViewController <UITextFieldDelegate>
 
 - (void)clearSelection;
 - (void)expandSelectionToEnd;
@@ -25,6 +25,7 @@
 - (void)updateValueDisplay:(double)monthlyValue;
 - (void)updateSelectionAmount:(double)monthlyValue;
 - (void)textFieldUpdated: (UITextField*)sender;
+- (double)convertValue: (double)val forField: (ScrubbableTextView*)sender;
 
 - (IBAction)selectionAmountUpdate: (UITextField*)sender;
 - (IBAction)selectionAmountChanged: (UITextField*)sender;

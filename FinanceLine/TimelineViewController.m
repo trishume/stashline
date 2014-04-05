@@ -378,7 +378,7 @@ NSString* SanitizeFilename(NSString* filename)
 
 - (IBAction)iAmFieldUpdated: (ScrubbableTextView*)sender {
   if ([sender.text isEqualToString:@""]) return;
-  double value = [sender parseValue];
+  double value = [sender parseAndUpdate];
   
   if (sender == self.ageField) {
     model.startMonth = value * 12;
