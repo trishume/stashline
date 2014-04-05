@@ -1,0 +1,5 @@
+StashLine is an IOS app for planning your financial future. Enter your expected income and expenses on a beautiful timeline and see how much you can save.
+
+When you enter estimates of how much you will earn, spend and invest at different points in your life, StashLine will predict your savings and estimate when you can safely retire off of your investments.
+
+Unlike simple retirement calculators, Stashline's simulation lets you develop a detailed financial plan. Using a timeline that represents your life, you can plan for eventual raises, decreased expenses and changing investment returns.
