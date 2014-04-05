@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "GAI.h"
 
 @interface AboutViewController ()
 
@@ -25,8 +26,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
+  self.screenName = @"AboutView";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  [[GAI sharedInstance] dispatch];
 }
 
 - (IBAction)closeModal {

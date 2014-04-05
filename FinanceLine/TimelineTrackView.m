@@ -59,7 +59,7 @@
   } else if (sender.state == UIGestureRecognizerStateEnded) {
     CGPoint velocity = [sender velocityInView:self];
     CGFloat monthVelocity = -(velocity.x);
-    NSLog(@"Panned with velocity %f",monthVelocity);
+    //NSLog(@"Panned with velocity %f",monthVelocity);
     if(abs(monthVelocity) > kPanVelocityThresh) {
       [self.delegate setVelocity:monthVelocity];
     }

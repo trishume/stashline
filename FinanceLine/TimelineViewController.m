@@ -14,6 +14,7 @@
 #import "StatusTrackView.h"
 #import "Constants.h"
 #import "AmountEditController.h"
+#import "GAI.h"
 
 #include <stdlib.h>
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
@@ -58,6 +59,7 @@ NSString* SanitizeFilename(NSString* filename)
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  self.screenName = @"Main";
 	// Do any additional setup after loading the view, typically from a nib.
   firstIncomeTrack = nil;
   firstExpensesTrack = nil;
@@ -107,6 +109,11 @@ NSString* SanitizeFilename(NSString* filename)
   if (!introPlayed) {
     [self startIntro];
   }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  [[GAI sharedInstance] dispatch];
 }
 
 - (void)addDivider {

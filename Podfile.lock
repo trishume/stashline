@@ -1,10 +1,10 @@
 PODS:
-  - CBIntrospect (0.4.1)
+  - GoogleAnalytics-iOS-SDK (3.0.6)
 
 DEPENDENCIES:
-  - CBIntrospect (~> 0.4)
+  - GoogleAnalytics-iOS-SDK (~> 3.0)
 
 SPEC CHECKSUMS:
-  CBIntrospect: 34f93a5cbb0c3db363cd4886ba6a85faefc4362b
+  GoogleAnalytics-iOS-SDK: 4f77f2cce5216e590343ce0b75ac491aa249ca89
 
 COCOAPODS: 0.29.0

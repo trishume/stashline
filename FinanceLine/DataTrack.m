@@ -29,13 +29,13 @@
 #pragma mark Persistence
 
 - (id)initWithCoder:(NSCoder *)coder {
-  DataTrack *t = [self init];
-  
-  t.name = [coder decodeObjectForKey:@"name"];
-  [coder decodeArrayOfObjCType:@encode(double) count:kMaxMonth+1 at:data];
-  [t recalc];
-  
-  return t;
+  self = [self init];
+  if (self) {
+    name = [coder decodeObjectForKey:@"name"];
+    [coder decodeArrayOfObjCType:@encode(double) count:kMaxMonth+1 at:data];
+    [self recalc];
+  }
+  return self;
 }
 
 - (void) encodeWithCoder:(NSCoder *)coder {
