@@ -389,6 +389,7 @@ NSString* SanitizeFilename(NSString* filename)
   
   if (sender == self.ageField) {
     model.startMonth = value * 12;
+    [self.timeLine setStartMonth:value * 12 - 10];
   } else if (sender == self.savingsField) {
     model.startAmount = value;
   }
