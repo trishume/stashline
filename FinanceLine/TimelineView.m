@@ -26,6 +26,12 @@
   maxMonth = kMaxMonth;
   labelMult = 0.0;
   
+  beforeStartView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.bounds.size.height)];
+  beforeStartView.backgroundColor = [[UIColor alloc] initWithWhite:0.5 alpha:0.2];
+  beforeStartView.userInteractionEnabled = NO;
+  [self addSubview:beforeStartView];
+  [self bringSubviewToFront:beforeStartView];
+  
   UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchHandler:)];
   [self addGestureRecognizer:pinch];
 }
@@ -86,9 +92,15 @@
 }
 
 - (void)redrawTracks {
-    for (TrackView *track in self.tracks) {
-        [track setNeedsDisplay];
-    }
+  for (TrackView *track in self.tracks) {
+      [track setNeedsDisplay];
+  }
+  
+  // shade before start
+  CGFloat startX = ([self.model startMonth] - self.startMonth) * self.monthSize;
+  startX = MIN(startX, self.bounds.size.width);
+  beforeStartView.frame = CGRectMake(0.0, 0.0, startX, self.bounds.size.height);
+  [self bringSubviewToFront:beforeStartView];
 }
 
 - (void)setStartMonth:(CGFloat)start {
@@ -176,13 +188,13 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+/*- (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-}
-*/
+
+}*/
+
 
 @end

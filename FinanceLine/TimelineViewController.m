@@ -191,6 +191,7 @@ NSString* SanitizeFilename(NSString* filename)
     [self saveModelAs:name];
   }
 
+  self.timeLine.model = model;
   [self loadTracks];
   
   self.timeLine.startMonth = (model.startMonth <= 12) ? 192.0 : model.startMonth - 12;
@@ -211,7 +212,6 @@ NSString* SanitizeFilename(NSString* filename)
 
   LineGraphTrack *stashTrack = [[LineGraphTrack alloc] initWithFrame:CGRectZero];
   stashTrack.data = model.stashTrack;
-  stashTrack.model = model;
   [self.timeLine addTrack:stashTrack withHeight:stashTrackHeight];
   [stashTrack setLabel:@"Savings"];
 

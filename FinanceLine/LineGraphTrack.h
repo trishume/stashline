@@ -14,7 +14,6 @@
 @interface LineGraphTrack : TrackView {
   UIColor *lineColor;
   UIColor *ruleColor;
-  UIColor *beforeStartColor;
   
   NSUInteger inspectMonth;
   UIFont *inspectFont;
@@ -24,5 +23,4 @@
 
 @property (nonatomic) BOOL scaleWithZoom;
 @property (nonatomic, strong) DataTrack *data;
-@property (nonatomic, strong) FinanceModel *model;
 @end
