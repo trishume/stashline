@@ -106,7 +106,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Panel Background.png" id="EfX-Rv-BBA">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Panel Background@2X.png" id="EfX-Rv-BBA">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -947,7 +947,7 @@
         <image name="Info1-iPad.png" width="2048" height="1536"/>
         <image name="Investment.png" width="121" height="27"/>
         <image name="Name Banner.png" width="139" height="32"/>
-        <image name="Panel Background.png" width="1024" height="160"/>
+        <image name="Panel Background@2X.png" width="2048" height="320"/>
         <image name="Retire.png" width="105" height="43"/>
         <image name="Zero.png" width="105" height="39"/>
     </resources>

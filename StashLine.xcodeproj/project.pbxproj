@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		08ED5D6DF9FB496998D1D629 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDC51C581274F86A11A0736 /* libPods.a */; };
 		6A0893241773318A00C2AC31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0893231773318900C2AC31 /* QuartzCore.framework */; };
+		6A21594C18F0BD80003E075B /* Panel Background@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A21594B18F0BD80003E075B /* Panel Background@2X.png */; };
 		6A3A826E17CC1B2E00E9C0EF /* AmountEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A826D17CC1B2E00E9C0EF /* AmountEditController.m */; };
 		6A3A827517CEBA5900E9C0EF /* InvestmentEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A827417CEBA5900E9C0EF /* InvestmentEditController.m */; };
 		6A3A828517D0165000E9C0EF /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A827F17D0165000E9C0EF /* About.png */; };
@@ -113,6 +114,7 @@
 /* Begin PBXFileReference section */
 		5CDC51C581274F86A11A0736 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A0893231773318900C2AC31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6A21594B18F0BD80003E075B /* Panel Background@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel Background@2X.png"; path = "Assets/Panel Background@2X.png"; sourceTree = "<group>"; };
 		6A3A826C17CC1B2E00E9C0EF /* AmountEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmountEditController.h; sourceTree = "<group>"; };
 		6A3A826D17CC1B2E00E9C0EF /* AmountEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmountEditController.m; sourceTree = "<group>"; };
 		6A3A827317CEBA5900E9C0EF /* InvestmentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentEditController.h; sourceTree = "<group>"; };
@@ -206,23 +208,23 @@
 		6AE342DB17E62267006C2202 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		6AE342DC17E62268006C2202 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		6AF9E375180E04E900D3ABD9 /* Info2-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info2-iPad.png"; path = "Assets/Info2-iPad.png"; sourceTree = "<group>"; };
-		6AFAA0541770FBA300E61733 /* FinanceLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AFAA0541770FBA300E61733 /* StashLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StashLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA0571770FBA300E61733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AFAA0591770FBA300E61733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6AFAA05F1770FBA300E61733 /* FinanceLine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FinanceLine-Info.plist"; sourceTree = "<group>"; };
+		6AFAA05F1770FBA300E61733 /* StashLine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StashLine-Info.plist"; sourceTree = "<group>"; };
 		6AFAA0611770FBA300E61733 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6AFAA0631770FBA300E61733 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6AFAA0651770FBA300E61733 /* FinanceLine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinanceLine-Prefix.pch"; sourceTree = "<group>"; };
+		6AFAA0651770FBA300E61733 /* StashLine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StashLine-Prefix.pch"; sourceTree = "<group>"; };
 		6AFAA0661770FBA300E61733 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AFAA0671770FBA300E61733 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6AFAA06D1770FBA300E61733 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6AFAA0701770FBA300E61733 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6AFAA0721770FBA300E61733 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		6AFAA0731770FBA300E61733 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
-		6AFAA07A1770FBA300E61733 /* FinanceLineTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceLineTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AFAA07A1770FBA300E61733 /* StashLineTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StashLineTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFAA07B1770FBA300E61733 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6AFAA0831770FBA300E61733 /* FinanceLineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FinanceLineTests-Info.plist"; sourceTree = "<group>"; };
+		6AFAA0831770FBA300E61733 /* StashLineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StashLineTests-Info.plist"; sourceTree = "<group>"; };
 		6AFAA0851770FBA300E61733 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6AFAA0871770FBA300E61733 /* FinanceLineTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinanceLineTests.h; sourceTree = "<group>"; };
 		6AFAA0881770FBA300E61733 /* FinanceLineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinanceLineTests.m; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				6A5AAFE1181C320C00782DB4 /* Info3-iPhone.png */,
 				6A8A3BA517E6706600B0D97D /* Name Banner.png */,
 				6A8A3BA617E6706600B0D97D /* Panel Background.png */,
+				6A21594B18F0BD80003E075B /* Panel Background@2X.png */,
 				6A8A3BA717E6706700B0D97D /* PTSans.ttc */,
 				6AD59C4017DB647300BD2C01 /* Expenses.png */,
 				6AD59C4117DB647300BD2C01 /* Income.png */,
@@ -356,8 +359,8 @@
 		6AFAA0551770FBA300E61733 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AFAA0541770FBA300E61733 /* FinanceLine.app */,
-				6AFAA07A1770FBA300E61733 /* FinanceLineTests.octest */,
+				6AFAA0541770FBA300E61733 /* StashLine.app */,
+				6AFAA07A1770FBA300E61733 /* StashLineTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -422,10 +425,10 @@
 		6AFAA05E1770FBA300E61733 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6AFAA05F1770FBA300E61733 /* FinanceLine-Info.plist */,
+				6AFAA05F1770FBA300E61733 /* StashLine-Info.plist */,
 				6AFAA0601770FBA300E61733 /* InfoPlist.strings */,
 				6AFAA0631770FBA300E61733 /* main.m */,
-				6AFAA0651770FBA300E61733 /* FinanceLine-Prefix.pch */,
+				6AFAA0651770FBA300E61733 /* StashLine-Prefix.pch */,
 				6AFAA06D1770FBA300E61733 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -444,7 +447,7 @@
 		6AFAA0821770FBA300E61733 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6AFAA0831770FBA300E61733 /* FinanceLineTests-Info.plist */,
+				6AFAA0831770FBA300E61733 /* StashLineTests-Info.plist */,
 				6AFAA0841770FBA300E61733 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -472,9 +475,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AFAA0531770FBA300E61733 /* FinanceLine */ = {
+		6AFAA0531770FBA300E61733 /* StashLine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AFAA08C1770FBA300E61733 /* Build configuration list for PBXNativeTarget "FinanceLine" */;
+			buildConfigurationList = 6AFAA08C1770FBA300E61733 /* Build configuration list for PBXNativeTarget "StashLine" */;
 			buildPhases = (
 				6A96A64FA6C24D0191429105 /* Check Pods Manifest.lock */,
 				6AFAA0501770FBA300E61733 /* Sources */,
@@ -486,14 +489,14 @@
 			);
 			dependencies = (
 			);
-			name = FinanceLine;
+			name = StashLine;
 			productName = FinanceLine;
-			productReference = 6AFAA0541770FBA300E61733 /* FinanceLine.app */;
+			productReference = 6AFAA0541770FBA300E61733 /* StashLine.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6AFAA0791770FBA300E61733 /* FinanceLineTests */ = {
+		6AFAA0791770FBA300E61733 /* StashLineTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AFAA08F1770FBA300E61733 /* Build configuration list for PBXNativeTarget "FinanceLineTests" */;
+			buildConfigurationList = 6AFAA08F1770FBA300E61733 /* Build configuration list for PBXNativeTarget "StashLineTests" */;
 			buildPhases = (
 				6AFAA0751770FBA300E61733 /* Sources */,
 				6AFAA0761770FBA300E61733 /* Frameworks */,
@@ -505,9 +508,9 @@
 			dependencies = (
 				6AFAA0801770FBA300E61733 /* PBXTargetDependency */,
 			);
-			name = FinanceLineTests;
+			name = StashLineTests;
 			productName = FinanceLineTests;
-			productReference = 6AFAA07A1770FBA300E61733 /* FinanceLineTests.octest */;
+			productReference = 6AFAA07A1770FBA300E61733 /* StashLineTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -524,7 +527,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6AFAA04F1770FBA300E61733 /* Build configuration list for PBXProject "FinanceLine" */;
+			buildConfigurationList = 6AFAA04F1770FBA300E61733 /* Build configuration list for PBXProject "StashLine" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -536,8 +539,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AFAA0531770FBA300E61733 /* FinanceLine */,
-				6AFAA0791770FBA300E61733 /* FinanceLineTests */,
+				6AFAA0531770FBA300E61733 /* StashLine */,
+				6AFAA0791770FBA300E61733 /* StashLineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -567,6 +570,7 @@
 				6ABE78CE17EDE66A00F5A95B /* Files Long.png in Resources */,
 				6A5AAFE4181C320C00782DB4 /* Info3-iPhone.png in Resources */,
 				6A3A828617D0165000E9C0EF /* Expand.png in Resources */,
+				6A21594C18F0BD80003E075B /* Panel Background@2X.png in Resources */,
 				6A7064FA18EB5E1D003B2AE8 /* About-iPad@2x.png in Resources */,
 				6A507E9E181DCEA500712298 /* Retire@2x.png in Resources */,
 				6A507E9A181DCEA500712298 /* Help@2x.png in Resources */,
@@ -706,7 +710,7 @@
 /* Begin PBXTargetDependency section */
 		6AFAA0801770FBA300E61733 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6AFAA0531770FBA300E61733 /* FinanceLine */;
+			target = 6AFAA0531770FBA300E61733 /* StashLine */;
 			targetProxy = 6AFAA07F1770FBA300E61733 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -806,10 +810,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
-				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
+				GCC_PREFIX_HEADER = "FinanceLine/StashLine-Prefix.pch";
+				INFOPLIST_FILE = "FinanceLine/StashLine-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StashLine;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -825,10 +829,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
-				INFOPLIST_FILE = "FinanceLine/FinanceLine-Info.plist";
+				GCC_PREFIX_HEADER = "FinanceLine/StashLine-Prefix.pch";
+				INFOPLIST_FILE = "FinanceLine/StashLine-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StashLine;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -845,8 +849,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
-				INFOPLIST_FILE = "FinanceLineTests/FinanceLineTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FinanceLineTests/StashLineTests-Info.plist";
+				PRODUCT_NAME = StashLineTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -862,8 +866,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/FinanceLine-Prefix.pch";
-				INFOPLIST_FILE = "FinanceLineTests/FinanceLineTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FinanceLineTests/StashLineTests-Info.plist";
+				PRODUCT_NAME = StashLineTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -872,7 +876,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6AFAA04F1770FBA300E61733 /* Build configuration list for PBXProject "FinanceLine" */ = {
+		6AFAA04F1770FBA300E61733 /* Build configuration list for PBXProject "StashLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AFAA08A1770FBA300E61733 /* Debug */,
@@ -881,7 +885,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AFAA08C1770FBA300E61733 /* Build configuration list for PBXNativeTarget "FinanceLine" */ = {
+		6AFAA08C1770FBA300E61733 /* Build configuration list for PBXNativeTarget "StashLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AFAA08D1770FBA300E61733 /* Debug */,
@@ -890,7 +894,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AFAA08F1770FBA300E61733 /* Build configuration list for PBXNativeTarget "FinanceLineTests" */ = {
+		6AFAA08F1770FBA300E61733 /* Build configuration list for PBXNativeTarget "StashLineTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AFAA0901770FBA300E61733 /* Debug */,
