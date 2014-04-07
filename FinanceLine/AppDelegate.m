@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GAI.h"
-//#import "CBIntrospect.h"
+#import "CBIntrospect.h"
 
 @implementation AppDelegate
 
@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
 #if TARGET_IPHONE_SIMULATOR
-    //[[CBIntrospect sharedIntrospector] start];
+    [[CBIntrospect sharedIntrospector] start];
 #endif
   
   

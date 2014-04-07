@@ -383,6 +383,14 @@ NSString* SanitizeFilename(NSString* filename)
 
 #pragma mark I Am
 
+- (IBAction)iAmFieldEditBegan:(ScrubbableTextView*)sender {
+  if (sender == self.ageField) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.ModelAgeChanged" object:self];
+  } else if (sender == self.savingsField) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.ModelSavingsChanged" object:self];
+  }
+}
+
 - (IBAction)iAmFieldUpdated: (ScrubbableTextView*)sender {
   if ([sender.text isEqualToString:@""]) return;
   double value = [sender parseAndUpdate];
@@ -390,8 +398,10 @@ NSString* SanitizeFilename(NSString* filename)
   if (sender == self.ageField) {
     model.startMonth = value * 12;
     [self.timeLine setStartMonth:value * 12 - 10];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.ModelAgeChanged" object:self];
   } else if (sender == self.savingsField) {
     model.startAmount = value;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.ModelSavingsChanged" object:self];
   }
   
   [self updateModel: NO];

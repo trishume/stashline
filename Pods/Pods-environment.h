@@ -6,6 +6,12 @@
 // project.
 
 
+// CBIntrospect
+#define COCOAPODS_POD_AVAILABLE_CBIntrospect
+#define COCOAPODS_VERSION_MAJOR_CBIntrospect 0
+#define COCOAPODS_VERSION_MINOR_CBIntrospect 4
+#define COCOAPODS_VERSION_PATCH_CBIntrospect 2
+
 // GoogleAnalytics-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_GoogleAnalytics_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_GoogleAnalytics_iOS_SDK 3

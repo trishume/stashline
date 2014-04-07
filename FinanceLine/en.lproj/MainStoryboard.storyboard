@@ -155,6 +155,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="iAmFieldChanged:" destination="2" eventType="editingDidEnd" id="9vD-SQ-idc"/>
+                                            <action selector="iAmFieldEditBegan:" destination="2" eventType="editingDidBegin" id="HqZ-pY-4df"/>
                                             <action selector="iAmFieldUpdated:" destination="2" eventType="valueChanged" id="VjR-re-iBa"/>
                                             <outlet property="delegate" destination="2" id="TdH-57-N4f"/>
                                         </connections>
@@ -167,6 +168,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="iAmFieldChanged:" destination="2" eventType="editingDidEnd" id="pfb-Sm-z7a"/>
+                                            <action selector="iAmFieldEditBegan:" destination="2" eventType="editingDidBegin" id="cgE-aw-Mey"/>
                                             <action selector="iAmFieldUpdated:" destination="2" eventType="valueChanged" id="cc3-wW-Yqc"/>
                                             <outlet property="delegate" destination="2" id="Vkw-fo-YV8"/>
                                         </connections>

@@ -3,8 +3,52 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>phonex</key>
+		<integer>61</integer>
+		<key>phoney</key>
+		<integer>222</integer>
+		<key>phoneWidth</key>
+		<integer>60</integer>
 		<key>time</key>
-		<real>2</real>
+		<integer>2</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>910</integer>
+		<key>starty</key>
+		<integer>32</integer>
+		<key>width</key>
+		<integer>70</integer>
+		<key>description</key>
+		<string>Tap or drag to set your current age</string>
+		<key>nextNotif</key>
+		<string>ca.thume.ModelAgeChanged</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>64</integer>
+		<key>phoney</key>
+		<integer>242</integer>
+		<key>phoneWidth</key>
+		<integer>0</integer>
+		<key>time</key>
+		<integer>1</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>912</integer>
+		<key>starty</key>
+		<integer>60</integer>
+		<key>width</key>
+		<real>0</real>
+		<key>description</key>
+		<string>Tap to enter your current savings</string>
+		<key>nextNotif</key>
+		<string>ca.thume.ModelSavingsChanged</string>
+	</dict>
+	<dict>
+		<key>time</key>
+		<integer>2</integer>
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
