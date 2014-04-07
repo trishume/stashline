@@ -51,6 +51,8 @@
 		6A7064FA18EB5E1D003B2AE8 /* About-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064F818EB5E1D003B2AE8 /* About-iPad@2x.png */; };
 		6A7064FD18EB64B3003B2AE8 /* About-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064FB18EB64B3003B2AE8 /* About-iPhone.png */; };
 		6A7064FE18EB64B3003B2AE8 /* About-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7064FC18EB64B3003B2AE8 /* About-iPhone@2x.png */; };
+		6A75375F18F1F5A300A5DC61 /* Blank-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A75375E18F1F5A300A5DC61 /* Blank-iPad.png */; };
+		6A75376118F1F85F00A5DC61 /* Intro.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A75376018F1F85F00A5DC61 /* Intro.plist */; };
 		6A7DBEE21822F086009F5453 /* PanelTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7DBEE11822F086009F5453 /* PanelTabView.m */; };
 		6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA517E6706600B0D97D /* Name Banner.png */; };
 		6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A3BA617E6706600B0D97D /* Panel Background.png */; };
@@ -161,6 +163,8 @@
 		6A7064F818EB5E1D003B2AE8 /* About-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPad@2x.png"; path = "Assets/About-iPad@2x.png"; sourceTree = "<group>"; };
 		6A7064FB18EB64B3003B2AE8 /* About-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPhone.png"; path = "Assets/About-iPhone.png"; sourceTree = "<group>"; };
 		6A7064FC18EB64B3003B2AE8 /* About-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "About-iPhone@2x.png"; path = "Assets/About-iPhone@2x.png"; sourceTree = "<group>"; };
+		6A75375E18F1F5A300A5DC61 /* Blank-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Blank-iPad.png"; path = "Assets/Blank-iPad.png"; sourceTree = "<group>"; };
+		6A75376018F1F85F00A5DC61 /* Intro.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Intro.plist; path = Assets/Intro.plist; sourceTree = SOURCE_ROOT; };
 		6A7DBEE01822F086009F5453 /* PanelTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelTabView.h; sourceTree = "<group>"; };
 		6A7DBEE11822F086009F5453 /* PanelTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelTabView.m; sourceTree = "<group>"; };
 		6A8A3BA517E6706600B0D97D /* Name Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Name Banner.png"; path = "Assets/Name Banner.png"; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 		6A3A828B17D0187F00E9C0EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A75375E18F1F5A300A5DC61 /* Blank-iPad.png */,
 				6A7064FB18EB64B3003B2AE8 /* About-iPhone.png */,
 				6A7064FC18EB64B3003B2AE8 /* About-iPhone@2x.png */,
 				6A7064F718EB5E1D003B2AE8 /* About-iPad.png */,
@@ -430,6 +435,7 @@
 				6AFAA0631770FBA300E61733 /* main.m */,
 				6AFAA0651770FBA300E61733 /* StashLine-Prefix.pch */,
 				6AFAA06D1770FBA300E61733 /* Default-568h@2x.png */,
+				6A75376018F1F85F00A5DC61 /* Intro.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				6ABE78D517EDE74A00F5A95B /* Expand Short.png in Resources */,
 				6A65792818D0FA35004D8EC7 /* Touch-Icon@2x.png in Resources */,
 				6ABE78D617EDE74A00F5A95B /* Zero Short.png in Resources */,
+				6A75375F18F1F5A300A5DC61 /* Blank-iPad.png in Resources */,
 				6A507E84181DCD4200712298 /* Files@2x.png in Resources */,
 				6ABE78CD17EDE66A00F5A95B /* About Long.png in Resources */,
 				6A507E99181DCEA500712298 /* Help Long@2x.png in Resources */,
@@ -598,6 +605,7 @@
 				6AD59C4317DB647300BD2C01 /* Expenses.png in Resources */,
 				6AD59C4417DB647300BD2C01 /* Income.png in Resources */,
 				6A507E93181DCEA500712298 /* About Long@2x.png in Resources */,
+				6A75376118F1F85F00A5DC61 /* Intro.plist in Resources */,
 				6AD59C4517DB647300BD2C01 /* Investment.png in Resources */,
 				6A8A3BA917E6706700B0D97D /* Name Banner.png in Resources */,
 				6A8A3BAA17E6706700B0D97D /* Panel Background.png in Resources */,

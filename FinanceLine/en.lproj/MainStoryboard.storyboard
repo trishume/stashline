@@ -80,16 +80,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hdP-JB-m0a">
-                                <rect key="frame" x="949" y="252" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play Intro">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startIntro" destination="2" eventType="touchUpInside" id="3EX-TE-7mq"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AIs-Qa-V54">
                                 <rect key="frame" x="898" y="280" width="116" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -100,6 +90,16 @@
                                 </state>
                                 <connections>
                                     <action selector="changeLabelMode:" destination="2" eventType="touchUpInside" id="HJt-G1-Ipq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hdP-JB-m0a">
+                                <rect key="frame" x="949" y="248" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Intro">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startIntro" destination="2" eventType="touchUpInside" id="3EX-TE-7mq"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="qhA-5u-pse">
@@ -548,31 +548,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.78200000000000003" green="0.83640000000000003" blue="0.84999999999999998" alpha="0.78000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="F81-CJ-e2o">
-                                <rect key="frame" x="355" y="440" width="400" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="rtI-nb-d9k">
-                                <rect key="frame" x="545" y="68" width="200" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="IEx-y7-cbn">
-                                <rect key="frame" x="355" y="230" width="200" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="0wX-fZ-c0z">
-                                <rect key="frame" x="600" y="360" width="250" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="KHi-Vc-dta">
-                                <rect key="frame" x="512" y="360" width="300" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -580,12 +555,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="adjustRect" destination="rtI-nb-d9k" id="EU0-z2-NPq"/>
                         <outlet property="explanation" destination="k15-v0-xBM" id="ZoW-dt-Atg"/>
-                        <outlet property="inspectRect" destination="IEx-y7-cbn" id="j4Q-wv-dOI"/>
-                        <outlet property="panRect" destination="0wX-fZ-c0z" id="Axz-DR-iRq"/>
-                        <outlet property="selectRect" destination="F81-CJ-e2o" id="Ih0-Hl-LVD"/>
-                        <outlet property="zoomRect" destination="KHi-Vc-dta" id="cL4-cx-gsx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpZ-ec-loa" userLabel="First Responder" sceneMemberID="firstResponder"/>

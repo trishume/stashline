@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>time</key>
+		<real>2</real>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>355</integer>
+		<key>starty</key>
+		<integer>440</integer>
+		<key>width</key>
+		<integer>400</integer>
+		<key>phonex</key>
+		<integer>230</integer>
+		<key>phoney</key>
+		<integer>185</integer>
+		<key>phoneWidth</key>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Select a time span on an earnings bar</string>
+		<key>nextNotif</key>
+		<string>ca.thume.AnnuityTrackSelectionEnded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>112</integer>
+		<key>phoney</key>
+		<integer>171</integer>
+		<key>phoneWidth</key>
+		<integer>100</integer>
+		<key>time</key>
+		<integer>2</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>545</integer>
+		<key>starty</key>
+		<integer>68</integer>
+		<key>width</key>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Tap or drag on the number to adjust the amount.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.SelectionEditAmountChanged</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>240</integer>
+		<key>phoney</key>
+		<integer>55</integer>
+		<key>phoneWidth</key>
+		<integer>150</integer>
+		<key>time</key>
+		<integer>2</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>355</integer>
+		<key>starty</key>
+		<integer>230</integer>
+		<key>width</key>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Inspect your estimated savings.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.LineGraphInspectEnded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>400</integer>
+		<key>phoney</key>
+		<integer>125</integer>
+		<key>phoneWidth</key>
+		<integer>-100</integer>
+		<key>time</key>
+		<real>1.5</real>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>600</integer>
+		<key>starty</key>
+		<integer>360</integer>
+		<key>width</key>
+		<integer>-250</integer>
+		<key>description</key>
+		<string>Swipe on the timeline to pan.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.TimelineTrackPanEnded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>340</integer>
+		<key>phoney</key>
+		<integer>125</integer>
+		<key>phoneWidth</key>
+		<integer>150</integer>
+		<key>time</key>
+		<real>1.5</real>
+		<key>anim</key>
+		<string>Pinch</string>
+		<key>startx</key>
+		<integer>512</integer>
+		<key>starty</key>
+		<integer>360</integer>
+		<key>width</key>
+		<integer>300</integer>
+		<key>description</key>
+		<string>Pinch on the timeline to zoom.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.TimelineViewZoomEnded</string>
+	</dict>
+	<dict>
+		<key>anim</key>
+		<string>Delay</string>
+		<key>time</key>
+		<real>2</real>
+		<key>description</key>
+		<string>Now enter your own estimates to get started.</string>
+		<key>nextNotif</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

@@ -11,24 +11,11 @@
 #define kTouchSize 45
 #define kPinchBuffer 30.0
 
-enum {
-  IntroStateNone,
-  IntroStateSelect,
-  IntroStateAdjust,
-  IntroStateInspect,
-  IntroStatePan,
-  IntroStateZoom,
-  IntroStateYouDone,
-  IntroStateAllDone
-};
-
 @interface IntroViewController ()
 
 @end
 
 @implementation IntroViewController
-
-@synthesize selectRect,adjustRect,inspectRect,panRect,zoomRect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,8 +28,12 @@ enum {
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [self doState:IntroStateNone];
-	// Do any additional setup after loading the view.
+  
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"Intro" ofType:@"plist"];
+  data = [[NSArray alloc] initWithContentsOfFile:path];
+  
+  [self doState:0];
+
   UIImage* touchImage = [UIImage imageNamed:@"Touch-Icon"];
   
   touch1 = [CALayer layer];
@@ -65,7 +56,7 @@ enum {
 }
 
 - (void)startIntro {
-  [self doState:IntroStateSelect];
+  [self doState:1];
 }
 
 - (void)swipeAnimationStart: (CGPoint)start length: (CGFloat)len time: (CGFloat)swipeDuration {
@@ -114,56 +105,44 @@ enum {
 }
 
 - (void)allDone {
-  [self doState:IntroStateAllDone];
+  curState = 0;
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.IntroViewDone" object:self];
+}
+
+- (void)resetAnims {
+  touch1.opacity = 0.0;
+  touch2.opacity = 0.0;
+  [touch1 removeAllAnimations];
+  [touch2 removeAllAnimations];
 }
 
 - (void)doState:(IntroState)state {
   curState = state;
-  NSString *nextNotif = nil;
-  switch (state) {
-    case IntroStateSelect:
-      [self swipeAnimationStart: selectRect.frame.origin length: selectRect.frame.size.width time:2.0];
-      nextNotif = @"ca.thume.AnnuityTrackSelectionEnded";
-      [self setDescription:@"Select a time span on an earnings bar."];
-      break;
-    case IntroStateAdjust:
-      [self swipeAnimationStart: adjustRect.frame.origin length: adjustRect.frame.size.width time:2.0];
-      nextNotif = @"ca.thume.SelectionEditAmountChanged";
-      [self setDescription:@"Tap or drag on the number to adjust the amount."];
-      break;
-    case IntroStateInspect:
-      [self swipeAnimationStart: inspectRect.frame.origin  length: inspectRect.frame.size.width time:2.0];
-      nextNotif = @"ca.thume.LineGraphInspectEnded";
-      [self setDescription:@"Inspect your estimated savings."];
-      break;
-    case IntroStatePan:
-      [self swipeAnimationStart: panRect.frame.origin length: -panRect.frame.size.width time:1.5];
-      nextNotif = @"ca.thume.TimelineTrackPanEnded";
-      [self setDescription:@"Swipe on the timeline to pan."];
-      break;
-    case IntroStateZoom:
-      [self pinchOutAnimationStart: zoomRect.frame.origin size: zoomRect.frame.size.width time:1.5];
-      nextNotif = @"ca.thume.TimelineViewZoomEnded";
-      [self setDescription:@"Pinch on the timeline to zoom."];
-      break;
-    case IntroStateYouDone:
-      touch1.opacity = 0.0;
-      touch2.opacity = 0.0;
-      [touch1 removeAllAnimations];
-      [touch2 removeAllAnimations];
-      [self setDescription:@"Now enter your own estimates to get started."];
-      [self performSelector:@selector(allDone) withObject:nil afterDelay:4.0];
-      break;
-    case IntroStateAllDone:
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.IntroViewDone" object:self];
-      break;
-    default:
-      break;
+  if(curState > [data count] || curState < 1) return;
+  [self resetAnims];
+  
+  NSDictionary *stateInfo = [data objectAtIndex:curState - 1];
+  
+  BOOL phone = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+  NSNumber *startx = stateInfo[phone ? @"phonex" : @"startx"];
+  NSNumber *starty = stateInfo[phone ? @"phoney" : @"starty"];
+  NSNumber *width  = stateInfo[phone ? @"phoneWidth" : @"width"];
+  
+  if ([stateInfo[@"anim"] isEqualToString:@"Swipe"]) {
+    CGPoint start = CGPointMake([startx floatValue], [starty floatValue]);
+    [self swipeAnimationStart: start length: [width floatValue] time: [stateInfo[@"time"] floatValue]];
+  } else if ([stateInfo[@"anim"] isEqualToString:@"Pinch"]) {
+    CGPoint start = CGPointMake([startx floatValue], [starty floatValue]);
+    [self pinchOutAnimationStart: start size: [width floatValue] time: [stateInfo[@"time"] floatValue]];
+  } else if([stateInfo[@"anim"] isEqualToString:@"Delay"]) {
+    [self performSelector:@selector(allDone) withObject:nil afterDelay: [stateInfo[@"time"] floatValue]];
   }
   
-  if (nextNotif != nil) {
+  NSString *nextNotif = stateInfo[@"nextNotif"];
+  if (nextNotif && ![nextNotif isEqualToString:@""]) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transitionNotification:) name:nextNotif object:nil];
   }
+  [self setDescription: stateInfo[@"description"]];
 }
 
 @end

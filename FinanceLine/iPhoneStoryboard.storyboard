@@ -804,43 +804,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.78200000000000003" green="0.83640000000000003" blue="0.84999999999999998" alpha="0.78000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="sGD-GA-2HA">
-                                <rect key="frame" x="230" y="185" width="200" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="nMA-87-r4r">
-                                <rect key="frame" x="112" y="171" width="100" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="LYz-cY-BfA">
-                                <rect key="frame" x="240" y="55" width="150" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="VP0-FK-mPp">
-                                <rect key="frame" x="400" y="125" width="100" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="uOH-hJ-c0W">
-                                <rect key="frame" x="340" y="125" width="150" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="adjustRect" destination="nMA-87-r4r" id="HBG-Jq-feR"/>
                         <outlet property="explanation" destination="Pgp-m5-tw8" id="wKY-HX-g8L"/>
-                        <outlet property="inspectRect" destination="LYz-cY-BfA" id="YD1-Um-NWw"/>
-                        <outlet property="panRect" destination="VP0-FK-mPp" id="ogO-DB-DWg"/>
-                        <outlet property="selectRect" destination="sGD-GA-2HA" id="QsE-UY-SFL"/>
-                        <outlet property="zoomRect" destination="uOH-hJ-c0W" id="LMp-9B-0EL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4P-Da-CUv" userLabel="First Responder" sceneMemberID="firstResponder"/>

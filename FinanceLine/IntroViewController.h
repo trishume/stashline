@@ -14,15 +14,11 @@ typedef NSUInteger IntroState;
   CALayer *touch1;
   CALayer *touch2;
   IntroState curState;
+  
+  NSArray *data;
 }
 
 - (void) startIntro;
 
 @property (weak, nonatomic) IBOutlet UILabel* explanation;
-
-@property (weak, nonatomic) IBOutlet UIView *selectRect;
-@property (weak, nonatomic) IBOutlet UIView *adjustRect;
-@property (weak, nonatomic) IBOutlet UIView *inspectRect;
-@property (weak, nonatomic) IBOutlet UIView *panRect;
-@property (weak, nonatomic) IBOutlet UIView *zoomRect;
 @end
