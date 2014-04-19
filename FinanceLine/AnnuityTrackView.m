@@ -22,6 +22,8 @@
 
 #define kNumSpacing 30.0
 
+#define kExpandArea 50.0
+
 @implementation AnnuityTrackView
 @synthesize data, hue, negativeHue, selection, selectionDelegate;
 
@@ -33,6 +35,9 @@
       self.percentTrack = NO;
       hue = kDefaultHue;
       negativeHue = kDefaultNegativeHue;
+      selecting = NO;
+      expanding = NO;
+      
       selectionColor = [UIColor blueColor];
       selection = [[Selection alloc] init];
       numFont = [UIFont systemFontOfSize:16.0];
@@ -110,25 +115,36 @@
 }
 
 - (void)panHandler:(UIPanGestureRecognizer *)sender {
-  CGPoint start = [sender locationInView:self];
+  CGPoint end = [sender locationInView:self];
   CGPoint translation = [sender translationInView:self];
   
   if ([sender state] == UIGestureRecognizerStateEnded) {
+    selecting = NO;
+    expanding = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.AnnuityTrackSelectionEnded" object:self];
+  } else {
+    selecting = YES;
   }
   
   // Selection snaps to current block size
   CGFloat blockSize = [self blockSize];
-  NSUInteger startMonth = [self blockForX:start.x] * blockSize;
-  NSUInteger endMonth = [self blockForX:start.x-translation.x] * blockSize;
+  NSUInteger selEnd = [self blockForX:end.x] * blockSize;
+  NSUInteger selStart = [self blockForX:end.x-translation.x] * blockSize;
   
-  if (endMonth > startMonth) {
-    endMonth += (blockSize - 1);
+  if (selEnd > selStart && end.x > self.bounds.size.width - kExpandArea) {
+    selEnd = kMaxMonth;
+    expanding = YES;
   } else {
-    startMonth += (blockSize - 1);
+    expanding = NO;
   }
   
-  [selection selectFrom:startMonth to:endMonth];
+  if (selStart > selEnd) {
+    selStart += (blockSize - 1);
+  } else {
+    selEnd += (blockSize - 1);
+  }
+  
+  [selection selectFrom:selStart to:selEnd];
   
   [selectionDelegate setSelection:selection onTrack:data];
   [self setNeedsDisplay];
@@ -163,8 +179,8 @@
 #pragma mark Rendering
 
 - (void)drawMiniArrowsAtX:(CGFloat)x {
-  const CGFloat h = 10;
-  const CGFloat w = 25;
+  const CGFloat h = 8;
+  const CGFloat w = 20;
   //// Triangle Drawing
   UIBezierPath* trianglePath = [UIBezierPath bezierPath];
   [trianglePath moveToPoint:    CGPointMake(x    , 0.0)];
@@ -211,7 +227,8 @@
 - (void)drawArrowsFilled:(BOOL)fill {
   CGFloat center = self.bounds.size.height / 2.0;
   CGFloat end = self.bounds.size.width;
-  [self drawArrowAtX:end - 40.0 y:center filled:fill];
+  [self drawArrowAtX:end - 25.0 y:center filled:fill];
+  [self drawArrowAtX:end - 47.0 y:center filled:fill];
 }
 
 - (void)splitBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
@@ -327,6 +344,11 @@
   
   CGRect r = CGRectMake(0.0, 0.0, 10.0, self.bounds.size.height);
   CGContextFillRect(context, r);
+  
+  // Draw selection expand target
+  if (selecting) {
+    [self drawArrowsFilled:expanding];
+  }
   
   // Draw long selection arrows
   NSUInteger endMonth = self.delegate.startMonth + (self.bounds.size.width / self.delegate.monthSize) + 12;

@@ -22,6 +22,9 @@
   UIColor *numColor;
   UIColor *arrowColor;
   UIFont *numFont;
+  
+  BOOL selecting;
+  BOOL expanding;
 }
 
 - (void)selectFrom:(NSUInteger)month to:(NSUInteger)end;
