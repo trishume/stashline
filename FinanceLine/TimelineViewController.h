@@ -19,8 +19,9 @@
 #import "FilesViewController.h"
 #import "IntroViewController.h"
 #import "GAITrackedViewController.h"
+#import "HelpViewController.h"
 
-@interface TimelineViewController : GAITrackedViewController <TrackSelectionDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate, FilesControllerDelegate, UIAlertViewDelegate> {
+@interface TimelineViewController : GAITrackedViewController <TrackSelectionDelegate, HelpViewDelegate, UITextFieldDelegate, SelectionEditorDelegate, SelectDividerDelegate, FilesControllerDelegate, UIAlertViewDelegate> {
   SelectionEditViewController *amountEditor;
   SelectionEditViewController *investmentEditor;
   SelectionEditViewController *selectEditor;
@@ -67,8 +68,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *fileNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *labelModeButton;
 
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
-@property (weak, nonatomic) IBOutlet UIView *infoOverlayView;
 
 @end

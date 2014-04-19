@@ -43,7 +43,12 @@
   [self.view setNeedsDisplay];
 }
 
+- (IBAction)getStartedButtonPressed {
+  [self.parentDelegate startIntro];
+}
+
 - (IBAction)closeModal {
+  [self.parentDelegate userWasInformed];
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 

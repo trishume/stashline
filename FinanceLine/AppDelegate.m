@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GAI.h"
-#import "CBIntrospect.h"
+//#import "CBIntrospect.h"
 
 @implementation AppDelegate
 
@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
 #if TARGET_IPHONE_SIMULATOR
-    [[CBIntrospect sharedIntrospector] start];
+  //[[CBIntrospect sharedIntrospector] start];
 #endif
   
   
@@ -24,8 +24,14 @@
   [GAI sharedInstance].dispatchInterval = 60;
   [[GAI sharedInstance] trackerWithTrackingId:@"UA-49693831-1"];
   
+  //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDebug:) name:nil object:nil];
+  
   
   return YES;
+}
+
+-(void)notificationDebug:(NSNotification*)not {
+  NSLog(@"+%@", not.name);
 }
 
 //- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder

@@ -75,6 +75,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+  [super prepareForSegue:segue sender:sender];
   if ([[segue identifier] isEqualToString:@"fileModal"])
   {
     UIStoryboardSegue *modal = (UIStoryboardSegue*)segue;

@@ -40,13 +40,13 @@
   [touch1 setBounds:CGRectMake(0.0, 0.0, kTouchSize, kTouchSize)];
   touch1.opacity = 0.0;
   touch1.contents = (id)touchImage.CGImage;
-  [self.view.layer addSublayer:touch1];
+  [self.touchLayer.layer addSublayer:touch1];
   
   touch2 = [CALayer layer];
   [touch2 setBounds:CGRectMake(0.0, 0.0, kTouchSize, kTouchSize)];
   touch2.opacity = 0.0;
   touch2.contents = (id)touchImage.CGImage;
-  [self.view.layer addSublayer:touch2];
+  [self.touchLayer.layer addSublayer:touch2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +91,7 @@
 
 - (void)setDescription: (NSString*)s {
   self.explanation.text = s;
+  //[self.explanation sizeToFit];
 }
 
 #pragma mark States
@@ -100,7 +101,11 @@
   [self nextState];
 }
 
-- (void)nextState {
+- (IBAction)skipStep {
+  [self transitionNotification:nil];
+}
+
+- (IBAction)nextState {
   [self doState:curState+1];
 }
 

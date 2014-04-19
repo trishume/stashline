@@ -37,6 +37,8 @@
       selection = [[Selection alloc] init];
       numFont = [UIFont systemFontOfSize:16.0];
       numColor = [UIColor darkGrayColor];
+      //arrowColor = [UIColor colorWithRed: 0.343 green: 0.668 blue: 1 alpha: 1];
+      arrowColor = selectionColor;
       
       UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
       [self addGestureRecognizer:pan];
@@ -87,7 +89,7 @@
   
   // and to the left
   NSInteger start;
-  for (start = month; start >= 0; --start) {
+  for (start = month; start >= [selectionDelegate minSelectMonth]; --start) {
     if(dataArr[start] != startVal) {
       break;
     }
@@ -97,6 +99,7 @@
   [selection selectFrom:start to:end];
   
   [selectionDelegate setSelection:selection onTrack:data];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.AnnuityTrackSelectionEnded" object:self];
   [self setNeedsDisplay];
 }
 
@@ -158,6 +161,58 @@
 
 
 #pragma mark Rendering
+
+- (void)drawMiniArrowsAtX:(CGFloat)x {
+  const CGFloat h = 10;
+  const CGFloat w = 25;
+  //// Triangle Drawing
+  UIBezierPath* trianglePath = [UIBezierPath bezierPath];
+  [trianglePath moveToPoint:    CGPointMake(x    , 0.0)];
+  [trianglePath addLineToPoint: CGPointMake(x + w, 0.0)];
+  [trianglePath addLineToPoint: CGPointMake(x    , h)];
+  [trianglePath addLineToPoint: CGPointMake(x    , 0.0)];
+  [trianglePath closePath];
+  
+  [arrowColor setFill];
+  [trianglePath fill];
+  
+  CGFloat b = self.bounds.size.height;
+  trianglePath = [UIBezierPath bezierPath];
+  [trianglePath moveToPoint:    CGPointMake(x    , b)];
+  [trianglePath addLineToPoint: CGPointMake(x + w, b)];
+  [trianglePath addLineToPoint: CGPointMake(x    , b - h)];
+  [trianglePath addLineToPoint: CGPointMake(x    , b)];
+  [trianglePath closePath];
+  
+  [trianglePath fill];
+}
+
+- (void)drawArrowAtX:(CGFloat)x y:(CGFloat)y filled:(BOOL)fill {
+  const CGFloat h = 8;
+  const CGFloat w = 17;
+  //// Triangle Drawing
+  UIBezierPath* trianglePath = [UIBezierPath bezierPath];
+  [trianglePath moveToPoint:    CGPointMake(x    , y - h)];
+  [trianglePath addLineToPoint: CGPointMake(x + w, y)];
+  [trianglePath addLineToPoint: CGPointMake(x    , y + h)];
+  [trianglePath addLineToPoint: CGPointMake(x    , y - h)];
+  [trianglePath closePath];
+  
+  if (fill) {
+    [arrowColor setFill];
+    [trianglePath fill];
+  }
+  
+  [arrowColor setStroke];
+  trianglePath.lineWidth = 1.5;
+  [trianglePath stroke];
+}
+
+- (void)drawArrowsFilled:(BOOL)fill {
+  CGFloat center = self.bounds.size.height / 2.0;
+  CGFloat end = self.bounds.size.width;
+  [self drawArrowAtX:end - 40.0 y:center filled:fill];
+}
 
 - (void)splitBlock:(NSUInteger)month ofMonths:(NSUInteger)monthsPerBlock
                atX:(CGFloat)x andScale:(CGFloat)scale withContext:(CGContextRef)context {
@@ -272,6 +327,15 @@
   
   CGRect r = CGRectMake(0.0, 0.0, 10.0, self.bounds.size.height);
   CGContextFillRect(context, r);
+  
+  // Draw long selection arrows
+  NSUInteger endMonth = self.delegate.startMonth + (self.bounds.size.width / self.delegate.monthSize) + 12;
+  CGFloat endBuffer = self.bounds.size.width - (([selection start] - self.delegate.startMonth) * self.delegate.monthSize);
+  if (![selection isEmpty] && [selection end] > endMonth && endBuffer > 50.0) {
+    //[self drawArrowsFilled:NO];
+    [self drawMiniArrowsAtX:self.bounds.size.width - 15.0];
+    //[self drawMiniArrowsAtX:self.bounds.size.width - 35.0];
+  }
 }
 
 

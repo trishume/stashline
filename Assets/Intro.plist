@@ -10,7 +10,7 @@
 		<key>phoneWidth</key>
 		<integer>60</integer>
 		<key>time</key>
-		<integer>2</integer>
+		<real>1.5</real>
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
@@ -18,11 +18,19 @@
 		<key>starty</key>
 		<integer>32</integer>
 		<key>width</key>
-		<integer>70</integer>
+		<integer>0</integer>
 		<key>description</key>
-		<string>Tap or drag to set your current age</string>
+		<string>Tap to enter your current age, then press &quot;Done&quot; on the keyboard.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.ModelAgeChanged</string>
+	</dict>
+	<dict>
+		<key>anim</key>
+		<string>None</string>
+		<key>description</key>
+		<string>Tap to enter your current age, then press &quot;Done&quot; on the keyboard.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.ModelFieldComitted</string>
 	</dict>
 	<dict>
 		<key>phonex</key>
@@ -32,7 +40,7 @@
 		<key>phoneWidth</key>
 		<integer>0</integer>
 		<key>time</key>
-		<integer>1</integer>
+		<real>1.5</real>
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
@@ -52,7 +60,7 @@
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
-		<integer>355</integer>
+		<integer>60</integer>
 		<key>starty</key>
 		<integer>440</integer>
 		<key>width</key>
@@ -65,6 +73,72 @@
 		<integer>200</integer>
 		<key>description</key>
 		<string>Select a time span on an earnings bar</string>
+		<key>nextNotif</key>
+		<string>ca.thume.AnnuityTrackSelectionEnded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>112</integer>
+		<key>phoney</key>
+		<integer>70</integer>
+		<key>phoneWidth</key>
+		<integer>0</integer>
+		<key>time</key>
+		<real>1.5</real>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>332</integer>
+		<key>starty</key>
+		<integer>82</integer>
+		<key>width</key>
+		<real>0</real>
+		<key>description</key>
+		<string>Tap &apos;Expand&apos; to extend the selection</string>
+		<key>nextNotif</key>
+		<string>ca.thume.SelectionExpanded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>112</integer>
+		<key>phoney</key>
+		<integer>171</integer>
+		<key>phoneWidth</key>
+		<integer>100</integer>
+		<key>time</key>
+		<real>1.5</real>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>545</integer>
+		<key>starty</key>
+		<integer>68</integer>
+		<key>width</key>
+		<integer>0</integer>
+		<key>description</key>
+		<string>Tap on an amount to set your current income.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.SelectionEditAmountChanged</string>
+	</dict>
+	<dict>
+		<key>time</key>
+		<integer>2</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>120</integer>
+		<key>starty</key>
+		<integer>560</integer>
+		<key>width</key>
+		<integer>0</integer>
+		<key>phonex</key>
+		<integer>230</integer>
+		<key>phoney</key>
+		<integer>185</integer>
+		<key>phoneWidth</key>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Now select your expenses. You can double tap to select your whole life.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.AnnuityTrackSelectionEnded</string>
 	</dict>
@@ -86,31 +160,53 @@
 		<key>width</key>
 		<integer>200</integer>
 		<key>description</key>
-		<string>Tap or drag on the number to adjust the amount.</string>
+		<string>And enter your estimated expenses. You can also swipe on numbers to adjust them.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.SelectionEditAmountChanged</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<real>1.5</real>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>120</integer>
+		<key>starty</key>
+		<integer>736</integer>
+		<key>width</key>
+		<integer>0</integer>
 		<key>phonex</key>
-		<integer>240</integer>
+		<integer>230</integer>
 		<key>phoney</key>
-		<integer>55</integer>
+		<integer>185</integer>
 		<key>phoneWidth</key>
-		<integer>150</integer>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Now select your whole life&apos;s investing by double tapping.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.AnnuityTrackSelectionEnded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>112</integer>
+		<key>phoney</key>
+		<integer>171</integer>
+		<key>phoneWidth</key>
+		<integer>100</integer>
 		<key>time</key>
 		<integer>2</integer>
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
-		<integer>355</integer>
+		<integer>550</integer>
 		<key>starty</key>
-		<integer>230</integer>
+		<integer>67</integer>
 		<key>width</key>
 		<integer>200</integer>
 		<key>description</key>
-		<string>Inspect your estimated savings.</string>
+		<string>Enter your estimated savings growth, 5% is a good estimate for stocks minus inflation.</string>
 		<key>nextNotif</key>
-		<string>ca.thume.LineGraphInspectEnded</string>
+		<string>ca.thume.SelectionEditAmountChanged</string>
 	</dict>
 	<dict>
 		<key>phonex</key>
@@ -130,9 +226,31 @@
 		<key>width</key>
 		<integer>-250</integer>
 		<key>description</key>
-		<string>Swipe on the timeline to pan.</string>
+		<string>Swipe to scroll to the future.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.TimelineTrackPanEnded</string>
+	</dict>
+	<dict>
+		<key>phonex</key>
+		<integer>240</integer>
+		<key>phoney</key>
+		<integer>55</integer>
+		<key>phoneWidth</key>
+		<integer>150</integer>
+		<key>time</key>
+		<integer>2</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>355</integer>
+		<key>starty</key>
+		<integer>230</integer>
+		<key>width</key>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Touch the graph to inspect your estimated savings.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.LineGraphInspectEnded</string>
 	</dict>
 	<dict>
 		<key>phonex</key>
@@ -162,7 +280,7 @@
 		<key>time</key>
 		<real>2</real>
 		<key>description</key>
-		<string>Now enter your own estimates to get started.</string>
+		<string>Now you can tweak your estimates and see what happens.</string>
 		<key>nextNotif</key>
 		<string></string>
 	</dict>

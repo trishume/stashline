@@ -104,10 +104,13 @@ NSString* SanitizeFilename(NSString* filename)
   }
   [self openFile:lastFile];
   
+  // Set label mode to monthly
+  [self changeLabelMode:self.labelModeButton];
+  
   // Play intro on first run
   BOOL introPlayed = [[NSUserDefaults standardUserDefaults] boolForKey:kDefaultIntroPlayed];
   if (!introPlayed) {
-    [self startIntro];
+    [self performSelector:@selector(firstRunActions) withObject:nil afterDelay:0.2];
   }
 }
 
@@ -132,6 +135,16 @@ NSString* SanitizeFilename(NSString* filename)
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
         (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([[segue identifier] isEqualToString:@"helpModal"])
+  {
+    UIStoryboardSegue *modal = (UIStoryboardSegue*)segue;
+    HelpViewController *helpModal = modal.destinationViewController;
+    helpModal.parentDelegate = self;
+  }
 }
 
 //- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
@@ -350,10 +363,10 @@ NSString* SanitizeFilename(NSString* filename)
 }
 
 - (IBAction)changeLabelMode:(UIButton *)sender {
-  if (self.timeLine.labelMult == 1.0) {
+  if (self.timeLine.labelMult == 0.0) {
     self.timeLine.labelMult = 12.0;
     [sender setTitle:@"Yearly Labels" forState:UIControlStateNormal];
-  } else if(self.timeLine.labelMult == 0.0) {
+  } else if(self.timeLine.labelMult == 12.0) {
     self.timeLine.labelMult = 1.0;
     [sender setTitle:@"Monthly Labels" forState:UIControlStateNormal];
   } else {
@@ -363,7 +376,12 @@ NSString* SanitizeFilename(NSString* filename)
   [self.timeLine redrawTracks];
 }
 
+- (void)firstRunActions {
+  [self performSegueWithIdentifier:@"helpModal" sender:self];
+}
+
 - (IBAction)startIntro {
+  [self dismissViewControllerAnimated:YES completion:nil];
   if (introController == nil) {
     introController = [self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
     introController.view.frame = self.view.bounds;
@@ -374,8 +392,12 @@ NSString* SanitizeFilename(NSString* filename)
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone:) name:@"ca.thume.IntroViewDone" object:introController];
 }
 
-- (void)introDone: (NSNotification*)not {
+- (void)userWasInformed {
   [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kDefaultIntroPlayed];
+}
+
+- (void)introDone: (NSNotification*)not {
+  [self userWasInformed];
   NSLog(@"Finished Intro\n");
   [introController.view removeFromSuperview];
   introController = nil;
@@ -410,10 +432,15 @@ NSString* SanitizeFilename(NSString* filename)
 - (IBAction)iAmFieldChanged: (ScrubbableTextView*)sender {
   [self iAmFieldUpdated:sender];
   [self updateModel: YES];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.ModelFieldComitted" object:self];
 }
 
 
 #pragma mark Selections
+
+- (NSUInteger)minSelectMonth {
+  return [model startMonth];
+}
 
 - (void)setSelectionName:(NSString*)label andColor:(UIColor*)color {
   self.selectedLabel.text = label;
@@ -482,6 +509,7 @@ NSString* SanitizeFilename(NSString* filename)
 
 - (IBAction)expandSelectionToEnd {
   if(selectEditor) [selectEditor expandSelectionToEnd];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.SelectionExpanded" object:self];
 }
 
 - (IBAction)zeroSelection {

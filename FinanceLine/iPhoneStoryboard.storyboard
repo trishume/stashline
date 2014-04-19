@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CW4-Q7-CBy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CW4-Q7-CBy">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -374,6 +374,7 @@
                         <outlet property="editorPanel" destination="wlF-aF-mPl" id="iy1-IG-F2b"/>
                         <outlet property="editorTitleBg" destination="zcQ-XL-h5d" id="90J-U0-qY2"/>
                         <outlet property="fileNameLabel" destination="bcV-jp-ILe" id="4nq-6v-b4c"/>
+                        <outlet property="labelModeButton" destination="Hhq-Xn-9rG" id="zcX-n2-jfC"/>
                         <outlet property="leftPanelView" destination="4Wm-vV-nbi" id="6Vz-F1-Ns7"/>
                         <outlet property="mainPanel" destination="8WI-Md-m2D" id="nQ0-Nj-hb9"/>
                         <outlet property="panelTab" destination="jb4-h5-tGc" id="D9o-Rz-jSn"/>

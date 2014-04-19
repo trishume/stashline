@@ -13,12 +13,14 @@
 
 @protocol TrackSelectionDelegate <NSObject>
 - (void) setSelection: (Selection *)sel onTrack: (DataTrack *)track;
+- (NSUInteger) minSelectMonth;
 @end
 
 @interface AnnuityTrackView : TrackView {
   UIColor *selectionColor;
   UIColor *dividerColor;
   UIColor *numColor;
+  UIColor *arrowColor;
   UIFont *numFont;
 }
 

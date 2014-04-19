@@ -20,5 +20,6 @@ typedef NSUInteger IntroState;
 
 - (void) startIntro;
 
-@property (weak, nonatomic) IBOutlet UILabel* explanation;
+@property (weak, nonatomic) IBOutlet UILabel *explanation;
+@property (weak, nonatomic) IBOutlet UIView  *touchLayer;
 @end
