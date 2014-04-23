@@ -388,8 +388,26 @@ NSString* SanitizeFilename(NSString* filename)
     [introController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [self.view addSubview:introController.view];
   }
+  
+  if (self.introNextButton != nil) {
+    self.introNextButton.hidden = NO;
+    self.introPrevButton.hidden = NO;
+    [self.view bringSubviewToFront:self.introNextButton];
+    [self.view bringSubviewToFront:self.introPrevButton];
+  }
+  
   [introController startIntro];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone:) name:@"ca.thume.IntroViewDone" object:introController];
+}
+
+- (IBAction)introControl:(id)sender {
+  if (introController != nil) {
+    if (sender == self.introNextButton) {
+      [introController skipStep];
+    } else {
+      [introController goBack];
+    }
+  }
 }
 
 - (void)userWasInformed {
@@ -401,6 +419,11 @@ NSString* SanitizeFilename(NSString* filename)
   NSLog(@"Finished Intro\n");
   [introController.view removeFromSuperview];
   introController = nil;
+  
+  if (self.introNextButton != nil) {
+    self.introNextButton.hidden = YES;
+    self.introPrevButton.hidden = YES;
+  }
 }
 
 #pragma mark I Am

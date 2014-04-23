@@ -11,6 +11,7 @@
 @interface ScrubbableTextView : UITextField {
   double startVal;
   double curVal;
+  UILabel *padLabel;
 }
 
 + (NSNumberFormatter*)amountFormatter;

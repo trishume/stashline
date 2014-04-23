@@ -415,6 +415,28 @@
                                     <outletCollection property="gestureRecognizers" destination="7aR-zG-JyK" appends="YES" id="mfA-bR-wNj"/>
                                 </connections>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ene-Hj-ZXE">
+                                <rect key="frame" x="968" y="667" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title=">">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="introControl:" destination="2" eventType="touchUpInside" id="moN-4n-YNq"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JIL-fs-o0J">
+                                <rect key="frame" x="914" y="667" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="introControl:" destination="2" eventType="touchUpInside" id="df9-WW-NCQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -426,6 +448,8 @@
                         <outlet property="ageField" destination="4jp-am-ftg" id="hIL-JX-gDd"/>
                         <outlet property="editorContainerView" destination="vcG-33-hL8" id="VOL-xw-R6B"/>
                         <outlet property="fileNameLabel" destination="4ua-dS-UMg" id="BH3-P3-N2X"/>
+                        <outlet property="introNextButton" destination="Ene-Hj-ZXE" id="djJ-qZ-zKE"/>
+                        <outlet property="introPrevButton" destination="JIL-fs-o0J" id="boy-p5-RWf"/>
                         <outlet property="labelModeButton" destination="AIs-Qa-V54" id="bfA-Qs-1eR"/>
                         <outlet property="retireAgeLabel" destination="Wyq-d7-AEZ" id="L87-qb-PAA"/>
                         <outlet property="retireSavingsLabel" destination="m8i-Dv-ED0" id="zmC-T5-S2p"/>
@@ -535,11 +559,11 @@
                                         <rect key="frame" x="9" y="0.0" width="250" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" red="0.02310000000000002" green="0.55837833333333309" blue="0.77000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.92549026010000002" green="0.94117653369999998" blue="0.9450981021" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.78200000000000003" green="0.83640000000000003" blue="0.84999999999999998" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.15432762998646155" green="0.86940205097198486" blue="0.67882346836332674" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -549,6 +573,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="explanation" destination="k15-v0-xBM" id="ZoW-dt-Atg"/>
+                        <outlet property="explanationBox" destination="Vny-O5-DJL" id="Xee-GM-LQB"/>
                         <outlet property="touchLayer" destination="tiZ-db-6M0" id="Yb3-zy-mgQ"/>
                     </connections>
                 </viewController>
@@ -573,6 +598,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="vvg-bM-t4u"/>
                                     <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="rUu-Ya-jGx"/>
+                                    <action selector="selectionFieldSelected:" destination="iZG-z6-CTT" eventType="editingDidBegin" id="6dS-BI-NeG"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="Gi6-iD-g8w"/>
                                 </connections>
                             </textField>
@@ -595,6 +621,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="rOf-Wc-nU0"/>
                                     <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="zKM-ss-4TB"/>
+                                    <action selector="selectionFieldSelected:" destination="iZG-z6-CTT" eventType="editingDidBegin" id="6GB-Yr-kVL"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="B9e-IU-Suh"/>
                                 </connections>
                             </textField>
@@ -617,6 +644,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="FO8-MQ-FUk"/>
                                     <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="1aL-Z7-Mz8"/>
+                                    <action selector="selectionFieldSelected:" destination="iZG-z6-CTT" eventType="editingDidBegin" id="TCZ-Rn-1J3"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="v7Z-gI-rtt"/>
                                 </connections>
                             </textField>
@@ -639,6 +667,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="emb-UR-TeJ"/>
                                     <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="qo9-0J-eqq"/>
+                                    <action selector="selectionFieldSelected:" destination="iZG-z6-CTT" eventType="editingDidBegin" id="dr3-m0-k8y"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="9EQ-8S-FEB"/>
                                 </connections>
                             </textField>
@@ -661,6 +690,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="iZG-z6-CTT" eventType="editingDidEnd" id="eaP-sO-iVW"/>
                                     <action selector="selectionAmountUpdate:" destination="iZG-z6-CTT" eventType="valueChanged" id="g8c-vB-LhY"/>
+                                    <action selector="selectionFieldSelected:" destination="iZG-z6-CTT" eventType="editingDidBegin" id="5Vo-wk-szI"/>
                                     <outlet property="delegate" destination="iZG-z6-CTT" id="9Mp-Ki-2FO"/>
                                 </connections>
                             </textField>

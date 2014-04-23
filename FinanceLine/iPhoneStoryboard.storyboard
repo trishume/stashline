@@ -16,6 +16,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Info1-iPhone.png" id="Dr9-no-5Pj">
                                 <rect key="frame" x="0.0" y="8" width="568" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="AyC-0E-Glp">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="53"/>
@@ -51,6 +52,16 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000001789999999" green="0.59607845540000004" blue="0.85882359740000003" alpha="1" colorSpace="deviceRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IbB-WW-VAe">
+                                <rect key="frame" x="151" y="251" width="309" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getStartedButtonPressed" destination="aUD-tB-dBf" eventType="touchUpInside" id="GRx-K9-q4V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -120,7 +131,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="aUD-tB-dBf" kind="modal" modalTransitionStyle="crossDissolve" id="NoV-Rp-XYh"/>
+                                                    <segue destination="aUD-tB-dBf" kind="modal" identifier="helpModal" modalTransitionStyle="crossDissolve" id="NoV-Rp-XYh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f1Z-Ya-Z9S">
@@ -305,6 +316,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
+                                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="0.0" maxY="-20"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
                                                 <size key="value" width="150" height="232"/>
@@ -406,6 +418,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="Eia-u6-NFD" eventType="editingDidEnd" id="408-al-gz7"/>
                                     <action selector="selectionAmountUpdate:" destination="Eia-u6-NFD" eventType="valueChanged" id="AUI-b1-7Jf"/>
+                                    <action selector="selectionFieldSelected:" destination="Eia-u6-NFD" eventType="editingDidBegin" id="GNc-Je-dCa"/>
                                     <outlet property="delegate" destination="Eia-u6-NFD" id="kMP-qr-O4J"/>
                                 </connections>
                             </textField>
@@ -428,6 +441,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="Eia-u6-NFD" eventType="editingDidEnd" id="vrO-Bz-A0y"/>
                                     <action selector="selectionAmountUpdate:" destination="Eia-u6-NFD" eventType="valueChanged" id="ZTr-B8-Ns4"/>
+                                    <action selector="selectionFieldSelected:" destination="Eia-u6-NFD" eventType="editingDidBegin" id="ViX-AX-0zZ"/>
                                     <outlet property="delegate" destination="Eia-u6-NFD" id="XMn-7i-I4F"/>
                                 </connections>
                             </textField>
@@ -450,6 +464,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="Eia-u6-NFD" eventType="editingDidEnd" id="8Ur-Pc-vTE"/>
                                     <action selector="selectionAmountUpdate:" destination="Eia-u6-NFD" eventType="valueChanged" id="LkY-bt-KgH"/>
+                                    <action selector="selectionFieldSelected:" destination="Eia-u6-NFD" eventType="editingDidBegin" id="tLb-JM-1Z8"/>
                                     <outlet property="delegate" destination="Eia-u6-NFD" id="lbQ-Qz-04M"/>
                                 </connections>
                             </textField>
@@ -472,6 +487,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="Eia-u6-NFD" eventType="editingDidEnd" id="1BE-fV-Z0G"/>
                                     <action selector="selectionAmountUpdate:" destination="Eia-u6-NFD" eventType="valueChanged" id="dw6-Pd-HeP"/>
+                                    <action selector="selectionFieldSelected:" destination="Eia-u6-NFD" eventType="editingDidBegin" id="GeY-q2-Q56"/>
                                     <outlet property="delegate" destination="Eia-u6-NFD" id="2go-Ah-wkt"/>
                                 </connections>
                             </textField>
@@ -494,6 +510,7 @@
                                 <connections>
                                     <action selector="selectionAmountChanged:" destination="Eia-u6-NFD" eventType="editingDidEnd" id="A8y-vR-t0p"/>
                                     <action selector="selectionAmountUpdate:" destination="Eia-u6-NFD" eventType="valueChanged" id="UiV-1h-T0y"/>
+                                    <action selector="selectionFieldSelected:" destination="Eia-u6-NFD" eventType="editingDidBegin" id="k6B-7w-5Dk"/>
                                     <outlet property="delegate" destination="Eia-u6-NFD" id="h2x-Ub-XsE"/>
                                 </connections>
                             </textField>
@@ -792,13 +809,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="ViD-36-hYg">
-                                <rect key="frame" x="158" y="286" width="322" height="34"/>
+                                <rect key="frame" x="158" y="273" width="322" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to StashLine!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="Pgp-m5-tw8" customClass="NiceLabel">
-                                        <rect key="frame" x="7" y="-13" width="308" height="60"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to StashLine!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" id="Pgp-m5-tw8" customClass="NiceLabel">
+                                        <rect key="frame" x="7" y="0.0" width="308" height="47"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -812,6 +829,8 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="explanation" destination="Pgp-m5-tw8" id="wKY-HX-g8L"/>
+                        <outlet property="explanationBox" destination="ViD-36-hYg" id="DCd-Zb-yhl"/>
+                        <outlet property="touchLayer" destination="fkh-b3-0Oq" id="Smy-rI-Afr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4P-Da-CUv" userLabel="First Responder" sceneMemberID="firstResponder"/>

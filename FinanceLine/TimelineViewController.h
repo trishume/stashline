@@ -70,6 +70,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *fileNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *labelModeButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *introNextButton;
+@property (weak, nonatomic) IBOutlet UIButton *introPrevButton;
+
 @property (nonatomic, strong) IBOutlet TimelineView *timeLine;
 
 @end

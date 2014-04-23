@@ -10,6 +10,7 @@
 
 #define kTouchSize 45
 #define kPinchBuffer 30.0
+#define kBoxShiftY 216.0
 
 @interface IntroViewController ()
 
@@ -94,6 +95,26 @@
   //[self.explanation sizeToFit];
 }
 
+- (void)showConfirm:(NSString*)text {
+  UIAlertView *alert = [[UIAlertView alloc] init];
+  [alert setTitle:@"StashLine Intro"];
+  [alert setMessage:text];
+  [alert setDelegate:self];
+  [alert addButtonWithTitle:@"Skip"];
+  [alert addButtonWithTitle:@"Yes"];
+  [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if (buttonIndex == 1) {
+    [self nextState];
+  } else if (buttonIndex == 0) {
+    NSDictionary *stateInfo = [data objectAtIndex:curState - 1];
+    NSUInteger skipState = curState + 1 + [stateInfo[@"skipCount"] integerValue];
+    [self doState:skipState];
+  }
+}
+
 #pragma mark States
 
 - (void)transitionNotification:(NSNotification*)not {
@@ -101,11 +122,16 @@
   [self nextState];
 }
 
-- (IBAction)skipStep {
+- (void)skipStep {
   [self transitionNotification:nil];
 }
 
-- (IBAction)nextState {
+- (void)goBack {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+  [self doState:curState-1];
+}
+
+- (void)nextState {
   [self doState:curState+1];
 }
 
@@ -133,6 +159,18 @@
   NSNumber *starty = stateInfo[phone ? @"phoney" : @"starty"];
   NSNumber *width  = stateInfo[phone ? @"phoneWidth" : @"width"];
   
+  if (phone && stateInfo[@"phoneFlipBox"] != nil) {
+    CGRect newFrame = self.explanationBox.frame;
+    
+    if (newFrame.origin.y != kBoxShiftY) {
+      newFrame.origin.y = kBoxShiftY;
+    } else {
+      newFrame.origin.y = self.view.bounds.size.height - newFrame.size.height;
+    }
+    
+    self.explanationBox.frame = newFrame;
+  }
+  
   if ([stateInfo[@"anim"] isEqualToString:@"Swipe"]) {
     CGPoint start = CGPointMake([startx floatValue], [starty floatValue]);
     [self swipeAnimationStart: start length: [width floatValue] time: [stateInfo[@"time"] floatValue]];
@@ -141,6 +179,8 @@
     [self pinchOutAnimationStart: start size: [width floatValue] time: [stateInfo[@"time"] floatValue]];
   } else if([stateInfo[@"anim"] isEqualToString:@"Delay"]) {
     [self performSelector:@selector(allDone) withObject:nil afterDelay: [stateInfo[@"time"] floatValue]];
+  } else if([stateInfo[@"anim"] isEqualToString:@"Confirm"]) {
+    [self showConfirm:stateInfo[@"description"]];
   }
   
   NSString *nextNotif = stateInfo[@"nextNotif"];

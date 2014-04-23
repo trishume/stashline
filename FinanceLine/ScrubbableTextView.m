@@ -28,6 +28,7 @@
   self.stepVal = 10.0;
   
   self.formatter = nil;
+  padLabel = nil;
   
   self.scrubColor = [UIColor blueColor];
   self.normalColor = [UIColor colorWithHue:0.583 saturation:1.000 brightness:1.000 alpha:1.000];
@@ -39,15 +40,27 @@
   
   // Add Bar for closing number pad on iPhone
   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    padLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0 , 11.0f, self.bounds.size.width, 21.0f)];
+    padLabel.text = @"";
+    padLabel.textAlignment = NSTextAlignmentCenter;
+    padLabel.textColor = [UIColor blackColor];
+    
+    UIBarButtonItem *labelItem = [[UIBarButtonItem alloc] initWithCustomView:padLabel];
+    labelItem.width = 300;
+    
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.barStyle = UIBarStyleDefault;
     numberToolbar.items = [NSArray arrayWithObjects:
                            [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           labelItem,
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                            [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
                            nil];
     [numberToolbar sizeToFit];
     self.inputAccessoryView = numberToolbar;
+    
+    [self addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
   }
 }
 
@@ -84,8 +97,19 @@
   self.font = [UIFont fontWithName:@"PTSans-CaptionBold" size: self.font.pointSize];
 }
 
+-(void)textFieldDidChange:(NSNotification*)not {
+  if (padLabel) {
+    padLabel.text = self.text;
+  }
+}
+
 - (double)doubleValue {
   return curVal;
+}
+
+- (void)setText:(NSString *)text {
+  [super setText:text];
+  if(padLabel != nil) padLabel.text = text;
 }
 
 - (void)setValue:(double)v {

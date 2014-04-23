@@ -10,7 +10,7 @@
 
 typedef NSUInteger IntroState;
 
-@interface IntroViewController : UIViewController {
+@interface IntroViewController : UIViewController <UIAlertViewDelegate> {
   CALayer *touch1;
   CALayer *touch2;
   IntroState curState;
@@ -19,7 +19,10 @@ typedef NSUInteger IntroState;
 }
 
 - (void) startIntro;
+- (void) skipStep;
+- (void) goBack;
 
 @property (weak, nonatomic) IBOutlet UILabel *explanation;
 @property (weak, nonatomic) IBOutlet UIView  *touchLayer;
+@property (weak, nonatomic) IBOutlet UIView  *explanationBox;
 @end

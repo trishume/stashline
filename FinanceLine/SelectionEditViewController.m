@@ -117,8 +117,13 @@
   [self updateSelectionAmount: value];
 }
 
+- (IBAction)selectionFieldSelected:(id)sender {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.SelectionEditAmountChanging" object:self];
+}
+
 // Don't save
 - (IBAction)selectionAmountUpdate: (UITextField*)sender {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.SelectionEditAmountChanging" object:self];
   [self textFieldUpdated:sender];
 }
 

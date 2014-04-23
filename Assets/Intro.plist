@@ -4,11 +4,11 @@
 <array>
 	<dict>
 		<key>phonex</key>
-		<integer>61</integer>
+		<integer>63</integer>
 		<key>phoney</key>
-		<integer>222</integer>
+		<integer>224</integer>
 		<key>phoneWidth</key>
-		<integer>60</integer>
+		<integer>0</integer>
 		<key>time</key>
 		<real>1.5</real>
 		<key>anim</key>
@@ -34,9 +34,9 @@
 	</dict>
 	<dict>
 		<key>phonex</key>
-		<integer>64</integer>
+		<integer>67</integer>
 		<key>phoney</key>
-		<integer>242</integer>
+		<integer>245</integer>
 		<key>phoneWidth</key>
 		<integer>0</integer>
 		<key>time</key>
@@ -50,29 +50,29 @@
 		<key>width</key>
 		<real>0</real>
 		<key>description</key>
-		<string>Tap to enter your current savings</string>
+		<string>Tap to enter your current savings.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.ModelSavingsChanged</string>
 	</dict>
 	<dict>
 		<key>time</key>
-		<integer>2</integer>
+		<real>1.5</real>
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
-		<integer>60</integer>
+		<integer>120</integer>
 		<key>starty</key>
 		<integer>440</integer>
 		<key>width</key>
-		<integer>400</integer>
+		<integer>0</integer>
 		<key>phonex</key>
 		<integer>230</integer>
 		<key>phoney</key>
 		<integer>185</integer>
 		<key>phoneWidth</key>
-		<integer>200</integer>
+		<integer>0</integer>
 		<key>description</key>
-		<string>Select a time span on an earnings bar</string>
+		<string>Double tap on an earnings bar to select your entire life&apos;s earnings.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.AnnuityTrackSelectionEnded</string>
 	</dict>
@@ -80,31 +80,9 @@
 		<key>phonex</key>
 		<integer>112</integer>
 		<key>phoney</key>
-		<integer>70</integer>
-		<key>phoneWidth</key>
-		<integer>0</integer>
-		<key>time</key>
-		<real>1.5</real>
-		<key>anim</key>
-		<string>Swipe</string>
-		<key>startx</key>
-		<integer>332</integer>
-		<key>starty</key>
-		<integer>82</integer>
-		<key>width</key>
-		<real>0</real>
-		<key>description</key>
-		<string>Tap &apos;Expand&apos; to extend the selection</string>
-		<key>nextNotif</key>
-		<string>ca.thume.SelectionExpanded</string>
-	</dict>
-	<dict>
-		<key>phonex</key>
-		<integer>112</integer>
-		<key>phoney</key>
 		<integer>171</integer>
 		<key>phoneWidth</key>
-		<integer>100</integer>
+		<integer>0</integer>
 		<key>time</key>
 		<real>1.5</real>
 		<key>anim</key>
@@ -116,13 +94,21 @@
 		<key>width</key>
 		<integer>0</integer>
 		<key>description</key>
-		<string>Tap on an amount to set your current income.</string>
+		<string>Tap on an amount to enter your current income.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.SelectionEditAmountChanging</string>
+	</dict>
+	<dict>
+		<key>anim</key>
+		<string>None</string>
+		<key>description</key>
+		<string>Tap on an amount to enter your current income.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.SelectionEditAmountChanged</string>
 	</dict>
 	<dict>
 		<key>time</key>
-		<integer>2</integer>
+		<real>1.5</real>
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
@@ -132,11 +118,11 @@
 		<key>width</key>
 		<integer>0</integer>
 		<key>phonex</key>
-		<integer>230</integer>
+		<integer>235</integer>
 		<key>phoney</key>
-		<integer>185</integer>
+		<integer>239</integer>
 		<key>phoneWidth</key>
-		<integer>200</integer>
+		<integer>0</integer>
 		<key>description</key>
 		<string>Now select your expenses. You can double tap to select your whole life.</string>
 		<key>nextNotif</key>
@@ -165,6 +151,8 @@
 		<string>ca.thume.SelectionEditAmountChanged</string>
 	</dict>
 	<dict>
+		<key>phoneFlipBox</key>
+		<true/>
 		<key>time</key>
 		<real>1.5</real>
 		<key>anim</key>
@@ -176,13 +164,69 @@
 		<key>width</key>
 		<integer>0</integer>
 		<key>phonex</key>
-		<integer>230</integer>
+		<integer>235</integer>
+		<key>phoney</key>
+		<integer>290</integer>
+		<key>phoneWidth</key>
+		<integer>0</integer>
+		<key>description</key>
+		<string>Now select your whole life&apos;s investing by double tapping.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.AnnuityTrackSelectionEnded</string>
+	</dict>
+	<dict>
+		<key>phoneFlipBox</key>
+		<true/>
+		<key>phonex</key>
+		<integer>35</integer>
+		<key>phoney</key>
+		<integer>145</integer>
+		<key>phoneWidth</key>
+		<integer>100</integer>
+		<key>time</key>
+		<integer>2</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>550</integer>
+		<key>starty</key>
+		<integer>67</integer>
+		<key>width</key>
+		<integer>200</integer>
+		<key>description</key>
+		<string>Enter your estimated savings growth, 5% is a good estimate for stocks minus inflation.</string>
+		<key>nextNotif</key>
+		<string>ca.thume.SelectionEditAmountChanged</string>
+	</dict>
+	<dict>
+		<key>anim</key>
+		<string>Confirm</string>
+		<key>description</key>
+		<string>Each bar can also have a value that changes over time. Would you like to enter a future change in income, perhaps a raise?</string>
+		<key>skipCount</key>
+		<integer>2</integer>
+		<key>nextNotif</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>time</key>
+		<integer>3</integer>
+		<key>anim</key>
+		<string>Swipe</string>
+		<key>startx</key>
+		<integer>300</integer>
+		<key>starty</key>
+		<integer>440</integer>
+		<key>width</key>
+		<integer>710</integer>
+		<key>phonex</key>
+		<integer>340</integer>
 		<key>phoney</key>
 		<integer>185</integer>
 		<key>phoneWidth</key>
 		<integer>200</integer>
 		<key>description</key>
-		<string>Now select your whole life&apos;s investing by double tapping.</string>
+		<string>Drag from the time you expect your income to change and onto the arrow to select the rest of your life.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.AnnuityTrackSelectionEnded</string>
 	</dict>
@@ -198,13 +242,13 @@
 		<key>anim</key>
 		<string>Swipe</string>
 		<key>startx</key>
-		<integer>550</integer>
+		<integer>545</integer>
 		<key>starty</key>
-		<integer>67</integer>
+		<integer>68</integer>
 		<key>width</key>
 		<integer>200</integer>
 		<key>description</key>
-		<string>Enter your estimated savings growth, 5% is a good estimate for stocks minus inflation.</string>
+		<string>Now swipe on the amount to adjust it up or down.</string>
 		<key>nextNotif</key>
 		<string>ca.thume.SelectionEditAmountChanged</string>
 	</dict>
@@ -278,9 +322,9 @@
 		<key>anim</key>
 		<string>Delay</string>
 		<key>time</key>
-		<real>2</real>
+		<integer>5</integer>
 		<key>description</key>
-		<string>Now you can tweak your estimates and see what happens.</string>
+		<string>Grey age numbers mean you could retire then. Now tweak your data and see how things change.</string>
 		<key>nextNotif</key>
 		<string></string>
 	</dict>
