@@ -37,7 +37,7 @@
 }
 
 - (IBAction)closeModal {
-  [self dismissModalViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES completion:^(){}];
 }
 
 - (IBAction)appSiteLink {

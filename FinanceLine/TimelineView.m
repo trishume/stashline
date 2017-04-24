@@ -80,7 +80,7 @@
 - (void)timerFired:(CADisplayLink *)sender {
   CGFloat dt = sender.duration * sender.frameInterval;
   velocity *= (1.0 - kScrollFriction*dt);
-  if (abs(velocity) < 0.01) {
+  if (fabs(velocity) < 0.01) {
       [self endAnimationLoop];
   }
   

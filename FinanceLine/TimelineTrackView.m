@@ -60,7 +60,7 @@
     CGPoint velocity = [sender velocityInView:self];
     CGFloat monthVelocity = -(velocity.x);
     //NSLog(@"Panned with velocity %f",monthVelocity);
-    if(abs(monthVelocity) > kPanVelocityThresh) {
+    if(fabs(monthVelocity) > kPanVelocityThresh) {
       [self.delegate setVelocity:monthVelocity];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ca.thume.TimelineTrackPanEnded" object:self];
@@ -108,7 +108,7 @@
     [color setFill];
 
     CGRect textRect = CGRectMake(x - 25.0, middleY - lineGap - kYearTextShift, 50.0, lineGap*2);
-    NSString *yearStr = [NSString stringWithFormat:@"%u",month/12];
+    NSString *yearStr = [NSString stringWithFormat:@"%lu",month/12];
     [self drawString:yearStr withFont:self.yearFont inRect:textRect];
   }
 }
