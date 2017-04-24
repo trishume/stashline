@@ -530,6 +530,7 @@
 				TargetAttributes = {
 					6AFAA0531770FBA300E61733 = {
 						DevelopmentTeam = 8PYP9P57G6;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -816,13 +817,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tristan Hume (VZ58B7E7L4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tristan Hume (VZ58B7E7L4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/StashLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/StashLine-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = StashLine;
-				PROVISIONING_PROFILE = "B41A8CA6-967B-4699-B512-C2BCD8BD99BB";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -835,13 +838,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tristan Hume (VZ58B7E7L4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tristan Hume (VZ58B7E7L4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/StashLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/StashLine-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = StashLine;
-				PROVISIONING_PROFILE = "DA5C943A-8D90-49E1-95D7-D8805423F3C9";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
