@@ -25,6 +25,7 @@
   UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
   singleTap.numberOfTapsRequired = 1;
   [self addGestureRecognizer:singleTap];
+  [super awakeFromNib];
 }
 
 - (void)setHasSelection:(BOOL)_hasSelection {

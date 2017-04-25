@@ -62,7 +62,7 @@
 - (NSString*)miniNum:(double)val {
   double divisor = 1.0;
   char quantifier = ' ';
-  double absVal = abs(val);
+  double absVal = fabs(val);
   if (self.percentTrack) {
     divisor = 0.01;
     quantifier = '%';

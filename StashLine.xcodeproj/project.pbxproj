@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08ED5D6DF9FB496998D1D629 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDC51C581274F86A11A0736 /* libPods.a */; };
 		6A0893241773318A00C2AC31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0893231773318900C2AC31 /* QuartzCore.framework */; };
 		6A21594C18F0BD80003E075B /* Panel Background@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A21594B18F0BD80003E075B /* Panel Background@2X.png */; };
 		6A3A826E17CC1B2E00E9C0EF /* AmountEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A826D17CC1B2E00E9C0EF /* AmountEditController.m */; };
@@ -101,6 +100,7 @@
 		6AFAA0971771040400E61733 /* TimelineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAA0961771040400E61733 /* TimelineView.m */; };
 		6AFAA09B177105E900E61733 /* TrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAA09A177105E900E61733 /* TrackView.m */; };
 		6AFAA09E1771060600E61733 /* TimelineTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAA09D1771060600E61733 /* TimelineTrackView.m */; };
+		ECF036E1BD28F383992483F1 /* libPods-StashLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 392CF508E9255C02E7BD351A /* libPods-StashLine.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +114,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5CDC51C581274F86A11A0736 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		273D3DAB4B5495BF209F338C /* Pods-StashLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StashLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-StashLine/Pods-StashLine.release.xcconfig"; sourceTree = "<group>"; };
+		392CF508E9255C02E7BD351A /* libPods-StashLine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StashLine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53FA8B3238D6CA4B559151CD /* Pods-StashLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StashLine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StashLine/Pods-StashLine.debug.xcconfig"; sourceTree = "<group>"; };
 		6A0893231773318900C2AC31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6A21594B18F0BD80003E075B /* Panel Background@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel Background@2X.png"; path = "Assets/Panel Background@2X.png"; sourceTree = "<group>"; };
 		6A3A826C17CC1B2E00E9C0EF /* AmountEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmountEditController.h; sourceTree = "<group>"; };
@@ -238,7 +240,6 @@
 		6AFAA09A177105E900E61733 /* TrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackView.m; sourceTree = "<group>"; };
 		6AFAA09C1771060600E61733 /* TimelineTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineTrackView.h; sourceTree = "<group>"; };
 		6AFAA09D1771060600E61733 /* TimelineTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineTrackView.m; sourceTree = "<group>"; };
-		75DFB47D397041C98957838E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,7 +251,7 @@
 				6AFAA0581770FBA300E61733 /* UIKit.framework in Frameworks */,
 				6AFAA05A1770FBA300E61733 /* Foundation.framework in Frameworks */,
 				6AFAA05C1770FBA300E61733 /* CoreGraphics.framework in Frameworks */,
-				08ED5D6DF9FB496998D1D629 /* libPods.a in Frameworks */,
+				ECF036E1BD28F383992483F1 /* libPods-StashLine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +358,7 @@
 				6AFAA0811770FBA300E61733 /* FinanceLineTests */,
 				6AFAA0561770FBA300E61733 /* Frameworks */,
 				6AFAA0551770FBA300E61733 /* Products */,
-				75DFB47D397041C98957838E /* Pods.xcconfig */,
+				85D4F58710194B3B120CB062 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -378,7 +379,7 @@
 				6AFAA0591770FBA300E61733 /* Foundation.framework */,
 				6AFAA05B1770FBA300E61733 /* CoreGraphics.framework */,
 				6AFAA07B1770FBA300E61733 /* SenTestingKit.framework */,
-				5CDC51C581274F86A11A0736 /* libPods.a */,
+				392CF508E9255C02E7BD351A /* libPods-StashLine.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -478,6 +479,15 @@
 			name = Tracks;
 			sourceTree = "<group>";
 		};
+		85D4F58710194B3B120CB062 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53FA8B3238D6CA4B559151CD /* Pods-StashLine.debug.xcconfig */,
+				273D3DAB4B5495BF209F338C /* Pods-StashLine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,11 +495,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6AFAA08C1770FBA300E61733 /* Build configuration list for PBXNativeTarget "StashLine" */;
 			buildPhases = (
-				6A96A64FA6C24D0191429105 /* Check Pods Manifest.lock */,
+				BBE0B97E772C9C959742A6BF /* [CP] Check Pods Manifest.lock */,
 				6AFAA0501770FBA300E61733 /* Sources */,
 				6AFAA0511770FBA300E61733 /* Frameworks */,
 				6AFAA0521770FBA300E61733 /* Resources */,
-				82274B3FEAED4752B568F996 /* Copy Pods Resources */,
+				E72F2E2C29BDF5674E80FB6E /* [CP] Embed Pods Frameworks */,
+				2016E662F24230CD7795AF56 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -629,19 +640,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6A96A64FA6C24D0191429105 /* Check Pods Manifest.lock */ = {
+		2016E662F24230CD7795AF56 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StashLine/Pods-StashLine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		6AFAA0781770FBA300E61733 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -656,19 +668,35 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		82274B3FEAED4752B568F996 /* Copy Pods Resources */ = {
+		BBE0B97E772C9C959742A6BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E72F2E2C29BDF5674E80FB6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StashLine/Pods-StashLine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -812,7 +840,7 @@
 		};
 		6AFAA08D1770FBA300E61733 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75DFB47D397041C98957838E /* Pods.xcconfig */;
+			baseConfigurationReference = 53FA8B3238D6CA4B559151CD /* Pods-StashLine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -822,7 +850,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/StashLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/StashLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = StashLine;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -833,7 +861,7 @@
 		};
 		6AFAA08E1770FBA300E61733 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75DFB47D397041C98957838E /* Pods.xcconfig */;
+			baseConfigurationReference = 273D3DAB4B5495BF209F338C /* Pods-StashLine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -843,7 +871,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FinanceLine/StashLine-Prefix.pch";
 				INFOPLIST_FILE = "FinanceLine/StashLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = StashLine;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

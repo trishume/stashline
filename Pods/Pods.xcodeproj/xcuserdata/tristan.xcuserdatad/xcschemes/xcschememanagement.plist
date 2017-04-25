@@ -4,12 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-StashLine.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1AEA8091D369471E97972CB5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>82D2A90C26764055AAE39C31</key>
+		<key>0EA0BDA524815A4F9DCF51D6EA3B38C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
